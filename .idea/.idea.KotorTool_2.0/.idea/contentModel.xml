@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\RiderProjects\KotorTool" t="IncludeFlat">
+      <e p="KotorTool_2.0" t="IncludeRecursive">
+        <e p="2daEditor" t="Include">
+          <e p="frm2DAEditor.cs" t="Include" />
+          <e p="frm2DAEditor.resx" t="Include" />
+        </e>
+        <e p="AboutDialog" t="Include">
+          <e p="frmAbout.cs" t="Include" />
+          <e p="frmAbout.resx" t="Include" />
+          <e p="frmAutoDialog.cs" t="Include" />
+          <e p="frmAutoDialog.resx" t="Include" />
+        </e>
+        <e p="App.config" t="Include" />
+        <e p="AppearanceWizard" t="Include">
+          <e p="frmAppearanceWizard.cs" t="Include" />
+          <e p="frmAppearanceWizard.resx" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="BwmEditor" t="Include">
+          <e p="frmBWMEditor.cs" t="Include" />
+          <e p="frmBWMEditor.resx" t="Include" />
+        </e>
+        <e p="ByteViewer" t="Include">
+          <e p="ByteViewerCommands.cs" t="Include" />
+          <e p="ByteViewerConfig.cs" t="Include" />
+          <e p="ByteViewerQueries.cs" t="Include" />
+          <e p="frmByteViewer.cs" t="Include" />
+          <e p="frmByteViewer.resx" t="Include" />
+        </e>
+        <e p="CExoLocStringLangPicker" t="Include">
+          <e p="frmCExoLocStringLanguagePicker.cs" t="Include" />
+          <e p="frmCExoLocStringLanguagePicker.resx" t="Include" />
+        </e>
+        <e p="Constants.cs" t="Include" />
+        <e p="Crypt.cs" t="Include" />
+        <e p="DialogEditor" t="Include">
+          <e p="frmDialogEditor.cs" t="Include" />
+          <e p="frmDialogEditor.resx" t="Include" />
+        </e>
+        <e p="ErfManager" t="Include">
+          <e p="frmERFManager.cs" t="Include" />
+          <e p="frmERFManager.resx" t="Include" />
+        </e>
+        <e p="FilterDesigner" t="Include">
+          <e p="frmFilterDesigner.cs" t="Include" />
+          <e p="frmFilterDesigner.resx" t="Include" />
+        </e>
+        <e p="Forms" t="Include">
+          <e p="clsGridDisplay.cs" t="Include" />
+          <e p="DataGridEnableTextBoxColumn.cs" t="Include" />
+          <e p="frmBasicHelp.cs" t="Include" />
+          <e p="frmBasicHelp.resx" t="Include" />
+          <e p="frmCreateAnimListEntry.cs" t="Include" />
+          <e p="frmCreateAnimListEntry.resx" t="Include" />
+          <e p="frmDialogTlk.cs" t="Include" />
+          <e p="frmDialogTlk.resx" t="Include" />
+          <e p="frmErrorMessageWithCopyableText.cs" t="Include" />
+          <e p="frmErrorMessageWithCopyableText.resx" t="Include" />
+          <e p="frmInstanceOrRefPrompt.cs" t="Include" />
+          <e p="frmInstanceOrRefPrompt.resx" t="Include" />
+          <e p="frmMdlOpsSwitches.cs" t="Include" />
+          <e p="frmMdlOpsSwitches.resx" t="Include" />
+          <e p="frmOverrideFilesUsed.cs" t="Include" />
+          <e p="frmOverrideFilesUsed.resx" t="Include" />
+          <e p="frmPackageTypeSelector.cs" t="Include" />
+          <e p="frmPackageTypeSelector.resx" t="Include" />
+          <e p="frmParent.cs" t="Include" />
+          <e p="frmParent.resx" t="Include" />
+          <e p="frmPathManager.cs" t="Include" />
+          <e p="frmPathManager.resx" t="Include" />
+          <e p="frmProgressMeter.cs" t="Include" />
+          <e p="frmProgressMeter.resx" t="Include" />
+          <e p="frmProjectManager.cs" t="Include" />
+          <e p="frmProjectManager.resx" t="Include" />
+          <e p="frmProjectManagerProperties.cs" t="Include" />
+          <e p="frmProjectManagerProperties.resx" t="Include" />
+          <e p="frmPromptForString.cs" t="Include" />
+          <e p="frmPromptForString.resx" t="Include" />
+          <e p="frmQueryUserInfo.cs" t="Include" />
+          <e p="frmQueryUserInfo.resx" t="Include" />
+          <e p="frmRefSearchCriteria.cs" t="Include" />
+          <e p="frmRefSearchCriteria.resx" t="Include" />
+          <e p="frmRefSearchResults.cs" t="Include" />
+          <e p="frmRefSearchResults.resx" t="Include" />
+          <e p="frmResourceTypeSelector.cs" t="Include" />
+          <e p="frmResourceTypeSelector.resx" t="Include" />
+          <e p="frmSpecifyKotorVersion.cs" t="Include" />
+          <e p="frmSpecifyKotorVersion.resx" t="Include" />
+          <e p="frmTPCFileSaveType.cs" t="Include" />
+          <e p="frmTPCFileSaveType.resx" t="Include" />
+          <e p="frmUTC_Editor.cs" t="Include" />
+          <e p="frmUTC_Editor.resx" t="Include" />
+          <e p="frmUTD_Editor.cs" t="Include" />
+          <e p="frmUTD_Editor.resx" t="Include" />
+          <e p="frmUTI_Editor.cs" t="Include" />
+          <e p="frmUTI_Editor.resx" t="Include" />
+          <e p="frmUTM_Editor.cs" t="Include" />
+          <e p="frmUTM_Editor.resx" t="Include" />
+          <e p="frmUTP_Editor.cs" t="Include" />
+          <e p="frmUTP_Editor.resx" t="Include" />
+          <e p="frmUTS_Editor.cs" t="Include" />
+          <e p="frmUTS_Editor.resx" t="Include" />
+          <e p="frmUTT_Editor.cs" t="Include" />
+          <e p="frmUTT_Editor.resx" t="Include" />
+          <e p="frmUTW_Editor.cs" t="Include" />
+          <e p="frmUTW_Editor.resx" t="Include" />
+          <e p="InventoryPanel.cs" t="Include" />
+          <e p="RegReminder.cs" t="Include" />
+          <e p="RepeatButton.cs" t="Include" />
+        </e>
+        <e p="GlobalVarEditor" t="Include">
+          <e p="frmGlobalVar_Editor.cs" t="Include" />
+          <e p="frmGlobalVar_Editor.resx" t="Include" />
+        </e>
+        <e p="ImageViewer" t="Include">
+          <e p="frmImageViewer.cs" t="Include" />
+          <e p="frmImageViewer.resx" t="Include" />
+        </e>
+        <e p="InventoryEditor" t="Include">
+          <e p="frmInventoryEditor.cs" t="Include" />
+          <e p="frmInventoryEditor.resx" t="Include" />
+        </e>
+        <e p="ItemPropertyEditor" t="Include">
+          <e p="frmItemPropertyEditor.cs" t="Include" />
+          <e p="frmItemPropertyEditor.resx" t="Include" />
+        </e>
+        <e p="KotorTool_2.0.csproj" t="IncludeRecursive" />
+        <e p="Main.cs" t="Include" />
+        <e p="MainForm" t="Include">
+          <e p="Aabb.cs" t="Include" />
+          <e p="frmMain.cs" t="Include" />
+          <e p="frmMain.resx" t="Include" />
+          <e p="KotorNodeRepo.cs" t="Include" />
+          <e p="MainFormState.cs" t="Include" />
+          <e p="TreeViewCommand.cs" t="Include" />
+          <e p="TreeViewPresenter.cs" t="Include" />
+          <e p="TreeViewQuery.cs" t="Include" />
+        </e>
+        <e p="MapInfo.cs" t="Include" />
+        <e p="MapInfoStatus" t="Include">
+          <e p="frmMapInfoStatus.cs" t="Include" />
+          <e p="frmMapInfoStatus.resx" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="BIFF" t="Include">
+            <e p="BIFF_Functions.cs" t="Include" />
+            <e p="BIFFArchive.cs" t="Include" />
+            <e p="BIFFEntry.cs" t="Include" />
+            <e p="BIFFVarRsrcEntry.cs" t="Include" />
+            <e p="BIFFVarRsrcEntryInfo.cs" t="Include" />
+          </e>
+          <e p="ChitinKey.cs" t="Include" />
+          <e p="CLS" t="Include">
+            <e p="cls2DA.cs" t="Include" />
+            <e p="Cls2DaFunctions.cs" t="Include" />
+            <e p="clsBaseItems2DA.cs" t="Include" />
+            <e p="clsBWM.cs" t="Include" />
+            <e p="clsChitinKey.cs" t="Include" />
+            <e p="clsDialogTlk.cs" t="Include" />
+            <e p="clsDLG.cs" t="Include" />
+            <e p="clsERF.cs" t="Include" />
+            <e p="clsGFF.cs" t="Include" />
+            <e p="ClsGffFunctions.cs" t="Include" />
+            <e p="clsGlobalVars.cs" t="Include" />
+            <e p="clsMapInfoCreator.cs" t="Include" />
+            <e p="clsProject.cs" t="Include" />
+            <e p="clsProjectManager.cs" t="Include" />
+            <e p="clsRIM.cs" t="Include" />
+            <e p="clsSSF.cs" t="Include" />
+            <e p="clsUTC.cs" t="Include" />
+            <e p="clsUTD.cs" t="Include" />
+            <e p="clsUTI.cs" t="Include" />
+            <e p="clsUTM.cs" t="Include" />
+            <e p="clsUTP.cs" t="Include" />
+            <e p="clsUTS.cs" t="Include" />
+            <e p="clsUTT.cs" t="Include" />
+            <e p="clsUTW.cs" t="Include" />
+          </e>
+          <e p="ERF" t="Include">
+            <e p="ERFKeyEntry.cs" t="Include" />
+            <e p="ERFLocalizedString.cs" t="Include" />
+            <e p="ErfObject.cs" t="Include" />
+          </e>
+          <e p="GFF" t="Include">
+            <e p="GFF_Field.cs" t="Include" />
+            <e p="GFF_Struct.cs" t="Include" />
+            <e p="GFFExoLocString.cs" t="Include" />
+            <e p="GFFExoLocSubString.cs" t="Include" />
+            <e p="GFFField.cs" t="Include" />
+            <e p="GFFFieldEntry.cs" t="Include" />
+            <e p="GFFList.cs" t="Include" />
+            <e p="GffObject.cs" t="Include" />
+            <e p="GFFStructEntry.cs" t="Include" />
+            <e p="GFFType16.cs" t="Include" />
+            <e p="GFFType17.cs" t="Include" />
+            <e p="GFFVoid.cs" t="Include" />
+          </e>
+          <e p="KeyEntry.cs" t="Include" />
+          <e p="KTSoundInfo.cs" t="Include" />
+          <e p="MapInfo.cs" t="Include" />
+          <e p="Mdl.cs" t="Include" />
+          <e p="ModItem.cs" t="Include" />
+          <e p="Mru.cs" t="Include" />
+          <e p="NwScript.cs" t="Include" />
+          <e p="RIM" t="Include">
+            <e p="RIMKeyEntry.cs" t="Include" />
+            <e p="RimObject.cs" t="Include" />
+          </e>
+          <e p="Tga.cs" t="Include" />
+          <e p="TPC.cs" t="Include" />
+        </e>
+        <e p="ModuleEditor" t="Include">
+          <e p="frmModule_Editor.cs" t="Include" />
+          <e p="frmModule_Editor.resx" t="Include" />
+          <e p="frmModuleEditor_MissingItemSelector.cs" t="Include" />
+          <e p="frmModuleEditor_MissingItemSelector.resx" t="Include" />
+          <e p="frmModuleEditorOptions.cs" t="Include" />
+          <e p="frmModuleEditorOptions.resx" t="Include" />
+          <e p="frmModuleIfo_AreaEditor.cs" t="Include" />
+          <e p="frmModuleIfo_AreaEditor.resx" t="Include" />
+          <e p="frmModuleItem_Base_Editor.cs" t="Include" />
+          <e p="frmModuleItem_Base_Editor.resx" t="Include" />
+        </e>
+        <e p="ModuleEditorProjectOptions.cs" t="Include" />
+        <e p="ModuleEditorProjectSettings.cs" t="Include" />
+        <e p="MoreLinq" t="Include">
+          <e p="MoreEnumerable.ForEach.cs" t="Include" />
+        </e>
+        <e p="MyMapInfoSurrogate.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Options" t="Include">
+          <e p="ConfigOptions.cs" t="Include" />
+        </e>
+        <e p="OptionsEditor" t="Include">
+          <e p="frmOptions.cs" t="Include" />
+          <e p="frmOptions.resx" t="Include" />
+        </e>
+        <e p="packages.config" t="Include" />
+        <e p="ProjectFileItemTreeNode.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="Jedi_symbol.png" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="I2Da.cs" t="Include" />
+          <e p="IBwm.cs" t="Include" />
+          <e p="IChitinKey.cs" t="Include" />
+          <e p="IDialogTlk.cs" t="Include" />
+          <e p="IErf.cs" t="Include" />
+          <e p="IGff.cs" t="Include" />
+          <e p="IKeyEntry.cs" t="Include" />
+          <e p="IMapInfoCreator.cs" t="Include" />
+          <e p="IRim.cs" t="Include" />
+          <e p="ISsf.cs" t="Include" />
+        </e>
+        <e p="SoundChooser" t="Include">
+          <e p="frmSoundChooser.cs" t="Include" />
+          <e p="frmSoundChooser.resx" t="Include" />
+        </e>
+        <e p="SsfEditor" t="Include">
+          <e p="frmSSFEditor.cs" t="Include" />
+          <e p="frmSSFEditor.resx" t="Include" />
+        </e>
+        <e p="TextEditor" t="Include">
+          <e p="frmTextEditor.cs" t="Include" />
+          <e p="frmTextEditor.resx" t="Include" />
+          <e p="frmTextEditorFind.cs" t="Include" />
+          <e p="frmTextEditorFind.resx" t="Include" />
+        </e>
+        <e p="UTILS" t="Include">
+          <e p="ByteFunctions.cs" t="Include" />
+          <e p="DirectoryUtils.cs" t="Include" />
+          <e p="FileUtils.cs" t="Include" />
+          <e p="PathManager.cs" t="Include" />
+          <e p="ResourceIdentification.cs" t="Include" />
+          <e p="StringFunctions.cs" t="Include" />
+          <e p="UserSettings.cs" t="Include" />
+          <e p="utilFileValidator.cs" t="Include" />
+          <e p="Utils.cs" t="Include" />
+          <e p="utilWindowRelativePositioner.cs" t="Include" />
+        </e>
+        <e p="ViewModels" t="Include">
+          <e p="ColumnEntry.cs" t="Include" />
+          <e p="ColumnEntryList.cs" t="Include" />
+          <e p="ColumnSortEntry.cs" t="Include" />
+          <e p="ColumnSortEntryList.cs" t="Include" />
+          <e p="ColumnVOEntry.cs" t="Include" />
+          <e p="ColumnVOEntryList.cs" t="Include" />
+          <e p="ComboBoxListItem.cs" t="Include" />
+          <e p="DialogTlkStrDataElement.cs" t="Include" />
+          <e p="DLGConvListNode.cs" t="Include" />
+          <e p="InventoryItem.cs" t="Include" />
+          <e p="KotorTreeNode.cs" t="Include" />
+          <e p="ModItemTvNode.cs" t="Include" />
+          <e p="ModuleFileEntry.cs" t="Include" />
+          <e p="RowFilter.cs" t="Include" />
+          <e p="RowFilterPart.cs" t="Include" />
+          <e p="TreeBaseItem.cs" t="Include" />
+        </e>
+      </e>
+      <e p="KotorTool_2.0.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\steve\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\steve\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_KotorTool_2.0.1240143420.00" t="ExcludeRecursive" />
+  </component>
+</project>

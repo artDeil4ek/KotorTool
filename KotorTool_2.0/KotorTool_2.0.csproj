@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7213ADDD-6314-44B1-9E42-1F916E470A55}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>KotorTool_2._0</RootNamespace>
+    <AssemblyName>KotorTool_2.0</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageTools, Version=1.0.1728.26889, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ImageTools.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqExtensions, Version=0.0.2.21030, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\LinqExtensions.0.0.2.21030\lib\net45\LinqExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.3.0.823, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.3.0.823\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nFMOD, Version=1.0.5219.31901, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\nFMOD.0.6\lib\net20\nFMOD.dll</HintPath>
+    </Reference>
+    <Reference Include="RTFLinenumberTextBox, Version=1.0.20053.1, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\RTFLinenumberTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="SupersonicSound, Version=4.1.1.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\SupersonicSound.4.1.1.0\lib\net46\SupersonicSound.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="2daEditor\frm2DAEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutDialog\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutDialog\frmAutoDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppearanceWizard\frmAppearanceWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BwmEditor\frmBWMEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ByteViewer\ByteViewerCommands.cs" />
+    <Compile Include="ByteViewer\ByteViewerConfig.cs" />
+    <Compile Include="ByteViewer\ByteViewerQueries.cs" />
+    <Compile Include="ByteViewer\frmByteViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CExoLocStringLangPicker\frmCExoLocStringLanguagePicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Crypt.cs" />
+    <Compile Include="DialogEditor\frmDialogEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErfManager\frmERFManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterDesigner\frmFilterDesigner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DataGridEnableTextBoxColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\clsGridDisplay.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBasicHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCreateAnimListEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDialogTlk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmErrorMessageWithCopyableText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmInstanceOrRefPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GlobalVarEditor\frmGlobalVar_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageViewer\frmImageViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryEditor\frmInventoryEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemPropertyEditor\frmItemPropertyEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm\Aabb.cs" />
+    <Compile Include="MainForm\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm\KotorNodeRepo.cs" />
+    <Compile Include="MainForm\MainFormState.cs" />
+    <Compile Include="MainForm\TreeViewCommand.cs" />
+    <Compile Include="MainForm\TreeViewPresenter.cs" />
+    <Compile Include="MainForm\TreeViewQuery.cs" />
+    <Compile Include="MapInfoStatus\frmMapInfoStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\ChitinKey.cs" />
+    <Compile Include="Models\ERF\ErfObject.cs" />
+    <Compile Include="Models\GFF\GffObject.cs" />
+    <Compile Include="Models\Mdl.cs" />
+    <Compile Include="Models\Mru.cs" />
+    <Compile Include="Models\NwScript.cs" />
+    <Compile Include="Models\RIM\RimObject.cs" />
+    <Compile Include="Models\Tga.cs" />
+    <Compile Include="Models\Tpc.cs" />
+    <Compile Include="ModuleEditor\frmModuleEditorOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleEditor\frmModuleEditor_MissingItemSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleEditor\frmModuleIfo_AreaEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleEditor\frmModuleItem_Base_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleEditor\frmModule_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MoreLinq\MoreEnumerable.ForEach.cs" />
+    <Compile Include="OptionsEditor\frmOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options\ConfigOptions.cs" />
+    <Compile Include="Services\I2Da.cs" />
+    <Compile Include="Services\IBwm.cs" />
+    <Compile Include="Services\IChitinKey.cs" />
+    <Compile Include="Services\IDialogTlk.cs" />
+    <Compile Include="Services\IErf.cs" />
+    <Compile Include="Services\IGff.cs" />
+    <Compile Include="Services\IKeyEntry.cs" />
+    <Compile Include="Forms\frmMdlOpsSwitches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOverrideFilesUsed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPackageTypeSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPathManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProgressMeter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProjectManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProjectManagerProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPromptForString.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmQueryUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRefSearchCriteria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRefSearchResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmResourceTypeSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSpecifyKotorVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTPCFileSaveType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUTC_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUTD_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUTI_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUTM_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUTP_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUTS_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUTT_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUTW_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InventoryPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main.cs" />
+    <Compile Include="MapInfo.cs" />
+    <Compile Include="Models\BIFF\BIFFArchive.cs" />
+    <Compile Include="Models\BIFF\BIFFEntry.cs" />
+    <Compile Include="Models\BIFF\BIFFVarRsrcEntry.cs" />
+    <Compile Include="Models\BIFF\BIFFVarRsrcEntryInfo.cs" />
+    <Compile Include="Models\BIFF\BIFF_Functions.cs" />
+    <Compile Include="Models\CLS\cls2DA.cs" />
+    <Compile Include="Models\CLS\Cls2DaFunctions.cs" />
+    <Compile Include="Models\CLS\clsBaseItems2DA.cs" />
+    <Compile Include="Models\CLS\clsBWM.cs" />
+    <Compile Include="Models\CLS\clsChitinKey.cs" />
+    <Compile Include="Models\CLS\clsDialogTlk.cs" />
+    <Compile Include="Models\CLS\clsDLG.cs" />
+    <Compile Include="Models\CLS\clsERF.cs" />
+    <Compile Include="Models\CLS\clsGFF.cs" />
+    <Compile Include="Models\CLS\ClsGffFunctions.cs" />
+    <Compile Include="Models\CLS\clsGlobalVars.cs" />
+    <Compile Include="Models\CLS\clsMapInfoCreator.cs" />
+    <Compile Include="Models\CLS\clsProject.cs" />
+    <Compile Include="Models\CLS\clsProjectManager.cs" />
+    <Compile Include="Models\CLS\clsRIM.cs" />
+    <Compile Include="Models\CLS\clsSSF.cs" />
+    <Compile Include="Models\CLS\clsUTC.cs" />
+    <Compile Include="Models\CLS\clsUTD.cs" />
+    <Compile Include="Models\CLS\clsUTI.cs" />
+    <Compile Include="Models\CLS\clsUTM.cs" />
+    <Compile Include="Models\CLS\clsUTP.cs" />
+    <Compile Include="Models\CLS\clsUTS.cs" />
+    <Compile Include="Models\CLS\clsUTT.cs" />
+    <Compile Include="Models\CLS\clsUTW.cs" />
+    <Compile Include="Models\ERF\ERFKeyEntry.cs" />
+    <Compile Include="Models\ERF\ERFLocalizedString.cs" />
+    <Compile Include="Models\GFF\GFFExoLocString.cs" />
+    <Compile Include="Models\GFF\GFFExoLocSubString.cs" />
+    <Compile Include="Models\GFF\GFFField.cs" />
+    <Compile Include="Models\GFF\GFFFieldEntry.cs" />
+    <Compile Include="Models\GFF\GFFList.cs" />
+    <Compile Include="Models\GFF\GFFStructEntry.cs" />
+    <Compile Include="Models\GFF\GFFType16.cs" />
+    <Compile Include="Models\GFF\GFFType17.cs" />
+    <Compile Include="Models\GFF\GFFVoid.cs" />
+    <Compile Include="Models\GFF\GFF_Field.cs" />
+    <Compile Include="Models\GFF\GFF_Struct.cs" />
+    <Compile Include="Models\KeyEntry.cs" />
+    <Compile Include="Models\KTSoundInfo.cs" />
+    <Compile Include="Models\MapInfo.cs" />
+    <Compile Include="Models\ModItem.cs" />
+    <Compile Include="Models\RIM\RIMKeyEntry.cs" />
+    <Compile Include="ModuleEditorProjectOptions.cs" />
+    <Compile Include="ModuleEditorProjectSettings.cs" />
+    <Compile Include="MyMapInfoSurrogate.cs" />
+    <Compile Include="ProjectFileItemTreeNode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\RegReminder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RepeatButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\IMapInfoCreator.cs" />
+    <Compile Include="Services\IRim.cs" />
+    <Compile Include="Services\ISsf.cs" />
+    <Compile Include="SoundChooser\frmSoundChooser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SsfEditor\frmSSFEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TextEditor\frmTextEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TextEditor\frmTextEditorFind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\ByteFunctions.cs" />
+    <Compile Include="Utils\DirectoryUtils.cs" />
+    <Compile Include="Utils\FileUtils.cs" />
+    <Compile Include="Utils\PathManager.cs" />
+    <Compile Include="Utils\ResourceIdentification.cs" />
+    <Compile Include="Utils\StringFunctions.cs" />
+    <Compile Include="Utils\UserSettings.cs" />
+    <Compile Include="Utils\UtilFileValidator.cs" />
+    <Compile Include="Utils\Utils.cs" />
+    <Compile Include="Utils\UtilWindowRelativePositioner.cs" />
+    <Compile Include="ViewModels\ColumnEntry.cs" />
+    <Compile Include="ViewModels\ColumnEntryList.cs" />
+    <Compile Include="ViewModels\ColumnSortEntry.cs" />
+    <Compile Include="ViewModels\ColumnSortEntryList.cs" />
+    <Compile Include="ViewModels\ColumnVOEntry.cs" />
+    <Compile Include="ViewModels\ColumnVOEntryList.cs" />
+    <Compile Include="ViewModels\ComboBoxListItem.cs" />
+    <Compile Include="ViewModels\DialogTlkStrDataElement.cs" />
+    <Compile Include="ViewModels\DLGConvListNode.cs" />
+    <Compile Include="ViewModels\InventoryItem.cs" />
+    <Compile Include="ViewModels\KotorTreeNode.cs" />
+    <Compile Include="ViewModels\ModItemTvNode.cs" />
+    <Compile Include="ViewModels\ModuleFileEntry.cs" />
+    <Compile Include="ViewModels\RowFilter.cs" />
+    <Compile Include="ViewModels\RowFilterPart.cs" />
+    <Compile Include="ViewModels\TreeBaseItem.cs" />
+    <EmbeddedResource Include="2daEditor\frm2DAEditor.resx" />
+    <EmbeddedResource Include="AboutDialog\frmAbout.resx" />
+    <EmbeddedResource Include="AboutDialog\frmAutoDialog.resx" />
+    <EmbeddedResource Include="AppearanceWizard\frmAppearanceWizard.resx" />
+    <EmbeddedResource Include="BwmEditor\frmBWMEditor.resx" />
+    <EmbeddedResource Include="ByteViewer\frmByteViewer.resx" />
+    <EmbeddedResource Include="CExoLocStringLangPicker\frmCExoLocStringLanguagePicker.resx" />
+    <EmbeddedResource Include="DialogEditor\frmDialogEditor.resx" />
+    <EmbeddedResource Include="ErfManager\frmERFManager.resx" />
+    <EmbeddedResource Include="FilterDesigner\frmFilterDesigner.resx" />
+    <EmbeddedResource Include="Forms\frmBasicHelp.resx" />
+    <EmbeddedResource Include="Forms\frmCreateAnimListEntry.resx" />
+    <EmbeddedResource Include="Forms\frmDialogTlk.resx" />
+    <EmbeddedResource Include="Forms\frmErrorMessageWithCopyableText.resx" />
+    <EmbeddedResource Include="Forms\frmInstanceOrRefPrompt.resx" />
+    <EmbeddedResource Include="GlobalVarEditor\frmGlobalVar_Editor.resx" />
+    <EmbeddedResource Include="ImageViewer\frmImageViewer.resx" />
+    <EmbeddedResource Include="InventoryEditor\frmInventoryEditor.resx" />
+    <EmbeddedResource Include="ItemPropertyEditor\frmItemPropertyEditor.resx" />
+    <EmbeddedResource Include="Forms\frmMdlOpsSwitches.resx">
+      <DependentUpon>frmMdlOpsSwitches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOverrideFilesUsed.resx" />
+    <EmbeddedResource Include="Forms\frmPackageTypeSelector.resx" />
+    <EmbeddedResource Include="Forms\frmParent.resx" />
+    <EmbeddedResource Include="Forms\frmPathManager.resx" />
+    <EmbeddedResource Include="Forms\frmProgressMeter.resx" />
+    <EmbeddedResource Include="Forms\frmProjectManager.resx" />
+    <EmbeddedResource Include="Forms\frmProjectManagerProperties.resx" />
+    <EmbeddedResource Include="Forms\frmPromptForString.resx" />
+    <EmbeddedResource Include="Forms\frmQueryUserInfo.resx" />
+    <EmbeddedResource Include="Forms\frmRefSearchCriteria.resx" />
+    <EmbeddedResource Include="Forms\frmRefSearchResults.resx" />
+    <EmbeddedResource Include="Forms\frmResourceTypeSelector.resx" />
+    <EmbeddedResource Include="Forms\frmSpecifyKotorVersion.resx" />
+    <EmbeddedResource Include="Forms\frmTPCFileSaveType.resx" />
+    <EmbeddedResource Include="Forms\frmUTC_Editor.resx" />
+    <EmbeddedResource Include="Forms\frmUTD_Editor.resx" />
+    <EmbeddedResource Include="Forms\frmUTI_Editor.resx" />
+    <EmbeddedResource Include="Forms\frmUTM_Editor.resx" />
+    <EmbeddedResource Include="Forms\frmUTP_Editor.resx" />
+    <EmbeddedResource Include="Forms\frmUTS_Editor.resx" />
+    <EmbeddedResource Include="Forms\frmUTT_Editor.resx" />
+    <EmbeddedResource Include="Forms\frmUTW_Editor.resx" />
+    <EmbeddedResource Include="MainForm\frmMain.resx" />
+    <EmbeddedResource Include="MapInfoStatus\frmMapInfoStatus.resx" />
+    <EmbeddedResource Include="ModuleEditor\frmModuleEditorOptions.resx" />
+    <EmbeddedResource Include="ModuleEditor\frmModuleEditor_MissingItemSelector.resx" />
+    <EmbeddedResource Include="ModuleEditor\frmModuleIfo_AreaEditor.resx" />
+    <EmbeddedResource Include="ModuleEditor\frmModuleItem_Base_Editor.resx" />
+    <EmbeddedResource Include="ModuleEditor\frmModule_Editor.resx" />
+    <EmbeddedResource Include="OptionsEditor\frmOptions.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SoundChooser\frmSoundChooser.resx" />
+    <EmbeddedResource Include="SsfEditor\frmSSFEditor.resx" />
+    <EmbeddedResource Include="TextEditor\frmTextEditor.resx" />
+    <EmbeddedResource Include="TextEditor\frmTextEditorFind.resx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Jedi_symbol.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

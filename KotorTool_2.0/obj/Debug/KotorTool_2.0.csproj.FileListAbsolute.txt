@@ -1,0 +1,363 @@
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\bin\Debug\KotorTool_2.0.exe.config
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\bin\Debug\KotorTool_2.0.exe
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\bin\Debug\KotorTool_2.0.pdb
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\bin\Debug\nFMOD.dll
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\bin\Debug\SupersonicSound.dll
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.About_Form.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frm2DAEditor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmAbout.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmAppearanceWizard.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmAutoDialog.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmBasicHelp.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmBWMEditor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmByteViewer.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmCExoLocStringLanguagePicker.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmCreateAnimListEntry.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmDialogEditor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmDialogTlk.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmERFManager.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmErrorMessageWithCopyableText.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmFilterDesigner.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmGlobalVar_Editor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmImageViewer.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmInstanceOrRefPrompt.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmInventoryEditor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmItemPropertyEditor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmMapInfoStatus.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2.frmMdlOpsSwitches.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmModuleEditorOptions.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmModuleEditor_MissingItemSelector.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmModuleIfo_AreaEditor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmModuleItem_Base_Editor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmModule_Editor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmOptions.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmOverrideFilesUsed.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmPackageTypeSelector.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmParent.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmPathManager.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmProgressMeter.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmProjectManager.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmProjectManagerProperties.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmPromptForString.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmQueryUserInfo.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmRefSearchCriteria.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmRefSearchResults.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmResourceTypeSelector.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmSoundChooser.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmSpecifyKotorVersion.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmSSFEditor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmTextEditor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmTextEditorFind.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmTPCFileSaveType.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTC_Editor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTD_Editor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTI_Editor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTM_Editor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTP_Editor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTS_Editor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTT_Editor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTW_Editor.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.Form_Main.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Properties.Resources.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2.0.csproj.GenerateResource.Cache
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2.0.exe
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2.0.pdb
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\bin\Debug\MaterialDesignColors.dll
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Main_Form.frmMain.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.Image_Viewer_Form.resources
+C:\Users\Steve\Documents\Visual Studio 2017\Projects\KotorTool_2.0\KotorTool_2.0\obj\Debug\KotorTool_2.0.csprojResolveAssemblyReference.cache
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2.0.csprojResolveAssemblyReference.cache
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.About_Form.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frm2DAEditor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmAbout.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmAppearanceWizard.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmAutoDialog.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmBasicHelp.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmBWMEditor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmByteViewer.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmCExoLocStringLanguagePicker.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmCreateAnimListEntry.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmDialogEditor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmDialogTlk.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmERFManager.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmErrorMessageWithCopyableText.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmFilterDesigner.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmGlobalVar_Editor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmImageViewer.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmInstanceOrRefPrompt.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmInventoryEditor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmItemPropertyEditor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.Image_Viewer_Form.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Main_Form.frmMain.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmMapInfoStatus.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2.frmMdlOpsSwitches.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmModuleEditorOptions.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmModuleEditor_MissingItemSelector.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmModuleIfo_AreaEditor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmModuleItem_Base_Editor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmModule_Editor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmOptions.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmOverrideFilesUsed.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmPackageTypeSelector.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmParent.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmPathManager.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmProgressMeter.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmProjectManager.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmProjectManagerProperties.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmPromptForString.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmQueryUserInfo.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmRefSearchCriteria.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmRefSearchResults.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmResourceTypeSelector.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmSoundChooser.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmSpecifyKotorVersion.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmSSFEditor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmTextEditor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmTextEditorFind.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmTPCFileSaveType.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTC_Editor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTD_Editor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTI_Editor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTM_Editor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTP_Editor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTS_Editor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTT_Editor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTW_Editor.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.Form_Main.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2._0.Properties.Resources.resources
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2.0.csproj.GenerateResource.Cache
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2.0.csproj.CoreCompileInputs.cache
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\bin\Debug\KotorTool_2.0.exe.config
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\bin\Debug\KotorTool_2.0.exe
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\bin\Debug\KotorTool_2.0.pdb
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\bin\Debug\MaterialDesignColors.dll
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\bin\Debug\nFMOD.dll
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\bin\Debug\SupersonicSound.dll
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2.0.exe
+C:\Users\steve\OneDrive\Desktop\Kotor-Tool-2.0-master\KotorTool_2.0\obj\Debug\KotorTool_2.0.pdb
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2.0.csprojResolveAssemblyReference.cache
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.AboutForm.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frm2DAEditor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmAbout.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmAppearanceWizard.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmAutoDialog.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmBasicHelp.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmBWMEditor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmByteViewer.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmCExoLocStringLanguagePicker.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmCreateAnimListEntry.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmDialogEditor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmDialogTlk.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmERFManager.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmErrorMessageWithCopyableText.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmFilterDesigner.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmGlobalVar_Editor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmImageViewer.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmInstanceOrRefPrompt.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmInventoryEditor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmItemPropertyEditor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.Image_Viewer_Form.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Main_Form.frmMain.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmMapInfoStatus.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2.frmMdlOpsSwitches.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmModuleEditorOptions.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmModuleEditor_MissingItemSelector.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmModuleIfo_AreaEditor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmModuleItem_Base_Editor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmModule_Editor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmOptions.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmOverrideFilesUsed.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmPackageTypeSelector.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmParent.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmPathManager.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmProgressMeter.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmProjectManager.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmProjectManagerProperties.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmPromptForString.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmQueryUserInfo.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmRefSearchCriteria.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmRefSearchResults.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmResourceTypeSelector.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmSoundChooser.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmSpecifyKotorVersion.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmSSFEditor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmTextEditor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmTextEditorFind.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmTPCFileSaveType.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTC_Editor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTD_Editor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTI_Editor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTM_Editor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTP_Editor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTS_Editor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTT_Editor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTW_Editor.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.FormMain.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Properties.Resources.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2.0.csproj.GenerateResource.cache
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2.0.csproj.CoreCompileInputs.cache
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Image_Viewer.Image_Viewer_Form.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmMdlOpsSwitches.resources
+C:\Users\steve\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Main_Form.FormMain.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmBasicHelp.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmCreateAnimListEntry.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmDialogTlk.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmErrorMessageWithCopyableText.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmInstanceOrRefPrompt.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmMdlOpsSwitches.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmOverrideFilesUsed.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmPackageTypeSelector.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmParent.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmPathManager.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmProgressMeter.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmProjectManager.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmProjectManagerProperties.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmPromptForString.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmQueryUserInfo.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmRefSearchCriteria.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmRefSearchResults.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmResourceTypeSelector.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmSpecifyKotorVersion.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmTPCFileSaveType.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTC_Editor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTD_Editor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTI_Editor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTM_Editor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTP_Editor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTS_Editor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTT_Editor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTW_Editor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.Properties.Resources.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2.0.csproj.GenerateResource.cache
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2.0.csproj.CoreCompileInputs.cache
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\KotorTool_2.0.exe.config
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\KotorTool_2.0.exe
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\KotorTool_2.0.pdb
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\AutoMapper.dll
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\MaterialDesignColors.dll
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\Newtonsoft.Json.dll
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\nFMOD.dll
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\SupersonicSound.dll
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\System.ValueTuple.dll
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\AutoMapper.pdb
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\AutoMapper.xml
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\Newtonsoft.Json.pdb
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\Newtonsoft.Json.xml
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\bin\Debug\System.ValueTuple.xml
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2.0.csproj.CopyComplete
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2.0.exe
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2.0.pdb
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0._2daEditor.frm2DAEditor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.AppearanceWizard.frmAppearanceWizard.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.BwmEditor.frmBWMEditor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.DialogEditor.frmDialogEditor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.ErfManager.frmERFManager.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.GlobalVarEditor.frmGlobalVar_Editor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.InventoryEditor.frmInventoryEditor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.ModuleEditor.frmModuleEditorOptions.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.ModuleEditor.frmModuleEditor_MissingItemSelector.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.ModuleEditor.frmModuleIfo_AreaEditor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.ModuleEditor.frmModuleItem_Base_Editor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.ModuleEditor.frmModule_Editor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.AboutDialog.frmAbout.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.AboutDialog.frmAutoDialog.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.ByteViewer.frmByteViewer.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.FilterDesigner.frmFilterDesigner.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.ImageViewer.frmImageViewer.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.OptionsEditor.frmOptions.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.TextEditor.frmTextEditor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.TextEditor.frmTextEditorFind.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.CExoLocStringLangPicker.frmCExoLocStringLanguagePicker.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.ItemPropertyEditor.frmItemPropertyEditor.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.MainForm.frmMain.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.MapInfoStatus.frmMapInfoStatus.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.SoundChooser.frmSoundChooser.resources
+C:\RiderProjects\Kotor-Tool-2.0\KotorTool_2.0\obj\Debug\KotorTool_2._0.SsfEditor.frmSSFEditor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2.0.csprojAssemblyReference.cache
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0._2daEditor.frm2DAEditor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.AboutDialog.frmAbout.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.AboutDialog.frmAutoDialog.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.AppearanceWizard.frmAppearanceWizard.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.BwmEditor.frmBWMEditor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.ByteViewer.frmByteViewer.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.CExoLocStringLangPicker.frmCExoLocStringLanguagePicker.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.DialogEditor.frmDialogEditor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.ErfManager.frmERFManager.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.FilterDesigner.frmFilterDesigner.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmBasicHelp.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmCreateAnimListEntry.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmDialogTlk.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmErrorMessageWithCopyableText.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmInstanceOrRefPrompt.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.GlobalVarEditor.frmGlobalVar_Editor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.ImageViewer.frmImageViewer.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.InventoryEditor.frmInventoryEditor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.ItemPropertyEditor.frmItemPropertyEditor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmMdlOpsSwitches.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmOverrideFilesUsed.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmPackageTypeSelector.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmParent.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmPathManager.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmProgressMeter.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmProjectManager.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmProjectManagerProperties.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmPromptForString.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmQueryUserInfo.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmRefSearchCriteria.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmRefSearchResults.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmResourceTypeSelector.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmSpecifyKotorVersion.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmTPCFileSaveType.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTC_Editor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTD_Editor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTI_Editor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTM_Editor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTP_Editor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTS_Editor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTT_Editor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Forms.frmUTW_Editor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.MainForm.frmMain.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.MapInfoStatus.frmMapInfoStatus.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.ModuleEditor.frmModuleEditorOptions.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.ModuleEditor.frmModuleEditor_MissingItemSelector.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.ModuleEditor.frmModuleIfo_AreaEditor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.ModuleEditor.frmModuleItem_Base_Editor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.ModuleEditor.frmModule_Editor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.OptionsEditor.frmOptions.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.Properties.Resources.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.SoundChooser.frmSoundChooser.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.SsfEditor.frmSSFEditor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.TextEditor.frmTextEditor.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2._0.TextEditor.frmTextEditorFind.resources
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2.0.csproj.GenerateResource.cache
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2.0.csproj.CoreCompileInputs.cache
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2.0.exe
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2.0.pdb
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\KotorTool_2.0.exe.config
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\KotorTool_2.0.exe
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\KotorTool_2.0.pdb
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\AutoMapper.dll
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\MaterialDesignColors.dll
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\Newtonsoft.Json.dll
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\nFMOD.dll
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\SupersonicSound.dll
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\System.ValueTuple.dll
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\AutoMapper.pdb
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\AutoMapper.xml
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\Newtonsoft.Json.xml
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\System.ValueTuple.xml
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\obj\Debug\KotorTool_2.0.csproj.CopyComplete
+C:\Users\steve\OneDrive\Desktop\KotorToolErrorLatest\KotorTool_2.0\bin\Debug\LinqExtensions.dll

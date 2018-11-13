@@ -957,10 +957,8 @@ namespace KotorTool_2._0.Forms
             : this()
         {
             _kotorVersionIndex = kotorVerIndex;
-            if (kotorVerIndex == 0)
-                Text = Text + "I";
-            else
-                Text = Text + "II";
+            if (kotorVerIndex == 0) Text = Text + "I";
+            else Text = Text + "II";
             CurrentSettings = UserSettings.GetSettings();
             GClsDialogTlk = new ClsDialogTlk(ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\dialog.tlk");
             SetEquippedPanelsToolTips();

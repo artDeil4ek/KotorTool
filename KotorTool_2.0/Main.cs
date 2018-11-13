@@ -18,7 +18,7 @@ namespace KotorTool_2._0
         {
             using (System.IO.StreamWriter file = new System.IO.StreamWriter( AppDomain.CurrentDomain.BaseDirectory.Replace(@"\", @"/") + "config.txt", true))
             {
-                file.WriteLine(JsonConvert.SerializeObject(ConfigOptions.getInstance()));
+                file.WriteLine(JsonConvert.SerializeObject(ConfigOptions.GetInstance()));
             }
             
             

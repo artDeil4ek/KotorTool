@@ -174,6 +174,7 @@
     <Compile Include="Models\GFF\GffObject.cs" />
     <Compile Include="Models\Mdl.cs" />
     <Compile Include="Models\Mru.cs" />
+    <Compile Include="Models\NwnnsscompExe.cs" />
     <Compile Include="Models\NwScript.cs" />
     <Compile Include="Models\RIM\RimObject.cs" />
     <Compile Include="Models\Tga.cs" />

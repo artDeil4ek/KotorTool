@@ -206,6 +206,8 @@ namespace KotorTool_2._0.MainForm
                 }
             }
 
+           
+
             KotorTreeNode kotorTreeNode = new KotorTreeNode(ResourceIdentification.ParentDescForResType(node.ResType)) {ResType = node.ResType, Tag = "NodeCategory"};
             kotorTreeNode.Nodes.Add(node);
             collection.Nodes.Add(kotorTreeNode);

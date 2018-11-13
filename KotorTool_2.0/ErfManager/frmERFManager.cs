@@ -13,16 +13,14 @@ using System.IO;
 using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
-
+using KotorTool_2._0.Forms;
 using KotorTool_2._0.Models.CLS;
-using KotorTool_2._0.Models.ERF;
 using KotorTool_2._0.Options;
 using KotorTool_2._0.Utils;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
-using FrmMain = KotorTool_2._0.MainForm.FrmMain;
 
-namespace KotorTool_2._0.Forms
+namespace KotorTool_2._0.ErfManager
 {
     public class frmERFManager : frmParent
     {

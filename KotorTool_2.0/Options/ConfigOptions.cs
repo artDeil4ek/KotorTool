@@ -12,9 +12,14 @@ namespace KotorTool_2._0.Options
     {
         public static ConfigOptions configOptions { get; set; }
         
-        public static ConfigOptions getInstance()
+        public static ConfigOptions GetInstance()
         {
-            return configOptions;
+            if (configOptions != null)
+            {
+                return configOptions;
+            }
+           return  new ConfigOptions();
+            
         }
         
         [Serializable]

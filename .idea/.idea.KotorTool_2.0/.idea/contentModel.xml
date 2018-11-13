@@ -204,6 +204,7 @@
           <e p="Mdl.cs" t="Include" />
           <e p="ModItem.cs" t="Include" />
           <e p="Mru.cs" t="Include" />
+          <e p="NwnnsscompExe.cs" t="Include" />
           <e p="NwScript.cs" t="Include" />
           <e p="RIM" t="Include">
             <e p="RIMKeyEntry.cs" t="Include" />

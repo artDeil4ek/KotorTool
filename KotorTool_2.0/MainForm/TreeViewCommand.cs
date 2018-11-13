@@ -404,45 +404,7 @@ namespace KotorTool_2._0.MainForm
             }
             else if (StringType.StrCmp(resTypeStr, "ncs", false) == 0)
             {
-                //DirectoryUtils.EnsureWorkingDirectoryExists();
-                ByteFunctions.WriteByteArray(MainFormState.GRootPath + "working\\temp.ncs", numArray1);
-                string str = MainFormState.GRootPath + "nwnnsscomp.exe";
-                try
-                {
-                    Process process = new Process();
-                    process.StartInfo.FileName = str;
-                    process.StartInfo.UseShellExecute = false;
-                    process.StartInfo.CreateNoWindow = true;
-                    process.StartInfo.Arguments = "-d -o \"" + MainFormState.GRootPath + "working\\temp.nss" + "\"" + " " + "\"" + MainFormState.GRootPath + "working\\temp.ncs" + "\"";
-                    process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                    process.StartInfo.RedirectStandardOutput = true;
-                    process.Start();
-                    process.StandardOutput.ReadToEnd();
-                    process.WaitForExit(4000);
-
-                    using (FileStream fileStream = new FileStream(MainFormState.GRootPath + "working\\temp.nss", FileMode.Open))
-                    {
-                        using (frmTextEditor frmTxtEditor = new frmTextEditor(node.Filename))
-                        {
-                            ASCIIEncoding asciiEncoding = new ASCIIEncoding();
-                            byte[] numArray2 = new byte[(int) (fileStream.Length - 1L) + 1];
-                            fileStream.Read(numArray2, 0, (int) fileStream.Length);
-                            frmTxtEditor.tbGeneric.Text = asciiEncoding.GetString(numArray2);
-                            frmTxtEditor.tbGeneric.SelectionLength = 0;
-                            frmTxtEditor.Show();
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    ProjectData.SetProjectError(ex);
-                    if (StringType.StrCmp(ex.Message, "", false) != 0)
-                    {
-                        Interaction.MsgBox("Error launching nwnnsscomp\r\rIs it installed in the same directory as this program?");
-                    }
-
-                    ProjectData.ClearProjectError();
-                }
+                new NwnnsscompExe().ExecuteCompilerNwnCompiler(node.Filename, numArray1);
             }
             else if (StringType.StrCmp(resTypeStr, "are", false) == 0 ||
                      StringType.StrCmp(resTypeStr, "fac", false) == 0 ||

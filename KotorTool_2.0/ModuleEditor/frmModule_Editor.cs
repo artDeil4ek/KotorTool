@@ -23,6 +23,7 @@ using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.Models.CLS;
 using KotorTool_2._0.Models.ERF;
 using KotorTool_2._0.Models.GFF;
+using KotorTool_2._0.Options;
 using KotorTool_2._0.TextEditor;
 using KotorTool_2._0.Utils;
 using KotorTool_2._0.ViewModels;
@@ -3347,7 +3348,7 @@ namespace KotorTool_2._0.Forms
         ProjectData.SetProjectError(ex);
         ProjectData.ClearProjectError();
       }
-      g_clsDialogTlk = new ClsDialogTlk(CurrentSettings.KotorLocation(KotorVersionIndex) + "\\dialog.tlk", false);
+      g_clsDialogTlk = new ClsDialogTlk(ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\dialog.tlk", false);
       bool flag1;
       try
       {
@@ -5009,7 +5010,7 @@ label_4:
             case 2044:
               try
               {
-                frmUTP_Editor frmUtpEditor = new frmUTP_Editor(new ClsUtp(fs, KotorVersionIndex), KotorVersionIndex, true, g_ProjectPath + "\\" + cmi.FileName);
+                FrmUtpEditor frmUtpEditor = new FrmUtpEditor(new ClsUtp(fs, KotorVersionIndex), KotorVersionIndex, true, g_ProjectPath + "\\" + cmi.FileName);
                 frmUtpEditor.SetFormName(cmi.FileName);
                 frmUtpEditor.Show();
                 break;
@@ -5288,20 +5289,20 @@ label_4:
 
     private void frmModule_Editor_Load(object sender, EventArgs e)
     {
-      Options.ConfigOptions settings = UserSettings.GetSettings();
+      
       PositionWindow(GetType().Name);
-      dModuleElementIndicatorSize = settings.ModuleEditorModuleElementIndicatorSize;
-      bConfirmDeletes = settings.BModuleEditorConfirmDeletes;
-      bShowLocatorRay = settings.BModuleEditorShowLocatorRay;
-      tbHelp.Text = "";
+      dModuleElementIndicatorSize = ConfigOptions.WindowSettings.ModuleEditorModuleElementIndicatorSize;
+      bConfirmDeletes = ConfigOptions.Toggles.ModuleEditorConfirmDeletes;
+      bShowLocatorRay = ConfigOptions.Toggles.ModuleEditorShowLocatorRay;
+      tbHelp.Text = string.Empty;
     }
 
     private void frmModule_Editor_Closing(object sender, CancelEventArgs e)
     {
       if (!bModuleLoadedOK)
         return;
-      SaveSettings(GetType().Name);
-      UserSettings.SaveSettings(CurrentSettings);
+      //SaveSettings(GetType().Name);
+      //UserSettings.SaveSettings(CurrentSettings);
       if (StringType.StrCmp(g_ProjectPath, "", false) == 0)
         return;
       ModuleEditorProjectOptions moduleEditorSettings1 = gModuleEditorSettings;
@@ -6464,11 +6465,11 @@ label_4:
       dModuleElementIndicatorSize = moduleEditorOptions.ModuleElementIndicatorSize;
       bConfirmDeletes = moduleEditorOptions.ConfirmDeletes;
       bShowLocatorRay = moduleEditorOptions.ShowLocatorRay;
-      settings.BModuleEditorShowLocatorRay = bShowLocatorRay;
-      settings.BModuleEditorConfirmDeletes = bConfirmDeletes;
-      settings.ModuleEditorModuleElementIndicatorSize = dModuleElementIndicatorSize;
-      gModuleEditorSettings.ModuleEditorModOutputPath = moduleEditorOptions.ModuleExportPath;
-      UserSettings.SaveSettings(settings);
+      //settings.BModuleEditorShowLocatorRay = bShowLocatorRay;
+      //settings.BModuleEditorConfirmDeletes = bConfirmDeletes;
+     // settings.ModuleEditorModuleElementIndicatorSize = dModuleElementIndicatorSize;
+      //gModuleEditorSettings.ModuleEditorModOutputPath = moduleEditorOptions.ModuleExportPath;
+      //UserSettings.SaveSettings(settings);
       ModuleEditorProjectSettings.SaveSettings(gModuleEditorSettings, g_ProjectPath);
     }
 
@@ -6701,7 +6702,7 @@ label_4:
         return;
       FrmMain frmMain = new FrmMain();
       int resIdForResRef = ChitinKey.KxChitinKey(KotorVersionIndex).FindResIdForResRef(paletteName, 2030);
-      string biffPath = CurrentSettings.KotorLocation(KotorVersionIndex) + "\\" + ChitinKey.KxChitinKey(KotorVersionIndex).BiffList[resIdForResRef >> 20].Filename;
+      string biffPath = ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\" + ChitinKey.KxChitinKey(KotorVersionIndex).BiffList[resIdForResRef >> 20].Filename;
       ClsGff clsGff = new ClsGff(BiffFunctions.GetBiffResource(biffPath, checked (resIdForResRef - resIdForResRef >> 20 << 20)).Data, KotorVersionIndex, true);
       g_CurrentPaletteName = paletteName;
       tvPalette.Nodes.Clear();
@@ -7006,15 +7007,15 @@ label_4:
       FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
       folderBrowserDialog.Description = "Select a Module Project folder:";
       CurrentSettings = UserSettings.GetSettings();
-      if (CurrentSettings.LastModuleEditedPath != null)
-        folderBrowserDialog.SelectedPath = CurrentSettings.LastModuleEditedPath;
+      if (ConfigOptions.Paths.LastModuleEditedPath != null)
+        folderBrowserDialog.SelectedPath = ConfigOptions.Paths.LastModuleEditedPath;
       folderBrowserDialog.ShowNewFolderButton = false;
       if (folderBrowserDialog.ShowDialog() != DialogResult.OK)
       {
         string str = "";
         return str;
       }
-      CurrentSettings.LastModuleEditedPath = folderBrowserDialog.SelectedPath;
+      ConfigOptions.Paths.LastModuleEditedPath = folderBrowserDialog.SelectedPath;
       UserSettings.SaveSettings(CurrentSettings);
       return folderBrowserDialog.SelectedPath;
     }

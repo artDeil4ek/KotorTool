@@ -1072,7 +1072,7 @@ namespace KotorTool_2._0.Forms
 
     private void frmGlobalVar_Editor_Closing(object sender, CancelEventArgs e)
     {
-      SaveSettings(Name);
+     // SaveSettings(Name);
     }
 
     private void dgNumericGlobals_CurrentCellChanged(object sender, EventArgs e)

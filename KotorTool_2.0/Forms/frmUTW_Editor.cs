@@ -13,6 +13,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 using KotorTool_2._0.Models.CLS;
+using KotorTool_2._0.Options;
 using KotorTool_2._0.TextEditor;
 using KotorTool_2._0.Utils;
 using Microsoft.VisualBasic.CompilerServices;
@@ -357,7 +358,7 @@ namespace KotorTool_2._0.Forms
       else
         Text = Text + "II";
       CurrentSettings = UserSettings.GetSettings();
-      g_clsDialogTlk = new ClsDialogTlk(CurrentSettings.KotorLocation(KotorVerIndex) + "\\dialog.tlk");
+      g_clsDialogTlk = new ClsDialogTlk(ConfigOptions.Paths.KotorLocation(KotorVerIndex) + "\\dialog.tlk");
       UTW = UTWClass;
       KotorVersionIndex = KotorVerIndex;
       Setup();
@@ -701,7 +702,7 @@ namespace KotorTool_2._0.Forms
       SetGFFNodeValues();
       if (!m_bSaveGameMode)
       {
-        m_EditingFilePath = StringType.FromObject(FileUtils.GetFilePath("save", CurrentSettings.DefaultSaveLocation, Path.GetFileNameWithoutExtension(m_EditingFilePath) + ".utw", "", ""));
+        m_EditingFilePath = StringType.FromObject(FileUtils.GetFilePath("save", ConfigOptions.Paths.DefaultSaveLocation, Path.GetFileNameWithoutExtension(m_EditingFilePath) + ".utw", "", ""));
         if (StringType.StrCmp(m_EditingFilePath, "", false) == 0)
           return;
       }
@@ -737,7 +738,7 @@ namespace KotorTool_2._0.Forms
 
     private void frmUTW_Editor_Closing(object sender, CancelEventArgs e)
     {
-      SaveSettings(GetType().Name);
+      //SaveSettings(GetType().Name);
     }
 
     public void SetFormName(string Name)

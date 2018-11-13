@@ -18,6 +18,7 @@ using System.Windows.Forms;
 using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.Models.CLS;
 using KotorTool_2._0.Models.GFF;
+using KotorTool_2._0.Options;
 using KotorTool_2._0.TextEditor;
 using KotorTool_2._0.Utils;
 using KotorTool_2._0.ViewModels;
@@ -817,7 +818,7 @@ namespace KotorTool_2._0.Forms
       else
         Text = Text + "II";
       CurrentSettings = UserSettings.GetSettings();
-      g_clsDialogTlk = new ClsDialogTlk(CurrentSettings.KotorLocation(KotorVerIndex) + "\\dialog.tlk");
+      g_clsDialogTlk = new ClsDialogTlk(ConfigOptions.Paths.KotorLocation(KotorVerIndex) + "\\dialog.tlk");
       UTI = UTIClass;
       KotorVersionIndex = KotorVerIndex;
       Setup();
@@ -829,7 +830,7 @@ namespace KotorTool_2._0.Forms
         DictionaryEntry dictionaryEntry = (DictionaryEntry) (htOverrideFile ?? Activator.CreateInstance(typeof (DictionaryEntry)));
         overrideFilesUsed.lbOverrideFiles.Items.Add(RuntimeHelpers.GetObjectValue(dictionaryEntry.Key));
       }
-      int num = (int) overrideFilesUsed.ShowDialog(this);
+       overrideFilesUsed.ShowDialog(this);
     }
 
     protected override void Dispose(bool disposing)
@@ -1607,7 +1608,7 @@ namespace KotorTool_2._0.Forms
 
     public void Setup()
     {
-      g_clsChitinKey = new ClsChitinKey(CurrentSettings.KeyFileLocation(KotorVersionIndex));
+      g_clsChitinKey = new ClsChitinKey(ConfigOptions.Paths.KeyFileLocation(KotorVersionIndex));
       UTI.SetTextBoxToNodeValue(tbTemplateResRef, "TemplateResRef");
       UTI.SetTextBoxToNodeValue(tbTag, "Tag");
       UTI.SetNumericUpDownToUIntNodeValue(nudCost, "Cost");
@@ -1663,12 +1664,12 @@ namespace KotorTool_2._0.Forms
     public void BuildBaseItemComboBox()
     {
       BiffArchive biffArchive1 = new BiffArchive();
-      BiffArchive biffArchive2 = new BiffArchive(new FileStream(CurrentSettings.KotorLocation(KotorVersionIndex) + "\\data\\templates.bif", FileMode.Open));
+      BiffArchive biffArchive2 = new BiffArchive(new FileStream(ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\data\\templates.bif", FileMode.Open));
       bool flag = true;
       byte[] numArray = null;
-      if (CurrentSettings.BUseOverrideFiles)
+      if (ConfigOptions.Toggles.UseOverrideFiles)
       {
-        string path = CurrentSettings.KotorLocation(KotorVersionIndex) + "\\override\\baseitems.2da";
+        string path = ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\override\\baseitems.2da";
         try
         {
           if (File.Exists(path))
@@ -1785,16 +1786,16 @@ namespace KotorTool_2._0.Forms
     {
       bool flag = true;
       byte[] numArray = null;
-      if (CurrentSettings.BUseOverrideFiles)
+      if (ConfigOptions.Toggles.UseOverrideFiles)
       {
-        string path = CurrentSettings.KotorLocation(KotorVersionIndex) + "\\override\\" + TwoDAName + ".2da";
+        string path = ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\override\\" + TwoDAName + ".2da";
         try
         {
           if (File.Exists(path))
           {
             FileStream fileStream = new FileStream(path, FileMode.Open);
             numArray = new byte[checked ((int) fileStream.Length + 1)];
-            fileStream.Read(numArray, 0, checked ((int) fileStream.Length));
+            fileStream.Read(numArray, 0, (int) fileStream.Length);
             fileStream.Close();
             flag = false;
           }
@@ -1819,128 +1820,127 @@ namespace KotorTool_2._0.Forms
       string sLeft = Strings.LCase(TwoDAName);
       if (StringType.StrCmp(sLeft, "iprp_abilities", false) == 0)
       {
-        if (iprp_abilities == null)
-          iprp_abilities = ReadCls2DA("iprp_abilities");
+        if (iprp_abilities == null) iprp_abilities = ReadCls2DA("iprp_abilities");
         return iprp_abilities;
       }
+
       if (StringType.StrCmp(sLeft, "appearance", false) == 0)
       {
-        if (appearance == null)
-          appearance = ReadCls2DA("appearance");
+        if (appearance == null) appearance = ReadCls2DA("appearance");
         return appearance;
       }
+
       if (StringType.StrCmp(sLeft, "classes", false) == 0)
       {
-        if (classes == null)
-          classes = ReadCls2DA("classes");
+        if (classes == null) classes = ReadCls2DA("classes");
         return classes;
       }
+
       if (StringType.StrCmp(sLeft, "feat", false) == 0)
       {
-        if (feat == null)
-          feat = ReadCls2DA("feat");
+        if (feat == null) feat = ReadCls2DA("feat");
         return feat;
       }
+
       if (StringType.StrCmp(sLeft, "iprp_acmodtype", false) == 0)
       {
-        if (iprp_acmodtype == null)
-          iprp_acmodtype = ReadCls2DA("iprp_acmodtype");
+        if (iprp_acmodtype == null) iprp_acmodtype = ReadCls2DA("iprp_acmodtype");
         return iprp_acmodtype;
       }
+
       if (StringType.StrCmp(sLeft, "iprp_aligngrp", false) == 0)
       {
-        if (iprp_aligngrp == null)
-          iprp_aligngrp = ReadCls2DA("iprp_aligngrp");
+        if (iprp_aligngrp == null) iprp_aligngrp = ReadCls2DA("iprp_aligngrp");
         return iprp_aligngrp;
       }
+
       if (StringType.StrCmp(sLeft, "iprp_ammotype", false) == 0)
       {
-        if (iprp_ammotype == null)
-          iprp_ammotype = ReadCls2DA("iprp_ammotype");
+        if (iprp_ammotype == null) iprp_ammotype = ReadCls2DA("iprp_ammotype");
         return iprp_ammotype;
       }
+
       if (StringType.StrCmp(sLeft, "iprp_combatdam", false) == 0)
       {
-        if (iprp_combatdam == null)
-          iprp_combatdam = ReadCls2DA("iprp_combatdam");
+        if (iprp_combatdam == null) iprp_combatdam = ReadCls2DA("iprp_combatdam");
         return iprp_combatdam;
       }
+
       if (StringType.StrCmp(sLeft, "iprp_damagetype", false) == 0)
       {
-        if (iprp_damagetype == null)
-          iprp_damagetype = ReadCls2DA("iprp_damagetype");
+        if (iprp_damagetype == null) iprp_damagetype = ReadCls2DA("iprp_damagetype");
         return iprp_damagetype;
       }
+
       if (StringType.StrCmp(sLeft, "iprp_immunity", false) == 0)
       {
-        if (iprp_immunity == null)
-          iprp_immunity = ReadCls2DA("iprp_immunity");
+        if (iprp_immunity == null) iprp_immunity = ReadCls2DA("iprp_immunity");
         return iprp_immunity;
       }
+
       if (StringType.StrCmp(sLeft, "iprp_monsterhit", false) == 0)
       {
-        if (iprp_monsterhit == null)
-          iprp_monsterhit = ReadCls2DA("iprp_monsterhit");
+        if (iprp_monsterhit == null) iprp_monsterhit = ReadCls2DA("iprp_monsterhit");
         return iprp_monsterhit;
       }
+
       if (StringType.StrCmp(sLeft, "iprp_onhit", false) == 0)
       {
-        if (iprp_onhit == null)
-          iprp_onhit = ReadCls2DA("iprp_onhit");
+        if (iprp_onhit == null) iprp_onhit = ReadCls2DA("iprp_onhit");
         return iprp_onhit;
       }
+
       if (StringType.StrCmp(sLeft, "iprp_protection", false) == 0)
       {
-        if (iprp_protection == null)
-          iprp_protection = ReadCls2DA("iprp_protection");
+        if (iprp_protection == null) iprp_protection = ReadCls2DA("iprp_protection");
         return iprp_protection;
       }
+
       if (StringType.StrCmp(sLeft, "iprp_saveelement", false) == 0)
       {
-        if (iprp_saveelement == null)
-          iprp_saveelement = ReadCls2DA("iprp_saveelement");
+        if (iprp_saveelement == null) iprp_saveelement = ReadCls2DA("iprp_saveelement");
         return iprp_saveelement;
       }
+
       if (StringType.StrCmp(sLeft, "iprp_savingthrow", false) == 0)
       {
-        if (iprp_savingthrow == null)
-          iprp_savingthrow = ReadCls2DA("iprp_savingthrow");
+        if (iprp_savingthrow == null) iprp_savingthrow = ReadCls2DA("iprp_savingthrow");
         return iprp_savingthrow;
       }
+
       if (StringType.StrCmp(sLeft, "iprp_walk", false) == 0)
       {
-        if (iprp_walk == null)
-          iprp_walk = ReadCls2DA("iprp_walk");
+        if (iprp_walk == null) iprp_walk = ReadCls2DA("iprp_walk");
         return iprp_walk;
       }
+
       if (StringType.StrCmp(sLeft, "racialtypes", false) == 0)
       {
-        if (racialtypes == null)
-          racialtypes = ReadCls2DA("racialtypes");
+        if (racialtypes == null) racialtypes = ReadCls2DA("racialtypes");
         return racialtypes;
       }
+
       if (StringType.StrCmp(sLeft, "skills", false) == 0)
       {
-        if (skills == null)
-          skills = ReadCls2DA("skills");
+        if (skills == null) skills = ReadCls2DA("skills");
         return skills;
       }
+
       if (StringType.StrCmp(sLeft, "spells", false) == 0)
       {
-        if (spells == null)
-          spells = ReadCls2DA("spells");
+        if (spells == null) spells = ReadCls2DA("spells");
         return spells;
       }
+
       if (StringType.StrCmp(sLeft, "traps", false) == 0)
       {
-        if (traps == null)
-          traps = ReadCls2DA("traps");
+        if (traps == null) traps = ReadCls2DA("traps");
         return traps;
       }
+
       if (StringType.StrCmp(sLeft, "iprp_pc", false) == 0)
       {
-        if (iprp_pc == null)
-          iprp_pc = ReadCls2DA("iprp_pc");
+        if (iprp_pc == null) iprp_pc = ReadCls2DA("iprp_pc");
         return iprp_pc;
       }
       Console.WriteLine("UTI Editor: 2DA file needed for lookup loaded directly - " + TwoDAName);
@@ -2131,12 +2131,12 @@ namespace KotorTool_2._0.Forms
     public void AutoSizeColumns()
     {
       int num1 = 0;
-      int num2 = checked (dt.Columns.Count - 1);
+      int num2 = dt.Columns.Count - 1;
       int col = num1;
       while (col <= num2)
       {
         dgProperties.TableStyles[0].GridColumnStyles[col].Width = GetColWidth(col, dt.Columns[col].Caption);
-        checked { ++col; }
+       ++col; 
       }
     }
 
@@ -2166,7 +2166,7 @@ namespace KotorTool_2._0.Forms
         num1 = 75f;
         ProjectData.ClearProjectError();
       }
-      return checked ((int) Math.Round(num1 + 10f));
+      return (int) Math.Round(num1 + 10f);
     }
 
     private void ReadPropsAndLoadGrid()
@@ -2393,9 +2393,9 @@ namespace KotorTool_2._0.Forms
           if (IntegerType.FromObject(row["Param2ID"]) != -1)
             itemPropertyEditor.cmbxParam2Value.SelectedIndex = IntegerType.FromObject(row["Param2ValueID"]);
           if (IntegerType.FromObject(row["UpgradeID"]) != -1)
-            itemPropertyEditor.cmbxUpgrade.SelectedIndex = checked (IntegerType.FromObject(row["UpgradeID"]) + 1);
+            itemPropertyEditor.cmbxUpgrade.SelectedIndex = IntegerType.FromObject(row["UpgradeID"]) + 1;
           dataGrid.UnSelect(checked (dataGrid.CurrentRowIndex + 1));
-          int num = (int) itemPropertyEditor.ShowDialog(this);
+          itemPropertyEditor.ShowDialog(this);
           Application.DoEvents();
           if (itemPropertyEditor.DialogResult == DialogResult.OK)
           {
@@ -2417,6 +2417,7 @@ namespace KotorTool_2._0.Forms
               row["Param1Value"] = RuntimeHelpers.GetObjectValue(itemPropertyEditor.cmbxParam1Value.SelectedItem);
               row["Param1ValueID"] = itemPropertyEditor.cmbxParam1Value.SelectedIndex;
             }
+
             if (!itemPropertyEditor.cmbxParam2Value.Enabled)
             {
               row["Param2"] = "n/a";
@@ -2431,9 +2432,10 @@ namespace KotorTool_2._0.Forms
               row["Param2Value"] = RuntimeHelpers.GetObjectValue(itemPropertyEditor.cmbxParam2Value.SelectedItem);
               row["Param2ValueID"] = itemPropertyEditor.cmbxParam2Value.SelectedIndex;
             }
+
             if (itemPropertyEditor.cmbxUpgrade.SelectedIndex > 0)
             {
-              row["UpgradeID"] = checked (itemPropertyEditor.cmbxUpgrade.SelectedIndex - 1);
+              row["UpgradeID"] = checked(itemPropertyEditor.cmbxUpgrade.SelectedIndex - 1);
               row["Upgrade"] = Strings.Replace(StringType.FromObject(itemPropertyEditor.cmbxUpgrade.SelectedItem), "_", " ");
             }
             else
@@ -2441,6 +2443,7 @@ namespace KotorTool_2._0.Forms
               row["UpgradeID"] = -1;
               row["Upgrade"] = "n/a";
             }
+
             row["PropertyID"] = itemPropertyEditor.cmbxPropertyName.SelectedIndex;
             row["SubtypeID"] = itemPropertyEditor.cmbxSubtype.Enabled ? itemPropertyEditor.cmbxSubtype.SelectedIndex : (object) 0;
             row["CostTableID"] = StringType.StrCmp(itemPropertyEditor.CostTableID, "****", false) != 0 ? itemPropertyEditor.CostTableID : (object) 0;
@@ -2459,6 +2462,7 @@ namespace KotorTool_2._0.Forms
               row["CostValue"] = RuntimeHelpers.GetObjectValue(itemPropertyEditor.cmbxCostValue.SelectedItem);
               row["CostValueID"] = itemPropertyEditor.cmbxCostValue.SelectedIndex;
             }
+
             row["% Chance of Appearance"] = itemPropertyEditor.nudPercentChance.Value;
             SetDataTableReadOnlyState(true);
             dataGrid.Select(hitTestInfo.Row);
@@ -2473,8 +2477,8 @@ namespace KotorTool_2._0.Forms
       bool flag;
       try
       {
-        dgProperties.Select(checked (row + 1));
-        dgProperties.UnSelect(checked (row + 1));
+        dgProperties.Select(row + 1);
+        dgProperties.UnSelect(row + 1);
         flag = false;
       }
       catch (IndexOutOfRangeException ex)
@@ -2510,7 +2514,7 @@ namespace KotorTool_2._0.Forms
 
     private void frmUTI_Editor_Closing(object sender, CancelEventArgs e)
     {
-      SaveSettings(Name);
+      //SaveSettings(Name);
     }
 
     public void SetFormName(string Name)
@@ -2523,7 +2527,7 @@ namespace KotorTool_2._0.Forms
       SetGFFNodeValues();
       if (!m_bSaveGameMode)
       {
-        m_EditingFilePath = StringType.FromObject(FileUtils.GetFilePath("save", CurrentSettings.DefaultSaveLocation, Path.GetFileNameWithoutExtension(m_EditingFilePath) + ".uti", "", ""));
+        m_EditingFilePath = StringType.FromObject(FileUtils.GetFilePath("save", ConfigOptions.Paths.DefaultSaveLocation, Path.GetFileNameWithoutExtension(m_EditingFilePath) + ".uti", "", ""));
         if (StringType.StrCmp(m_EditingFilePath, "", false) == 0)
           return;
       }
@@ -2546,7 +2550,7 @@ namespace KotorTool_2._0.Forms
 
     private void btnLoadXML_Click(object sender, EventArgs e)
     {
-      string str = StringType.FromObject(FileUtils.GetFilePath("load", CurrentSettings.DefaultImportLocation, "", "Load Properties (XML) file...", "xml"));
+      string str = StringType.FromObject(FileUtils.GetFilePath("load", ConfigOptions.Paths.DefaultImportLocation, "", "Load Properties (XML) file...", "xml"));
       if (StringType.StrCmp(str, "", false) == 0)
         return;
       DataSet dataSet = new DataSet("Kotor_ItemProperties_File");
@@ -2562,7 +2566,7 @@ namespace KotorTool_2._0.Forms
 
     private void btnSaveXML_Click(object sender, EventArgs e)
     {
-      string str = StringType.FromObject(FileUtils.GetFilePath("save", CurrentSettings.DefaultSaveLocation, tbTemplateResRef.Text + ".xml", "Save Properties (XML) file...", "xml"));
+      string str = StringType.FromObject(FileUtils.GetFilePath("save", ConfigOptions.Paths.DefaultSaveLocation, tbTemplateResRef.Text + ".xml", "Save Properties (XML) file...", "xml"));
       if (StringType.StrCmp(str, "", false) == 0)
         return;
       DataSet dataSet = new DataSet("Kotor_ItemProperties_File");

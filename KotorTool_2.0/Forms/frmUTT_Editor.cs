@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using KotorTool_2._0.Models;
 using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.Models.CLS;
+using KotorTool_2._0.Options;
 using KotorTool_2._0.TextEditor;
 using KotorTool_2._0.Utils;
 using Microsoft.VisualBasic;
@@ -1078,7 +1079,7 @@ namespace KotorTool_2._0.Forms
             if (KotorVerIndex == 1)
                 CustomizeForKotorII();
             CurrentSettings = UserSettings.GetSettings();
-            g_clsDialogTlk = new ClsDialogTlk(CurrentSettings.KotorLocation(KotorVerIndex) + "\\dialog.tlk");
+            g_clsDialogTlk = new ClsDialogTlk(ConfigOptions.Paths.KotorLocation(KotorVerIndex) + "\\dialog.tlk");
             UTT = UTTClass;
             KotorVersionIndex = KotorVerIndex;
             Setup();
@@ -2063,9 +2064,9 @@ namespace KotorTool_2._0.Forms
         {
             bool flag = true;
             byte[] numArray = new byte[0];
-            if (CurrentSettings.BUseOverrideFiles)
+            if (ConfigOptions.Toggles.UseOverrideFiles)
             {
-                string path = CurrentSettings.KotorLocation(KotorVersionIndex) + "\\override\\" + TwoDAName + ".2da";
+                string path = ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\override\\" + TwoDAName + ".2da";
                 try
                 {
                     if (File.Exists(path))
@@ -2154,7 +2155,7 @@ namespace KotorTool_2._0.Forms
             SetGFFNodeValues();
             if (!m_bSaveGameMode)
             {
-                m_EditingFilePath = StringType.FromObject(FileUtils.GetFilePath("save", CurrentSettings.DefaultSaveLocation, Path.GetFileNameWithoutExtension(m_EditingFilePath) + ".utt", "", ""));
+                m_EditingFilePath = StringType.FromObject(FileUtils.GetFilePath("save", ConfigOptions.Paths.DefaultSaveLocation, Path.GetFileNameWithoutExtension(m_EditingFilePath) + ".utt", "", ""));
                 if (StringType.StrCmp(m_EditingFilePath, "", false) == 0)
                 {
                     return;
@@ -2198,7 +2199,7 @@ namespace KotorTool_2._0.Forms
 
         private void frmUTT_Editor_Closing(object sender, CancelEventArgs e)
         {
-            SaveSettings(GetType().Name);
+            //SaveSettings(GetType().Name);
         }
 
         public void SetFormName(string Name)

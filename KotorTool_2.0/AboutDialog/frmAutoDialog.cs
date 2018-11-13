@@ -7,6 +7,7 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using KotorTool_2._0.Models.CLS;
+using KotorTool_2._0.Options;
 using Microsoft.VisualBasic;
 
 namespace KotorTool_2._0.Forms
@@ -51,7 +52,7 @@ namespace KotorTool_2._0.Forms
     {
       Load += frmAutoDialog_Load;
       Closing += frmAutoDialog_Closing;
-      filepath = ConfigOptions.Paths.DefaultKotOrLocation + "\\override\\ft_watch.dlg";
+      filepath = ConfigOptions.Paths.DefaultKotorLocation + "\\override\\ft_watch.dlg";
       InitializeComponent();
     }
 
@@ -84,7 +85,7 @@ namespace KotorTool_2._0.Forms
       size1 = new Size(292, 93);
       ClientSize = size1;
       Controls.Add(Label1);
-      Icon = (Icon) resourceManager.GetObject("$this.Icon");
+     // Icon = (Icon) resourceManager.GetObject("$this.Icon");
       Name = "frmAutoDialog";
       Text = "Auto Dialog";
       ResumeLayout(false);

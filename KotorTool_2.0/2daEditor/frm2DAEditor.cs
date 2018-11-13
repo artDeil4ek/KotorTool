@@ -763,7 +763,7 @@ namespace KotorTool_2._0.Forms
         public void Write2DaV2BFile()
         {
             string str1 = StringType.FromObject(FileUtils.GetFilePath("save",
-                Constants.CurrentSettings.DefaultSaveLocation, _fname, "Save 2DA v2.b file...", "2da"));
+                ConfigOptions.Paths.DefaultSaveLocation, _fname, "Save 2DA v2.b file...", "2da"));
             if (StringType.StrCmp(str1, "", false) == 0)
                 return;
             Hashtable hashtable = new Hashtable();
@@ -1260,7 +1260,7 @@ namespace KotorTool_2._0.Forms
         private void miSave2daV2bXML_Click(object sender, EventArgs e)
         {
             string str = StringType.FromObject(FileUtils.GetFilePath("save",
-                Constants.CurrentSettings.DefaultSaveLocation, Strings.Replace(_fname, "2da", "xml"),
+                ConfigOptions.Paths.DefaultSaveLocation, Strings.Replace(_fname, "2da", "xml"),
                 "Save 2DA v2.b (XML) file...", "xml"));
             if (StringType.StrCmp(str, "", false) == 0)
                 return;
@@ -1268,9 +1268,7 @@ namespace KotorTool_2._0.Forms
             Dt.DefaultView.Sort = "";
             if (checked(_numColumns + 1) < Dt.Columns.Count)
             {
-                int num1 = (int) Interaction.MsgBox(
-                    "The columns added via the Show Strings function will be removed so that the file can be saved properly.",
-                    MsgBoxStyle.Information, "");
+                Interaction.MsgBox("The columns added via the Show Strings function will be removed so that the file can be saved properly.", MsgBoxStyle.Information, "");
                 int num2 = checked(Dt.Columns.Count - 1);
                 int num3 = checked(_numColumns + 1);
                 int index = num2;
@@ -1454,7 +1452,7 @@ namespace KotorTool_2._0.Forms
 
         public void PositionWindow()
         {
-            
+            /*
             Point point1 = new Point(10, 10);
             Point point2 = new Point(10, 10);
             if (!ConfigOptions.WindowSettings.TwoDaEditorWindowLoc.IsEmpty)
@@ -1534,15 +1532,15 @@ namespace KotorTool_2._0.Forms
 
             if (!(width3 == 0 & height1 == 0))
                 return;
-            Size = settings.TwoDaEditorWindowSize;
+            Size = settings.TwoDaEditorWindowSize;*/
         }
 
         public void SaveSettings()
         {
-            Options.ConfigOptions settings = UserSettings.GetSettings();
-            settings.TwoDaEditorWindowLoc = ((Control) this).Location;
-            settings.TwoDaEditorWindowSize = Size;
-            UserSettings.SaveSettings(settings);
+            
+           // ConfigOptions.WindowSettings.TwoDaEditorWindowLoc = ((Control) this).Location;
+          //  settings.TwoDaEditorWindowSize = Size;
+          //  UserSettings.SaveSettings(settings);
         }
 
         private void cmiShowStrings_Click(object sender, EventArgs e)
@@ -1636,30 +1634,23 @@ namespace KotorTool_2._0.Forms
                     break;
             }
 
-            if (specifyKotorVersion.ShowDialog() != DialogResult.OK)
-                return;
+            if (specifyKotorVersion.ShowDialog() != DialogResult.OK) return;
             _kotorVersionIndex = specifyKotorVersion.KotorVerIndexSelected;
-            if (_kotorVersionIndex == 0)
-                Text = "2DA Editor - Kotor I";
-            else if (_kotorVersionIndex == 1)
-                Text = "2DA Editor - Kotor II";
+            if (_kotorVersionIndex == 0) Text = "2DA Editor - Kotor I";
+            else if (_kotorVersionIndex == 1) Text = "2DA Editor - Kotor II";
             if (_lastKotorVersionIndex != _kotorVersionIndex & _gDialogTlk != null)
             {
-                _gDialogTlk =
-                    new ClsDialogTlk(UserSettings.GetSettings().KotorLocation(_kotorVersionIndex) + "\\dialog.tlk");
+                _gDialogTlk = new ClsDialogTlk(ConfigOptions.Paths.KotorLocation(_kotorVersionIndex) + "\\dialog.tlk");
                 if (checked(_numColumns + 1) < Dt.Columns.Count)
                 {
-                    int num1 = (int) Interaction.MsgBox(
-                        "The columns added via the Show Strings function are being removed as the strings may not match between game versions.",
-                        MsgBoxStyle.Information, "");
-                    int num2 = checked(Dt.Columns.Count - 1);
-                    int num3 = checked(_numColumns + 1);
+                    int num1 = (int) Interaction.MsgBox("The columns added via the Show Strings function are being removed as the strings may not match between game versions.", MsgBoxStyle.Information, "");
+                    int num2 = Dt.Columns.Count - 1;
+                    int num3 = _numColumns + 1;
                     int index = num2;
                     while (index >= num3)
                     {
                         Dt.Columns.RemoveAt(index);
                         index += -1;
-                        
                     }
                 }
             }
@@ -1669,9 +1660,7 @@ namespace KotorTool_2._0.Forms
 
         private ClsDialogTlk GetDialogTlk()
         {
-            if (_gDialogTlk == null)
-                _gDialogTlk =
-                    new ClsDialogTlk(UserSettings.GetSettings().KotorLocation(_kotorVersionIndex) + "\\dialog.tlk");
+            if (_gDialogTlk == null) _gDialogTlk = new ClsDialogTlk(ConfigOptions.Paths.KotorLocation(_kotorVersionIndex) + "\\dialog.tlk");
             return _gDialogTlk;
         }
 
@@ -1684,28 +1673,19 @@ namespace KotorTool_2._0.Forms
         public static object GetPrivateField(object passedObject, string fieldName)
         {
             RuntimeHelpers.GetObjectValue(new object());
-            if (passedObject == null)
-                throw new ArgumentNullException("passedObject", "PassedObject must be an instantiated object.");
-            if (fieldName == null || StringType.StrCmp(fieldName.Trim(), "", false) == 0)
-                throw new ArgumentOutOfRangeException("fieldName", "Fieldname must be a non empty string.");
+            if (passedObject == null) throw new ArgumentNullException("passedObject", "PassedObject must be an instantiated object.");
+            if (fieldName == null || StringType.StrCmp(fieldName.Trim(), "", false) == 0) throw new ArgumentOutOfRangeException("fieldName", "Fieldname must be a non empty string.");
             Type type = passedObject.GetType();
-            FieldInfo field = type.GetField(fieldName,
-                BindingFlags.IgnoreCase | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            if (field == null)
-                throw new ArgumentOutOfRangeException("fieldName",
-                    type.FullName + " does not have a field : " + fieldName + ".");
+            FieldInfo field = type.GetField(fieldName, BindingFlags.IgnoreCase | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            if (field == null) throw new ArgumentOutOfRangeException("fieldName", type.FullName + " does not have a field : " + fieldName + ".");
             return RuntimeHelpers.GetObjectValue(field.GetValue(RuntimeHelpers.GetObjectValue(passedObject)));
         }
 
         private void SetPrivateProperty(object passedObject, string propertyName, object value)
         {
-            PropertyInfo property = passedObject.GetType().BaseType.GetProperty(propertyName,
-                BindingFlags.IgnoreCase | BindingFlags.Instance | BindingFlags.NonPublic);
-            if (property == null)
-                return;
-            property.SetValue(RuntimeHelpers.GetObjectValue(passedObject),
-                RuntimeHelpers.GetObjectValue(Convert.ChangeType(RuntimeHelpers.GetObjectValue(value),
-                    property.PropertyType)), null);
+            PropertyInfo property = passedObject.GetType().BaseType.GetProperty(propertyName, BindingFlags.IgnoreCase | BindingFlags.Instance | BindingFlags.NonPublic);
+            if (property == null) return;
+            property.SetValue(RuntimeHelpers.GetObjectValue(passedObject), RuntimeHelpers.GetObjectValue(Convert.ChangeType(RuntimeHelpers.GetObjectValue(value), property.PropertyType)), null);
         }
 
         public class TwoDaDataGrid : DataGrid

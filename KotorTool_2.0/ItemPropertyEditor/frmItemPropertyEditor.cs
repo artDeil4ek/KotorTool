@@ -1155,7 +1155,7 @@ namespace KotorTool_2._0.Forms
 
     private void frm_Closing(object sender, CancelEventArgs e)
     {
-      SaveSettings(Name);
+     // SaveSettings(Name);
     }
 
     private void FillComboBoxFrom2DA(ComboBox cmbx, string colName, Cls2Da TwoDA, ClsDialogTlk DialogTlk = null)

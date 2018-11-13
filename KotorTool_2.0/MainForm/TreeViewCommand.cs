@@ -527,7 +527,7 @@ namespace KotorTool_2._0.MainForm
             }
             else if (StringType.StrCmp(resTypeStr, "utp", false) == 0)
             {
-                using (frmUTP_Editor frmUtpEditor = new frmUTP_Editor(new ClsUtp(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView,node)), KotorTreeNode.NodeTreeRootIndex(treeView,node)))
+                using (FrmUtpEditor frmUtpEditor = new FrmUtpEditor(new ClsUtp(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView,node)), KotorTreeNode.NodeTreeRootIndex(treeView,node)))
                 {
                     frmUtpEditor.EditingFilePath = ConfigOptions.Paths.DefaultSaveLocation + "\\" + node.Text;
                     frmUtpEditor.Show();

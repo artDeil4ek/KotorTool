@@ -18,6 +18,7 @@ using System.Windows.Forms;
 using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.Models.CLS;
 using KotorTool_2._0.Models.GFF;
+using KotorTool_2._0.Options;
 using KotorTool_2._0.TextEditor;
 using KotorTool_2._0.Utils;
 using KotorTool_2._0.ViewModels;
@@ -2931,7 +2932,7 @@ namespace KotorTool_2._0.Forms
       else
         Text = Text + "II";
       CurrentSettings = UserSettings.GetSettings();
-      g_clsDialogTlk = new ClsDialogTlk(CurrentSettings.KotorLocation(KotorVerIndex) + "\\dialog.tlk");
+      g_clsDialogTlk = new ClsDialogTlk(ConfigOptions.Paths.KotorLocation(KotorVerIndex) + "\\dialog.tlk");
       UTC = UTCClass;
       KotorVersionIndex = KotorVerIndex;
       IntegerType.FromObject(UTC.GetNodeValue("Color_Skin"));
@@ -5841,7 +5842,7 @@ namespace KotorTool_2._0.Forms
 
     public void Setup()
     {
-      ClsChitinKey clsChitinKey = new ClsChitinKey(CurrentSettings.KeyFileLocation(KotorVersionIndex));
+      ClsChitinKey clsChitinKey = new ClsChitinKey(ConfigOptions.Paths.KeyFileLocation(KotorVersionIndex));
       BuildComboBoxes(clsChitinKey);
       UTC.SetTextBoxFromCExoLocStringNodeValue(tbFirstName, "FirstName");
       UTC.SetTextBoxFromCExoLocStringNodeValue(tbLastName, "LastName");
@@ -6301,7 +6302,7 @@ namespace KotorTool_2._0.Forms
       SetGFFNodeValues();
       if (!m_bSaveGameMode)
       {
-        m_EditingFilePath = StringType.FromObject(FileUtils.GetFilePath("save", CurrentSettings.DefaultSaveLocation, Path.GetFileNameWithoutExtension(m_EditingFilePath) + ".utc", "", ""));
+        m_EditingFilePath = StringType.FromObject(FileUtils.GetFilePath("save", ConfigOptions.Paths.DefaultSaveLocation, Path.GetFileNameWithoutExtension(m_EditingFilePath) + ".utc", "", ""));
         if (StringType.StrCmp(m_EditingFilePath, "", false) == 0)
           return;
       }
@@ -6430,7 +6431,7 @@ namespace KotorTool_2._0.Forms
 
     private void frmUTC_Editor_Closing(object sender, CancelEventArgs e)
     {
-      SaveSettings(GetType().Name);
+     // SaveSettings(GetType().Name);
     }
 
     public void SetFormName(string Name)
@@ -6453,9 +6454,9 @@ namespace KotorTool_2._0.Forms
     {
       bool flag = true;
       byte[] numArray = null;
-      if (CurrentSettings.BUseOverrideFiles)
+      if (ConfigOptions.Toggles.UseOverrideFiles)
       {
-        string path = CurrentSettings.KotorLocation(KotorVersionIndex) + "\\override\\" + TwoDAName + ".2da";
+        string path = ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\override\\" + TwoDAName + ".2da";
         try
         {
           if (File.Exists(path))

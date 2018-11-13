@@ -19,6 +19,7 @@ using KotorTool_2._0.Models;
 using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.Models.CLS;
 using KotorTool_2._0.Models.GFF;
+using KotorTool_2._0.Options;
 using KotorTool_2._0.TextEditor;
 using KotorTool_2._0.Utils;
 using Microsoft.VisualBasic;
@@ -1778,7 +1779,7 @@ namespace KotorTool_2._0.Forms
       }
       result = fmSystem.init(32, INITFLAGS.NORMAL, (IntPtr) (null ?? Activator.CreateInstance(typeof (IntPtr))));
       htBIFSounds = ChitinKey.KxChitinKey(KotorVersionIndex).GetBifFileHash("sounds");
-      SoundsBifPath = Constants.CurrentSettings.KotorLocation(KotorVersionIndex) + "\\";
+      SoundsBifPath = ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\";
       SoundsBifPath = SoundsBifPath + ((BiffEntry) ChitinKey.KxChitinKey(KotorVersionIndex).BiffListInfo["sounds"]).Filename;
      // SoundsResInfo = BiffArchive.GetBiffResourceInfoList(SoundsBifPath);
     }
@@ -3480,7 +3481,7 @@ namespace KotorTool_2._0.Forms
       if (htStreamSounds == null)
       {
         htStreamSounds = new Hashtable();
-        FileInfo[] files = new DirectoryInfo(Constants.CurrentSettings.KotorLocation(KotorVersionIndex) + "\\StreamSounds").GetFiles();
+        FileInfo[] files = new DirectoryInfo(ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\StreamSounds").GetFiles();
         int index = 0;
         while (index < files.Length)
         {
@@ -3585,7 +3586,7 @@ namespace KotorTool_2._0.Forms
       SetGFFNodeValues();
       if (!m_bSaveGameMode)
       {
-        m_EditingFilePath = StringType.FromObject(FileUtils.GetFilePath("save", CurrentSettings.DefaultSaveLocation, Path.GetFileNameWithoutExtension(m_EditingFilePath) + ".uts", "", ""));
+        m_EditingFilePath = StringType.FromObject(FileUtils.GetFilePath("save", ConfigOptions.Paths.DefaultSaveLocation, Path.GetFileNameWithoutExtension(m_EditingFilePath) + ".uts", "", ""));
         if (StringType.StrCmp(m_EditingFilePath, "", false) == 0) return;
       }
 
@@ -3682,7 +3683,7 @@ namespace KotorTool_2._0.Forms
 
     private void frmUTS_Editor_Closing(object sender, CancelEventArgs e)
     {
-      SaveSettings(GetType().Name);
+      //SaveSettings(GetType().Name);
       ClosedownSound();
     }
 
@@ -3786,16 +3787,16 @@ namespace KotorTool_2._0.Forms
         //flag = true;
       }
       else if (File.Exists(g_ProjectPath + "\\extras\\" + filename)) filename = g_ProjectPath + "\\extras\\" + filename;
-      else if (CurrentSettings.BUseOverrideFiles && File.Exists(Constants.CurrentSettings.KotorLocation(KotorVersionIndex) + "\\Override\\" + filename)) filename = Constants.CurrentSettings.KotorLocation(KotorVersionIndex) + "\\Override\\" + filename;
-      else if (File.Exists(Constants.CurrentSettings.KotorLocation(KotorVersionIndex) + "\\StreamSounds\\" + filename)) filename = Constants.CurrentSettings.KotorLocation(KotorVersionIndex) + "\\StreamSounds\\" + filename;
-      else if (File.Exists(Constants.CurrentSettings.KotorLocation(KotorVersionIndex) + "\\StreamVoice\\" + filename))
+      else if (ConfigOptions.Toggles.UseOverrideFiles && File.Exists(ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\Override\\" + filename)) filename = ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\Override\\" + filename;
+      else if (File.Exists(ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\StreamSounds\\" + filename)) filename = ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\StreamSounds\\" + filename;
+      else if (File.Exists(ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\StreamVoice\\" + filename))
       {
-        filename = Constants.CurrentSettings.KotorLocation(KotorVersionIndex) + "\\StreamVoice\\" + filename;
+        filename = ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\StreamVoice\\" + filename;
       }
       else
       {
-        if (!File.Exists(Constants.CurrentSettings.KotorLocation(KotorVersionIndex) + "\\StreamMusic\\" + filename)) return false;
-        filename = Constants.CurrentSettings.KotorLocation(KotorVersionIndex) + "\\StreamMusic\\" + filename;
+        if (!File.Exists(ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\StreamMusic\\" + filename)) return false;
+        filename = ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\StreamMusic\\" + filename;
       }
 
       CREATESOUNDEXINFO exinfo = new CREATESOUNDEXINFO();

@@ -89,8 +89,8 @@ namespace KotorTool_2._0.Options
             public static bool BuildModelsBifNode;
             public static bool ProjMgrUseExternTxtEditor;
             public static bool ProjMgrUseExternDlgEditor;
-            private bool ModuleEditorShowLocatorRay;
-            private bool ModuleEditorConfirmDeletes;
+            public static bool ModuleEditorShowLocatorRay;
+            public static bool ModuleEditorConfirmDeletes;
             public static bool CheckForUpdatesAtStartup;
             public static bool DownloadUpdatesAutomatically;
             public static bool RememberLastTreeNode;
@@ -142,7 +142,7 @@ namespace KotorTool_2._0.Options
             public static Size InventoryEditorWindowSize;
             private Point ModuleEditorWindowLoc;
             private Size ModuleEditorWindowSize;
-            private Decimal ModuleEditorModuleElementIndicatorSize;
+            public static Decimal ModuleEditorModuleElementIndicatorSize;
         }
         
         private string Key;

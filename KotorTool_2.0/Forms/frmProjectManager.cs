@@ -1751,7 +1751,7 @@ namespace KotorTool_2._0.Forms
         private void frmProjectManager_Closing(object sender, CancelEventArgs e)
         {
             AskIfSaveProject();
-            SaveSettings(GetType().Name);
+            //SaveSettings(GetType().Name);
         }
 
         private void TreeView_MouseDown(object sender, MouseEventArgs e)

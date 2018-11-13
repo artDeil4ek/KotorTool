@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.Models.CLS;
 using KotorTool_2._0.Models.GFF;
+using KotorTool_2._0.Options;
 using KotorTool_2._0.TextEditor;
 using KotorTool_2._0.Utils;
 using KotorTool_2._0.ViewModels;
@@ -25,32 +26,32 @@ using FrmMain = KotorTool_2._0.MainForm.FrmMain;
 
 namespace KotorTool_2._0.Forms
 {
-  public class frmUTP_Editor : frmParent
+  public class FrmUtpEditor : frmParent
   {
     [AccessedThroughProperty("Label43")]
-    private Label _Label43;
+    private Label _label43;
     [AccessedThroughProperty("Label21")]
-    private Label _Label21;
+    private Label _label21;
     [AccessedThroughProperty("tbKeyName")]
     private TextBox _tbKeyName;
     [AccessedThroughProperty("Label42")]
-    private Label _Label42;
+    private Label _label42;
     [AccessedThroughProperty("Label20")]
-    private Label _Label20;
+    private Label _label20;
     [AccessedThroughProperty("tbComment")]
     private TextBox _tbComment;
     [AccessedThroughProperty("Label41")]
-    private Label _Label41;
+    private Label _label41;
     [AccessedThroughProperty("Label19")]
-    private Label _Label19;
+    private Label _label19;
     [AccessedThroughProperty("tbOnUserDefined")]
     private TextBox _tbOnUserDefined;
     [AccessedThroughProperty("Label38")]
-    private Label _Label38;
+    private Label _label38;
     [AccessedThroughProperty("Label40")]
-    private Label _Label40;
+    private Label _label40;
     [AccessedThroughProperty("Label18")]
-    private Label _Label18;
+    private Label _label18;
     [AccessedThroughProperty("tbOnUnlock")]
     private TextBox _tbOnUnlock;
     [AccessedThroughProperty("tbOnEndDialogue")]
@@ -62,37 +63,37 @@ namespace KotorTool_2._0.Forms
     [AccessedThroughProperty("tbType")]
     private TextBox _tbType;
     [AccessedThroughProperty("Label17")]
-    private Label _Label17;
+    private Label _label17;
     [AccessedThroughProperty("tbOnTrapTriggered")]
     private TextBox _tbOnTrapTriggered;
     [AccessedThroughProperty("chkbHasInventory")]
     private CheckBox _chkbHasInventory;
     [AccessedThroughProperty("chkbMin1HP")]
-    private CheckBox _chkbMin1HP;
+    private CheckBox _chkbMin1Hp;
     [AccessedThroughProperty("Label36")]
-    private Label _Label36;
+    private Label _label36;
     [AccessedThroughProperty("Label39")]
-    private Label _Label39;
+    private Label _label39;
     [AccessedThroughProperty("Label16")]
-    private Label _Label16;
+    private Label _label16;
     [AccessedThroughProperty("tbOnSpellCastAt")]
     private TextBox _tbOnSpellCastAt;
     [AccessedThroughProperty("chkbTrapOneShot")]
     private CheckBox _chkbTrapOneShot;
     [AccessedThroughProperty("Label34")]
-    private Label _Label34;
+    private Label _label34;
     [AccessedThroughProperty("btnEditOnUserDefined")]
     private Button _btnEditOnUserDefined;
     [AccessedThroughProperty("chkbTrapFlag")]
     private CheckBox _chkbTrapFlag;
     [AccessedThroughProperty("Label15")]
-    private Label _Label15;
+    private Label _label15;
     [AccessedThroughProperty("tbOnOpen")]
     private TextBox _tbOnOpen;
     [AccessedThroughProperty("Label1")]
-    private Label _Label1;
+    private Label _label1;
     [AccessedThroughProperty("Label14")]
-    private Label _Label14;
+    private Label _label14;
     [AccessedThroughProperty("tbOnMeleeAttacked")]
     private TextBox _tbOnMeleeAttacked;
     [AccessedThroughProperty("chkbPartyInteract")]
@@ -110,7 +111,7 @@ namespace KotorTool_2._0.Forms
     [AccessedThroughProperty("lblTrapDetectable")]
     private Label _lblTrapDetectable;
     [AccessedThroughProperty("Label13")]
-    private Label _Label13;
+    private Label _label13;
     [AccessedThroughProperty("tbOnLock")]
     private TextBox _tbOnLock;
     [AccessedThroughProperty("tbOnDisarm")]
@@ -120,9 +121,9 @@ namespace KotorTool_2._0.Forms
     [AccessedThroughProperty("chkbInterruptable")]
     private CheckBox _chkbInterruptable;
     [AccessedThroughProperty("Label37")]
-    private Label _Label37;
+    private Label _label37;
     [AccessedThroughProperty("Label35")]
-    private Label _Label35;
+    private Label _label35;
     [AccessedThroughProperty("btnEditOnDeath")]
     private Button _btnEditOnDeath;
     [AccessedThroughProperty("btnEditOnHeartbeat")]
@@ -130,15 +131,15 @@ namespace KotorTool_2._0.Forms
     [AccessedThroughProperty("lblBodyVariation")]
     private Label _lblBodyVariation;
     [AccessedThroughProperty("TabControl1")]
-    private TabControl _TabControl1;
+    private TabControl _tabControl1;
     [AccessedThroughProperty("lblTextureVariation")]
     private Label _lblTextureVariation;
     [AccessedThroughProperty("btnEditOnMeleeAttacked")]
     private Button _btnEditOnMeleeAttacked;
     [AccessedThroughProperty("nudTrapDetectDC")]
-    private NumericUpDown _nudTrapDetectDC;
+    private NumericUpDown _nudTrapDetectDc;
     [AccessedThroughProperty("Label33")]
-    private Label _Label33;
+    private Label _label33;
     [AccessedThroughProperty("btnEditOnLock")]
     private Button _btnEditOnLock;
     [AccessedThroughProperty("tbOnDeath")]
@@ -146,33 +147,33 @@ namespace KotorTool_2._0.Forms
     [AccessedThroughProperty("chkbTrapDisarmable")]
     private CheckBox _chkbTrapDisarmable;
     [AccessedThroughProperty("Label3")]
-    private Label _Label3;
+    private Label _label3;
     [AccessedThroughProperty("Label4")]
-    private Label _Label4;
+    private Label _label4;
     [AccessedThroughProperty("Label5")]
-    private Label _Label5;
+    private Label _label5;
     [AccessedThroughProperty("chkbPlotItem")]
     private CheckBox _chkbPlotItem;
     [AccessedThroughProperty("Label12")]
-    private Label _Label12;
+    private Label _label12;
     [AccessedThroughProperty("nudDisarmDC")]
-    private NumericUpDown _nudDisarmDC;
+    private NumericUpDown _nudDisarmDc;
     [AccessedThroughProperty("TabPageComments")]
-    private TabPage _TabPageComments;
+    private TabPage _tabPageComments;
     [AccessedThroughProperty("chkbTrapDetectable")]
     private CheckBox _chkbTrapDetectable;
     [AccessedThroughProperty("Label32")]
-    private Label _Label32;
+    private Label _label32;
     [AccessedThroughProperty("btnEditOnClosed")]
     private Button _btnEditOnClosed;
     [AccessedThroughProperty("TabPageDescription")]
-    private TabPage _TabPageDescription;
+    private TabPage _tabPageDescription;
     [AccessedThroughProperty("btnEditOnEndDialogue")]
     private Button _btnEditOnEndDialogue;
     [AccessedThroughProperty("btnEditOnSpellCastAt")]
     private Button _btnEditOnSpellCastAt;
     [AccessedThroughProperty("TabPageTrap")]
-    private TabPage _TabPageTrap;
+    private TabPage _tabPageTrap;
     [AccessedThroughProperty("btnEditOnUsed")]
     private Button _btnEditOnUsed;
     [AccessedThroughProperty("btnEditOnDamaged")]
@@ -184,7 +185,7 @@ namespace KotorTool_2._0.Forms
     [AccessedThroughProperty("tbConversation")]
     private TextBox _tbConversation;
     [AccessedThroughProperty("nudCloseLockDC")]
-    private NumericUpDown _nudCloseLockDC;
+    private NumericUpDown _nudCloseLockDc;
     [AccessedThroughProperty("btnEditOnTrapTriggered")]
     private Button _btnEditOnTrapTriggered;
     [AccessedThroughProperty("tbDescription")]
@@ -194,23 +195,23 @@ namespace KotorTool_2._0.Forms
     [AccessedThroughProperty("btnCancel")]
     private Button _btnCancel;
     [AccessedThroughProperty("TabPageAdvanced")]
-    private TabPage _TabPageAdvanced;
+    private TabPage _tabPageAdvanced;
     [AccessedThroughProperty("TabPageScripts")]
-    private TabPage _TabPageScripts;
+    private TabPage _tabPageScripts;
     [AccessedThroughProperty("tbTemplateResRef")]
     private TextBox _tbTemplateResRef;
     [AccessedThroughProperty("Label22")]
-    private Label _Label22;
+    private Label _label22;
     [AccessedThroughProperty("Label11")]
-    private Label _Label11;
+    private Label _label11;
     [AccessedThroughProperty("TabPageLock")]
-    private TabPage _TabPageLock;
+    private TabPage _tabPageLock;
     [AccessedThroughProperty("TabPageBasic")]
-    private TabPage _TabPageBasic;
+    private TabPage _tabPageBasic;
     [AccessedThroughProperty("tbOnDamaged")]
     private TextBox _tbOnDamaged;
     [AccessedThroughProperty("nudOpenLockDC")]
-    private NumericUpDown _nudOpenLockDC;
+    private NumericUpDown _nudOpenLockDc;
     [AccessedThroughProperty("tbOnHeartbeat")]
     private TextBox _tbOnHeartbeat;
     [AccessedThroughProperty("btnInventory")]
@@ -218,9 +219,9 @@ namespace KotorTool_2._0.Forms
     [AccessedThroughProperty("chkbStatic")]
     private CheckBox _chkbStatic;
     [AccessedThroughProperty("lblOpenLockDC")]
-    private Label _lblOpenLockDC;
+    private Label _lblOpenLockDc;
     [AccessedThroughProperty("lblCloseLockDC")]
-    private Label _lblCloseLockDC;
+    private Label _lblCloseLockDc;
     [AccessedThroughProperty("lblKeyTag")]
     private Label _lblKeyTag;
     [AccessedThroughProperty("btnSave")]
@@ -240,21 +241,21 @@ namespace KotorTool_2._0.Forms
     [AccessedThroughProperty("btnEditOnInvDisturbed")]
     private Button _btnEditOnInvDisturbed;
     [AccessedThroughProperty("nudHP")]
-    private NumericUpDown _nudHP;
+    private NumericUpDown _nudHp;
     [AccessedThroughProperty("nudFort")]
     private NumericUpDown _nudFort;
     [AccessedThroughProperty("Label10")]
-    private Label _Label10;
+    private Label _label10;
     [AccessedThroughProperty("btnDebug")]
     private Button _btnDebug;
     [AccessedThroughProperty("Label8")]
-    private Label _Label8;
+    private Label _label8;
     [AccessedThroughProperty("chkbKeyRequired")]
     private CheckBox _chkbKeyRequired;
     [AccessedThroughProperty("Label6")]
-    private Label _Label6;
+    private Label _label6;
     [AccessedThroughProperty("Label2")]
-    private Label _Label2;
+    private Label _label2;
     [AccessedThroughProperty("btnSetNameLang")]
     private Button _btnSetNameLang;
     [AccessedThroughProperty("nudWill")]
@@ -264,40 +265,40 @@ namespace KotorTool_2._0.Forms
     [AccessedThroughProperty("btnSetDescriptionLang")]
     private Button _btnSetDescriptionLang;
     private IContainer components;
-    public ClsUtp UTP;
-    public ClsDialogTlk g_clsDialogTlk;
-    public ClsChitinKey g_clsChitinKey;
-    private int DescriptionLang;
-    private int NameLang;
-    private bool m_bSaveGameMode;
+    public ClsUtp Utp;
+    public ClsDialogTlk GClsDialogTlk;
+    public ClsChitinKey GClsChitinKey;
+    private int _descriptionLang;
+    private int _nameLang;
+    private bool _mBSaveGameMode;
 
     internal virtual TabControl TabControl1
     {
-      get => _TabControl1;
+      get => _tabControl1;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_TabControl1 == null)
+        if (_tabControl1 == null)
           ;
-        _TabControl1 = value;
-        if (_TabControl1 != null)
+        _tabControl1 = value;
+        if (_tabControl1 != null)
           ;
       }
     }
 
     internal virtual TabPage TabPageBasic
     {
-      get => _TabPageBasic;
+      get => _tabPageBasic;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_TabPageBasic == null)
+        if (_tabPageBasic == null)
           ;
-        _TabPageBasic = value;
-        if (_TabPageBasic != null)
+        _tabPageBasic = value;
+        if (_tabPageBasic != null)
           ;
       }
     }
 
-    internal virtual Button btnSetNameLang
+    internal virtual Button BtnSetNameLang
     {
       get => _btnSetNameLang;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -313,18 +314,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label5
     {
-      get => _Label5;
+      get => _label5;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label5 == null)
+        if (_label5 == null)
           ;
-        _Label5 = value;
-        if (_Label5 != null)
+        _label5 = value;
+        if (_label5 != null)
           ;
       }
     }
 
-    internal virtual NumericUpDown nudWill
+    internal virtual NumericUpDown NudWill
     {
       get => _nudWill;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -337,7 +338,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual NumericUpDown nudFort
+    internal virtual NumericUpDown NudFort
     {
       get => _nudFort;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -350,20 +351,20 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual NumericUpDown nudHP
+    internal virtual NumericUpDown NudHp
     {
-      get => _nudHP;
+      get => _nudHp;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_nudHP == null)
+        if (_nudHp == null)
           ;
-        _nudHP = value;
-        if (_nudHP != null)
+        _nudHp = value;
+        if (_nudHp != null)
           ;
       }
     }
 
-    internal virtual Label lblTextureVariation
+    internal virtual Label LblTextureVariation
     {
       get => _lblTextureVariation;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -378,18 +379,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label8
     {
-      get => _Label8;
+      get => _label8;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label8 == null)
+        if (_label8 == null)
           ;
-        _Label8 = value;
-        if (_Label8 != null)
+        _label8 = value;
+        if (_label8 != null)
           ;
       }
     }
 
-    internal virtual NumericUpDown nudHardness
+    internal virtual NumericUpDown NudHardness
     {
       get => _nudHardness;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -402,7 +403,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual NumericUpDown nudRef
+    internal virtual NumericUpDown NudRef
     {
       get => _nudRef;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -417,18 +418,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label12
     {
-      get => _Label12;
+      get => _label12;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label12 == null)
+        if (_label12 == null)
           ;
-        _Label12 = value;
-        if (_Label12 != null)
+        _label12 = value;
+        if (_label12 != null)
           ;
       }
     }
 
-    internal virtual Label lblBodyVariation
+    internal virtual Label LblBodyVariation
     {
       get => _lblBodyVariation;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -441,7 +442,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual CheckBox chkbPlotItem
+    internal virtual CheckBox ChkbPlotItem
     {
       get => _chkbPlotItem;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -454,7 +455,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual TextBox tbTag
+    internal virtual TextBox TbTag
     {
       get => _tbTag;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -467,7 +468,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual TextBox tbName
+    internal virtual TextBox TbName
     {
       get => _tbName;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -482,31 +483,31 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label1
     {
-      get => _Label1;
+      get => _label1;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label1 == null)
+        if (_label1 == null)
           ;
-        _Label1 = value;
-        if (_Label1 != null)
+        _label1 = value;
+        if (_label1 != null)
           ;
       }
     }
 
     internal virtual Label Label2
     {
-      get => _Label2;
+      get => _label2;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label2 == null)
+        if (_label2 == null)
           ;
-        _Label2 = value;
-        if (_Label2 != null)
+        _label2 = value;
+        if (_label2 != null)
           ;
       }
     }
 
-    internal virtual CheckBox chkbStatic
+    internal virtual CheckBox ChkbStatic
     {
       get => _chkbStatic;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -521,18 +522,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual TabPage TabPageLock
     {
-      get => _TabPageLock;
+      get => _tabPageLock;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_TabPageLock == null)
+        if (_tabPageLock == null)
           ;
-        _TabPageLock = value;
-        if (_TabPageLock != null)
+        _tabPageLock = value;
+        if (_tabPageLock != null)
           ;
       }
     }
 
-    internal virtual TextBox tbKeyName
+    internal virtual TextBox TbKeyName
     {
       get => _tbKeyName;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -545,7 +546,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Label lblKeyTag
+    internal virtual Label LblKeyTag
     {
       get => _lblKeyTag;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -558,59 +559,59 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual NumericUpDown nudCloseLockDC
+    internal virtual NumericUpDown NudCloseLockDc
     {
-      get => _nudCloseLockDC;
+      get => _nudCloseLockDc;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_nudCloseLockDC == null)
+        if (_nudCloseLockDc == null)
           ;
-        _nudCloseLockDC = value;
-        if (_nudCloseLockDC != null)
+        _nudCloseLockDc = value;
+        if (_nudCloseLockDc != null)
           ;
       }
     }
 
-    internal virtual Label lblCloseLockDC
+    internal virtual Label LblCloseLockDc
     {
-      get => _lblCloseLockDC;
+      get => _lblCloseLockDc;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_lblCloseLockDC == null)
+        if (_lblCloseLockDc == null)
           ;
-        _lblCloseLockDC = value;
-        if (_lblCloseLockDC != null)
+        _lblCloseLockDc = value;
+        if (_lblCloseLockDc != null)
           ;
       }
     }
 
-    internal virtual NumericUpDown nudOpenLockDC
+    internal virtual NumericUpDown NudOpenLockDc
     {
-      get => _nudOpenLockDC;
+      get => _nudOpenLockDc;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_nudOpenLockDC == null)
+        if (_nudOpenLockDc == null)
           ;
-        _nudOpenLockDC = value;
-        if (_nudOpenLockDC != null)
+        _nudOpenLockDc = value;
+        if (_nudOpenLockDc != null)
           ;
       }
     }
 
-    internal virtual Label lblOpenLockDC
+    internal virtual Label LblOpenLockDc
     {
-      get => _lblOpenLockDC;
+      get => _lblOpenLockDc;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_lblOpenLockDC == null)
+        if (_lblOpenLockDc == null)
           ;
-        _lblOpenLockDC = value;
-        if (_lblOpenLockDC != null)
+        _lblOpenLockDc = value;
+        if (_lblOpenLockDc != null)
           ;
       }
     }
 
-    internal virtual CheckBox chkbLockable
+    internal virtual CheckBox ChkbLockable
     {
       get => _chkbLockable;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -624,7 +625,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual CheckBox chkbLocked
+    internal virtual CheckBox ChkbLocked
     {
       get => _chkbLocked;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -638,7 +639,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual CheckBox chkbKeyRequired
+    internal virtual CheckBox ChkbKeyRequired
     {
       get => _chkbKeyRequired;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -651,7 +652,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual CheckBox chkbAutoRemoveKey
+    internal virtual CheckBox ChkbAutoRemoveKey
     {
       get => _chkbAutoRemoveKey;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -666,31 +667,31 @@ namespace KotorTool_2._0.Forms
 
     internal virtual TabPage TabPageScripts
     {
-      get => _TabPageScripts;
+      get => _tabPageScripts;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_TabPageScripts == null)
+        if (_tabPageScripts == null)
           ;
-        _TabPageScripts = value;
-        if (_TabPageScripts != null)
+        _tabPageScripts = value;
+        if (_tabPageScripts != null)
           ;
       }
     }
 
     internal virtual Label Label34
     {
-      get => _Label34;
+      get => _label34;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label34 == null)
+        if (_label34 == null)
           ;
-        _Label34 = value;
-        if (_Label34 != null)
+        _label34 = value;
+        if (_label34 != null)
           ;
       }
     }
 
-    internal virtual TextBox tbOnDeath
+    internal virtual TextBox TbOnDeath
     {
       get => _tbOnDeath;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -705,18 +706,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label33
     {
-      get => _Label33;
+      get => _label33;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label33 == null)
+        if (_label33 == null)
           ;
-        _Label33 = value;
-        if (_Label33 != null)
+        _label33 = value;
+        if (_label33 != null)
           ;
       }
     }
 
-    internal virtual TextBox tbOnDamaged
+    internal virtual TextBox TbOnDamaged
     {
       get => _tbOnDamaged;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -731,18 +732,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label32
     {
-      get => _Label32;
+      get => _label32;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label32 == null)
+        if (_label32 == null)
           ;
-        _Label32 = value;
-        if (_Label32 != null)
+        _label32 = value;
+        if (_label32 != null)
           ;
       }
     }
 
-    internal virtual TextBox tbOnClosed
+    internal virtual TextBox TbOnClosed
     {
       get => _tbOnClosed;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -757,18 +758,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label35
     {
-      get => _Label35;
+      get => _label35;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label35 == null)
+        if (_label35 == null)
           ;
-        _Label35 = value;
-        if (_Label35 != null)
+        _label35 = value;
+        if (_label35 != null)
           ;
       }
     }
 
-    internal virtual TextBox tbOnDisarm
+    internal virtual TextBox TbOnDisarm
     {
       get => _tbOnDisarm;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -781,7 +782,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual TextBox tbOnHeartbeat
+    internal virtual TextBox TbOnHeartbeat
     {
       get => _tbOnHeartbeat;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -796,31 +797,31 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label36
     {
-      get => _Label36;
+      get => _label36;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label36 == null)
+        if (_label36 == null)
           ;
-        _Label36 = value;
-        if (_Label36 != null)
+        _label36 = value;
+        if (_label36 != null)
           ;
       }
     }
 
     internal virtual Label Label37
     {
-      get => _Label37;
+      get => _label37;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label37 == null)
+        if (_label37 == null)
           ;
-        _Label37 = value;
-        if (_Label37 != null)
+        _label37 = value;
+        if (_label37 != null)
           ;
       }
     }
 
-    internal virtual TextBox tbOnLock
+    internal virtual TextBox TbOnLock
     {
       get => _tbOnLock;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -833,7 +834,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual TextBox tbOnMeleeAttacked
+    internal virtual TextBox TbOnMeleeAttacked
     {
       get => _tbOnMeleeAttacked;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -848,18 +849,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label38
     {
-      get => _Label38;
+      get => _label38;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label38 == null)
+        if (_label38 == null)
           ;
-        _Label38 = value;
-        if (_Label38 != null)
+        _label38 = value;
+        if (_label38 != null)
           ;
       }
     }
 
-    internal virtual TextBox tbOnOpen
+    internal virtual TextBox TbOnOpen
     {
       get => _tbOnOpen;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -874,31 +875,31 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label39
     {
-      get => _Label39;
+      get => _label39;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label39 == null)
+        if (_label39 == null)
           ;
-        _Label39 = value;
-        if (_Label39 != null)
+        _label39 = value;
+        if (_label39 != null)
           ;
       }
     }
 
     internal virtual Label Label40
     {
-      get => _Label40;
+      get => _label40;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label40 == null)
+        if (_label40 == null)
           ;
-        _Label40 = value;
-        if (_Label40 != null)
+        _label40 = value;
+        if (_label40 != null)
           ;
       }
     }
 
-    internal virtual TextBox tbOnSpellCastAt
+    internal virtual TextBox TbOnSpellCastAt
     {
       get => _tbOnSpellCastAt;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -913,18 +914,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label41
     {
-      get => _Label41;
+      get => _label41;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label41 == null)
+        if (_label41 == null)
           ;
-        _Label41 = value;
-        if (_Label41 != null)
+        _label41 = value;
+        if (_label41 != null)
           ;
       }
     }
 
-    internal virtual TextBox tbOnTrapTriggered
+    internal virtual TextBox TbOnTrapTriggered
     {
       get => _tbOnTrapTriggered;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -937,7 +938,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual TextBox tbOnUnlock
+    internal virtual TextBox TbOnUnlock
     {
       get => _tbOnUnlock;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -952,18 +953,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label42
     {
-      get => _Label42;
+      get => _label42;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label42 == null)
+        if (_label42 == null)
           ;
-        _Label42 = value;
-        if (_Label42 != null)
+        _label42 = value;
+        if (_label42 != null)
           ;
       }
     }
 
-    internal virtual TextBox tbOnUserDefined
+    internal virtual TextBox TbOnUserDefined
     {
       get => _tbOnUserDefined;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -978,31 +979,31 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label43
     {
-      get => _Label43;
+      get => _label43;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label43 == null)
+        if (_label43 == null)
           ;
-        _Label43 = value;
-        if (_Label43 != null)
+        _label43 = value;
+        if (_label43 != null)
           ;
       }
     }
 
     internal virtual TabPage TabPageAdvanced
     {
-      get => _TabPageAdvanced;
+      get => _tabPageAdvanced;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_TabPageAdvanced == null)
+        if (_tabPageAdvanced == null)
           ;
-        _TabPageAdvanced = value;
-        if (_TabPageAdvanced != null)
+        _tabPageAdvanced = value;
+        if (_tabPageAdvanced != null)
           ;
       }
     }
 
-    internal virtual TextBox tbConversation
+    internal virtual TextBox TbConversation
     {
       get => _tbConversation;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1015,7 +1016,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual TextBox tbFaction
+    internal virtual TextBox TbFaction
     {
       get => _tbFaction;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1028,7 +1029,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual TextBox tbTemplateResRef
+    internal virtual TextBox TbTemplateResRef
     {
       get => _tbTemplateResRef;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1043,57 +1044,57 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label10
     {
-      get => _Label10;
+      get => _label10;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label10 == null)
+        if (_label10 == null)
           ;
-        _Label10 = value;
-        if (_Label10 != null)
+        _label10 = value;
+        if (_label10 != null)
           ;
       }
     }
 
     internal virtual Label Label11
     {
-      get => _Label11;
+      get => _label11;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label11 == null)
+        if (_label11 == null)
           ;
-        _Label11 = value;
-        if (_Label11 != null)
+        _label11 = value;
+        if (_label11 != null)
           ;
       }
     }
 
     internal virtual Label Label13
     {
-      get => _Label13;
+      get => _label13;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label13 == null)
+        if (_label13 == null)
           ;
-        _Label13 = value;
-        if (_Label13 != null)
+        _label13 = value;
+        if (_label13 != null)
           ;
       }
     }
 
     internal virtual Label Label14
     {
-      get => _Label14;
+      get => _label14;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label14 == null)
+        if (_label14 == null)
           ;
-        _Label14 = value;
-        if (_Label14 != null)
+        _label14 = value;
+        if (_label14 != null)
           ;
       }
     }
 
-    internal virtual TextBox tbAnimationState
+    internal virtual TextBox TbAnimationState
     {
       get => _tbAnimationState;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1108,18 +1109,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual TabPage TabPageDescription
     {
-      get => _TabPageDescription;
+      get => _tabPageDescription;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_TabPageDescription == null)
+        if (_tabPageDescription == null)
           ;
-        _TabPageDescription = value;
-        if (_TabPageDescription != null)
+        _tabPageDescription = value;
+        if (_tabPageDescription != null)
           ;
       }
     }
 
-    internal virtual Button btnSetDescriptionLang
+    internal virtual Button BtnSetDescriptionLang
     {
       get => _btnSetDescriptionLang;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1133,7 +1134,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual TextBox tbDescription
+    internal virtual TextBox TbDescription
     {
       get => _tbDescription;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1148,18 +1149,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual TabPage TabPageComments
     {
-      get => _TabPageComments;
+      get => _tabPageComments;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_TabPageComments == null)
+        if (_tabPageComments == null)
           ;
-        _TabPageComments = value;
-        if (_TabPageComments != null)
+        _tabPageComments = value;
+        if (_tabPageComments != null)
           ;
       }
     }
 
-    internal virtual TextBox tbComment
+    internal virtual TextBox TbComment
     {
       get => _tbComment;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1172,7 +1173,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnSave
+    internal virtual Button BtnSave
     {
       get => _btnSave;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1186,7 +1187,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnCancel
+    internal virtual Button BtnCancel
     {
       get => _btnCancel;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1200,33 +1201,33 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual CheckBox chkbMin1HP
+    internal virtual CheckBox ChkbMin1Hp
     {
-      get => _chkbMin1HP;
+      get => _chkbMin1Hp;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_chkbMin1HP == null)
+        if (_chkbMin1Hp == null)
           ;
-        _chkbMin1HP = value;
-        if (_chkbMin1HP != null)
+        _chkbMin1Hp = value;
+        if (_chkbMin1Hp != null)
           ;
       }
     }
 
     internal virtual TabPage TabPageTrap
     {
-      get => _TabPageTrap;
+      get => _tabPageTrap;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_TabPageTrap == null)
+        if (_tabPageTrap == null)
           ;
-        _TabPageTrap = value;
-        if (_TabPageTrap != null)
+        _tabPageTrap = value;
+        if (_tabPageTrap != null)
           ;
       }
     }
 
-    internal virtual CheckBox chkbTrapDisarmable
+    internal virtual CheckBox ChkbTrapDisarmable
     {
       get => _chkbTrapDisarmable;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1239,7 +1240,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual CheckBox chkbTrapDetectable
+    internal virtual CheckBox ChkbTrapDetectable
     {
       get => _chkbTrapDetectable;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1254,96 +1255,96 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label6
     {
-      get => _Label6;
+      get => _label6;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label6 == null)
+        if (_label6 == null)
           ;
-        _Label6 = value;
-        if (_Label6 != null)
+        _label6 = value;
+        if (_label6 != null)
           ;
       }
     }
 
     internal virtual Label Label3
     {
-      get => _Label3;
+      get => _label3;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label3 == null)
+        if (_label3 == null)
           ;
-        _Label3 = value;
-        if (_Label3 != null)
+        _label3 = value;
+        if (_label3 != null)
           ;
       }
     }
 
-    internal virtual NumericUpDown nudDisarmDC
+    internal virtual NumericUpDown NudDisarmDc
     {
-      get => _nudDisarmDC;
+      get => _nudDisarmDc;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_nudDisarmDC == null)
+        if (_nudDisarmDc == null)
           ;
-        _nudDisarmDC = value;
-        if (_nudDisarmDC != null)
+        _nudDisarmDc = value;
+        if (_nudDisarmDc != null)
           ;
       }
     }
 
     internal virtual Label Label4
     {
-      get => _Label4;
+      get => _label4;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label4 == null)
+        if (_label4 == null)
           ;
-        _Label4 = value;
-        if (_Label4 != null)
+        _label4 = value;
+        if (_label4 != null)
           ;
       }
     }
 
     internal virtual Label Label15
     {
-      get => _Label15;
+      get => _label15;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label15 == null)
+        if (_label15 == null)
           ;
-        _Label15 = value;
-        if (_Label15 != null)
+        _label15 = value;
+        if (_label15 != null)
           ;
       }
     }
 
-    internal virtual NumericUpDown nudTrapDetectDC
+    internal virtual NumericUpDown NudTrapDetectDc
     {
-      get => _nudTrapDetectDC;
+      get => _nudTrapDetectDc;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_nudTrapDetectDC == null)
+        if (_nudTrapDetectDc == null)
           ;
-        _nudTrapDetectDC = value;
-        if (_nudTrapDetectDC != null)
+        _nudTrapDetectDc = value;
+        if (_nudTrapDetectDc != null)
           ;
       }
     }
 
     internal virtual Label Label16
     {
-      get => _Label16;
+      get => _label16;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label16 == null)
+        if (_label16 == null)
           ;
-        _Label16 = value;
-        if (_Label16 != null)
+        _label16 = value;
+        if (_label16 != null)
           ;
       }
     }
 
-    internal virtual Label lblTrapDetectable
+    internal virtual Label LblTrapDetectable
     {
       get => _lblTrapDetectable;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1356,7 +1357,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual NumericUpDown nudTrapType
+    internal virtual NumericUpDown NudTrapType
     {
       get => _nudTrapType;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1371,18 +1372,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label17
     {
-      get => _Label17;
+      get => _label17;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label17 == null)
+        if (_label17 == null)
           ;
-        _Label17 = value;
-        if (_Label17 != null)
+        _label17 = value;
+        if (_label17 != null)
           ;
       }
     }
 
-    internal virtual CheckBox chkbTrapFlag
+    internal virtual CheckBox ChkbTrapFlag
     {
       get => _chkbTrapFlag;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1395,7 +1396,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual CheckBox chkbTrapOneShot
+    internal virtual CheckBox ChkbTrapOneShot
     {
       get => _chkbTrapOneShot;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1410,18 +1411,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label19
     {
-      get => _Label19;
+      get => _label19;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label19 == null)
+        if (_label19 == null)
           ;
-        _Label19 = value;
-        if (_Label19 != null)
+        _label19 = value;
+        if (_label19 != null)
           ;
       }
     }
 
-    internal virtual ComboBox cmbxAppearance
+    internal virtual ComboBox CmbxAppearance
     {
       get => _cmbxAppearance;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1436,18 +1437,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label20
     {
-      get => _Label20;
+      get => _label20;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label20 == null)
+        if (_label20 == null)
           ;
-        _Label20 = value;
-        if (_Label20 != null)
+        _label20 = value;
+        if (_label20 != null)
           ;
       }
     }
 
-    internal virtual TextBox tbType
+    internal virtual TextBox TbType
     {
       get => _tbType;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1460,7 +1461,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual TextBox tbOnUsed
+    internal virtual TextBox TbOnUsed
     {
       get => _tbOnUsed;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1475,31 +1476,31 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label18
     {
-      get => _Label18;
+      get => _label18;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label18 == null)
+        if (_label18 == null)
           ;
-        _Label18 = value;
-        if (_Label18 != null)
+        _label18 = value;
+        if (_label18 != null)
           ;
       }
     }
 
     internal virtual Label Label21
     {
-      get => _Label21;
+      get => _label21;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label21 == null)
+        if (_label21 == null)
           ;
-        _Label21 = value;
-        if (_Label21 != null)
+        _label21 = value;
+        if (_label21 != null)
           ;
       }
     }
 
-    internal virtual TextBox tbOnEndDialogue
+    internal virtual TextBox TbOnEndDialogue
     {
       get => _tbOnEndDialogue;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1512,7 +1513,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual TextBox tbOnInvDisturbed
+    internal virtual TextBox TbOnInvDisturbed
     {
       get => _tbOnInvDisturbed;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1527,18 +1528,18 @@ namespace KotorTool_2._0.Forms
 
     internal virtual Label Label22
     {
-      get => _Label22;
+      get => _label22;
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
-        if (_Label22 == null)
+        if (_label22 == null)
           ;
-        _Label22 = value;
-        if (_Label22 != null)
+        _label22 = value;
+        if (_label22 != null)
           ;
       }
     }
 
-    internal virtual CheckBox chkbHasInventory
+    internal virtual CheckBox ChkbHasInventory
     {
       get => _chkbHasInventory;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1551,7 +1552,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual CheckBox chkbPartyInteract
+    internal virtual CheckBox ChkbPartyInteract
     {
       get => _chkbPartyInteract;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1564,7 +1565,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnInventory
+    internal virtual Button BtnInventory
     {
       get => _btnInventory;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1578,7 +1579,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnDebug
+    internal virtual Button BtnDebug
     {
       get => _btnDebug;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1592,7 +1593,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual CheckBox chkbUsable
+    internal virtual CheckBox ChkbUsable
     {
       get => _chkbUsable;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1605,7 +1606,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual CheckBox chkbInterruptable
+    internal virtual CheckBox ChkbInterruptable
     {
       get => _chkbInterruptable;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1618,7 +1619,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnEditOnClosed
+    internal virtual Button BtnEditOnClosed
     {
       get => _btnEditOnClosed;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1632,7 +1633,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnEditOnDamaged
+    internal virtual Button BtnEditOnDamaged
     {
       get => _btnEditOnDamaged;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1646,7 +1647,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnEditOnDeath
+    internal virtual Button BtnEditOnDeath
     {
       get => _btnEditOnDeath;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1660,7 +1661,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnEditOnDisarm
+    internal virtual Button BtnEditOnDisarm
     {
       get => _btnEditOnDisarm;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1674,7 +1675,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnEditOnHeartbeat
+    internal virtual Button BtnEditOnHeartbeat
     {
       get => _btnEditOnHeartbeat;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1688,7 +1689,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnEditOnLock
+    internal virtual Button BtnEditOnLock
     {
       get => _btnEditOnLock;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1702,7 +1703,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnEditOnMeleeAttacked
+    internal virtual Button BtnEditOnMeleeAttacked
     {
       get => _btnEditOnMeleeAttacked;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1716,7 +1717,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnEditOnOpen
+    internal virtual Button BtnEditOnOpen
     {
       get => _btnEditOnOpen;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1730,7 +1731,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnEditOnSpellCastAt
+    internal virtual Button BtnEditOnSpellCastAt
     {
       get => _btnEditOnSpellCastAt;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1744,7 +1745,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnEditOnTrapTriggered
+    internal virtual Button BtnEditOnTrapTriggered
     {
       get => _btnEditOnTrapTriggered;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1758,7 +1759,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnEditOnUserDefined
+    internal virtual Button BtnEditOnUserDefined
     {
       get => _btnEditOnUserDefined;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1772,7 +1773,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnEditOnUnlock
+    internal virtual Button BtnEditOnUnlock
     {
       get => _btnEditOnUnlock;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1786,7 +1787,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnEditOnUsed
+    internal virtual Button BtnEditOnUsed
     {
       get => _btnEditOnUsed;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1800,7 +1801,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnEditOnInvDisturbed
+    internal virtual Button BtnEditOnInvDisturbed
     {
       get => _btnEditOnInvDisturbed;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1814,7 +1815,7 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    internal virtual Button btnEditOnEndDialogue
+    internal virtual Button BtnEditOnEndDialogue
     {
       get => _btnEditOnEndDialogue;
       [MethodImpl(MethodImplOptions.Synchronized)] set
@@ -1828,32 +1829,32 @@ namespace KotorTool_2._0.Forms
       }
     }
 
-    public frmUTP_Editor()
+    public FrmUtpEditor()
     {
       Load += frmUTP_Editor_Load;
       Closing += frmUTP_Editor_Closing;
-      m_bSaveGameMode = false;
+      _mBSaveGameMode = false;
       InitializeComponent();
     }
 
-    public frmUTP_Editor(ClsUtp UTPClass, int KotorVerIndex, bool IsDirectEdit = false, string EditingPath = "")
+    public FrmUtpEditor(ClsUtp utpClass, int kotorVerIndex, bool isDirectEdit = false, string editingPath = "")
       : this()
     {
-      if (IsDirectEdit)
+      if (isDirectEdit)
       {
-        m_bSaveGameMode = true;
-        m_EditingFilePath = EditingPath;
+        _mBSaveGameMode = true;
+        m_EditingFilePath = editingPath;
       }
       m_defaultTitleText = "Placeable Editor - KotOR ";
       Text = m_defaultTitleText;
-      if (KotorVerIndex == 0)
+      if (kotorVerIndex == 0)
         Text = Text + "I";
       else
         Text = Text + "II";
       CurrentSettings = UserSettings.GetSettings();
-      g_clsDialogTlk = new ClsDialogTlk(CurrentSettings.KotorLocation(KotorVerIndex) + "\\dialog.tlk");
-      UTP = UTPClass;
-      KotorVersionIndex = KotorVerIndex;
+      GClsDialogTlk = new ClsDialogTlk(ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\dialog.tlk");
+      Utp = utpClass;
+      KotorVersionIndex = kotorVerIndex;
       Setup();
     }
 
@@ -1870,139 +1871,139 @@ namespace KotorTool_2._0.Forms
       TabControl1 = new TabControl();
       TabPageBasic = new TabPage();
       Label19 = new Label();
-      cmbxAppearance = new ComboBox();
-      btnSetNameLang = new Button();
+      CmbxAppearance = new ComboBox();
+      BtnSetNameLang = new Button();
       Label5 = new Label();
-      nudWill = new NumericUpDown();
-      nudFort = new NumericUpDown();
-      nudHP = new NumericUpDown();
-      lblTextureVariation = new Label();
+      NudWill = new NumericUpDown();
+      NudFort = new NumericUpDown();
+      NudHp = new NumericUpDown();
+      LblTextureVariation = new Label();
       Label8 = new Label();
-      nudHardness = new NumericUpDown();
-      nudRef = new NumericUpDown();
+      NudHardness = new NumericUpDown();
+      NudRef = new NumericUpDown();
       Label12 = new Label();
-      lblBodyVariation = new Label();
-      chkbPlotItem = new CheckBox();
-      tbTag = new TextBox();
-      tbName = new TextBox();
+      LblBodyVariation = new Label();
+      ChkbPlotItem = new CheckBox();
+      TbTag = new TextBox();
+      TbName = new TextBox();
       Label1 = new Label();
       Label2 = new Label();
-      chkbStatic = new CheckBox();
-      chkbMin1HP = new CheckBox();
+      ChkbStatic = new CheckBox();
+      ChkbMin1Hp = new CheckBox();
       TabPageLock = new TabPage();
-      tbKeyName = new TextBox();
-      lblKeyTag = new Label();
-      nudCloseLockDC = new NumericUpDown();
-      lblCloseLockDC = new Label();
-      nudOpenLockDC = new NumericUpDown();
-      lblOpenLockDC = new Label();
-      chkbLockable = new CheckBox();
-      chkbLocked = new CheckBox();
-      chkbKeyRequired = new CheckBox();
-      chkbAutoRemoveKey = new CheckBox();
+      TbKeyName = new TextBox();
+      LblKeyTag = new Label();
+      NudCloseLockDc = new NumericUpDown();
+      LblCloseLockDc = new Label();
+      NudOpenLockDc = new NumericUpDown();
+      LblOpenLockDc = new Label();
+      ChkbLockable = new CheckBox();
+      ChkbLocked = new CheckBox();
+      ChkbKeyRequired = new CheckBox();
+      ChkbAutoRemoveKey = new CheckBox();
       TabPageAdvanced = new TabPage();
-      chkbPartyInteract = new CheckBox();
-      chkbHasInventory = new CheckBox();
+      ChkbPartyInteract = new CheckBox();
+      ChkbHasInventory = new CheckBox();
       Label20 = new Label();
-      tbType = new TextBox();
-      chkbInterruptable = new CheckBox();
-      tbConversation = new TextBox();
-      tbFaction = new TextBox();
-      tbTemplateResRef = new TextBox();
+      TbType = new TextBox();
+      ChkbInterruptable = new CheckBox();
+      TbConversation = new TextBox();
+      TbFaction = new TextBox();
+      TbTemplateResRef = new TextBox();
       Label10 = new Label();
       Label11 = new Label();
       Label13 = new Label();
       Label14 = new Label();
-      tbAnimationState = new TextBox();
-      chkbUsable = new CheckBox();
+      TbAnimationState = new TextBox();
+      ChkbUsable = new CheckBox();
       TabPageScripts = new TabPage();
-      tbOnUsed = new TextBox();
+      TbOnUsed = new TextBox();
       Label18 = new Label();
       Label34 = new Label();
-      tbOnDeath = new TextBox();
+      TbOnDeath = new TextBox();
       Label33 = new Label();
-      tbOnDamaged = new TextBox();
+      TbOnDamaged = new TextBox();
       Label32 = new Label();
-      tbOnClosed = new TextBox();
+      TbOnClosed = new TextBox();
       Label35 = new Label();
-      tbOnDisarm = new TextBox();
-      tbOnHeartbeat = new TextBox();
+      TbOnDisarm = new TextBox();
+      TbOnHeartbeat = new TextBox();
       Label36 = new Label();
       Label37 = new Label();
-      tbOnLock = new TextBox();
-      tbOnMeleeAttacked = new TextBox();
+      TbOnLock = new TextBox();
+      TbOnMeleeAttacked = new TextBox();
       Label38 = new Label();
-      tbOnOpen = new TextBox();
+      TbOnOpen = new TextBox();
       Label39 = new Label();
       Label40 = new Label();
-      tbOnSpellCastAt = new TextBox();
+      TbOnSpellCastAt = new TextBox();
       Label41 = new Label();
-      tbOnTrapTriggered = new TextBox();
-      tbOnUnlock = new TextBox();
+      TbOnTrapTriggered = new TextBox();
+      TbOnUnlock = new TextBox();
       Label42 = new Label();
-      tbOnUserDefined = new TextBox();
+      TbOnUserDefined = new TextBox();
       Label43 = new Label();
       Label21 = new Label();
-      tbOnEndDialogue = new TextBox();
-      tbOnInvDisturbed = new TextBox();
+      TbOnEndDialogue = new TextBox();
+      TbOnInvDisturbed = new TextBox();
       Label22 = new Label();
       TabPageDescription = new TabPage();
-      btnSetDescriptionLang = new Button();
-      tbDescription = new TextBox();
+      BtnSetDescriptionLang = new Button();
+      TbDescription = new TextBox();
       TabPageComments = new TabPage();
-      tbComment = new TextBox();
+      TbComment = new TextBox();
       TabPageTrap = new TabPage();
-      chkbTrapDisarmable = new CheckBox();
-      chkbTrapDetectable = new CheckBox();
+      ChkbTrapDisarmable = new CheckBox();
+      ChkbTrapDetectable = new CheckBox();
       Label6 = new Label();
       Label3 = new Label();
-      nudDisarmDC = new NumericUpDown();
+      NudDisarmDc = new NumericUpDown();
       Label4 = new Label();
       Label15 = new Label();
-      nudTrapDetectDC = new NumericUpDown();
+      NudTrapDetectDc = new NumericUpDown();
       Label16 = new Label();
-      lblTrapDetectable = new Label();
-      nudTrapType = new NumericUpDown();
+      LblTrapDetectable = new Label();
+      NudTrapType = new NumericUpDown();
       Label17 = new Label();
-      chkbTrapFlag = new CheckBox();
-      chkbTrapOneShot = new CheckBox();
-      this.btnSave = new Button();
-      this.btnCancel = new Button();
-      btnInventory = new Button();
-      btnDebug = new Button();
-      btnEditOnClosed = new Button();
-      btnEditOnDamaged = new Button();
-      btnEditOnDeath = new Button();
-      btnEditOnDisarm = new Button();
-      btnEditOnHeartbeat = new Button();
-      btnEditOnLock = new Button();
-      btnEditOnMeleeAttacked = new Button();
-      btnEditOnOpen = new Button();
-      btnEditOnSpellCastAt = new Button();
-      btnEditOnTrapTriggered = new Button();
-      btnEditOnUserDefined = new Button();
-      btnEditOnUnlock = new Button();
-      btnEditOnUsed = new Button();
-      btnEditOnInvDisturbed = new Button();
-      btnEditOnEndDialogue = new Button();
+      ChkbTrapFlag = new CheckBox();
+      ChkbTrapOneShot = new CheckBox();
+      this.BtnSave = new Button();
+      this.BtnCancel = new Button();
+      BtnInventory = new Button();
+      BtnDebug = new Button();
+      BtnEditOnClosed = new Button();
+      BtnEditOnDamaged = new Button();
+      BtnEditOnDeath = new Button();
+      BtnEditOnDisarm = new Button();
+      BtnEditOnHeartbeat = new Button();
+      BtnEditOnLock = new Button();
+      BtnEditOnMeleeAttacked = new Button();
+      BtnEditOnOpen = new Button();
+      BtnEditOnSpellCastAt = new Button();
+      BtnEditOnTrapTriggered = new Button();
+      BtnEditOnUserDefined = new Button();
+      BtnEditOnUnlock = new Button();
+      BtnEditOnUsed = new Button();
+      BtnEditOnInvDisturbed = new Button();
+      BtnEditOnEndDialogue = new Button();
       TabControl1.SuspendLayout();
       TabPageBasic.SuspendLayout();
-      nudWill.BeginInit();
-      nudFort.BeginInit();
-      nudHP.BeginInit();
-      nudHardness.BeginInit();
-      nudRef.BeginInit();
+      NudWill.BeginInit();
+      NudFort.BeginInit();
+      NudHp.BeginInit();
+      NudHardness.BeginInit();
+      NudRef.BeginInit();
       TabPageLock.SuspendLayout();
-      nudCloseLockDC.BeginInit();
-      nudOpenLockDC.BeginInit();
+      NudCloseLockDc.BeginInit();
+      NudOpenLockDc.BeginInit();
       TabPageAdvanced.SuspendLayout();
       TabPageScripts.SuspendLayout();
       TabPageDescription.SuspendLayout();
       TabPageComments.SuspendLayout();
       TabPageTrap.SuspendLayout();
-      nudDisarmDC.BeginInit();
-      nudTrapDetectDC.BeginInit();
-      nudTrapType.BeginInit();
+      NudDisarmDc.BeginInit();
+      NudTrapDetectDc.BeginInit();
+      NudTrapType.BeginInit();
       SuspendLayout();
       TabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
       TabControl1.Controls.Add(TabPageBasic);
@@ -2012,43 +2013,43 @@ namespace KotorTool_2._0.Forms
       TabControl1.Controls.Add(TabPageDescription);
       TabControl1.Controls.Add(TabPageComments);
       TabControl1.Controls.Add(TabPageTrap);
-      TabControl tabControl1_1 = TabControl1;
+      TabControl tabControl11 = TabControl1;
       Point point1 = new Point(19, 11);
       Point point2 = point1;
-      tabControl1_1.Location = point2;
+      tabControl11.Location = point2;
       TabControl1.Multiline = true;
       TabControl1.Name = "TabControl1";
-      TabControl tabControl1_2 = TabControl1;
+      TabControl tabControl12 = TabControl1;
       point1 = new Point(15, 3);
       Point point3 = point1;
-      tabControl1_2.Padding = point3;
+      tabControl12.Padding = point3;
       TabControl1.SelectedIndex = 0;
-      TabControl tabControl1_3 = TabControl1;
+      TabControl tabControl13 = TabControl1;
       Size size1 = new Size(456, 461);
       Size size2 = size1;
-      tabControl1_3.Size = size2;
+      tabControl13.Size = size2;
       TabControl1.SizeMode = TabSizeMode.FillToRight;
       TabControl1.TabIndex = 0;
       TabPageBasic.Controls.Add(Label19);
-      TabPageBasic.Controls.Add(cmbxAppearance);
-      TabPageBasic.Controls.Add(btnSetNameLang);
+      TabPageBasic.Controls.Add(CmbxAppearance);
+      TabPageBasic.Controls.Add(BtnSetNameLang);
       TabPageBasic.Controls.Add(Label5);
-      TabPageBasic.Controls.Add(nudWill);
-      TabPageBasic.Controls.Add(nudFort);
-      TabPageBasic.Controls.Add(nudHP);
-      TabPageBasic.Controls.Add(lblTextureVariation);
+      TabPageBasic.Controls.Add(NudWill);
+      TabPageBasic.Controls.Add(NudFort);
+      TabPageBasic.Controls.Add(NudHp);
+      TabPageBasic.Controls.Add(LblTextureVariation);
       TabPageBasic.Controls.Add(Label8);
-      TabPageBasic.Controls.Add(nudHardness);
-      TabPageBasic.Controls.Add(nudRef);
+      TabPageBasic.Controls.Add(NudHardness);
+      TabPageBasic.Controls.Add(NudRef);
       TabPageBasic.Controls.Add(Label12);
-      TabPageBasic.Controls.Add(lblBodyVariation);
-      TabPageBasic.Controls.Add(chkbPlotItem);
-      TabPageBasic.Controls.Add(tbTag);
-      TabPageBasic.Controls.Add(tbName);
+      TabPageBasic.Controls.Add(LblBodyVariation);
+      TabPageBasic.Controls.Add(ChkbPlotItem);
+      TabPageBasic.Controls.Add(TbTag);
+      TabPageBasic.Controls.Add(TbName);
       TabPageBasic.Controls.Add(Label1);
       TabPageBasic.Controls.Add(Label2);
-      TabPageBasic.Controls.Add(chkbStatic);
-      TabPageBasic.Controls.Add(chkbMin1HP);
+      TabPageBasic.Controls.Add(ChkbStatic);
+      TabPageBasic.Controls.Add(ChkbMin1Hp);
       TabPage tabPageBasic1 = TabPageBasic;
       point1 = new Point(4, 40);
       Point point4 = point1;
@@ -2060,121 +2061,121 @@ namespace KotorTool_2._0.Forms
       tabPageBasic2.Size = size3;
       TabPageBasic.TabIndex = 0;
       TabPageBasic.Text = "Basic";
-      Label label19_1 = Label19;
+      Label label191 = Label19;
       point1 = new Point(48, 80);
       Point point5 = point1;
-      label19_1.Location = point5;
+      label191.Location = point5;
       Label19.Name = "Label19";
-      Label label19_2 = Label19;
+      Label label192 = Label19;
       size1 = new Size(80, 16);
       Size size4 = size1;
-      label19_2.Size = size4;
+      label192.Size = size4;
       Label19.TabIndex = 10;
       Label19.Text = "Appearance";
       Label19.TextAlign = ContentAlignment.MiddleLeft;
-      cmbxAppearance.DropDownStyle = ComboBoxStyle.DropDownList;
-      ComboBox cmbxAppearance1 = cmbxAppearance;
+      CmbxAppearance.DropDownStyle = ComboBoxStyle.DropDownList;
+      ComboBox cmbxAppearance1 = CmbxAppearance;
       point1 = new Point(128, 80);
       Point point6 = point1;
       cmbxAppearance1.Location = point6;
-      cmbxAppearance.Name = "cmbxAppearance";
-      ComboBox cmbxAppearance2 = cmbxAppearance;
+      CmbxAppearance.Name = "cmbxAppearance";
+      ComboBox cmbxAppearance2 = CmbxAppearance;
       size1 = new Size(184, 21);
       Size size5 = size1;
       cmbxAppearance2.Size = size5;
-      cmbxAppearance.TabIndex = 3;
-      Button btnSetNameLang1 = btnSetNameLang;
+      CmbxAppearance.TabIndex = 3;
+      Button btnSetNameLang1 = BtnSetNameLang;
       point1 = new Point(344, 32);
       Point point7 = point1;
       btnSetNameLang1.Location = point7;
-      btnSetNameLang.Name = "btnSetNameLang";
-      Button btnSetNameLang2 = btnSetNameLang;
+      BtnSetNameLang.Name = "btnSetNameLang";
+      Button btnSetNameLang2 = BtnSetNameLang;
       size1 = new Size(88, 23);
       Size size6 = size1;
       btnSetNameLang2.Size = size6;
-      btnSetNameLang.TabIndex = 1;
-      btnSetNameLang.Text = "Set Language";
-      Label label5_1 = Label5;
+      BtnSetNameLang.TabIndex = 1;
+      BtnSetNameLang.Text = "Set Language";
+      Label label51 = Label5;
       point1 = new Point(48, 200);
       Point point8 = point1;
-      label5_1.Location = point8;
+      label51.Location = point8;
       Label5.Name = "Label5";
-      Label label5_2 = Label5;
+      Label label52 = Label5;
       size1 = new Size(88, 16);
       Size size7 = size1;
-      label5_2.Size = size7;
+      label52.Size = size7;
       Label5.TabIndex = 8;
       Label5.Text = "Fortitude Save";
       Label5.TextAlign = ContentAlignment.MiddleLeft;
-      NumericUpDown nudWill1 = nudWill;
+      NumericUpDown nudWill1 = NudWill;
       point1 = new Point(192, 248);
       Point point9 = point1;
       nudWill1.Location = point9;
-      nudWill.Name = "nudWill";
-      nudWill.RightToLeft = RightToLeft.No;
-      NumericUpDown nudWill2 = nudWill;
+      NudWill.Name = "nudWill";
+      NudWill.RightToLeft = RightToLeft.No;
+      NumericUpDown nudWill2 = NudWill;
       size1 = new Size(48, 20);
       Size size8 = size1;
       nudWill2.Size = size8;
-      nudWill.TabIndex = 11;
-      nudWill.TextAlign = HorizontalAlignment.Right;
-      NumericUpDown nudFort1 = nudFort;
+      NudWill.TabIndex = 11;
+      NudWill.TextAlign = HorizontalAlignment.Right;
+      NumericUpDown nudFort1 = NudFort;
       point1 = new Point(192, 200);
       Point point10 = point1;
       nudFort1.Location = point10;
-      nudFort.Name = "nudFort";
-      nudFort.RightToLeft = RightToLeft.No;
-      NumericUpDown nudFort2 = nudFort;
+      NudFort.Name = "nudFort";
+      NudFort.RightToLeft = RightToLeft.No;
+      NumericUpDown nudFort2 = NudFort;
       size1 = new Size(48, 20);
       Size size9 = size1;
       nudFort2.Size = size9;
-      nudFort.TabIndex = 9;
-      nudFort.TextAlign = HorizontalAlignment.Right;
-      NumericUpDown nudHp1 = nudHP;
+      NudFort.TabIndex = 9;
+      NudFort.TextAlign = HorizontalAlignment.Right;
+      NumericUpDown nudHp1 = NudHp;
       point1 = new Point(192, 176);
       Point point11 = point1;
       nudHp1.Location = point11;
-      NumericUpDown nudHp2 = nudHP;
+      NumericUpDown nudHp2 = NudHp;
       Decimal num1 = new Decimal(new int[4]{ 99999, 0, 0, 0 });
       Decimal num2 = num1;
       nudHp2.Maximum = num2;
-      nudHP.Name = "nudHP";
-      nudHP.RightToLeft = RightToLeft.No;
-      NumericUpDown nudHp3 = nudHP;
+      NudHp.Name = "nudHP";
+      NudHp.RightToLeft = RightToLeft.No;
+      NumericUpDown nudHp3 = NudHp;
       size1 = new Size(48, 20);
       Size size10 = size1;
       nudHp3.Size = size10;
-      nudHP.TabIndex = 8;
-      nudHP.TextAlign = HorizontalAlignment.Right;
-      Label textureVariation1 = lblTextureVariation;
+      NudHp.TabIndex = 8;
+      NudHp.TextAlign = HorizontalAlignment.Right;
+      Label textureVariation1 = LblTextureVariation;
       point1 = new Point(48, 248);
       Point point12 = point1;
       textureVariation1.Location = point12;
-      lblTextureVariation.Name = "lblTextureVariation";
-      Label textureVariation2 = lblTextureVariation;
+      LblTextureVariation.Name = "lblTextureVariation";
+      Label textureVariation2 = LblTextureVariation;
       size1 = new Size(96, 16);
       Size size11 = size1;
       textureVariation2.Size = size11;
-      lblTextureVariation.TabIndex = 5;
-      lblTextureVariation.Text = "Will Save";
-      lblTextureVariation.TextAlign = ContentAlignment.MiddleLeft;
-      Label label8_1 = Label8;
+      LblTextureVariation.TabIndex = 5;
+      LblTextureVariation.Text = "Will Save";
+      LblTextureVariation.TextAlign = ContentAlignment.MiddleLeft;
+      Label label81 = Label8;
       point1 = new Point(48, 176);
       Point point13 = point1;
-      label8_1.Location = point13;
+      label81.Location = point13;
       Label8.Name = "Label8";
-      Label label8_2 = Label8;
+      Label label82 = Label8;
       size1 = new Size(88, 16);
       Size size12 = size1;
-      label8_2.Size = size12;
+      label82.Size = size12;
       Label8.TabIndex = 4;
       Label8.Text = "Hit Points";
       Label8.TextAlign = ContentAlignment.MiddleLeft;
-      NumericUpDown nudHardness1 = nudHardness;
+      NumericUpDown nudHardness1 = NudHardness;
       point1 = new Point(192, 152);
       Point point14 = point1;
       nudHardness1.Location = point14;
-      NumericUpDown nudHardness2 = nudHardness;
+      NumericUpDown nudHardness2 = NudHardness;
       num1 = new Decimal(new int[4]
       {
         byte.MaxValue,
@@ -2184,139 +2185,139 @@ namespace KotorTool_2._0.Forms
       });
       Decimal num3 = num1;
       nudHardness2.Maximum = num3;
-      nudHardness.Name = "nudHardness";
-      nudHardness.RightToLeft = RightToLeft.No;
-      NumericUpDown nudHardness3 = nudHardness;
+      NudHardness.Name = "nudHardness";
+      NudHardness.RightToLeft = RightToLeft.No;
+      NumericUpDown nudHardness3 = NudHardness;
       size1 = new Size(48, 20);
       Size size13 = size1;
       nudHardness3.Size = size13;
-      nudHardness.TabIndex = 7;
-      nudHardness.TextAlign = HorizontalAlignment.Right;
-      NumericUpDown nudRef1 = nudRef;
+      NudHardness.TabIndex = 7;
+      NudHardness.TextAlign = HorizontalAlignment.Right;
+      NumericUpDown nudRef1 = NudRef;
       point1 = new Point(192, 224);
       Point point15 = point1;
       nudRef1.Location = point15;
-      nudRef.Name = "nudRef";
-      nudRef.RightToLeft = RightToLeft.No;
-      NumericUpDown nudRef2 = nudRef;
+      NudRef.Name = "nudRef";
+      NudRef.RightToLeft = RightToLeft.No;
+      NumericUpDown nudRef2 = NudRef;
       size1 = new Size(48, 20);
       Size size14 = size1;
       nudRef2.Size = size14;
-      nudRef.TabIndex = 10;
-      nudRef.TextAlign = HorizontalAlignment.Right;
-      Label label12_1 = Label12;
+      NudRef.TabIndex = 10;
+      NudRef.TextAlign = HorizontalAlignment.Right;
+      Label label121 = Label12;
       point1 = new Point(48, 152);
       Point point16 = point1;
-      label12_1.Location = point16;
+      label121.Location = point16;
       Label12.Name = "Label12";
-      Label label12_2 = Label12;
+      Label label122 = Label12;
       size1 = new Size(88, 16);
       Size size15 = size1;
-      label12_2.Size = size15;
+      label122.Size = size15;
       Label12.TabIndex = 7;
       Label12.Text = "Hardness";
       Label12.TextAlign = ContentAlignment.MiddleLeft;
-      Label lblBodyVariation1 = lblBodyVariation;
+      Label lblBodyVariation1 = LblBodyVariation;
       point1 = new Point(48, 224);
       Point point17 = point1;
       lblBodyVariation1.Location = point17;
-      lblBodyVariation.Name = "lblBodyVariation";
-      Label lblBodyVariation2 = lblBodyVariation;
+      LblBodyVariation.Name = "lblBodyVariation";
+      Label lblBodyVariation2 = LblBodyVariation;
       size1 = new Size(88, 16);
       Size size16 = size1;
       lblBodyVariation2.Size = size16;
-      lblBodyVariation.TabIndex = 6;
-      lblBodyVariation.Text = "Reflex Save";
-      lblBodyVariation.TextAlign = ContentAlignment.MiddleLeft;
-      CheckBox chkbPlotItem1 = chkbPlotItem;
+      LblBodyVariation.TabIndex = 6;
+      LblBodyVariation.Text = "Reflex Save";
+      LblBodyVariation.TextAlign = ContentAlignment.MiddleLeft;
+      CheckBox chkbPlotItem1 = ChkbPlotItem;
       point1 = new Point(48, 112);
       Point point18 = point1;
       chkbPlotItem1.Location = point18;
-      chkbPlotItem.Name = "chkbPlotItem";
-      CheckBox chkbPlotItem2 = chkbPlotItem;
+      ChkbPlotItem.Name = "chkbPlotItem";
+      CheckBox chkbPlotItem2 = ChkbPlotItem;
       size1 = new Size(72, 24);
       Size size17 = size1;
       chkbPlotItem2.Size = size17;
-      chkbPlotItem.TabIndex = 4;
-      chkbPlotItem.Text = "Plot item";
-      TextBox tbTag1 = tbTag;
+      ChkbPlotItem.TabIndex = 4;
+      ChkbPlotItem.Text = "Plot item";
+      TextBox tbTag1 = TbTag;
       point1 = new Point(128, 56);
       Point point19 = point1;
       tbTag1.Location = point19;
-      tbTag.Name = "tbTag";
-      TextBox tbTag2 = tbTag;
+      TbTag.Name = "tbTag";
+      TextBox tbTag2 = TbTag;
       size1 = new Size(200, 20);
       Size size18 = size1;
       tbTag2.Size = size18;
-      tbTag.TabIndex = 2;
-      tbTag.Text = "";
-      TextBox tbName1 = tbName;
+      TbTag.TabIndex = 2;
+      TbTag.Text = "";
+      TextBox tbName1 = TbName;
       point1 = new Point(128, 32);
       Point point20 = point1;
       tbName1.Location = point20;
-      tbName.Name = "tbName";
-      TextBox tbName2 = tbName;
+      TbName.Name = "tbName";
+      TextBox tbName2 = TbName;
       size1 = new Size(200, 20);
       Size size19 = size1;
       tbName2.Size = size19;
-      tbName.TabIndex = 0;
-      tbName.Text = "";
-      Label label1_1 = Label1;
+      TbName.TabIndex = 0;
+      TbName.Text = "";
+      Label label11 = Label1;
       point1 = new Point(48, 32);
       Point point21 = point1;
-      label1_1.Location = point21;
+      label11.Location = point21;
       Label1.Name = "Label1";
-      Label label1_2 = Label1;
+      Label label12 = Label1;
       size1 = new Size(100, 16);
       Size size20 = size1;
-      label1_2.Size = size20;
+      label12.Size = size20;
       Label1.TabIndex = 0;
       Label1.Text = "Name";
       Label1.TextAlign = ContentAlignment.MiddleLeft;
-      Label label2_1 = Label2;
+      Label label21 = Label2;
       point1 = new Point(48, 56);
       Point point22 = point1;
-      label2_1.Location = point22;
+      label21.Location = point22;
       Label2.Name = "Label2";
-      Label label2_2 = Label2;
+      Label label22 = Label2;
       size1 = new Size(100, 16);
       Size size21 = size1;
-      label2_2.Size = size21;
+      label22.Size = size21;
       Label2.TabIndex = 0;
       Label2.Text = "Tag";
       Label2.TextAlign = ContentAlignment.MiddleLeft;
-      CheckBox chkbStatic1 = chkbStatic;
+      CheckBox chkbStatic1 = ChkbStatic;
       point1 = new Point(192, 112);
       Point point23 = point1;
       chkbStatic1.Location = point23;
-      chkbStatic.Name = "chkbStatic";
-      CheckBox chkbStatic2 = chkbStatic;
+      ChkbStatic.Name = "chkbStatic";
+      CheckBox chkbStatic2 = ChkbStatic;
       size1 = new Size(72, 24);
       Size size22 = size1;
       chkbStatic2.Size = size22;
-      chkbStatic.TabIndex = 5;
-      chkbStatic.Text = "Static";
-      CheckBox chkbMin1Hp1 = chkbMin1HP;
+      ChkbStatic.TabIndex = 5;
+      ChkbStatic.Text = "Static";
+      CheckBox chkbMin1Hp1 = ChkbMin1Hp;
       point1 = new Point(296, 112);
       Point point24 = point1;
       chkbMin1Hp1.Location = point24;
-      chkbMin1HP.Name = "chkbMin1HP";
-      CheckBox chkbMin1Hp2 = chkbMin1HP;
+      ChkbMin1Hp.Name = "chkbMin1HP";
+      CheckBox chkbMin1Hp2 = ChkbMin1Hp;
       size1 = new Size(72, 24);
       Size size23 = size1;
       chkbMin1Hp2.Size = size23;
-      chkbMin1HP.TabIndex = 6;
-      chkbMin1HP.Text = "Min1HP";
-      TabPageLock.Controls.Add(tbKeyName);
-      TabPageLock.Controls.Add(lblKeyTag);
-      TabPageLock.Controls.Add(nudCloseLockDC);
-      TabPageLock.Controls.Add(lblCloseLockDC);
-      TabPageLock.Controls.Add(nudOpenLockDC);
-      TabPageLock.Controls.Add(lblOpenLockDC);
-      TabPageLock.Controls.Add(chkbLockable);
-      TabPageLock.Controls.Add(chkbLocked);
-      TabPageLock.Controls.Add(chkbKeyRequired);
-      TabPageLock.Controls.Add(chkbAutoRemoveKey);
+      ChkbMin1Hp.TabIndex = 6;
+      ChkbMin1Hp.Text = "Min1HP";
+      TabPageLock.Controls.Add(TbKeyName);
+      TabPageLock.Controls.Add(LblKeyTag);
+      TabPageLock.Controls.Add(NudCloseLockDc);
+      TabPageLock.Controls.Add(LblCloseLockDc);
+      TabPageLock.Controls.Add(NudOpenLockDc);
+      TabPageLock.Controls.Add(LblOpenLockDc);
+      TabPageLock.Controls.Add(ChkbLockable);
+      TabPageLock.Controls.Add(ChkbLocked);
+      TabPageLock.Controls.Add(ChkbKeyRequired);
+      TabPageLock.Controls.Add(ChkbAutoRemoveKey);
       TabPage tabPageLock1 = TabPageLock;
       point1 = new Point(4, 40);
       Point point25 = point1;
@@ -2329,143 +2330,143 @@ namespace KotorTool_2._0.Forms
       TabPageLock.TabIndex = 1;
       TabPageLock.Text = "Lock";
       TabPageLock.Visible = false;
-      tbKeyName.Enabled = false;
-      TextBox tbKeyName1 = tbKeyName;
+      TbKeyName.Enabled = false;
+      TextBox tbKeyName1 = TbKeyName;
       point1 = new Point(176, 256);
       Point point26 = point1;
       tbKeyName1.Location = point26;
-      tbKeyName.Name = "tbKeyName";
-      TextBox tbKeyName2 = tbKeyName;
+      TbKeyName.Name = "tbKeyName";
+      TextBox tbKeyName2 = TbKeyName;
       size1 = new Size(200, 20);
       Size size25 = size1;
       tbKeyName2.Size = size25;
-      tbKeyName.TabIndex = 6;
-      tbKeyName.Text = "";
-      lblKeyTag.Enabled = false;
-      Label lblKeyTag1 = lblKeyTag;
+      TbKeyName.TabIndex = 6;
+      TbKeyName.Text = "";
+      LblKeyTag.Enabled = false;
+      Label lblKeyTag1 = LblKeyTag;
       point1 = new Point(52, 256);
       Point point27 = point1;
       lblKeyTag1.Location = point27;
-      lblKeyTag.Name = "lblKeyTag";
-      Label lblKeyTag2 = lblKeyTag;
+      LblKeyTag.Name = "lblKeyTag";
+      Label lblKeyTag2 = LblKeyTag;
       size1 = new Size(100, 16);
       Size size26 = size1;
       lblKeyTag2.Size = size26;
-      lblKeyTag.TabIndex = 18;
-      lblKeyTag.Text = "Key Tag";
-      lblKeyTag.TextAlign = ContentAlignment.MiddleLeft;
-      nudCloseLockDC.Enabled = false;
-      NumericUpDown nudCloseLockDc1 = nudCloseLockDC;
+      LblKeyTag.TabIndex = 18;
+      LblKeyTag.Text = "Key Tag";
+      LblKeyTag.TextAlign = ContentAlignment.MiddleLeft;
+      NudCloseLockDc.Enabled = false;
+      NumericUpDown nudCloseLockDc1 = NudCloseLockDc;
       point1 = new Point(176, 216);
       Point point28 = point1;
       nudCloseLockDc1.Location = point28;
-      nudCloseLockDC.Name = "nudCloseLockDC";
-      nudCloseLockDC.RightToLeft = RightToLeft.No;
-      NumericUpDown nudCloseLockDc2 = nudCloseLockDC;
+      NudCloseLockDc.Name = "nudCloseLockDC";
+      NudCloseLockDc.RightToLeft = RightToLeft.No;
+      NumericUpDown nudCloseLockDc2 = NudCloseLockDc;
       size1 = new Size(48, 20);
       Size size27 = size1;
       nudCloseLockDc2.Size = size27;
-      nudCloseLockDC.TabIndex = 5;
-      nudCloseLockDC.TextAlign = HorizontalAlignment.Right;
-      lblCloseLockDC.Enabled = false;
-      Label lblCloseLockDc1 = lblCloseLockDC;
+      NudCloseLockDc.TabIndex = 5;
+      NudCloseLockDc.TextAlign = HorizontalAlignment.Right;
+      LblCloseLockDc.Enabled = false;
+      Label lblCloseLockDc1 = LblCloseLockDc;
       point1 = new Point(48, 216);
       Point point29 = point1;
       lblCloseLockDc1.Location = point29;
-      lblCloseLockDC.Name = "lblCloseLockDC";
-      Label lblCloseLockDc2 = lblCloseLockDC;
+      LblCloseLockDc.Name = "lblCloseLockDC";
+      Label lblCloseLockDc2 = LblCloseLockDc;
       size1 = new Size(88, 16);
       Size size28 = size1;
       lblCloseLockDc2.Size = size28;
-      lblCloseLockDC.TabIndex = 14;
-      lblCloseLockDC.Text = "Close Lock DC";
-      lblCloseLockDC.TextAlign = ContentAlignment.MiddleLeft;
-      nudOpenLockDC.Enabled = false;
-      NumericUpDown nudOpenLockDc1 = nudOpenLockDC;
+      LblCloseLockDc.TabIndex = 14;
+      LblCloseLockDc.Text = "Close Lock DC";
+      LblCloseLockDc.TextAlign = ContentAlignment.MiddleLeft;
+      NudOpenLockDc.Enabled = false;
+      NumericUpDown nudOpenLockDc1 = NudOpenLockDc;
       point1 = new Point(176, 176);
       Point point30 = point1;
       nudOpenLockDc1.Location = point30;
-      nudOpenLockDC.Name = "nudOpenLockDC";
-      nudOpenLockDC.RightToLeft = RightToLeft.No;
-      NumericUpDown nudOpenLockDc2 = nudOpenLockDC;
+      NudOpenLockDc.Name = "nudOpenLockDC";
+      NudOpenLockDc.RightToLeft = RightToLeft.No;
+      NumericUpDown nudOpenLockDc2 = NudOpenLockDc;
       size1 = new Size(48, 20);
       Size size29 = size1;
       nudOpenLockDc2.Size = size29;
-      nudOpenLockDC.TabIndex = 4;
-      nudOpenLockDC.TextAlign = HorizontalAlignment.Right;
-      lblOpenLockDC.Enabled = false;
-      Label lblOpenLockDc1 = lblOpenLockDC;
+      NudOpenLockDc.TabIndex = 4;
+      NudOpenLockDc.TextAlign = HorizontalAlignment.Right;
+      LblOpenLockDc.Enabled = false;
+      Label lblOpenLockDc1 = LblOpenLockDc;
       point1 = new Point(48, 176);
       Point point31 = point1;
       lblOpenLockDc1.Location = point31;
-      lblOpenLockDC.Name = "lblOpenLockDC";
-      Label lblOpenLockDc2 = lblOpenLockDC;
+      LblOpenLockDc.Name = "lblOpenLockDC";
+      Label lblOpenLockDc2 = LblOpenLockDc;
       size1 = new Size(88, 16);
       Size size30 = size1;
       lblOpenLockDc2.Size = size30;
-      lblOpenLockDC.TabIndex = 15;
-      lblOpenLockDC.Text = "Open Lock DC";
-      lblOpenLockDC.TextAlign = ContentAlignment.MiddleLeft;
-      CheckBox chkbLockable1 = chkbLockable;
+      LblOpenLockDc.TabIndex = 15;
+      LblOpenLockDc.Text = "Open Lock DC";
+      LblOpenLockDc.TextAlign = ContentAlignment.MiddleLeft;
+      CheckBox chkbLockable1 = ChkbLockable;
       point1 = new Point(48, 66);
       Point point32 = point1;
       chkbLockable1.Location = point32;
-      chkbLockable.Name = "chkbLockable";
-      CheckBox chkbLockable2 = chkbLockable;
+      ChkbLockable.Name = "chkbLockable";
+      CheckBox chkbLockable2 = ChkbLockable;
       size1 = new Size(112, 24);
       Size size31 = size1;
       chkbLockable2.Size = size31;
-      chkbLockable.TabIndex = 1;
-      chkbLockable.Text = "Can be relocked";
-      CheckBox chkbLocked1 = chkbLocked;
+      ChkbLockable.TabIndex = 1;
+      ChkbLockable.Text = "Can be relocked";
+      CheckBox chkbLocked1 = ChkbLocked;
       point1 = new Point(48, 32);
       Point point33 = point1;
       chkbLocked1.Location = point33;
-      chkbLocked.Name = "chkbLocked";
-      CheckBox chkbLocked2 = chkbLocked;
+      ChkbLocked.Name = "chkbLocked";
+      CheckBox chkbLocked2 = ChkbLocked;
       size1 = new Size(72, 24);
       Size size32 = size1;
       chkbLocked2.Size = size32;
-      chkbLocked.TabIndex = 0;
-      chkbLocked.Text = "Locked";
-      chkbKeyRequired.Enabled = false;
-      CheckBox chkbKeyRequired1 = chkbKeyRequired;
+      ChkbLocked.TabIndex = 0;
+      ChkbLocked.Text = "Locked";
+      ChkbKeyRequired.Enabled = false;
+      CheckBox chkbKeyRequired1 = ChkbKeyRequired;
       point1 = new Point(48, 134);
       Point point34 = point1;
       chkbKeyRequired1.Location = point34;
-      chkbKeyRequired.Name = "chkbKeyRequired";
-      CheckBox chkbKeyRequired2 = chkbKeyRequired;
+      ChkbKeyRequired.Name = "chkbKeyRequired";
+      CheckBox chkbKeyRequired2 = ChkbKeyRequired;
       size1 = new Size(184, 24);
       Size size33 = size1;
       chkbKeyRequired2.Size = size33;
-      chkbKeyRequired.TabIndex = 3;
-      chkbKeyRequired.Text = "Key required to unlock or lock";
-      chkbAutoRemoveKey.Enabled = false;
-      CheckBox chkbAutoRemoveKey1 = chkbAutoRemoveKey;
+      ChkbKeyRequired.TabIndex = 3;
+      ChkbKeyRequired.Text = "Key required to unlock or lock";
+      ChkbAutoRemoveKey.Enabled = false;
+      CheckBox chkbAutoRemoveKey1 = ChkbAutoRemoveKey;
       point1 = new Point(48, 100);
       Point point35 = point1;
       chkbAutoRemoveKey1.Location = point35;
-      chkbAutoRemoveKey.Name = "chkbAutoRemoveKey";
-      CheckBox chkbAutoRemoveKey2 = chkbAutoRemoveKey;
+      ChkbAutoRemoveKey.Name = "chkbAutoRemoveKey";
+      CheckBox chkbAutoRemoveKey2 = ChkbAutoRemoveKey;
       size1 = new Size(200, 24);
       Size size34 = size1;
       chkbAutoRemoveKey2.Size = size34;
-      chkbAutoRemoveKey.TabIndex = 2;
-      chkbAutoRemoveKey.Text = "Automatically remove key after use";
-      TabPageAdvanced.Controls.Add(chkbPartyInteract);
-      TabPageAdvanced.Controls.Add(chkbHasInventory);
+      ChkbAutoRemoveKey.TabIndex = 2;
+      ChkbAutoRemoveKey.Text = "Automatically remove key after use";
+      TabPageAdvanced.Controls.Add(ChkbPartyInteract);
+      TabPageAdvanced.Controls.Add(ChkbHasInventory);
       TabPageAdvanced.Controls.Add(Label20);
-      TabPageAdvanced.Controls.Add(tbType);
-      TabPageAdvanced.Controls.Add(chkbInterruptable);
-      TabPageAdvanced.Controls.Add(tbConversation);
-      TabPageAdvanced.Controls.Add(tbFaction);
-      TabPageAdvanced.Controls.Add(tbTemplateResRef);
+      TabPageAdvanced.Controls.Add(TbType);
+      TabPageAdvanced.Controls.Add(ChkbInterruptable);
+      TabPageAdvanced.Controls.Add(TbConversation);
+      TabPageAdvanced.Controls.Add(TbFaction);
+      TabPageAdvanced.Controls.Add(TbTemplateResRef);
       TabPageAdvanced.Controls.Add(Label10);
       TabPageAdvanced.Controls.Add(Label11);
       TabPageAdvanced.Controls.Add(Label13);
       TabPageAdvanced.Controls.Add(Label14);
-      TabPageAdvanced.Controls.Add(tbAnimationState);
-      TabPageAdvanced.Controls.Add(chkbUsable);
+      TabPageAdvanced.Controls.Add(TbAnimationState);
+      TabPageAdvanced.Controls.Add(ChkbUsable);
       TabPage tabPageAdvanced1 = TabPageAdvanced;
       point1 = new Point(4, 40);
       Point point36 = point1;
@@ -2478,212 +2479,212 @@ namespace KotorTool_2._0.Forms
       TabPageAdvanced.TabIndex = 5;
       TabPageAdvanced.Text = "Advanced";
       TabPageAdvanced.Visible = false;
-      CheckBox chkbPartyInteract1 = chkbPartyInteract;
+      CheckBox chkbPartyInteract1 = ChkbPartyInteract;
       point1 = new Point(168, 240);
       Point point37 = point1;
       chkbPartyInteract1.Location = point37;
-      chkbPartyInteract.Name = "chkbPartyInteract";
-      CheckBox chkbPartyInteract2 = chkbPartyInteract;
+      ChkbPartyInteract.Name = "chkbPartyInteract";
+      CheckBox chkbPartyInteract2 = ChkbPartyInteract;
       size1 = new Size(184, 24);
       Size size36 = size1;
       chkbPartyInteract2.Size = size36;
-      chkbPartyInteract.TabIndex = 6;
-      chkbPartyInteract.Text = "Party Interact";
-      CheckBox chkbHasInventory1 = chkbHasInventory;
+      ChkbPartyInteract.TabIndex = 6;
+      ChkbPartyInteract.Text = "Party Interact";
+      CheckBox chkbHasInventory1 = ChkbHasInventory;
       point1 = new Point(168, 208);
       Point point38 = point1;
       chkbHasInventory1.Location = point38;
-      chkbHasInventory.Name = "chkbHasInventory";
-      CheckBox chkbHasInventory2 = chkbHasInventory;
+      ChkbHasInventory.Name = "chkbHasInventory";
+      CheckBox chkbHasInventory2 = ChkbHasInventory;
       size1 = new Size(184, 24);
       Size size37 = size1;
       chkbHasInventory2.Size = size37;
-      chkbHasInventory.TabIndex = 5;
-      chkbHasInventory.Text = "Has Inventory";
-      Label label20_1 = Label20;
+      ChkbHasInventory.TabIndex = 5;
+      ChkbHasInventory.Text = "Has Inventory";
+      Label label201 = Label20;
       point1 = new Point(56, 176);
       Point point39 = point1;
-      label20_1.Location = point39;
+      label201.Location = point39;
       Label20.Name = "Label20";
-      Label label20_2 = Label20;
+      Label label202 = Label20;
       size1 = new Size(48, 16);
       Size size38 = size1;
-      label20_2.Size = size38;
+      label202.Size = size38;
       Label20.TabIndex = 5;
       Label20.Text = "Type";
       Label20.TextAlign = ContentAlignment.MiddleLeft;
-      TextBox tbType1 = tbType;
+      TextBox tbType1 = TbType;
       point1 = new Point(168, 176);
       Point point40 = point1;
       tbType1.Location = point40;
-      tbType.Name = "tbType";
-      TextBox tbType2 = tbType;
+      TbType.Name = "tbType";
+      TextBox tbType2 = TbType;
       size1 = new Size(72, 20);
       Size size39 = size1;
       tbType2.Size = size39;
-      tbType.TabIndex = 4;
-      tbType.Text = "";
-      CheckBox chkbInterruptable1 = chkbInterruptable;
+      TbType.TabIndex = 4;
+      TbType.Text = "";
+      CheckBox chkbInterruptable1 = ChkbInterruptable;
       point1 = new Point(352, 112);
       Point point41 = point1;
       chkbInterruptable1.Location = point41;
-      chkbInterruptable.Name = "chkbInterruptable";
-      CheckBox chkbInterruptable2 = chkbInterruptable;
+      ChkbInterruptable.Name = "chkbInterruptable";
+      CheckBox chkbInterruptable2 = ChkbInterruptable;
       size1 = new Size(88, 24);
       Size size40 = size1;
       chkbInterruptable2.Size = size40;
-      chkbInterruptable.TabIndex = 2;
-      chkbInterruptable.Text = "Interruptable";
-      TextBox tbConversation1 = tbConversation;
+      ChkbInterruptable.TabIndex = 2;
+      ChkbInterruptable.Text = "Interruptable";
+      TextBox tbConversation1 = TbConversation;
       point1 = new Point(168, 112);
       Point point42 = point1;
       tbConversation1.Location = point42;
-      tbConversation.Name = "tbConversation";
-      TextBox tbConversation2 = tbConversation;
+      TbConversation.Name = "tbConversation";
+      TextBox tbConversation2 = TbConversation;
       size1 = new Size(168, 20);
       Size size41 = size1;
       tbConversation2.Size = size41;
-      tbConversation.TabIndex = 1;
-      tbConversation.Text = "";
-      TextBox tbFaction1 = tbFaction;
+      TbConversation.TabIndex = 1;
+      TbConversation.Text = "";
+      TextBox tbFaction1 = TbFaction;
       point1 = new Point(168, 80);
       Point point43 = point1;
       tbFaction1.Location = point43;
-      tbFaction.Name = "tbFaction";
-      TextBox tbFaction2 = tbFaction;
+      TbFaction.Name = "tbFaction";
+      TextBox tbFaction2 = TbFaction;
       size1 = new Size(30, 20);
       Size size42 = size1;
       tbFaction2.Size = size42;
-      tbFaction.TabIndex = 0;
-      tbFaction.Text = "";
-      tbTemplateResRef.CharacterCasing = CharacterCasing.Lower;
-      TextBox tbTemplateResRef1 = tbTemplateResRef;
+      TbFaction.TabIndex = 0;
+      TbFaction.Text = "";
+      TbTemplateResRef.CharacterCasing = CharacterCasing.Lower;
+      TextBox tbTemplateResRef1 = TbTemplateResRef;
       point1 = new Point(168, 32);
       Point point44 = point1;
       tbTemplateResRef1.Location = point44;
-      tbTemplateResRef.MaxLength = 16;
-      tbTemplateResRef.Name = "tbTemplateResRef";
-      TextBox tbTemplateResRef2 = tbTemplateResRef;
+      TbTemplateResRef.MaxLength = 16;
+      TbTemplateResRef.Name = "tbTemplateResRef";
+      TextBox tbTemplateResRef2 = TbTemplateResRef;
       size1 = new Size(200, 20);
       Size size43 = size1;
       tbTemplateResRef2.Size = size43;
-      tbTemplateResRef.TabIndex = 3;
-      tbTemplateResRef.Text = "";
-      Label label10_1 = Label10;
+      TbTemplateResRef.TabIndex = 3;
+      TbTemplateResRef.Text = "";
+      Label label101 = Label10;
       point1 = new Point(52, 32);
       Point point45 = point1;
-      label10_1.Location = point45;
+      label101.Location = point45;
       Label10.Name = "Label10";
-      Label label10_2 = Label10;
+      Label label102 = Label10;
       size1 = new Size(100, 16);
       Size size44 = size1;
-      label10_2.Size = size44;
+      label102.Size = size44;
       Label10.TabIndex = 2;
       Label10.Text = "Template ResRef";
       Label10.TextAlign = ContentAlignment.MiddleLeft;
-      Label label11_1 = Label11;
+      Label label111 = Label11;
       point1 = new Point(56, 80);
       Point point46 = point1;
-      label11_1.Location = point46;
+      label111.Location = point46;
       Label11.Name = "Label11";
-      Label label11_2 = Label11;
+      Label label112 = Label11;
       size1 = new Size(100, 16);
       Size size45 = size1;
-      label11_2.Size = size45;
+      label112.Size = size45;
       Label11.TabIndex = 2;
       Label11.Text = "Faction";
       Label11.TextAlign = ContentAlignment.MiddleLeft;
-      Label label13_1 = Label13;
+      Label label131 = Label13;
       point1 = new Point(56, 112);
       Point point47 = point1;
-      label13_1.Location = point47;
+      label131.Location = point47;
       Label13.Name = "Label13";
-      Label label13_2 = Label13;
+      Label label132 = Label13;
       size1 = new Size(100, 16);
       Size size46 = size1;
-      label13_2.Size = size46;
+      label132.Size = size46;
       Label13.TabIndex = 2;
       Label13.Text = "Conversation";
       Label13.TextAlign = ContentAlignment.MiddleLeft;
-      Label label14_1 = Label14;
+      Label label141 = Label14;
       point1 = new Point(56, 144);
       Point point48 = point1;
-      label14_1.Location = point48;
+      label141.Location = point48;
       Label14.Name = "Label14";
-      Label label14_2 = Label14;
+      Label label142 = Label14;
       size1 = new Size(100, 16);
       Size size47 = size1;
-      label14_2.Size = size47;
+      label142.Size = size47;
       Label14.TabIndex = 2;
       Label14.Text = "Animation State";
       Label14.TextAlign = ContentAlignment.MiddleLeft;
-      TextBox tbAnimationState1 = tbAnimationState;
+      TextBox tbAnimationState1 = TbAnimationState;
       point1 = new Point(168, 144);
       Point point49 = point1;
       tbAnimationState1.Location = point49;
-      tbAnimationState.Name = "tbAnimationState";
-      TextBox tbAnimationState2 = tbAnimationState;
+      TbAnimationState.Name = "tbAnimationState";
+      TextBox tbAnimationState2 = TbAnimationState;
       size1 = new Size(32, 20);
       Size size48 = size1;
       tbAnimationState2.Size = size48;
-      tbAnimationState.TabIndex = 3;
-      tbAnimationState.Text = "";
-      CheckBox chkbUsable1 = chkbUsable;
+      TbAnimationState.TabIndex = 3;
+      TbAnimationState.Text = "";
+      CheckBox chkbUsable1 = ChkbUsable;
       point1 = new Point(168, 272);
       Point point50 = point1;
       chkbUsable1.Location = point50;
-      chkbUsable.Name = "chkbUsable";
-      CheckBox chkbUsable2 = chkbUsable;
+      ChkbUsable.Name = "chkbUsable";
+      CheckBox chkbUsable2 = ChkbUsable;
       size1 = new Size(184, 24);
       Size size49 = size1;
       chkbUsable2.Size = size49;
-      chkbUsable.TabIndex = 6;
-      chkbUsable.Text = "Usable";
-      TabPageScripts.Controls.Add(btnEditOnUserDefined);
-      TabPageScripts.Controls.Add(btnEditOnUnlock);
-      TabPageScripts.Controls.Add(btnEditOnSpellCastAt);
-      TabPageScripts.Controls.Add(btnEditOnTrapTriggered);
-      TabPageScripts.Controls.Add(btnEditOnMeleeAttacked);
-      TabPageScripts.Controls.Add(btnEditOnOpen);
-      TabPageScripts.Controls.Add(btnEditOnLock);
-      TabPageScripts.Controls.Add(btnEditOnHeartbeat);
-      TabPageScripts.Controls.Add(btnEditOnDeath);
-      TabPageScripts.Controls.Add(btnEditOnDisarm);
-      TabPageScripts.Controls.Add(btnEditOnDamaged);
-      TabPageScripts.Controls.Add(btnEditOnClosed);
-      TabPageScripts.Controls.Add(tbOnUsed);
+      ChkbUsable.TabIndex = 6;
+      ChkbUsable.Text = "Usable";
+      TabPageScripts.Controls.Add(BtnEditOnUserDefined);
+      TabPageScripts.Controls.Add(BtnEditOnUnlock);
+      TabPageScripts.Controls.Add(BtnEditOnSpellCastAt);
+      TabPageScripts.Controls.Add(BtnEditOnTrapTriggered);
+      TabPageScripts.Controls.Add(BtnEditOnMeleeAttacked);
+      TabPageScripts.Controls.Add(BtnEditOnOpen);
+      TabPageScripts.Controls.Add(BtnEditOnLock);
+      TabPageScripts.Controls.Add(BtnEditOnHeartbeat);
+      TabPageScripts.Controls.Add(BtnEditOnDeath);
+      TabPageScripts.Controls.Add(BtnEditOnDisarm);
+      TabPageScripts.Controls.Add(BtnEditOnDamaged);
+      TabPageScripts.Controls.Add(BtnEditOnClosed);
+      TabPageScripts.Controls.Add(TbOnUsed);
       TabPageScripts.Controls.Add(Label18);
       TabPageScripts.Controls.Add(Label34);
-      TabPageScripts.Controls.Add(tbOnDeath);
+      TabPageScripts.Controls.Add(TbOnDeath);
       TabPageScripts.Controls.Add(Label33);
-      TabPageScripts.Controls.Add(tbOnDamaged);
+      TabPageScripts.Controls.Add(TbOnDamaged);
       TabPageScripts.Controls.Add(Label32);
-      TabPageScripts.Controls.Add(tbOnClosed);
+      TabPageScripts.Controls.Add(TbOnClosed);
       TabPageScripts.Controls.Add(Label35);
-      TabPageScripts.Controls.Add(tbOnDisarm);
-      TabPageScripts.Controls.Add(tbOnHeartbeat);
+      TabPageScripts.Controls.Add(TbOnDisarm);
+      TabPageScripts.Controls.Add(TbOnHeartbeat);
       TabPageScripts.Controls.Add(Label36);
       TabPageScripts.Controls.Add(Label37);
-      TabPageScripts.Controls.Add(tbOnLock);
-      TabPageScripts.Controls.Add(tbOnMeleeAttacked);
+      TabPageScripts.Controls.Add(TbOnLock);
+      TabPageScripts.Controls.Add(TbOnMeleeAttacked);
       TabPageScripts.Controls.Add(Label38);
-      TabPageScripts.Controls.Add(tbOnOpen);
+      TabPageScripts.Controls.Add(TbOnOpen);
       TabPageScripts.Controls.Add(Label39);
       TabPageScripts.Controls.Add(Label40);
-      TabPageScripts.Controls.Add(tbOnSpellCastAt);
+      TabPageScripts.Controls.Add(TbOnSpellCastAt);
       TabPageScripts.Controls.Add(Label41);
-      TabPageScripts.Controls.Add(tbOnTrapTriggered);
-      TabPageScripts.Controls.Add(tbOnUnlock);
+      TabPageScripts.Controls.Add(TbOnTrapTriggered);
+      TabPageScripts.Controls.Add(TbOnUnlock);
       TabPageScripts.Controls.Add(Label42);
-      TabPageScripts.Controls.Add(tbOnUserDefined);
+      TabPageScripts.Controls.Add(TbOnUserDefined);
       TabPageScripts.Controls.Add(Label43);
       TabPageScripts.Controls.Add(Label21);
-      TabPageScripts.Controls.Add(tbOnEndDialogue);
-      TabPageScripts.Controls.Add(tbOnInvDisturbed);
+      TabPageScripts.Controls.Add(TbOnEndDialogue);
+      TabPageScripts.Controls.Add(TbOnInvDisturbed);
       TabPageScripts.Controls.Add(Label22);
-      TabPageScripts.Controls.Add(btnEditOnUsed);
-      TabPageScripts.Controls.Add(btnEditOnInvDisturbed);
-      TabPageScripts.Controls.Add(btnEditOnEndDialogue);
+      TabPageScripts.Controls.Add(BtnEditOnUsed);
+      TabPageScripts.Controls.Add(BtnEditOnInvDisturbed);
+      TabPageScripts.Controls.Add(BtnEditOnEndDialogue);
       TabPage tabPageScripts1 = TabPageScripts;
       point1 = new Point(4, 40);
       Point point51 = point1;
@@ -2696,353 +2697,353 @@ namespace KotorTool_2._0.Forms
       TabPageScripts.TabIndex = 4;
       TabPageScripts.Text = "Scripts";
       TabPageScripts.Visible = false;
-      TextBox tbOnUsed1 = tbOnUsed;
+      TextBox tbOnUsed1 = TbOnUsed;
       point1 = new Point(160, 354);
       Point point52 = point1;
       tbOnUsed1.Location = point52;
-      tbOnUsed.Name = "tbOnUsed";
-      TextBox tbOnUsed2 = tbOnUsed;
+      TbOnUsed.Name = "tbOnUsed";
+      TextBox tbOnUsed2 = TbOnUsed;
       size1 = new Size(204, 20);
       Size size51 = size1;
       tbOnUsed2.Size = size51;
-      tbOnUsed.TabIndex = 26;
-      tbOnUsed.Text = "";
-      Label label18_1 = Label18;
+      TbOnUsed.TabIndex = 26;
+      TbOnUsed.Text = "";
+      Label label181 = Label18;
       point1 = new Point(40, 354);
       Point point53 = point1;
-      label18_1.Location = point53;
+      label181.Location = point53;
       Label18.Name = "Label18";
-      Label label18_2 = Label18;
+      Label label182 = Label18;
       size1 = new Size(112, 18);
       Size size52 = size1;
-      label18_2.Size = size52;
+      label182.Size = size52;
       Label18.TabIndex = 30;
       Label18.Text = "OnUsed";
       Label18.TextAlign = ContentAlignment.MiddleLeft;
-      Label label34_1 = Label34;
+      Label label341 = Label34;
       point1 = new Point(40, 68);
       Point point54 = point1;
-      label34_1.Location = point54;
+      label341.Location = point54;
       Label34.Name = "Label34";
-      Label label34_2 = Label34;
+      Label label342 = Label34;
       size1 = new Size(112, 18);
       Size size53 = size1;
-      label34_2.Size = size53;
+      label342.Size = size53;
       Label34.TabIndex = 27;
       Label34.Text = "OnDeath";
       Label34.TextAlign = ContentAlignment.MiddleLeft;
-      TextBox tbOnDeath1 = tbOnDeath;
+      TextBox tbOnDeath1 = TbOnDeath;
       point1 = new Point(160, 68);
       Point point55 = point1;
       tbOnDeath1.Location = point55;
-      tbOnDeath.Name = "tbOnDeath";
-      TextBox tbOnDeath2 = tbOnDeath;
+      TbOnDeath.Name = "tbOnDeath";
+      TextBox tbOnDeath2 = TbOnDeath;
       size1 = new Size(204, 20);
       Size size54 = size1;
       tbOnDeath2.Size = size54;
-      tbOnDeath.TabIndex = 4;
-      tbOnDeath.Text = "";
-      Label label33_1 = Label33;
+      TbOnDeath.TabIndex = 4;
+      TbOnDeath.Text = "";
+      Label label331 = Label33;
       point1 = new Point(40, 42);
       Point point56 = point1;
-      label33_1.Location = point56;
+      label331.Location = point56;
       Label33.Name = "Label33";
-      Label label33_2 = Label33;
+      Label label332 = Label33;
       size1 = new Size(112, 18);
       Size size55 = size1;
-      label33_2.Size = size55;
+      label332.Size = size55;
       Label33.TabIndex = 17;
       Label33.Text = "OnDamaged";
       Label33.TextAlign = ContentAlignment.MiddleLeft;
-      TextBox tbOnDamaged1 = tbOnDamaged;
+      TextBox tbOnDamaged1 = TbOnDamaged;
       point1 = new Point(160, 42);
       Point point57 = point1;
       tbOnDamaged1.Location = point57;
-      tbOnDamaged.Name = "tbOnDamaged";
-      TextBox tbOnDamaged2 = tbOnDamaged;
+      TbOnDamaged.Name = "tbOnDamaged";
+      TextBox tbOnDamaged2 = TbOnDamaged;
       size1 = new Size(204, 20);
       Size size56 = size1;
       tbOnDamaged2.Size = size56;
-      tbOnDamaged.TabIndex = 2;
-      tbOnDamaged.Text = "";
-      Label label32_1 = Label32;
+      TbOnDamaged.TabIndex = 2;
+      TbOnDamaged.Text = "";
+      Label label321 = Label32;
       point1 = new Point(40, 16);
       Point point58 = point1;
-      label32_1.Location = point58;
+      label321.Location = point58;
       Label32.Name = "Label32";
-      Label label32_2 = Label32;
+      Label label322 = Label32;
       size1 = new Size(112, 18);
       Size size57 = size1;
-      label32_2.Size = size57;
+      label322.Size = size57;
       Label32.TabIndex = 14;
       Label32.Text = "OnClosed";
       Label32.TextAlign = ContentAlignment.MiddleLeft;
-      TextBox tbOnClosed1 = tbOnClosed;
+      TextBox tbOnClosed1 = TbOnClosed;
       point1 = new Point(160, 16);
       Point point59 = point1;
       tbOnClosed1.Location = point59;
-      tbOnClosed.Name = "tbOnClosed";
-      TextBox tbOnClosed2 = tbOnClosed;
+      TbOnClosed.Name = "tbOnClosed";
+      TextBox tbOnClosed2 = TbOnClosed;
       size1 = new Size(204, 20);
       Size size58 = size1;
       tbOnClosed2.Size = size58;
-      tbOnClosed.TabIndex = 0;
-      tbOnClosed.Text = "";
-      Label label35_1 = Label35;
+      TbOnClosed.TabIndex = 0;
+      TbOnClosed.Text = "";
+      Label label351 = Label35;
       point1 = new Point(40, 94);
       Point point60 = point1;
-      label35_1.Location = point60;
+      label351.Location = point60;
       Label35.Name = "Label35";
-      Label label35_2 = Label35;
+      Label label352 = Label35;
       size1 = new Size(112, 18);
       Size size59 = size1;
-      label35_2.Size = size59;
+      label352.Size = size59;
       Label35.TabIndex = 26;
       Label35.Text = "OnDisarm";
       Label35.TextAlign = ContentAlignment.MiddleLeft;
-      TextBox tbOnDisarm1 = tbOnDisarm;
+      TextBox tbOnDisarm1 = TbOnDisarm;
       point1 = new Point(160, 94);
       Point point61 = point1;
       tbOnDisarm1.Location = point61;
-      tbOnDisarm.Name = "tbOnDisarm";
-      TextBox tbOnDisarm2 = tbOnDisarm;
+      TbOnDisarm.Name = "tbOnDisarm";
+      TextBox tbOnDisarm2 = TbOnDisarm;
       size1 = new Size(204, 20);
       Size size60 = size1;
       tbOnDisarm2.Size = size60;
-      tbOnDisarm.TabIndex = 6;
-      tbOnDisarm.Text = "";
-      TextBox tbOnHeartbeat1 = tbOnHeartbeat;
+      TbOnDisarm.TabIndex = 6;
+      TbOnDisarm.Text = "";
+      TextBox tbOnHeartbeat1 = TbOnHeartbeat;
       point1 = new Point(160, 146);
       Point point62 = point1;
       tbOnHeartbeat1.Location = point62;
-      tbOnHeartbeat.Name = "tbOnHeartbeat";
-      TextBox tbOnHeartbeat2 = tbOnHeartbeat;
+      TbOnHeartbeat.Name = "tbOnHeartbeat";
+      TextBox tbOnHeartbeat2 = TbOnHeartbeat;
       size1 = new Size(204, 20);
       Size size61 = size1;
       tbOnHeartbeat2.Size = size61;
-      tbOnHeartbeat.TabIndex = 10;
-      tbOnHeartbeat.Text = "";
-      Label label36_1 = Label36;
+      TbOnHeartbeat.TabIndex = 10;
+      TbOnHeartbeat.Text = "";
+      Label label361 = Label36;
       point1 = new Point(40, 146);
       Point point63 = point1;
-      label36_1.Location = point63;
+      label361.Location = point63;
       Label36.Name = "Label36";
-      Label label36_2 = Label36;
+      Label label362 = Label36;
       size1 = new Size(112, 18);
       Size size62 = size1;
-      label36_2.Size = size62;
+      label362.Size = size62;
       Label36.TabIndex = 25;
       Label36.Text = "OnHeartbeat";
       Label36.TextAlign = ContentAlignment.MiddleLeft;
-      Label label37_1 = Label37;
+      Label label371 = Label37;
       point1 = new Point(40, 198);
       Point point64 = point1;
-      label37_1.Location = point64;
+      label371.Location = point64;
       Label37.Name = "Label37";
-      Label label37_2 = Label37;
+      Label label372 = Label37;
       size1 = new Size(112, 18);
       Size size63 = size1;
-      label37_2.Size = size63;
+      label372.Size = size63;
       Label37.TabIndex = 28;
       Label37.Text = "OnLock";
       Label37.TextAlign = ContentAlignment.MiddleLeft;
-      TextBox tbOnLock1 = tbOnLock;
+      TextBox tbOnLock1 = TbOnLock;
       point1 = new Point(160, 198);
       Point point65 = point1;
       tbOnLock1.Location = point65;
-      tbOnLock.Name = "tbOnLock";
-      TextBox tbOnLock2 = tbOnLock;
+      TbOnLock.Name = "tbOnLock";
+      TextBox tbOnLock2 = TbOnLock;
       size1 = new Size(204, 20);
       Size size64 = size1;
       tbOnLock2.Size = size64;
-      tbOnLock.TabIndex = 14;
-      tbOnLock.Text = "";
-      TextBox tbOnMeleeAttacked1 = tbOnMeleeAttacked;
+      TbOnLock.TabIndex = 14;
+      TbOnLock.Text = "";
+      TextBox tbOnMeleeAttacked1 = TbOnMeleeAttacked;
       point1 = new Point(160, 224);
       Point point66 = point1;
       tbOnMeleeAttacked1.Location = point66;
-      tbOnMeleeAttacked.Name = "tbOnMeleeAttacked";
-      TextBox tbOnMeleeAttacked2 = tbOnMeleeAttacked;
+      TbOnMeleeAttacked.Name = "tbOnMeleeAttacked";
+      TextBox tbOnMeleeAttacked2 = TbOnMeleeAttacked;
       size1 = new Size(204, 20);
       Size size65 = size1;
       tbOnMeleeAttacked2.Size = size65;
-      tbOnMeleeAttacked.TabIndex = 16;
-      tbOnMeleeAttacked.Text = "";
-      Label label38_1 = Label38;
+      TbOnMeleeAttacked.TabIndex = 16;
+      TbOnMeleeAttacked.Text = "";
+      Label label381 = Label38;
       point1 = new Point(40, 224);
       Point point67 = point1;
-      label38_1.Location = point67;
+      label381.Location = point67;
       Label38.Name = "Label38";
-      Label label38_2 = Label38;
+      Label label382 = Label38;
       size1 = new Size(112, 18);
       Size size66 = size1;
-      label38_2.Size = size66;
+      label382.Size = size66;
       Label38.TabIndex = 20;
       Label38.Text = "OnMeleeAttacked";
       Label38.TextAlign = ContentAlignment.MiddleLeft;
-      TextBox tbOnOpen1 = tbOnOpen;
+      TextBox tbOnOpen1 = TbOnOpen;
       point1 = new Point(160, 250);
       Point point68 = point1;
       tbOnOpen1.Location = point68;
-      tbOnOpen.Name = "tbOnOpen";
-      TextBox tbOnOpen2 = tbOnOpen;
+      TbOnOpen.Name = "tbOnOpen";
+      TextBox tbOnOpen2 = TbOnOpen;
       size1 = new Size(204, 20);
       Size size67 = size1;
       tbOnOpen2.Size = size67;
-      tbOnOpen.TabIndex = 18;
-      tbOnOpen.Text = "";
-      Label label39_1 = Label39;
+      TbOnOpen.TabIndex = 18;
+      TbOnOpen.Text = "";
+      Label label391 = Label39;
       point1 = new Point(40, 250);
       Point point69 = point1;
-      label39_1.Location = point69;
+      label391.Location = point69;
       Label39.Name = "Label39";
-      Label label39_2 = Label39;
+      Label label392 = Label39;
       size1 = new Size(112, 18);
       Size size68 = size1;
-      label39_2.Size = size68;
+      label392.Size = size68;
       Label39.TabIndex = 21;
       Label39.Text = "OnOpen";
       Label39.TextAlign = ContentAlignment.MiddleLeft;
-      Label label40_1 = Label40;
+      Label label401 = Label40;
       point1 = new Point(40, 276);
       Point point70 = point1;
-      label40_1.Location = point70;
+      label401.Location = point70;
       Label40.Name = "Label40";
-      Label label40_2 = Label40;
+      Label label402 = Label40;
       size1 = new Size(112, 18);
       Size size69 = size1;
-      label40_2.Size = size69;
+      label402.Size = size69;
       Label40.TabIndex = 19;
       Label40.Text = "OnSpellCastAt";
       Label40.TextAlign = ContentAlignment.MiddleLeft;
-      TextBox tbOnSpellCastAt1 = tbOnSpellCastAt;
+      TextBox tbOnSpellCastAt1 = TbOnSpellCastAt;
       point1 = new Point(160, 276);
       Point point71 = point1;
       tbOnSpellCastAt1.Location = point71;
-      tbOnSpellCastAt.Name = "tbOnSpellCastAt";
-      TextBox tbOnSpellCastAt2 = tbOnSpellCastAt;
+      TbOnSpellCastAt.Name = "tbOnSpellCastAt";
+      TextBox tbOnSpellCastAt2 = TbOnSpellCastAt;
       size1 = new Size(204, 20);
       Size size70 = size1;
       tbOnSpellCastAt2.Size = size70;
-      tbOnSpellCastAt.TabIndex = 20;
-      tbOnSpellCastAt.Text = "";
-      Label label41_1 = Label41;
+      TbOnSpellCastAt.TabIndex = 20;
+      TbOnSpellCastAt.Text = "";
+      Label label411 = Label41;
       point1 = new Point(40, 302);
       Point point72 = point1;
-      label41_1.Location = point72;
+      label411.Location = point72;
       Label41.Name = "Label41";
-      Label label41_2 = Label41;
+      Label label412 = Label41;
       size1 = new Size(112, 18);
       Size size71 = size1;
-      label41_2.Size = size71;
+      label412.Size = size71;
       Label41.TabIndex = 24;
       Label41.Text = "OnTrapTriggered";
       Label41.TextAlign = ContentAlignment.MiddleLeft;
-      TextBox tbOnTrapTriggered1 = tbOnTrapTriggered;
+      TextBox tbOnTrapTriggered1 = TbOnTrapTriggered;
       point1 = new Point(160, 302);
       Point point73 = point1;
       tbOnTrapTriggered1.Location = point73;
-      tbOnTrapTriggered.Name = "tbOnTrapTriggered";
-      TextBox tbOnTrapTriggered2 = tbOnTrapTriggered;
+      TbOnTrapTriggered.Name = "tbOnTrapTriggered";
+      TextBox tbOnTrapTriggered2 = TbOnTrapTriggered;
       size1 = new Size(204, 20);
       Size size72 = size1;
       tbOnTrapTriggered2.Size = size72;
-      tbOnTrapTriggered.TabIndex = 22;
-      tbOnTrapTriggered.Text = "";
-      TextBox tbOnUnlock1 = tbOnUnlock;
+      TbOnTrapTriggered.TabIndex = 22;
+      TbOnTrapTriggered.Text = "";
+      TextBox tbOnUnlock1 = TbOnUnlock;
       point1 = new Point(160, 328);
       Point point74 = point1;
       tbOnUnlock1.Location = point74;
-      tbOnUnlock.Name = "tbOnUnlock";
-      TextBox tbOnUnlock2 = tbOnUnlock;
+      TbOnUnlock.Name = "tbOnUnlock";
+      TextBox tbOnUnlock2 = TbOnUnlock;
       size1 = new Size(204, 20);
       Size size73 = size1;
       tbOnUnlock2.Size = size73;
-      tbOnUnlock.TabIndex = 24;
-      tbOnUnlock.Text = "";
-      Label label42_1 = Label42;
+      TbOnUnlock.TabIndex = 24;
+      TbOnUnlock.Text = "";
+      Label label421 = Label42;
       point1 = new Point(40, 328);
       Point point75 = point1;
-      label42_1.Location = point75;
+      label421.Location = point75;
       Label42.Name = "Label42";
-      Label label42_2 = Label42;
+      Label label422 = Label42;
       size1 = new Size(112, 18);
       Size size74 = size1;
-      label42_2.Size = size74;
+      label422.Size = size74;
       Label42.TabIndex = 23;
       Label42.Text = "OnUnlock";
       Label42.TextAlign = ContentAlignment.MiddleLeft;
-      TextBox tbOnUserDefined1 = tbOnUserDefined;
+      TextBox tbOnUserDefined1 = TbOnUserDefined;
       point1 = new Point(160, 380);
       Point point76 = point1;
       tbOnUserDefined1.Location = point76;
-      tbOnUserDefined.Name = "tbOnUserDefined";
-      TextBox tbOnUserDefined2 = tbOnUserDefined;
+      TbOnUserDefined.Name = "tbOnUserDefined";
+      TextBox tbOnUserDefined2 = TbOnUserDefined;
       size1 = new Size(204, 20);
       Size size75 = size1;
       tbOnUserDefined2.Size = size75;
-      tbOnUserDefined.TabIndex = 28;
-      tbOnUserDefined.Text = "";
-      Label label43_1 = Label43;
+      TbOnUserDefined.TabIndex = 28;
+      TbOnUserDefined.Text = "";
+      Label label431 = Label43;
       point1 = new Point(40, 380);
       Point point77 = point1;
-      label43_1.Location = point77;
+      label431.Location = point77;
       Label43.Name = "Label43";
-      Label label43_2 = Label43;
+      Label label432 = Label43;
       size1 = new Size(112, 18);
       Size size76 = size1;
-      label43_2.Size = size76;
+      label432.Size = size76;
       Label43.TabIndex = 22;
       Label43.Text = "OnUserDefined";
       Label43.TextAlign = ContentAlignment.MiddleLeft;
-      Label label21_1 = Label21;
+      Label label211 = Label21;
       point1 = new Point(40, 120);
       Point point78 = point1;
-      label21_1.Location = point78;
+      label211.Location = point78;
       Label21.Name = "Label21";
-      Label label21_2 = Label21;
+      Label label212 = Label21;
       size1 = new Size(112, 18);
       Size size77 = size1;
-      label21_2.Size = size77;
+      label212.Size = size77;
       Label21.TabIndex = 30;
       Label21.Text = "OnEndDialogue";
       Label21.TextAlign = ContentAlignment.MiddleLeft;
-      TextBox tbOnEndDialogue1 = tbOnEndDialogue;
+      TextBox tbOnEndDialogue1 = TbOnEndDialogue;
       point1 = new Point(160, 120);
       Point point79 = point1;
       tbOnEndDialogue1.Location = point79;
-      tbOnEndDialogue.Name = "tbOnEndDialogue";
-      TextBox tbOnEndDialogue2 = tbOnEndDialogue;
+      TbOnEndDialogue.Name = "tbOnEndDialogue";
+      TextBox tbOnEndDialogue2 = TbOnEndDialogue;
       size1 = new Size(204, 20);
       Size size78 = size1;
       tbOnEndDialogue2.Size = size78;
-      tbOnEndDialogue.TabIndex = 8;
-      tbOnEndDialogue.Text = "";
-      TextBox tbOnInvDisturbed1 = tbOnInvDisturbed;
+      TbOnEndDialogue.TabIndex = 8;
+      TbOnEndDialogue.Text = "";
+      TextBox tbOnInvDisturbed1 = TbOnInvDisturbed;
       point1 = new Point(160, 172);
       Point point80 = point1;
       tbOnInvDisturbed1.Location = point80;
-      tbOnInvDisturbed.Name = "tbOnInvDisturbed";
-      TextBox tbOnInvDisturbed2 = tbOnInvDisturbed;
+      TbOnInvDisturbed.Name = "tbOnInvDisturbed";
+      TextBox tbOnInvDisturbed2 = TbOnInvDisturbed;
       size1 = new Size(204, 20);
       Size size79 = size1;
       tbOnInvDisturbed2.Size = size79;
-      tbOnInvDisturbed.TabIndex = 12;
-      tbOnInvDisturbed.Text = "";
-      Label label22_1 = Label22;
+      TbOnInvDisturbed.TabIndex = 12;
+      TbOnInvDisturbed.Text = "";
+      Label label221 = Label22;
       point1 = new Point(40, 172);
       Point point81 = point1;
-      label22_1.Location = point81;
+      label221.Location = point81;
       Label22.Name = "Label22";
-      Label label22_2 = Label22;
+      Label label222 = Label22;
       size1 = new Size(112, 18);
       Size size80 = size1;
-      label22_2.Size = size80;
+      label222.Size = size80;
       Label22.TabIndex = 30;
       Label22.Text = "OnInvDisturbed";
       Label22.TextAlign = ContentAlignment.MiddleLeft;
-      TabPageDescription.Controls.Add(btnSetDescriptionLang);
-      TabPageDescription.Controls.Add(tbDescription);
+      TabPageDescription.Controls.Add(BtnSetDescriptionLang);
+      TabPageDescription.Controls.Add(TbDescription);
       TabPage tabPageDescription1 = TabPageDescription;
       point1 = new Point(4, 40);
       Point point82 = point1;
@@ -3055,30 +3056,30 @@ namespace KotorTool_2._0.Forms
       TabPageDescription.TabIndex = 6;
       TabPageDescription.Text = "Description";
       TabPageDescription.Visible = false;
-      Button setDescriptionLang1 = btnSetDescriptionLang;
+      Button setDescriptionLang1 = BtnSetDescriptionLang;
       point1 = new Point(40, 320);
       Point point83 = point1;
       setDescriptionLang1.Location = point83;
-      btnSetDescriptionLang.Name = "btnSetDescriptionLang";
-      Button setDescriptionLang2 = btnSetDescriptionLang;
+      BtnSetDescriptionLang.Name = "btnSetDescriptionLang";
+      Button setDescriptionLang2 = BtnSetDescriptionLang;
       size1 = new Size(88, 23);
       Size size82 = size1;
       setDescriptionLang2.Size = size82;
-      btnSetDescriptionLang.TabIndex = 1;
-      btnSetDescriptionLang.Text = "Set Language";
-      TextBox tbDescription1 = tbDescription;
+      BtnSetDescriptionLang.TabIndex = 1;
+      BtnSetDescriptionLang.Text = "Set Language";
+      TextBox tbDescription1 = TbDescription;
       point1 = new Point(12, 7);
       Point point84 = point1;
       tbDescription1.Location = point84;
-      tbDescription.Multiline = true;
-      tbDescription.Name = "tbDescription";
-      TextBox tbDescription2 = tbDescription;
+      TbDescription.Multiline = true;
+      TbDescription.Name = "tbDescription";
+      TextBox tbDescription2 = TbDescription;
       size1 = new Size(424, 305);
       Size size83 = size1;
       tbDescription2.Size = size83;
-      tbDescription.TabIndex = 0;
-      tbDescription.Text = "";
-      TabPageComments.Controls.Add(tbComment);
+      TbDescription.TabIndex = 0;
+      TbDescription.Text = "";
+      TabPageComments.Controls.Add(TbComment);
       TabPage tabPageComments1 = TabPageComments;
       point1 = new Point(4, 40);
       Point point85 = point1;
@@ -3091,32 +3092,32 @@ namespace KotorTool_2._0.Forms
       TabPageComments.TabIndex = 7;
       TabPageComments.Text = "Comments";
       TabPageComments.Visible = false;
-      TextBox tbComment1 = tbComment;
+      TextBox tbComment1 = TbComment;
       point1 = new Point(12, 7);
       Point point86 = point1;
       tbComment1.Location = point86;
-      tbComment.Multiline = true;
-      tbComment.Name = "tbComment";
-      TextBox tbComment2 = tbComment;
+      TbComment.Multiline = true;
+      TbComment.Name = "tbComment";
+      TextBox tbComment2 = TbComment;
       size1 = new Size(424, 336);
       Size size85 = size1;
       tbComment2.Size = size85;
-      tbComment.TabIndex = 0;
-      tbComment.Text = "";
-      TabPageTrap.Controls.Add(chkbTrapDisarmable);
-      TabPageTrap.Controls.Add(chkbTrapDetectable);
+      TbComment.TabIndex = 0;
+      TbComment.Text = "";
+      TabPageTrap.Controls.Add(ChkbTrapDisarmable);
+      TabPageTrap.Controls.Add(ChkbTrapDetectable);
       TabPageTrap.Controls.Add(Label6);
       TabPageTrap.Controls.Add(Label3);
-      TabPageTrap.Controls.Add(nudDisarmDC);
+      TabPageTrap.Controls.Add(NudDisarmDc);
       TabPageTrap.Controls.Add(Label4);
       TabPageTrap.Controls.Add(Label15);
-      TabPageTrap.Controls.Add(nudTrapDetectDC);
+      TabPageTrap.Controls.Add(NudTrapDetectDc);
       TabPageTrap.Controls.Add(Label16);
-      TabPageTrap.Controls.Add(lblTrapDetectable);
-      TabPageTrap.Controls.Add(nudTrapType);
+      TabPageTrap.Controls.Add(LblTrapDetectable);
+      TabPageTrap.Controls.Add(NudTrapType);
       TabPageTrap.Controls.Add(Label17);
-      TabPageTrap.Controls.Add(chkbTrapFlag);
-      TabPageTrap.Controls.Add(chkbTrapOneShot);
+      TabPageTrap.Controls.Add(ChkbTrapFlag);
+      TabPageTrap.Controls.Add(ChkbTrapOneShot);
       TabPage tabPageTrap1 = TabPageTrap;
       point1 = new Point(4, 40);
       Point point87 = point1;
@@ -3128,428 +3129,428 @@ namespace KotorTool_2._0.Forms
       tabPageTrap2.Size = size86;
       TabPageTrap.TabIndex = 10;
       TabPageTrap.Text = "Trap";
-      CheckBox chkbTrapDisarmable1 = chkbTrapDisarmable;
+      CheckBox chkbTrapDisarmable1 = ChkbTrapDisarmable;
       point1 = new Point(192, 85);
       Point point88 = point1;
       chkbTrapDisarmable1.Location = point88;
-      chkbTrapDisarmable.Name = "chkbTrapDisarmable";
-      CheckBox chkbTrapDisarmable2 = chkbTrapDisarmable;
+      ChkbTrapDisarmable.Name = "chkbTrapDisarmable";
+      CheckBox chkbTrapDisarmable2 = ChkbTrapDisarmable;
       size1 = new Size(24, 24);
       Size size87 = size1;
       chkbTrapDisarmable2.Size = size87;
-      chkbTrapDisarmable.TabIndex = 2;
-      CheckBox chkbTrapDetectable1 = chkbTrapDetectable;
+      ChkbTrapDisarmable.TabIndex = 2;
+      CheckBox chkbTrapDetectable1 = ChkbTrapDetectable;
       point1 = new Point(192, 21);
       Point point89 = point1;
       chkbTrapDetectable1.Location = point89;
-      chkbTrapDetectable.Name = "chkbTrapDetectable";
-      CheckBox chkbTrapDetectable2 = chkbTrapDetectable;
+      ChkbTrapDetectable.Name = "chkbTrapDetectable";
+      CheckBox chkbTrapDetectable2 = ChkbTrapDetectable;
       size1 = new Size(24, 24);
       Size size88 = size1;
       chkbTrapDetectable2.Size = size88;
-      chkbTrapDetectable.TabIndex = 0;
-      Label label6_1 = Label6;
+      ChkbTrapDetectable.TabIndex = 0;
+      Label label61 = Label6;
       point1 = new Point(48, 184);
       Point point90 = point1;
-      label6_1.Location = point90;
+      label61.Location = point90;
       Label6.Name = "Label6";
-      Label label6_2 = Label6;
+      Label label62 = Label6;
       size1 = new Size(88, 16);
       Size size89 = size1;
-      label6_2.Size = size89;
+      label62.Size = size89;
       Label6.TabIndex = 26;
       Label6.Text = "TrapOneShot";
       Label6.TextAlign = ContentAlignment.MiddleLeft;
-      Label label3_1 = Label3;
+      Label label31 = Label3;
       point1 = new Point(48, 152);
       Point point91 = point1;
-      label3_1.Location = point91;
+      label31.Location = point91;
       Label3.Name = "Label3";
-      Label label3_2 = Label3;
+      Label label32 = Label3;
       size1 = new Size(88, 16);
       Size size90 = size1;
-      label3_2.Size = size90;
+      label32.Size = size90;
       Label3.TabIndex = 27;
       Label3.Text = "TrapFlag";
       Label3.TextAlign = ContentAlignment.MiddleLeft;
-      NumericUpDown nudDisarmDc1 = nudDisarmDC;
+      NumericUpDown nudDisarmDc1 = NudDisarmDc;
       point1 = new Point(176, 120);
       Point point92 = point1;
       nudDisarmDc1.Location = point92;
-      NumericUpDown nudDisarmDc2 = nudDisarmDC;
+      NumericUpDown nudDisarmDc2 = NudDisarmDc;
       num1 = new Decimal(new int[4]{ 250, 0, 0, 0 });
       Decimal num4 = num1;
       nudDisarmDc2.Maximum = num4;
-      nudDisarmDC.Name = "nudDisarmDC";
-      nudDisarmDC.RightToLeft = RightToLeft.No;
-      NumericUpDown nudDisarmDc3 = nudDisarmDC;
+      NudDisarmDc.Name = "nudDisarmDC";
+      NudDisarmDc.RightToLeft = RightToLeft.No;
+      NumericUpDown nudDisarmDc3 = NudDisarmDc;
       size1 = new Size(48, 20);
       Size size91 = size1;
       nudDisarmDc3.Size = size91;
-      nudDisarmDC.TabIndex = 3;
-      nudDisarmDC.TextAlign = HorizontalAlignment.Right;
-      Label label4_1 = Label4;
+      NudDisarmDc.TabIndex = 3;
+      NudDisarmDc.TextAlign = HorizontalAlignment.Right;
+      Label label41 = Label4;
       point1 = new Point(48, 120);
       Point point93 = point1;
-      label4_1.Location = point93;
+      label41.Location = point93;
       Label4.Name = "Label4";
-      Label label4_2 = Label4;
+      Label label42 = Label4;
       size1 = new Size(88, 16);
       Size size92 = size1;
-      label4_2.Size = size92;
+      label42.Size = size92;
       Label4.TabIndex = 22;
       Label4.Text = "DisarmDC";
       Label4.TextAlign = ContentAlignment.MiddleLeft;
-      Label label15_1 = Label15;
+      Label label151 = Label15;
       point1 = new Point(48, 88);
       Point point94 = point1;
-      label15_1.Location = point94;
+      label151.Location = point94;
       Label15.Name = "Label15";
-      Label label15_2 = Label15;
+      Label label152 = Label15;
       size1 = new Size(88, 16);
       Size size93 = size1;
-      label15_2.Size = size93;
+      label152.Size = size93;
       Label15.TabIndex = 23;
       Label15.Text = "TrapDisarmable";
       Label15.TextAlign = ContentAlignment.MiddleLeft;
-      NumericUpDown nudTrapDetectDc1 = nudTrapDetectDC;
+      NumericUpDown nudTrapDetectDc1 = NudTrapDetectDc;
       point1 = new Point(176, 56);
       Point point95 = point1;
       nudTrapDetectDc1.Location = point95;
-      NumericUpDown nudTrapDetectDc2 = nudTrapDetectDC;
+      NumericUpDown nudTrapDetectDc2 = NudTrapDetectDc;
       num1 = new Decimal(new int[4]{ 250, 0, 0, 0 });
       Decimal num5 = num1;
       nudTrapDetectDc2.Maximum = num5;
-      nudTrapDetectDC.Name = "nudTrapDetectDC";
-      nudTrapDetectDC.RightToLeft = RightToLeft.No;
-      NumericUpDown nudTrapDetectDc3 = nudTrapDetectDC;
+      NudTrapDetectDc.Name = "nudTrapDetectDC";
+      NudTrapDetectDc.RightToLeft = RightToLeft.No;
+      NumericUpDown nudTrapDetectDc3 = NudTrapDetectDc;
       size1 = new Size(48, 20);
       Size size94 = size1;
       nudTrapDetectDc3.Size = size94;
-      nudTrapDetectDC.TabIndex = 1;
-      nudTrapDetectDC.TextAlign = HorizontalAlignment.Right;
-      Label label16_1 = Label16;
+      NudTrapDetectDc.TabIndex = 1;
+      NudTrapDetectDc.TextAlign = HorizontalAlignment.Right;
+      Label label161 = Label16;
       point1 = new Point(48, 56);
       Point point96 = point1;
-      label16_1.Location = point96;
+      label161.Location = point96;
       Label16.Name = "Label16";
-      Label label16_2 = Label16;
+      Label label162 = Label16;
       size1 = new Size(88, 16);
       Size size95 = size1;
-      label16_2.Size = size95;
+      label162.Size = size95;
       Label16.TabIndex = 18;
       Label16.Text = "TrapDetectDC";
       Label16.TextAlign = ContentAlignment.MiddleLeft;
-      Label lblTrapDetectable1 = lblTrapDetectable;
+      Label lblTrapDetectable1 = LblTrapDetectable;
       point1 = new Point(48, 24);
       Point point97 = point1;
       lblTrapDetectable1.Location = point97;
-      lblTrapDetectable.Name = "lblTrapDetectable";
-      Label lblTrapDetectable2 = lblTrapDetectable;
+      LblTrapDetectable.Name = "lblTrapDetectable";
+      Label lblTrapDetectable2 = LblTrapDetectable;
       size1 = new Size(88, 16);
       Size size96 = size1;
       lblTrapDetectable2.Size = size96;
-      lblTrapDetectable.TabIndex = 19;
-      lblTrapDetectable.Text = "TrapDetectable";
-      lblTrapDetectable.TextAlign = ContentAlignment.MiddleLeft;
-      NumericUpDown nudTrapType1 = nudTrapType;
+      LblTrapDetectable.TabIndex = 19;
+      LblTrapDetectable.Text = "TrapDetectable";
+      LblTrapDetectable.TextAlign = ContentAlignment.MiddleLeft;
+      NumericUpDown nudTrapType1 = NudTrapType;
       point1 = new Point(176, 216);
       Point point98 = point1;
       nudTrapType1.Location = point98;
-      NumericUpDown nudTrapType2 = nudTrapType;
+      NumericUpDown nudTrapType2 = NudTrapType;
       num1 = new Decimal(new int[4]{ 2, 0, 0, 0 });
       Decimal num6 = num1;
       nudTrapType2.Maximum = num6;
-      nudTrapType.Name = "nudTrapType";
-      nudTrapType.RightToLeft = RightToLeft.No;
-      NumericUpDown nudTrapType3 = nudTrapType;
+      NudTrapType.Name = "nudTrapType";
+      NudTrapType.RightToLeft = RightToLeft.No;
+      NumericUpDown nudTrapType3 = NudTrapType;
       size1 = new Size(48, 20);
       Size size97 = size1;
       nudTrapType3.Size = size97;
-      nudTrapType.TabIndex = 6;
-      nudTrapType.TextAlign = HorizontalAlignment.Right;
-      Label label17_1 = Label17;
+      NudTrapType.TabIndex = 6;
+      NudTrapType.TextAlign = HorizontalAlignment.Right;
+      Label label171 = Label17;
       point1 = new Point(48, 216);
       Point point99 = point1;
-      label17_1.Location = point99;
+      label171.Location = point99;
       Label17.Name = "Label17";
-      Label label17_2 = Label17;
+      Label label172 = Label17;
       size1 = new Size(88, 16);
       Size size98 = size1;
-      label17_2.Size = size98;
+      label172.Size = size98;
       Label17.TabIndex = 26;
       Label17.Text = "TrapType";
       Label17.TextAlign = ContentAlignment.MiddleLeft;
-      CheckBox chkbTrapFlag1 = chkbTrapFlag;
+      CheckBox chkbTrapFlag1 = ChkbTrapFlag;
       point1 = new Point(192, 152);
       Point point100 = point1;
       chkbTrapFlag1.Location = point100;
-      chkbTrapFlag.Name = "chkbTrapFlag";
-      CheckBox chkbTrapFlag2 = chkbTrapFlag;
+      ChkbTrapFlag.Name = "chkbTrapFlag";
+      CheckBox chkbTrapFlag2 = ChkbTrapFlag;
       size1 = new Size(24, 24);
       Size size99 = size1;
       chkbTrapFlag2.Size = size99;
-      chkbTrapFlag.TabIndex = 4;
-      CheckBox chkbTrapOneShot1 = chkbTrapOneShot;
+      ChkbTrapFlag.TabIndex = 4;
+      CheckBox chkbTrapOneShot1 = ChkbTrapOneShot;
       point1 = new Point(192, 184);
       Point point101 = point1;
       chkbTrapOneShot1.Location = point101;
-      chkbTrapOneShot.Name = "chkbTrapOneShot";
-      CheckBox chkbTrapOneShot2 = chkbTrapOneShot;
+      ChkbTrapOneShot.Name = "chkbTrapOneShot";
+      CheckBox chkbTrapOneShot2 = ChkbTrapOneShot;
       size1 = new Size(24, 24);
       Size size100 = size1;
       chkbTrapOneShot2.Size = size100;
-      chkbTrapOneShot.TabIndex = 5;
-      this.btnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-      Button btnSave = this.btnSave;
+      ChkbTrapOneShot.TabIndex = 5;
+      this.BtnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+      Button btnSave = this.BtnSave;
       point1 = new Point(312, 480);
       Point point102 = point1;
       btnSave.Location = point102;
-      this.btnSave.Name = "btnSave";
-      this.btnSave.TabIndex = 4;
-      this.btnSave.Text = "&Save";
-      this.btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-      Button btnCancel = this.btnCancel;
+      this.BtnSave.Name = "btnSave";
+      this.BtnSave.TabIndex = 4;
+      this.BtnSave.Text = "&Save";
+      this.BtnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+      Button btnCancel = this.BtnCancel;
       point1 = new Point(408, 480);
       Point point103 = point1;
       btnCancel.Location = point103;
-      this.btnCancel.Name = "btnCancel";
-      this.btnCancel.TabIndex = 5;
-      this.btnCancel.Text = "&Cancel";
-      btnInventory.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-      Button btnInventory1 = btnInventory;
+      this.BtnCancel.Name = "btnCancel";
+      this.BtnCancel.TabIndex = 5;
+      this.BtnCancel.Text = "&Cancel";
+      BtnInventory.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+      Button btnInventory1 = BtnInventory;
       point1 = new Point(64, 480);
       Point point104 = point1;
       btnInventory1.Location = point104;
-      btnInventory.Name = "btnInventory";
-      Button btnInventory2 = btnInventory;
+      BtnInventory.Name = "btnInventory";
+      Button btnInventory2 = BtnInventory;
       size1 = new Size(72, 24);
       Size size101 = size1;
       btnInventory2.Size = size101;
-      btnInventory.TabIndex = 9;
-      btnInventory.Text = "&Inventory";
-      btnDebug.FlatStyle = FlatStyle.Flat;
-      btnDebug.ForeColor = SystemColors.Control;
-      Button btnDebug1 = btnDebug;
+      BtnInventory.TabIndex = 9;
+      BtnInventory.Text = "&Inventory";
+      BtnDebug.FlatStyle = FlatStyle.Flat;
+      BtnDebug.ForeColor = SystemColors.Control;
+      Button btnDebug1 = BtnDebug;
       point1 = new Point(0, 0);
       Point point105 = point1;
       btnDebug1.Location = point105;
-      btnDebug.Name = "btnDebug";
-      Button btnDebug2 = btnDebug;
+      BtnDebug.Name = "btnDebug";
+      Button btnDebug2 = BtnDebug;
       size1 = new Size(8, 9);
       Size size102 = size1;
       btnDebug2.Size = size102;
-      btnDebug.TabIndex = 19;
-      btnDebug.TabStop = false;
-      Button btnEditOnClosed1 = btnEditOnClosed;
+      BtnDebug.TabIndex = 19;
+      BtnDebug.TabStop = false;
+      Button btnEditOnClosed1 = BtnEditOnClosed;
       point1 = new Point(384, 16);
       Point point106 = point1;
       btnEditOnClosed1.Location = point106;
-      btnEditOnClosed.Name = "btnEditOnClosed";
-      Button btnEditOnClosed2 = btnEditOnClosed;
+      BtnEditOnClosed.Name = "btnEditOnClosed";
+      Button btnEditOnClosed2 = BtnEditOnClosed;
       size1 = new Size(32, 23);
       Size size103 = size1;
       btnEditOnClosed2.Size = size103;
-      btnEditOnClosed.TabIndex = 1;
-      btnEditOnClosed.Text = "Edit";
-      btnEditOnClosed.TextAlign = ContentAlignment.MiddleLeft;
-      Button btnEditOnDamaged1 = btnEditOnDamaged;
+      BtnEditOnClosed.TabIndex = 1;
+      BtnEditOnClosed.Text = "Edit";
+      BtnEditOnClosed.TextAlign = ContentAlignment.MiddleLeft;
+      Button btnEditOnDamaged1 = BtnEditOnDamaged;
       point1 = new Point(384, 42);
       Point point107 = point1;
       btnEditOnDamaged1.Location = point107;
-      btnEditOnDamaged.Name = "btnEditOnDamaged";
-      Button btnEditOnDamaged2 = btnEditOnDamaged;
+      BtnEditOnDamaged.Name = "btnEditOnDamaged";
+      Button btnEditOnDamaged2 = BtnEditOnDamaged;
       size1 = new Size(32, 23);
       Size size104 = size1;
       btnEditOnDamaged2.Size = size104;
-      btnEditOnDamaged.TabIndex = 3;
-      btnEditOnDamaged.Text = "Edit";
-      btnEditOnDamaged.TextAlign = ContentAlignment.MiddleLeft;
-      Button btnEditOnDeath1 = btnEditOnDeath;
+      BtnEditOnDamaged.TabIndex = 3;
+      BtnEditOnDamaged.Text = "Edit";
+      BtnEditOnDamaged.TextAlign = ContentAlignment.MiddleLeft;
+      Button btnEditOnDeath1 = BtnEditOnDeath;
       point1 = new Point(384, 68);
       Point point108 = point1;
       btnEditOnDeath1.Location = point108;
-      btnEditOnDeath.Name = "btnEditOnDeath";
-      Button btnEditOnDeath2 = btnEditOnDeath;
+      BtnEditOnDeath.Name = "btnEditOnDeath";
+      Button btnEditOnDeath2 = BtnEditOnDeath;
       size1 = new Size(32, 23);
       Size size105 = size1;
       btnEditOnDeath2.Size = size105;
-      btnEditOnDeath.TabIndex = 5;
-      btnEditOnDeath.Text = "Edit";
-      btnEditOnDeath.TextAlign = ContentAlignment.MiddleLeft;
-      Button btnEditOnDisarm1 = btnEditOnDisarm;
+      BtnEditOnDeath.TabIndex = 5;
+      BtnEditOnDeath.Text = "Edit";
+      BtnEditOnDeath.TextAlign = ContentAlignment.MiddleLeft;
+      Button btnEditOnDisarm1 = BtnEditOnDisarm;
       point1 = new Point(384, 94);
       Point point109 = point1;
       btnEditOnDisarm1.Location = point109;
-      btnEditOnDisarm.Name = "btnEditOnDisarm";
-      Button btnEditOnDisarm2 = btnEditOnDisarm;
+      BtnEditOnDisarm.Name = "btnEditOnDisarm";
+      Button btnEditOnDisarm2 = BtnEditOnDisarm;
       size1 = new Size(32, 23);
       Size size106 = size1;
       btnEditOnDisarm2.Size = size106;
-      btnEditOnDisarm.TabIndex = 7;
-      btnEditOnDisarm.Text = "Edit";
-      btnEditOnDisarm.TextAlign = ContentAlignment.MiddleLeft;
-      Button btnEditOnHeartbeat1 = btnEditOnHeartbeat;
+      BtnEditOnDisarm.TabIndex = 7;
+      BtnEditOnDisarm.Text = "Edit";
+      BtnEditOnDisarm.TextAlign = ContentAlignment.MiddleLeft;
+      Button btnEditOnHeartbeat1 = BtnEditOnHeartbeat;
       point1 = new Point(384, 146);
       Point point110 = point1;
       btnEditOnHeartbeat1.Location = point110;
-      btnEditOnHeartbeat.Name = "btnEditOnHeartbeat";
-      Button btnEditOnHeartbeat2 = btnEditOnHeartbeat;
+      BtnEditOnHeartbeat.Name = "btnEditOnHeartbeat";
+      Button btnEditOnHeartbeat2 = BtnEditOnHeartbeat;
       size1 = new Size(32, 23);
       Size size107 = size1;
       btnEditOnHeartbeat2.Size = size107;
-      btnEditOnHeartbeat.TabIndex = 11;
-      btnEditOnHeartbeat.Text = "Edit";
-      btnEditOnHeartbeat.TextAlign = ContentAlignment.MiddleLeft;
-      Button btnEditOnLock1 = btnEditOnLock;
+      BtnEditOnHeartbeat.TabIndex = 11;
+      BtnEditOnHeartbeat.Text = "Edit";
+      BtnEditOnHeartbeat.TextAlign = ContentAlignment.MiddleLeft;
+      Button btnEditOnLock1 = BtnEditOnLock;
       point1 = new Point(384, 198);
       Point point111 = point1;
       btnEditOnLock1.Location = point111;
-      btnEditOnLock.Name = "btnEditOnLock";
-      Button btnEditOnLock2 = btnEditOnLock;
+      BtnEditOnLock.Name = "btnEditOnLock";
+      Button btnEditOnLock2 = BtnEditOnLock;
       size1 = new Size(32, 23);
       Size size108 = size1;
       btnEditOnLock2.Size = size108;
-      btnEditOnLock.TabIndex = 15;
-      btnEditOnLock.Text = "Edit";
-      btnEditOnLock.TextAlign = ContentAlignment.MiddleLeft;
-      Button editOnMeleeAttacked1 = btnEditOnMeleeAttacked;
+      BtnEditOnLock.TabIndex = 15;
+      BtnEditOnLock.Text = "Edit";
+      BtnEditOnLock.TextAlign = ContentAlignment.MiddleLeft;
+      Button editOnMeleeAttacked1 = BtnEditOnMeleeAttacked;
       point1 = new Point(384, 224);
       Point point112 = point1;
       editOnMeleeAttacked1.Location = point112;
-      btnEditOnMeleeAttacked.Name = "btnEditOnMeleeAttacked";
-      Button editOnMeleeAttacked2 = btnEditOnMeleeAttacked;
+      BtnEditOnMeleeAttacked.Name = "btnEditOnMeleeAttacked";
+      Button editOnMeleeAttacked2 = BtnEditOnMeleeAttacked;
       size1 = new Size(32, 23);
       Size size109 = size1;
       editOnMeleeAttacked2.Size = size109;
-      btnEditOnMeleeAttacked.TabIndex = 17;
-      btnEditOnMeleeAttacked.Text = "Edit";
-      btnEditOnMeleeAttacked.TextAlign = ContentAlignment.MiddleLeft;
-      Button btnEditOnOpen1 = btnEditOnOpen;
+      BtnEditOnMeleeAttacked.TabIndex = 17;
+      BtnEditOnMeleeAttacked.Text = "Edit";
+      BtnEditOnMeleeAttacked.TextAlign = ContentAlignment.MiddleLeft;
+      Button btnEditOnOpen1 = BtnEditOnOpen;
       point1 = new Point(384, 250);
       Point point113 = point1;
       btnEditOnOpen1.Location = point113;
-      btnEditOnOpen.Name = "btnEditOnOpen";
-      Button btnEditOnOpen2 = btnEditOnOpen;
+      BtnEditOnOpen.Name = "btnEditOnOpen";
+      Button btnEditOnOpen2 = BtnEditOnOpen;
       size1 = new Size(32, 23);
       Size size110 = size1;
       btnEditOnOpen2.Size = size110;
-      btnEditOnOpen.TabIndex = 19;
-      btnEditOnOpen.Text = "Edit";
-      btnEditOnOpen.TextAlign = ContentAlignment.MiddleLeft;
-      Button editOnSpellCastAt1 = btnEditOnSpellCastAt;
+      BtnEditOnOpen.TabIndex = 19;
+      BtnEditOnOpen.Text = "Edit";
+      BtnEditOnOpen.TextAlign = ContentAlignment.MiddleLeft;
+      Button editOnSpellCastAt1 = BtnEditOnSpellCastAt;
       point1 = new Point(384, 276);
       Point point114 = point1;
       editOnSpellCastAt1.Location = point114;
-      btnEditOnSpellCastAt.Name = "btnEditOnSpellCastAt";
-      Button editOnSpellCastAt2 = btnEditOnSpellCastAt;
+      BtnEditOnSpellCastAt.Name = "btnEditOnSpellCastAt";
+      Button editOnSpellCastAt2 = BtnEditOnSpellCastAt;
       size1 = new Size(32, 23);
       Size size111 = size1;
       editOnSpellCastAt2.Size = size111;
-      btnEditOnSpellCastAt.TabIndex = 21;
-      btnEditOnSpellCastAt.Text = "Edit";
-      btnEditOnSpellCastAt.TextAlign = ContentAlignment.MiddleLeft;
-      Button editOnTrapTriggered1 = btnEditOnTrapTriggered;
+      BtnEditOnSpellCastAt.TabIndex = 21;
+      BtnEditOnSpellCastAt.Text = "Edit";
+      BtnEditOnSpellCastAt.TextAlign = ContentAlignment.MiddleLeft;
+      Button editOnTrapTriggered1 = BtnEditOnTrapTriggered;
       point1 = new Point(384, 302);
       Point point115 = point1;
       editOnTrapTriggered1.Location = point115;
-      btnEditOnTrapTriggered.Name = "btnEditOnTrapTriggered";
-      Button editOnTrapTriggered2 = btnEditOnTrapTriggered;
+      BtnEditOnTrapTriggered.Name = "btnEditOnTrapTriggered";
+      Button editOnTrapTriggered2 = BtnEditOnTrapTriggered;
       size1 = new Size(32, 23);
       Size size112 = size1;
       editOnTrapTriggered2.Size = size112;
-      btnEditOnTrapTriggered.TabIndex = 23;
-      btnEditOnTrapTriggered.Text = "Edit";
-      btnEditOnTrapTriggered.TextAlign = ContentAlignment.MiddleLeft;
-      Button editOnUserDefined1 = btnEditOnUserDefined;
+      BtnEditOnTrapTriggered.TabIndex = 23;
+      BtnEditOnTrapTriggered.Text = "Edit";
+      BtnEditOnTrapTriggered.TextAlign = ContentAlignment.MiddleLeft;
+      Button editOnUserDefined1 = BtnEditOnUserDefined;
       point1 = new Point(384, 380);
       Point point116 = point1;
       editOnUserDefined1.Location = point116;
-      btnEditOnUserDefined.Name = "btnEditOnUserDefined";
-      Button editOnUserDefined2 = btnEditOnUserDefined;
+      BtnEditOnUserDefined.Name = "btnEditOnUserDefined";
+      Button editOnUserDefined2 = BtnEditOnUserDefined;
       size1 = new Size(32, 23);
       Size size113 = size1;
       editOnUserDefined2.Size = size113;
-      btnEditOnUserDefined.TabIndex = 29;
-      btnEditOnUserDefined.Text = "Edit";
-      btnEditOnUserDefined.TextAlign = ContentAlignment.MiddleLeft;
-      Button btnEditOnUnlock1 = btnEditOnUnlock;
+      BtnEditOnUserDefined.TabIndex = 29;
+      BtnEditOnUserDefined.Text = "Edit";
+      BtnEditOnUserDefined.TextAlign = ContentAlignment.MiddleLeft;
+      Button btnEditOnUnlock1 = BtnEditOnUnlock;
       point1 = new Point(384, 328);
       Point point117 = point1;
       btnEditOnUnlock1.Location = point117;
-      btnEditOnUnlock.Name = "btnEditOnUnlock";
-      Button btnEditOnUnlock2 = btnEditOnUnlock;
+      BtnEditOnUnlock.Name = "btnEditOnUnlock";
+      Button btnEditOnUnlock2 = BtnEditOnUnlock;
       size1 = new Size(32, 23);
       Size size114 = size1;
       btnEditOnUnlock2.Size = size114;
-      btnEditOnUnlock.TabIndex = 25;
-      btnEditOnUnlock.Text = "Edit";
-      btnEditOnUnlock.TextAlign = ContentAlignment.MiddleLeft;
-      Button btnEditOnUsed1 = btnEditOnUsed;
+      BtnEditOnUnlock.TabIndex = 25;
+      BtnEditOnUnlock.Text = "Edit";
+      BtnEditOnUnlock.TextAlign = ContentAlignment.MiddleLeft;
+      Button btnEditOnUsed1 = BtnEditOnUsed;
       point1 = new Point(384, 354);
       Point point118 = point1;
       btnEditOnUsed1.Location = point118;
-      btnEditOnUsed.Name = "btnEditOnUsed";
-      Button btnEditOnUsed2 = btnEditOnUsed;
+      BtnEditOnUsed.Name = "btnEditOnUsed";
+      Button btnEditOnUsed2 = BtnEditOnUsed;
       size1 = new Size(32, 23);
       Size size115 = size1;
       btnEditOnUsed2.Size = size115;
-      btnEditOnUsed.TabIndex = 27;
-      btnEditOnUsed.Text = "Edit";
-      btnEditOnUsed.TextAlign = ContentAlignment.MiddleLeft;
-      Button editOnInvDisturbed1 = btnEditOnInvDisturbed;
+      BtnEditOnUsed.TabIndex = 27;
+      BtnEditOnUsed.Text = "Edit";
+      BtnEditOnUsed.TextAlign = ContentAlignment.MiddleLeft;
+      Button editOnInvDisturbed1 = BtnEditOnInvDisturbed;
       point1 = new Point(384, 172);
       Point point119 = point1;
       editOnInvDisturbed1.Location = point119;
-      btnEditOnInvDisturbed.Name = "btnEditOnInvDisturbed";
-      Button editOnInvDisturbed2 = btnEditOnInvDisturbed;
+      BtnEditOnInvDisturbed.Name = "btnEditOnInvDisturbed";
+      Button editOnInvDisturbed2 = BtnEditOnInvDisturbed;
       size1 = new Size(32, 23);
       Size size116 = size1;
       editOnInvDisturbed2.Size = size116;
-      btnEditOnInvDisturbed.TabIndex = 13;
-      btnEditOnInvDisturbed.Text = "Edit";
-      btnEditOnInvDisturbed.TextAlign = ContentAlignment.MiddleLeft;
-      Button editOnEndDialogue1 = btnEditOnEndDialogue;
+      BtnEditOnInvDisturbed.TabIndex = 13;
+      BtnEditOnInvDisturbed.Text = "Edit";
+      BtnEditOnInvDisturbed.TextAlign = ContentAlignment.MiddleLeft;
+      Button editOnEndDialogue1 = BtnEditOnEndDialogue;
       point1 = new Point(384, 120);
       Point point120 = point1;
       editOnEndDialogue1.Location = point120;
-      btnEditOnEndDialogue.Name = "btnEditOnEndDialogue";
-      Button editOnEndDialogue2 = btnEditOnEndDialogue;
+      BtnEditOnEndDialogue.Name = "btnEditOnEndDialogue";
+      Button editOnEndDialogue2 = BtnEditOnEndDialogue;
       size1 = new Size(32, 23);
       Size size117 = size1;
       editOnEndDialogue2.Size = size117;
-      btnEditOnEndDialogue.TabIndex = 9;
-      btnEditOnEndDialogue.Text = "Edit";
-      btnEditOnEndDialogue.TextAlign = ContentAlignment.MiddleLeft;
+      BtnEditOnEndDialogue.TabIndex = 9;
+      BtnEditOnEndDialogue.Text = "Edit";
+      BtnEditOnEndDialogue.TextAlign = ContentAlignment.MiddleLeft;
       size1 = new Size(5, 13);
       AutoScaleBaseSize = size1;
       size1 = new Size(496, 517);
       ClientSize = size1;
-      Controls.Add(btnDebug);
+      Controls.Add(BtnDebug);
       Controls.Add(TabControl1);
-      Controls.Add(this.btnSave);
-      Controls.Add(this.btnCancel);
-      Controls.Add(btnInventory);
-      Name = "frmUTP_Editor";
+      Controls.Add(this.BtnSave);
+      Controls.Add(this.BtnCancel);
+      Controls.Add(BtnInventory);
+      Name = "FrmUtpEditor";
       Text = "Placeable Editor - KotOR ";
       TabControl1.ResumeLayout(false);
       TabPageBasic.ResumeLayout(false);
-      nudWill.EndInit();
-      nudFort.EndInit();
-      nudHP.EndInit();
-      nudHardness.EndInit();
-      nudRef.EndInit();
+      NudWill.EndInit();
+      NudFort.EndInit();
+      NudHp.EndInit();
+      NudHardness.EndInit();
+      NudRef.EndInit();
       TabPageLock.ResumeLayout(false);
-      nudCloseLockDC.EndInit();
-      nudOpenLockDC.EndInit();
+      NudCloseLockDc.EndInit();
+      NudOpenLockDc.EndInit();
       TabPageAdvanced.ResumeLayout(false);
       TabPageScripts.ResumeLayout(false);
       TabPageDescription.ResumeLayout(false);
       TabPageComments.ResumeLayout(false);
       TabPageTrap.ResumeLayout(false);
-      nudDisarmDC.EndInit();
-      nudTrapDetectDC.EndInit();
-      nudTrapType.EndInit();
+      NudDisarmDc.EndInit();
+      NudTrapDetectDc.EndInit();
+      NudTrapType.EndInit();
       ResumeLayout(false);
     }
 
@@ -3561,140 +3562,140 @@ namespace KotorTool_2._0.Forms
     public void Setup()
     {
       BuildComboBoxes();
-      UTP.SetTextBoxFromCExoLocStringNodeValue(tbName, "LocName");
-      UTP.SetTextBoxToNodeValue(tbTag, "Tag");
-      chkbPlotItem.Checked = BooleanType.FromObject(UTP.GetNodeValue("Plot"));
-      chkbStatic.Checked = BooleanType.FromObject(UTP.GetNodeValue("Static"));
-      chkbMin1HP.Checked = BooleanType.FromObject(UTP.GetNodeValue("Min1HP"));
-      UTP.SetNumericUpDownToNodeValue(nudHardness, "Hardness");
-      UTP.SetNumericUpDownToNodeValue(nudHP, "HP");
-      UTP.SetNumericUpDownToNodeValue(nudFort, "Fort");
-      UTP.SetNumericUpDownToNodeValue(nudRef, "Ref");
-      UTP.SetNumericUpDownToNodeValue(nudWill, "Will");
-      chkbLocked.Checked = BooleanType.FromObject(UTP.GetNodeValue("Locked"));
-      chkbLockable.Checked = BooleanType.FromObject(UTP.GetNodeValue("Lockable"));
-      chkbAutoRemoveKey.Checked = BooleanType.FromObject(UTP.GetNodeValue("AutoRemoveKey"));
-      chkbKeyRequired.Checked = BooleanType.FromObject(UTP.GetNodeValue("KeyRequired"));
-      UTP.SetNumericUpDownToNodeValue(nudOpenLockDC, "OpenLockDC");
-      UTP.SetNumericUpDownToNodeValue(nudCloseLockDC, "CloseLockDC");
-      UTP.SetTextBoxToNodeValue(tbKeyName, "KeyName");
-      UTP.SetTextBoxToNodeValue(tbOnClosed, "OnClosed");
-      UTP.SetTextBoxToNodeValue(tbOnDamaged, "OnDamaged");
-      UTP.SetTextBoxToNodeValue(tbOnDeath, "OnDeath");
-      UTP.SetTextBoxToNodeValue(tbOnDisarm, "OnDisarm");
-      UTP.SetTextBoxToNodeValue(tbOnEndDialogue, "OnEndDialogue");
-      UTP.SetTextBoxToNodeValue(tbOnHeartbeat, "OnHeartbeat");
-      UTP.SetTextBoxToNodeValue(tbOnInvDisturbed, "OnInvDisturbed");
-      UTP.SetTextBoxToNodeValue(tbOnLock, "OnLock");
-      UTP.SetTextBoxToNodeValue(tbOnMeleeAttacked, "OnMeleeAttacked");
-      UTP.SetTextBoxToNodeValue(tbOnOpen, "OnOpen");
-      UTP.SetTextBoxToNodeValue(tbOnSpellCastAt, "OnSpellCastAt");
-      UTP.SetTextBoxToNodeValue(tbOnTrapTriggered, "OnTrapTriggered");
-      UTP.SetTextBoxToNodeValue(tbOnUnlock, "OnUnlock");
-      UTP.SetTextBoxToNodeValue(tbOnUsed, "OnUsed");
-      UTP.SetTextBoxToNodeValue(tbOnUserDefined, "OnUserDefined");
-      UTP.SetTextBoxToNodeValue(tbTemplateResRef, "TemplateResRef");
-      UTP.SetTextBoxToNodeValue(tbFaction, "Faction");
-      UTP.SetTextBoxToNodeValue(tbConversation, "Conversation");
-      chkbInterruptable.Checked = BooleanType.FromObject(UTP.GetNodeValue("Interruptable"));
-      UTP.SetTextBoxToNodeValue(tbAnimationState, "AnimationState");
-      UTP.SetTextBoxToNodeValue(tbType, "Type");
-      chkbHasInventory.Checked = BooleanType.FromObject(UTP.GetNodeValue("HasInventory"));
-      chkbPartyInteract.Checked = BooleanType.FromObject(UTP.GetNodeValue("PartyInteract"));
-      chkbUsable.Checked = BooleanType.FromObject(UTP.GetNodeValue("Useable"));
-      chkbTrapDetectable.Checked = BooleanType.FromObject(UTP.GetNodeValue("TrapDetectable"));
-      UTP.SetNumericUpDownToNodeValue(nudTrapDetectDC, "TrapDetectDC");
-      chkbTrapDisarmable.Checked = BooleanType.FromObject(UTP.GetNodeValue("TrapDisarmable"));
-      UTP.SetNumericUpDownToNodeValue(nudDisarmDC, "DisarmDC");
-      chkbTrapFlag.Checked = BooleanType.FromObject(UTP.GetNodeValue("TrapFlag"));
-      chkbTrapOneShot.Checked = BooleanType.FromObject(UTP.GetNodeValue("TrapOneShot"));
-      UTP.SetNumericUpDownToNodeValue(nudTrapType, "TrapType");
-      UTP.SetTextBoxToNodeValue(tbKeyName, "KeyName");
-      UTP.SetTextBoxFromCExoLocStringNodeValue(tbDescription, "Description");
-      DescriptionLang = IntegerType.FromObject(UTP.GetCExoLocStringLanguage("Description"));
-      tbDescription.Text = Strings.Replace(tbDescription.Text, "\n", "\r\n");
-      UTP.SetTextBoxToNodeValue(tbComment, "Comment");
+      Utp.SetTextBoxFromCExoLocStringNodeValue(TbName, "LocName");
+      Utp.SetTextBoxToNodeValue(TbTag, "Tag");
+      ChkbPlotItem.Checked = BooleanType.FromObject(Utp.GetNodeValue("Plot"));
+      ChkbStatic.Checked = BooleanType.FromObject(Utp.GetNodeValue("Static"));
+      ChkbMin1Hp.Checked = BooleanType.FromObject(Utp.GetNodeValue("Min1HP"));
+      Utp.SetNumericUpDownToNodeValue(NudHardness, "Hardness");
+      Utp.SetNumericUpDownToNodeValue(NudHp, "HP");
+      Utp.SetNumericUpDownToNodeValue(NudFort, "Fort");
+      Utp.SetNumericUpDownToNodeValue(NudRef, "Ref");
+      Utp.SetNumericUpDownToNodeValue(NudWill, "Will");
+      ChkbLocked.Checked = BooleanType.FromObject(Utp.GetNodeValue("Locked"));
+      ChkbLockable.Checked = BooleanType.FromObject(Utp.GetNodeValue("Lockable"));
+      ChkbAutoRemoveKey.Checked = BooleanType.FromObject(Utp.GetNodeValue("AutoRemoveKey"));
+      ChkbKeyRequired.Checked = BooleanType.FromObject(Utp.GetNodeValue("KeyRequired"));
+      Utp.SetNumericUpDownToNodeValue(NudOpenLockDc, "OpenLockDC");
+      Utp.SetNumericUpDownToNodeValue(NudCloseLockDc, "CloseLockDC");
+      Utp.SetTextBoxToNodeValue(TbKeyName, "KeyName");
+      Utp.SetTextBoxToNodeValue(TbOnClosed, "OnClosed");
+      Utp.SetTextBoxToNodeValue(TbOnDamaged, "OnDamaged");
+      Utp.SetTextBoxToNodeValue(TbOnDeath, "OnDeath");
+      Utp.SetTextBoxToNodeValue(TbOnDisarm, "OnDisarm");
+      Utp.SetTextBoxToNodeValue(TbOnEndDialogue, "OnEndDialogue");
+      Utp.SetTextBoxToNodeValue(TbOnHeartbeat, "OnHeartbeat");
+      Utp.SetTextBoxToNodeValue(TbOnInvDisturbed, "OnInvDisturbed");
+      Utp.SetTextBoxToNodeValue(TbOnLock, "OnLock");
+      Utp.SetTextBoxToNodeValue(TbOnMeleeAttacked, "OnMeleeAttacked");
+      Utp.SetTextBoxToNodeValue(TbOnOpen, "OnOpen");
+      Utp.SetTextBoxToNodeValue(TbOnSpellCastAt, "OnSpellCastAt");
+      Utp.SetTextBoxToNodeValue(TbOnTrapTriggered, "OnTrapTriggered");
+      Utp.SetTextBoxToNodeValue(TbOnUnlock, "OnUnlock");
+      Utp.SetTextBoxToNodeValue(TbOnUsed, "OnUsed");
+      Utp.SetTextBoxToNodeValue(TbOnUserDefined, "OnUserDefined");
+      Utp.SetTextBoxToNodeValue(TbTemplateResRef, "TemplateResRef");
+      Utp.SetTextBoxToNodeValue(TbFaction, "Faction");
+      Utp.SetTextBoxToNodeValue(TbConversation, "Conversation");
+      ChkbInterruptable.Checked = BooleanType.FromObject(Utp.GetNodeValue("Interruptable"));
+      Utp.SetTextBoxToNodeValue(TbAnimationState, "AnimationState");
+      Utp.SetTextBoxToNodeValue(TbType, "Type");
+      ChkbHasInventory.Checked = BooleanType.FromObject(Utp.GetNodeValue("HasInventory"));
+      ChkbPartyInteract.Checked = BooleanType.FromObject(Utp.GetNodeValue("PartyInteract"));
+      ChkbUsable.Checked = BooleanType.FromObject(Utp.GetNodeValue("Useable"));
+      ChkbTrapDetectable.Checked = BooleanType.FromObject(Utp.GetNodeValue("TrapDetectable"));
+      Utp.SetNumericUpDownToNodeValue(NudTrapDetectDc, "TrapDetectDC");
+      ChkbTrapDisarmable.Checked = BooleanType.FromObject(Utp.GetNodeValue("TrapDisarmable"));
+      Utp.SetNumericUpDownToNodeValue(NudDisarmDc, "DisarmDC");
+      ChkbTrapFlag.Checked = BooleanType.FromObject(Utp.GetNodeValue("TrapFlag"));
+      ChkbTrapOneShot.Checked = BooleanType.FromObject(Utp.GetNodeValue("TrapOneShot"));
+      Utp.SetNumericUpDownToNodeValue(NudTrapType, "TrapType");
+      Utp.SetTextBoxToNodeValue(TbKeyName, "KeyName");
+      Utp.SetTextBoxFromCExoLocStringNodeValue(TbDescription, "Description");
+      _descriptionLang = IntegerType.FromObject(Utp.GetCExoLocStringLanguage("Description"));
+      TbDescription.Text = Strings.Replace(TbDescription.Text, "\n", "\r\n");
+      Utp.SetTextBoxToNodeValue(TbComment, "Comment");
     }
 
-    private void SetGFFNodeValues()
+    private void SetGffNodeValues()
     {
-      UTP.SetNodeValueFromComboBox(cmbxAppearance, "Appearance");
-      UTP.SetCExoLocStringNodeValueFromTextBox(tbName, "LocName", NameLang);
-      UTP.SetNodeValueFromTextBox(tbTag, "Tag");
-      UTP.SetNodeValue("Plot", chkbPlotItem.Checked);
-      if (UTP.VerifyNodeExists("Static"))
-        UTP.SetNodeValue("Static", chkbStatic.Checked);
-      if (UTP.VerifyNodeExists("Min1HP"))
-        UTP.SetNodeValue("Min1HP", chkbMin1HP.Checked);
-      UTP.SetNodeValueFromNumericUpDown(nudHardness, "Hardness");
-      UTP.SetNodeValueFromNumericUpDown(nudHP, "HP");
-      UTP.SetNodeValueFromNumericUpDown(nudFort, "Fort");
-      UTP.SetNodeValueFromNumericUpDown(nudRef, "Ref");
-      UTP.SetNodeValueFromNumericUpDown(nudWill, "Will");
-      UTP.SetNodeValue("Locked", chkbLocked.Checked);
-      UTP.SetNodeValue("Lockable", chkbLockable.Checked);
-      UTP.SetNodeValue("AutoRemoveKey", chkbAutoRemoveKey.Checked);
-      UTP.SetNodeValue("KeyRequired", chkbKeyRequired.Checked);
-      UTP.SetNodeValueFromNumericUpDown(nudOpenLockDC, "OpenLockDC");
-      UTP.SetNodeValueFromNumericUpDown(nudCloseLockDC, "CloseLockDC");
-      UTP.SetNodeValueFromTextBox(tbKeyName, "KeyName");
-      UTP.SetNodeValueFromTextBox(tbOnClosed, "OnClosed");
-      UTP.SetNodeValueFromTextBox(tbOnDamaged, "OnDamaged");
-      UTP.SetNodeValueFromTextBox(tbOnDeath, "OnDeath");
-      UTP.SetNodeValueFromTextBox(tbOnDisarm, "OnDisarm");
-      UTP.SetNodeValueFromTextBox(tbOnEndDialogue, "OnEndDialogue");
-      UTP.SetNodeValueFromTextBox(tbOnHeartbeat, "OnHeartbeat");
-      UTP.SetNodeValueFromTextBox(tbOnInvDisturbed, "OnInvDisturbed");
-      UTP.SetNodeValueFromTextBox(tbOnLock, "OnLock");
-      UTP.SetNodeValueFromTextBox(tbOnMeleeAttacked, "OnMeleeAttacked");
-      UTP.SetNodeValueFromTextBox(tbOnOpen, "OnOpen");
-      UTP.SetNodeValueFromTextBox(tbOnSpellCastAt, "OnSpellCastAt");
-      UTP.SetNodeValueFromTextBox(tbOnTrapTriggered, "OnTrapTriggered");
-      UTP.SetNodeValueFromTextBox(tbOnUnlock, "OnUnlock");
-      UTP.SetNodeValueFromTextBox(tbOnUsed, "OnUsed");
-      UTP.SetNodeValueFromTextBox(tbOnUserDefined, "OnUserDefined");
-      UTP.SetNodeValueFromTextBox(tbTemplateResRef, "TemplateResRef");
-      UTP.SetNodeValueFromTextBox(tbFaction, "Faction");
-      UTP.SetNodeValueFromTextBox(tbConversation, "Conversation");
-      UTP.SetNodeValue("Interruptable", chkbInterruptable.Checked);
-      UTP.SetNodeValueFromTextBox(tbAnimationState, "AnimationState");
-      UTP.SetNodeValueFromTextBox(tbType, "Type");
-      UTP.SetNodeValue("HasInventory", chkbHasInventory.Checked);
-      UTP.SetNodeValue("PartyInteract", chkbPartyInteract.Checked);
-      UTP.SetNodeValue("Useable", chkbUsable.Checked);
-      UTP.SetNodeValue("TrapDetectable", chkbTrapDetectable.Checked);
-      UTP.SetNodeValueFromNumericUpDown(nudTrapDetectDC, "TrapDetectDC");
-      UTP.SetNodeValue("TrapDisarmable", chkbTrapDisarmable.Checked);
-      UTP.SetNodeValueFromNumericUpDown(nudDisarmDC, "DisarmDC");
-      UTP.SetNodeValue("TrapFlag", chkbTrapFlag.Checked);
-      UTP.SetNodeValue("TrapOneShot", chkbTrapOneShot.Checked);
-      UTP.SetNodeValueFromNumericUpDown(nudTrapType, "TrapType");
-      UTP.SetNodeValueFromTextBox(tbKeyName, "KeyName");
-      UTP.SetCExoLocStringNodeValueFromTextBox(tbDescription, "Description");
-      UTP.SetCExoLocStringNodeValueFromTextBox(new TextBox()
+      Utp.SetNodeValueFromComboBox(CmbxAppearance, "Appearance");
+      Utp.SetCExoLocStringNodeValueFromTextBox(TbName, "LocName", _nameLang);
+      Utp.SetNodeValueFromTextBox(TbTag, "Tag");
+      Utp.SetNodeValue("Plot", ChkbPlotItem.Checked);
+      if (Utp.VerifyNodeExists("Static"))
+        Utp.SetNodeValue("Static", ChkbStatic.Checked);
+      if (Utp.VerifyNodeExists("Min1HP"))
+        Utp.SetNodeValue("Min1HP", ChkbMin1Hp.Checked);
+      Utp.SetNodeValueFromNumericUpDown(NudHardness, "Hardness");
+      Utp.SetNodeValueFromNumericUpDown(NudHp, "HP");
+      Utp.SetNodeValueFromNumericUpDown(NudFort, "Fort");
+      Utp.SetNodeValueFromNumericUpDown(NudRef, "Ref");
+      Utp.SetNodeValueFromNumericUpDown(NudWill, "Will");
+      Utp.SetNodeValue("Locked", ChkbLocked.Checked);
+      Utp.SetNodeValue("Lockable", ChkbLockable.Checked);
+      Utp.SetNodeValue("AutoRemoveKey", ChkbAutoRemoveKey.Checked);
+      Utp.SetNodeValue("KeyRequired", ChkbKeyRequired.Checked);
+      Utp.SetNodeValueFromNumericUpDown(NudOpenLockDc, "OpenLockDC");
+      Utp.SetNodeValueFromNumericUpDown(NudCloseLockDc, "CloseLockDC");
+      Utp.SetNodeValueFromTextBox(TbKeyName, "KeyName");
+      Utp.SetNodeValueFromTextBox(TbOnClosed, "OnClosed");
+      Utp.SetNodeValueFromTextBox(TbOnDamaged, "OnDamaged");
+      Utp.SetNodeValueFromTextBox(TbOnDeath, "OnDeath");
+      Utp.SetNodeValueFromTextBox(TbOnDisarm, "OnDisarm");
+      Utp.SetNodeValueFromTextBox(TbOnEndDialogue, "OnEndDialogue");
+      Utp.SetNodeValueFromTextBox(TbOnHeartbeat, "OnHeartbeat");
+      Utp.SetNodeValueFromTextBox(TbOnInvDisturbed, "OnInvDisturbed");
+      Utp.SetNodeValueFromTextBox(TbOnLock, "OnLock");
+      Utp.SetNodeValueFromTextBox(TbOnMeleeAttacked, "OnMeleeAttacked");
+      Utp.SetNodeValueFromTextBox(TbOnOpen, "OnOpen");
+      Utp.SetNodeValueFromTextBox(TbOnSpellCastAt, "OnSpellCastAt");
+      Utp.SetNodeValueFromTextBox(TbOnTrapTriggered, "OnTrapTriggered");
+      Utp.SetNodeValueFromTextBox(TbOnUnlock, "OnUnlock");
+      Utp.SetNodeValueFromTextBox(TbOnUsed, "OnUsed");
+      Utp.SetNodeValueFromTextBox(TbOnUserDefined, "OnUserDefined");
+      Utp.SetNodeValueFromTextBox(TbTemplateResRef, "TemplateResRef");
+      Utp.SetNodeValueFromTextBox(TbFaction, "Faction");
+      Utp.SetNodeValueFromTextBox(TbConversation, "Conversation");
+      Utp.SetNodeValue("Interruptable", ChkbInterruptable.Checked);
+      Utp.SetNodeValueFromTextBox(TbAnimationState, "AnimationState");
+      Utp.SetNodeValueFromTextBox(TbType, "Type");
+      Utp.SetNodeValue("HasInventory", ChkbHasInventory.Checked);
+      Utp.SetNodeValue("PartyInteract", ChkbPartyInteract.Checked);
+      Utp.SetNodeValue("Useable", ChkbUsable.Checked);
+      Utp.SetNodeValue("TrapDetectable", ChkbTrapDetectable.Checked);
+      Utp.SetNodeValueFromNumericUpDown(NudTrapDetectDc, "TrapDetectDC");
+      Utp.SetNodeValue("TrapDisarmable", ChkbTrapDisarmable.Checked);
+      Utp.SetNodeValueFromNumericUpDown(NudDisarmDc, "DisarmDC");
+      Utp.SetNodeValue("TrapFlag", ChkbTrapFlag.Checked);
+      Utp.SetNodeValue("TrapOneShot", ChkbTrapOneShot.Checked);
+      Utp.SetNodeValueFromNumericUpDown(NudTrapType, "TrapType");
+      Utp.SetNodeValueFromTextBox(TbKeyName, "KeyName");
+      Utp.SetCExoLocStringNodeValueFromTextBox(TbDescription, "Description");
+      Utp.SetCExoLocStringNodeValueFromTextBox(new TextBox()
       {
-        Text = Strings.Replace(tbDescription.Text, "\r\n", "\n")
-      }, "Description", DescriptionLang);
-      UTP.SetNodeValueFromTextBox(tbComment, "Comment");
+        Text = Strings.Replace(TbDescription.Text, "\r\n", "\n")
+      }, "Description", _descriptionLang);
+      Utp.SetNodeValueFromTextBox(TbComment, "Comment");
     }
 
     private object BuildComboBoxes()
     {
-      g_clsChitinKey = new ClsChitinKey(CurrentSettings.KeyFileLocation(KotorVersionIndex));
-      FillComboBoxFrom2DA(cmbxAppearance, "label", "placeables", g_clsChitinKey, null);
-      if (!UTP.SyncComboBox(cmbxAppearance, "Appearance"))
+      GClsChitinKey = new ClsChitinKey(ConfigOptions.Paths.KeyFileLocation(KotorVersionIndex));
+      FillComboBoxFrom2Da(CmbxAppearance, "label", "placeables", GClsChitinKey, null);
+      if (!Utp.SyncComboBox(CmbxAppearance, "Appearance"))
       {
         int num = (int) Interaction.MsgBox("One or more drop down menus could not be set.\n\nThis occurs when the file's index value for a menu exceeds the number of items on the menu itself.\n\nMenus with this error have been colored to make them more visible and will need to have a valid menu item selected.", MsgBoxStyle.Critical, "Menu setting error");
       }
-      g_clsChitinKey = null;
+      GClsChitinKey = null;
       object obj = null;
       return obj;
     }
 
-    private void FillComboBoxFrom2DA(ComboBox cmbx, string colName, string TwoDAName, ClsChitinKey ChitinKey, ClsDialogTlk DialogTlk)
+    private void FillComboBoxFrom2Da(ComboBox cmbx, string colName, string twoDaName, ClsChitinKey chitinKey, ClsDialogTlk dialogTlk)
     {
-      Cls2Da cls2Da = ReadCls2DA(TwoDAName, ChitinKey);
-      if (DialogTlk != null)
+      Cls2Da cls2Da = ReadCls2Da(twoDaName, chitinKey);
+      if (dialogTlk != null)
       {
         int num = 0;
         int rowsUpperBound = cls2Da.RowsUpperBound;
@@ -3703,7 +3704,7 @@ namespace KotorTool_2._0.Forms
         {
           object indiceData = cls2Da.GetIndiceData(rowNumber, colName);
           if (Information.IsNumeric(RuntimeHelpers.GetObjectValue(indiceData)))
-            cmbx.Items.Add(DialogTlk.GetString(IntegerType.FromObject(indiceData)));
+            cmbx.Items.Add(dialogTlk.GetString(IntegerType.FromObject(indiceData)));
           else
             cmbx.Items.Add(RuntimeHelpers.GetObjectValue(indiceData));
           checked { ++rowNumber; }
@@ -3724,85 +3725,84 @@ namespace KotorTool_2._0.Forms
 
     private void chkbLocked_CheckedChanged(object sender, EventArgs e)
     {
-      if (chkbLockable.Checked)
+      if (ChkbLockable.Checked)
         return;
       bool flag = BooleanType.FromObject(LateBinding.LateGet(sender, null, "checked", new object[0], null, null));
-      chkbAutoRemoveKey.Enabled = flag;
-      chkbKeyRequired.Enabled = flag;
-      lblOpenLockDC.Enabled = flag;
-      lblKeyTag.Enabled = flag;
-      tbKeyName.Enabled = flag;
-      nudOpenLockDC.Enabled = flag;
+      ChkbAutoRemoveKey.Enabled = flag;
+      ChkbKeyRequired.Enabled = flag;
+      LblOpenLockDc.Enabled = flag;
+      LblKeyTag.Enabled = flag;
+      TbKeyName.Enabled = flag;
+      NudOpenLockDc.Enabled = flag;
     }
 
     private void chkbLockable_CheckedChanged(object sender, EventArgs e)
     {
       bool flag = BooleanType.FromObject(LateBinding.LateGet(sender, null, "checked", new object[0], null, null));
-      if (!chkbLocked.Checked)
+      if (!ChkbLocked.Checked)
       {
-        chkbAutoRemoveKey.Enabled = flag;
-        chkbKeyRequired.Enabled = flag;
-        lblOpenLockDC.Enabled = flag;
-        lblKeyTag.Enabled = flag;
-        tbKeyName.Enabled = flag;
-        nudOpenLockDC.Enabled = flag;
+        ChkbAutoRemoveKey.Enabled = flag;
+        ChkbKeyRequired.Enabled = flag;
+        LblOpenLockDc.Enabled = flag;
+        LblKeyTag.Enabled = flag;
+        TbKeyName.Enabled = flag;
+        NudOpenLockDc.Enabled = flag;
       }
-      lblCloseLockDC.Enabled = flag;
-      nudCloseLockDC.Enabled = flag;
+      LblCloseLockDc.Enabled = flag;
+      NudCloseLockDc.Enabled = flag;
     }
 
     private void btnSave_Click(object sender, EventArgs e)
     {
-      SetGFFNodeValues();
-      if (!m_bSaveGameMode)
+      SetGffNodeValues();
+      if (!_mBSaveGameMode)
       {
-        m_EditingFilePath = StringType.FromObject(FileUtils.GetFilePath("save", CurrentSettings.DefaultSaveLocation, Path.GetFileNameWithoutExtension(m_EditingFilePath) + ".utp", "", ""));
+        m_EditingFilePath = StringType.FromObject(FileUtils.GetFilePath("save", ConfigOptions.Paths.DefaultSaveLocation, Path.GetFileNameWithoutExtension(m_EditingFilePath) + ".utp", "", ""));
         if (StringType.StrCmp(m_EditingFilePath, "", false) == 0)
           return;
       }
-      UTP.WriteFile(m_EditingFilePath, "UTP");
-      if (!m_bSaveGameMode)
+      Utp.WriteFile(m_EditingFilePath, "UTP");
+      if (!_mBSaveGameMode)
         return;
       Close();
     }
 
     private void btnSetNameLang_Click(object sender, EventArgs e)
     {
-      frmCExoLocStringLanguagePicker stringLanguagePicker = new frmCExoLocStringLanguagePicker(NameLang);
+      frmCExoLocStringLanguagePicker stringLanguagePicker = new frmCExoLocStringLanguagePicker(_nameLang);
       if (stringLanguagePicker.ShowDialog(this) != DialogResult.OK)
         return;
-      NameLang = stringLanguagePicker.LanguageID;
+      _nameLang = stringLanguagePicker.LanguageID;
     }
 
     private void btnSetDescLang_Click(object sender, EventArgs e)
     {
-      frmCExoLocStringLanguagePicker stringLanguagePicker = new frmCExoLocStringLanguagePicker(DescriptionLang);
+      frmCExoLocStringLanguagePicker stringLanguagePicker = new frmCExoLocStringLanguagePicker(_descriptionLang);
       if (stringLanguagePicker.ShowDialog(this) != DialogResult.OK)
         return;
-      DescriptionLang = stringLanguagePicker.LanguageID;
+      _descriptionLang = stringLanguagePicker.LanguageID;
     }
 
     private void btnInventory_Click(object sender, EventArgs e)
     {
       FrmInventoryEditor frmInventoryEditor = new FrmInventoryEditor(KotorVersionIndex);
       int num1 = 0;
-      int num2 = checked (UTP.GetListItemCount("ItemList") - 1);
+      int num2 = checked (Utp.GetListItemCount("ItemList") - 1);
       int num3 = num1;
       while (num3 <= num2)
       {
-        string ResRef = StringType.FromObject(UTP.GetNodeValue("ItemList(" + StringType.FromInteger(num3) + ").InventoryRes"));
-        bool Dropable = !UTP.VerifyNodeExists("ItemList(" + StringType.FromInteger(num3) + ").Dropable") || ObjectType.ObjTst(UTP.GetNodeValue("ItemList(" + StringType.FromInteger(num3) + ").Dropable"), 1, false) == 0;
-        frmInventoryEditor.AddPackItem(ResRef, Dropable);
+        string resRef = StringType.FromObject(Utp.GetNodeValue("ItemList(" + StringType.FromInteger(num3) + ").InventoryRes"));
+        bool dropable = !Utp.VerifyNodeExists("ItemList(" + StringType.FromInteger(num3) + ").Dropable") || ObjectType.ObjTst(Utp.GetNodeValue("ItemList(" + StringType.FromInteger(num3) + ").Dropable"), 1, false) == 0;
+        frmInventoryEditor.AddPackItem(resRef, dropable);
         checked { ++num3; }
       }
-      frmInventoryEditor.SetFormName(tbTemplateResRef.Text + ".utp");
+      frmInventoryEditor.SetFormName(TbTemplateResRef.Text + ".utp");
       frmInventoryEditor.ConfigureForPlaceableEditorUse();
       if (frmInventoryEditor.ShowDialog() != DialogResult.OK)
         return;
       int num4 = 0;
-      UTP.ClearListElements("ItemList");
-      try
-      {
+      Utp.ClearListElements("ItemList");
+    
         foreach (InventoryItem packItems in frmInventoryEditor.GetPackItemsList())
         {
           int num5 = 1;
@@ -3818,49 +3818,44 @@ namespace KotorTool_2._0.Forms
             @struct.Fields[1] = new GffField(GffFieldTypes.GffWord, "Repos_PosX", num4);
             @struct.Fields[2] = new GffField(GffFieldTypes.GffWord, "Repos_PosY", 0);
             @struct.Fields[3] = new GffField(GffFieldTypes.GffByte, "Dropable", 1);
-            if (!UTP.VerifyNodeExists("ItemList"))
-              UTP.CreateList("", "ItemList");
-            UTP.AddListElement("ItemList", @struct);
+            if (!Utp.VerifyNodeExists("ItemList"))
+              Utp.CreateList("", "ItemList");
+            Utp.AddListElement("ItemList", @struct);
             checked { ++num4; }
             checked { ++num6; }
           }
         }
-      }
-      finally
-      {
-        IEnumerator enumerator = null;
-        (enumerator as IDisposable)?.Dispose();
-      }
+     
     }
 
     private void btnDebug_Click(object sender, EventArgs e)
     {
       frmTextEditor frmTextEditor = new frmTextEditor();
-      frmTextEditor.Filename = tbName.Text + ".utp";
+      frmTextEditor.Filename = TbName.Text + ".utp";
       frmTextEditor.Text = "Text Editor - " + frmTextEditor.Filename;
       frmTextEditor.RTFMode = true;
-      frmTextEditor.tbGeneric.Rtf = UTP.ToString();
+      frmTextEditor.tbGeneric.Rtf = Utp.ToString();
       frmTextEditor.tbGeneric.SelectionLength = 0;
       frmTextEditor.Show();
     }
 
-    public Cls2Da ReadCls2DA(string TwoDAName, ClsChitinKey ChitinKey)
+    public Cls2Da ReadCls2Da(string twoDaName, ClsChitinKey chitinKey)
     {
       bool flag = true;
       byte[] numArray = null;
-      if (CurrentSettings.BUseOverrideFiles)
+      if (ConfigOptions.Toggles.UseOverrideFiles)
       {
-        string path = CurrentSettings.KotorLocation(KotorVersionIndex) + "\\override\\" + TwoDAName + ".2da";
+        string path = ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\override\\" + twoDaName + ".2da";
         try
         {
           if (File.Exists(path))
           {
             FileStream fileStream = new FileStream(path, FileMode.Open);
-            numArray = new byte[checked ((int) fileStream.Length + 1)];
-            fileStream.Read(numArray, 0, checked ((int) fileStream.Length));
+            numArray = new byte[(int) fileStream.Length + 1];
+            fileStream.Read(numArray, 0,(int) fileStream.Length);
             fileStream.Close();
             flag = false;
-            Console.WriteLine("Read " + TwoDAName + ".2da from override");
+            Console.WriteLine("Read " + twoDaName + ".2da from override");
           }
         }
         catch (Exception ex)
@@ -3872,9 +3867,9 @@ namespace KotorTool_2._0.Forms
       }
       if (flag)
       {
-        int resIdForResRef = ChitinKey.FindResIdForResRef(TwoDAName, 2017);
+        int resIdForResRef = chitinKey.FindResIdForResRef(twoDaName, 2017);
        // numArray = BiffArchive.GetBiffResource(CurrentSettings.KotorLocation(KotorVersionIndex) + "\\" + ChitinKey.BiffList[resIdForResRef >> 20].Filename, resIdForResRef).Data;
-        Console.WriteLine("Read " + TwoDAName + ".2da from 2da.bif");
+        Console.WriteLine("Read " + twoDaName + ".2da from 2da.bif");
       }
       return new Cls2Da(numArray);
     }
@@ -3886,12 +3881,12 @@ namespace KotorTool_2._0.Forms
 
     private void frmUTP_Editor_Closing(object sender, CancelEventArgs e)
     {
-      SaveSettings(GetType().Name);
+      //SaveSettings(GetType().Name);
     }
 
-    public void SetFormName(string Name)
+    public void SetFormName(string name)
     {
-      Text = "Placeable Editor - " + Name;
+      Text = "Placeable Editor - " + name;
     }
 
     private void btnEditScript_Click(object sender, EventArgs e)

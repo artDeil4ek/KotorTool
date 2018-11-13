@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using KotorTool_2._0.MainForm;
 
 using KotorTool_2._0.Models.CLS;
+using KotorTool_2._0.Options;
 using KotorTool_2._0.Utils;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
@@ -4346,14 +4347,14 @@ namespace KotorTool_2._0.Forms
             string path = "";
             if (MiUseK1DialogTlk.Checked && (KotorVersionIndex == 1 || KotorVersionIndex == -1))
             {
-                path = Path.Combine(UserSettings.GetSettings().KotorLocation(0), "dialog.tlk");
+                path = Path.Combine(ConfigOptions.Paths.KotorLocation(0), "dialog.tlk");
                 KotorVersionIndex = 0;
                 flag = true;
             }
 
             if (MiUseK2DialogTlk.Checked && (KotorVersionIndex == 0 || KotorVersionIndex == -1))
             {
-                path = Path.Combine(UserSettings.GetSettings().KotorLocation(1), "dialog.tlk");
+                path = Path.Combine(ConfigOptions.Paths.KotorLocation(1), "dialog.tlk");
                 KotorVersionIndex = 1;
                 flag = true;
             }
@@ -4365,7 +4366,7 @@ namespace KotorTool_2._0.Forms
                 if (KotorVersionIndex != num)
                 {
                     KotorVersionIndex = num;
-                    path = Path.Combine(UserSettings.GetSettings().KotorLocation(KotorVersionIndex), "dialog.tlk");
+                    path = Path.Combine(ConfigOptions.Paths.KotorLocation(KotorVersionIndex), "dialog.tlk");
                     flag = true;
                 }
             }
@@ -4399,10 +4400,10 @@ namespace KotorTool_2._0.Forms
             string startPath = "";
             if (MainFormState.IsOnly1KotOrInstalled())
             {
-                if (MainFormState.HasKotor1()) startPath = UserSettings.GetSettings().KotorLocation(0);
-                if (MainFormState.HasKotor2()) startPath = UserSettings.GetSettings().KotorLocation(1);
+                if (MainFormState.HasKotor1()) startPath = ConfigOptions.Paths.KotorLocation(0);
+                if (MainFormState.HasKotor2()) startPath = ConfigOptions.Paths.KotorLocation(1);
             }
-            else startPath = UserSettings.GetSettings().DefaultImportLocation;
+            else startPath = ConfigOptions.Paths.DefaultImportLocation;
 
             object objectValue = RuntimeHelpers.GetObjectValue(FileUtils.GetFilePath("load", startPath, "*.tlk", "Open Dialog.Tlk file...", "tlk"));
             if (objectValue.GetType() != typeof(string) || ObjectType.ObjTst(objectValue, "", false) == 0) return;
@@ -4461,7 +4462,7 @@ namespace KotorTool_2._0.Forms
 
         private void miOpen_Click(object sender, EventArgs e)
         {
-            string str = StringType.FromObject(FileUtils.GetFilePath("load", CurrentSettings.DefaultSaveLocation, "", "Load SSF file...", "ssf"));
+            string str = StringType.FromObject(FileUtils.GetFilePath("load", ConfigOptions.Paths.DefaultSaveLocation, "", "Load SSF file...", "ssf"));
             if (StringType.StrCmp(str, "", false) == 0) return;
             LoadDialogTlk();
             if (_gDialogtlk != null)
@@ -4485,7 +4486,7 @@ namespace KotorTool_2._0.Forms
 
         private void miSaveAs_Click(object sender, EventArgs e)
         {
-            string str = StringType.FromObject(FileUtils.GetFilePath("save", CurrentSettings.DefaultSaveLocation, "", "Save SSF file as...", "ssf"));
+            string str = StringType.FromObject(FileUtils.GetFilePath("save", ConfigOptions.Paths.DefaultSaveLocation, "", "Save SSF file as...", "ssf"));
             if (StringType.StrCmp(str, "", false) == 0) return;
             _ssf.WriteFile(str);
             _gFilepath = str;

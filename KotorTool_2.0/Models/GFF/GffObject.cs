@@ -106,7 +106,7 @@ namespace KotorTool_2._0.Models.GFF
                 else if (StringType.StrCmp(sLeft, ".uti", false) == 0) o = new frmUTI_Editor(new ClsUti(fs, kotorVersionIndex), kotorVersionIndex);
                 else if (StringType.StrCmp(sLeft, ".utd", false) == 0) o = new frmUTD_Editor(new ClsUtd(fs, kotorVersionIndex), kotorVersionIndex);
                 else if (StringType.StrCmp(sLeft, ".utm", false) == 0) o = new frmUTM_Editor(new ClsUtm(fs, kotorVersionIndex), kotorVersionIndex);
-                else if (StringType.StrCmp(sLeft, ".utp", false) == 0) o = new frmUTP_Editor(new ClsUtp(fs, kotorVersionIndex), kotorVersionIndex);
+                else if (StringType.StrCmp(sLeft, ".utp", false) == 0) o = new FrmUtpEditor(new ClsUtp(fs, kotorVersionIndex), kotorVersionIndex);
                 else if (StringType.StrCmp(sLeft, ".uts", false) == 0) o = new frmUTS_Editor(new ClsUts(fs, kotorVersionIndex), kotorVersionIndex);
                 else if (StringType.StrCmp(sLeft, ".utt", false) == 0) o = new frmUTT_Editor(new ClsUtt(fs, kotorVersionIndex), kotorVersionIndex);
                 else if (StringType.StrCmp(sLeft, ".utw", false) == 0) o = new frmUTW_Editor(new ClsUtw(fs, kotorVersionIndex), kotorVersionIndex);

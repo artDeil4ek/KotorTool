@@ -16,7 +16,7 @@ namespace KotorTool_2._0
         [STAThread]
         public static void Main(string[] cmdArgs)
         {
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(AppDomain.CurrentDomain + "/Settings.txt", true))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter( AppDomain.CurrentDomain.BaseDirectory.Replace(@"\", @"/") + "config.txt", true))
             {
                 file.WriteLine(JsonConvert.SerializeObject(ConfigOptions.getInstance()));
             }

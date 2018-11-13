@@ -31,7 +31,7 @@ namespace KotorTool_2._0.Models
                     streamReader.ReadLine();
                     streamReader.ReadLine();
                     streamReader.ReadLine();
-                    num = Convert.ToInt32(streamReader.ReadLine()?.Replace(" ", "").Replace("roomcount", ""));
+                    num = Convert.ToInt32(streamReader.ReadLine()?.Replace(" ", string.Empty).Replace("roomcount", string.Empty));
                 }
             }
 

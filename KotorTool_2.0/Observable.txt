@@ -1,0 +1,21 @@
+
+
+
+IEnumerable<ERFKeyEntry> list = intialList; //Convert erfkeyentry list to enumerable for processing
+StreamWriter sw = new StreamWriter("C:/Users/steve/Desktop/some_file/trial.txt", true);
+
+         
+//Init observable, converted from enumerable list
+IObservable<ERFKeyEntry> source = list.ToObservable()
+                                           .SubscribeOn(NewThreadScheduler.Default) // do processing work on background
+                                           .ObserveOn(DispatcherScheduler.Current); // act on main thread
+         
+
+subscription = source.Subscribe(
+                              x => sw.WriteLine(JsonConvert.SerializeObject(x) + Environment.NewLine), //write json value to file
+                              ex => Console.WriteLine("OnError: {0}", ex.Message), // error handling
+                              () => sw.Close());
+										
+										
+//IN WINDOW Close
+subscription.Dispose();

@@ -355,6 +355,7 @@
     </Compile>
     <Compile Include="Utils\ByteFunctions.cs" />
     <Compile Include="Utils\DirectoryUtils.cs" />
+    <Compile Include="Utils\FStream.cs" />
     <Compile Include="Utils\FileUtils.cs" />
     <Compile Include="Utils\PathManager.cs" />
     <Compile Include="Utils\ResourceIdentification.cs" />
@@ -464,6 +465,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Jedi_symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Observable.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

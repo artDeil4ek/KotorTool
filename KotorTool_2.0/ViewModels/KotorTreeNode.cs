@@ -23,7 +23,7 @@ namespace KotorTool_2._0.ViewModels
         public int LocalResId => ResId & 1048575;
         public int ResId { get; }
         public string FilePath { get; set; }
-        public int RiMorErFindex { get; set; }
+        public int RimOrErfIndex { get; set; }
         public int KotorVerIndex { get; set; }
 
   

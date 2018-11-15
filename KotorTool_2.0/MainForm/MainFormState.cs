@@ -10,16 +10,16 @@ namespace KotorTool_2._0.MainForm
     {
         public IContainer components;
         public static string GRootPath;
-        public ArrayList[,] _biffEntryListArray;
-        public ArrayList[] _biffEntries;
-        public KotorTreeNode _lastClickedTvNode;
-        public KotorTreeNode _secondToLastClickedTvNode;
-        public byte[] _buffer;
-        public string[] _cmdArgs;
-        public bool _hasK1;
-        public bool _hasK2;
-        public Form _gCmdLineOpenedForm;
-        public MenuStrip menuStrip1;
+        public ArrayList[,] BiffEntryListArray;
+        public ArrayList[] BiffEntries;
+        public KotorTreeNode LastClickedTvNode;
+        public KotorTreeNode SecondToLastClickedTvNode;
+        public byte[] Buffer;
+        public string[] CmdArgs;
+        public bool HasK1;
+        public bool HasK2;
+      //  public Form GCmdLineOpenedForm;
+     //   public MenuStrip MenuStrip1;
       
              
 

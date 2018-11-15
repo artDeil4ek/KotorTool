@@ -36,6 +36,9 @@ namespace KotorTool_2._0.MainForm
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem optionsToolStripMenuItem;
         private ToolStripMenuItem aboutToolStripMenuItem;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
         private TreeViewPresenter _treeViewPresenter;
 
         public FrmMain()
@@ -48,79 +51,124 @@ namespace KotorTool_2._0.MainForm
 
         private void InitializeComponent()
         {
-            containerPanel = new Panel();
-            menuStrip1 = new MenuStrip();
-            fileToolStripMenuItem = new ToolStripMenuItem();
-            optionsToolStripMenuItem = new ToolStripMenuItem();
-            aboutToolStripMenuItem = new ToolStripMenuItem();
-            menuStrip1.SuspendLayout();
-            SuspendLayout();
+            this.containerPanel = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.menuStrip1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // containerPanel
             // 
-            containerPanel.BackColor = Color.White;
-            containerPanel.Location = new Point(1, 48);
-            containerPanel.Name = "containerPanel";
-            containerPanel.Size = new Size(438, 470);
-            containerPanel.TabIndex = 0;
+            this.containerPanel.BackColor = System.Drawing.Color.DimGray;
+            this.containerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.containerPanel.Location = new System.Drawing.Point(-5, -1);
+            this.containerPanel.Name = "containerPanel";
+            this.containerPanel.Size = new System.Drawing.Size(579, 792);
+            this.containerPanel.TabIndex = 0;
             // 
             // menuStrip1
             // 
-            menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] {
-            fileToolStripMenuItem,
-            optionsToolStripMenuItem,
-            aboutToolStripMenuItem});
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(888, 33);
-            menuStrip1.TabIndex = 1;
-            menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.optionsToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1180, 33);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(50, 29);
-            fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
+            this.fileToolStripMenuItem.Text = "File";
             // 
             // optionsToolStripMenuItem
             // 
-            optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            optionsToolStripMenuItem.Size = new Size(88, 29);
-            optionsToolStripMenuItem.Text = "ConfigOptions";
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(141, 29);
+            this.optionsToolStripMenuItem.Text = "ConfigOptions";
             // 
             // aboutToolStripMenuItem
             // 
-            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(74, 29);
-            aboutToolStripMenuItem.Text = "About";
-            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(74, 29);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.ItemSize = new System.Drawing.Size(99, 35);
+            this.tabControl1.Location = new System.Drawing.Point(0, 33);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(583, 831);
+            this.tabControl1.TabIndex = 2;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.Black;
+            this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPage1.Controls.Add(this.containerPanel);
+            this.tabPage1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabPage1.Location = new System.Drawing.Point(4, 39);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(575, 788);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Kotor";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 39);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(575, 788);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
-            AutoScaleBaseSize = new Size(8, 19);
-            BackColor = Color.FromArgb(236, 240, 241);
-            ClientSize = new Size(888, 520);
-            Controls.Add(containerPanel);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
-            MinimumSize = new Size(8, 19);
-            Name = "FrmMain";
-            SizeGripStyle = SizeGripStyle.Show;
-            Text = "Kotor Tool_2.0";
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleBaseSize = new System.Drawing.Size(8, 19);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1180, 864);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
+            this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(8, 19);
+            this.Name = "FrmMain";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.Text = "Kotor Tool";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         private void OnLoad(object sender, EventArgs e)
         {
 
-            mainState = new MainFormState {_biffEntryListArray = new ArrayList[2, 31], _biffEntries = new ArrayList[3], _hasK1 = true, _hasK2 = true};
+            mainState = new MainFormState {BiffEntryListArray = new ArrayList[2, 31], BiffEntries = new ArrayList[3], HasK1 = true, HasK2 = true};
 
-            Console.WriteLine(mainState._biffEntries.Length);
+            Console.WriteLine(mainState.BiffEntries.Length);
          
             Constants.CurrentSettings = new Options.ConfigOptions();
             ConfigOptions.Toggles.BuildBiffTreeOnStartup = true;
@@ -151,17 +199,17 @@ namespace KotorTool_2._0.MainForm
             treeView.Height = containerPanel.Height;
             treeView.Width = containerPanel.Width;
 
-            if (!mainState._hasK1 & !mainState._hasK2){ Interaction.MsgBox("No installation of Kotor I or II was detected.\n\nMost features will not work.", MsgBoxStyle.Critical, "No games detected"); }
+            if (!mainState.HasK1 & !mainState.HasK2){ Interaction.MsgBox("No installation of Kotor I or II was detected.\n\nMost features will not work.", MsgBoxStyle.Critical, "No games detected"); }
 
-            if (StringType.StrCmp(ConfigOptions.Paths.DefaultKotorLocation, string.Empty, false) == 0 & mainState._hasK1 | StringType.StrCmp(ConfigOptions.Paths.DefaultKotorTslLocation, string.Empty, false) == 0 & mainState._hasK2)
+            if (StringType.StrCmp(ConfigOptions.Paths.DefaultKotorLocation, string.Empty, false) == 0 & mainState.HasK1 | StringType.StrCmp(ConfigOptions.Paths.DefaultKotorTslLocation, string.Empty, false) == 0 & mainState.HasK2)
             {
                 using (frmPathManager frmPathManager = new frmPathManager())
                 {
                     
                     Interaction.MsgBox("We've attempted to detect your KotOR installation,\rbut please verify the directories are correct.", MsgBoxStyle.Information, "First run configuration");
                    
-                    if (StringType.StrCmp(ConfigOptions.Paths.DefaultKotorLocation, string.Empty, false) == 0 & mainState._hasK1) frmPathManager.btnAutoDetectKotor1_Click(null, null);
-                    if (StringType.StrCmp(ConfigOptions.Paths.DefaultKotorTslLocation, string.Empty, false) == 0 & mainState._hasK2) frmPathManager.btnAutoDetectKotor2_Click(null, null);
+                    if (StringType.StrCmp(ConfigOptions.Paths.DefaultKotorLocation, string.Empty, false) == 0 & mainState.HasK1) frmPathManager.btnAutoDetectKotor1_Click(null, null);
+                    if (StringType.StrCmp(ConfigOptions.Paths.DefaultKotorTslLocation, string.Empty, false) == 0 & mainState.HasK2) frmPathManager.btnAutoDetectKotor2_Click(null, null);
                    
                     frmPathManager.StartPosition = FormStartPosition.CenterScreen;
                     frmPathManager.ShowDialog(this);
@@ -170,7 +218,7 @@ namespace KotorTool_2._0.MainForm
                 Constants.CurrentSettings = UserSettings.GetSettings();
                 ConfigOptions.Toggles.BuildModelsBifNode = true;
             }
-            if (mainState._hasK1)
+            if (mainState.HasK1)
             {
                 Constants.Gk1ChitinKey = new ClsChitinKey(ConfigOptions.Paths.KeyFileLocation(0));
                 Console.WriteLine("gK1ChitinKey: Lsum = " + StringType.FromLong(Constants.Gk1ChitinKey.Lsum) + ", Llength = " + StringType.FromLong(Constants.Gk1ChitinKey.Llength));
@@ -185,7 +233,7 @@ namespace KotorTool_2._0.MainForm
                     Interaction.MsgBox("Your Kotor I chitin.key file appears to have been altered from the official version.\n\nIf you have not altered it by installing custom packages, you may want to reinstall KotOR to fix this.", MsgBoxStyle.Critical, "Chitin.key file altered");
                 }
             }
-            if (mainState._hasK2)
+            if (mainState.HasK2)
             {
                 Constants.Gk2ChitinKey = new ClsChitinKey(ConfigOptions.Paths.KeyFileLocation(1));
                 Console.WriteLine("gK2ChitinKey: Lsum = " + StringType.FromLong(Constants.Gk2ChitinKey.Lsum) + ", Llength = " + StringType.FromLong(Constants.Gk2ChitinKey.Llength));
@@ -200,19 +248,19 @@ namespace KotorTool_2._0.MainForm
                 }
             }
             _treeViewPresenter.SetupTreeRoots();
-            if (!mainState._hasK1) treeView.Nodes[0].ForeColor = Color.Gray;
-            if (!mainState._hasK2) treeView.Nodes[1].ForeColor = Color.Gray;
-            if (mainState._hasK1) _treeViewPresenter.SetupRootChildren((KotorTreeNode)treeView.Nodes[0]);
-            if (mainState._hasK2) _treeViewPresenter.SetupRootChildren((KotorTreeNode)treeView.Nodes[1]);
+            if (!mainState.HasK1) treeView.Nodes[0].ForeColor = Color.Gray;
+            if (!mainState.HasK2) treeView.Nodes[1].ForeColor = Color.Gray;
+            if (mainState.HasK1) _treeViewPresenter.SetupRootChildren((KotorTreeNode)treeView.Nodes[0]);
+            if (mainState.HasK2) _treeViewPresenter.SetupRootChildren((KotorTreeNode)treeView.Nodes[1]);
             if (ConfigOptions.Toggles.BuildBiffTreeOnStartup)
             {
-                if (mainState._hasK1) _treeViewPresenter.BuildTreeView((KotorTreeNode)treeView.Nodes[0]);
-                if (mainState._hasK2) _treeViewPresenter.BuildTreeView((KotorTreeNode)treeView.Nodes[1]);
+                if (mainState.HasK1) _treeViewPresenter.BuildTreeView((KotorTreeNode)treeView.Nodes[0]);
+                if (mainState.HasK2) _treeViewPresenter.BuildTreeView((KotorTreeNode)treeView.Nodes[1]);
             }
             if (MainFormState.IsOnly1KotOrInstalled())
             {
-                if (mainState._hasK1) treeView.SelectedNode = treeView.Nodes[0];
-                if (mainState._hasK2) treeView.SelectedNode = treeView.Nodes[1];
+                if (mainState.HasK1) treeView.SelectedNode = treeView.Nodes[0];
+                if (mainState.HasK2) treeView.SelectedNode = treeView.Nodes[1];
             }
             _treeViewPresenter.CreateTemplateTagsHashFiles();
             NwScript.ExtractNwScripts(mainState);

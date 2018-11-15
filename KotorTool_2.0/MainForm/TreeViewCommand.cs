@@ -576,26 +576,26 @@ namespace KotorTool_2._0.MainForm
                     BinaryReader binaryReader = new BinaryReader(fileStream, Encoding.ASCII);
                     byte[] indata = binaryReader.ReadBytes((int) fileStream.Length);
                     binaryReader.Close();
-                    ClsRim clsRim = new ClsRim(indata);
+                    RimParser rimParser = new RimParser(indata);
                     if (resTypes == null)
                     {
                         int num1 = 0;
-                        int num2 = clsRim.EntryCount - 1;
+                        int num2 = rimParser.EntryCount - 1;
                         int index = num1;
                         while (index <= num2)
                         {
-                            ByteFunctions.WriteByteArray(outputpath + ((RimKeyEntry) clsRim.KeyEntryList[index]).ResourceName + "." + ((RimKeyEntry) clsRim.KeyEntryList[index]).ResTypeStr, clsRim.GetRimResource(index));
+                            ByteFunctions.WriteByteArray(outputpath + ((RimKeyEntry) rimParser.KeyEntryList[index]).ResourceName + "." + ((RimKeyEntry) rimParser.KeyEntryList[index]).ResTypeStr, rimParser.GetRimResource(index));
                             ++index;
                         }
                     }
                     else
                     {
                         int num1 = 0;
-                        int num2 = clsRim.EntryCount - 1;
+                        int num2 = rimParser.EntryCount - 1;
                         int index = num1;
                         while (index <= num2)
                         {
-                            if (resTypes.Contains(((RimKeyEntry) clsRim.KeyEntryList[index]).ResType)) ByteFunctions.WriteByteArray(outputpath + ((RimKeyEntry) clsRim.KeyEntryList[index]).ResourceName + "." + ((RimKeyEntry) clsRim.KeyEntryList[index]).ResTypeStr, clsRim.GetRimResource(index));
+                            if (resTypes.Contains(((RimKeyEntry) rimParser.KeyEntryList[index]).ResType)) ByteFunctions.WriteByteArray(outputpath + ((RimKeyEntry) rimParser.KeyEntryList[index]).ResourceName + "." + ((RimKeyEntry) rimParser.KeyEntryList[index]).ResTypeStr, rimParser.GetRimResource(index));
                               ++index;
                         }
                     }
@@ -744,13 +744,13 @@ namespace KotorTool_2._0.MainForm
                     BinaryReader binaryReader = new BinaryReader(fileStream, Encoding.ASCII);
                     byte[] indata = binaryReader.ReadBytes((int) fileStream.Length);
                     binaryReader.Close();
-                    ClsRim clsRim = new ClsRim(indata);
+                    RimParser rimParser = new RimParser(indata);
                     int num1 = 0;
-                    int num2 = clsRim.EntryCount - 1;
+                    int num2 = rimParser.EntryCount - 1;
                     int index = num1;
                     while (index <= num2)
                     {
-                        if (((RimKeyEntry) clsRim.KeyEntryList[index]).ResType == node.ResType) ByteFunctions.WriteByteArray(outputpath + ((RimKeyEntry) clsRim.KeyEntryList[index]).ResourceName + "." + ((RimKeyEntry) clsRim.KeyEntryList[index]).ResTypeStr, clsRim.GetRimResource(index));
+                        if (((RimKeyEntry) rimParser.KeyEntryList[index]).ResType == node.ResType) ByteFunctions.WriteByteArray(outputpath + ((RimKeyEntry) rimParser.KeyEntryList[index]).ResourceName + "." + ((RimKeyEntry) rimParser.KeyEntryList[index]).ResTypeStr, rimParser.GetRimResource(index));
                         ++index;
                     }
 

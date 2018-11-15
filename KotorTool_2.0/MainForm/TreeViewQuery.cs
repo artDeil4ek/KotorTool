@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.IO;
+using System.Reactive.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -94,16 +95,16 @@ namespace KotorTool_2._0.MainForm
                     }
                 }
 
-                ClsRim clsRim = new ClsRim(inData);
+                RimParser rimParser = new RimParser(inData);
                 int num2 = 0;
-                int num3 = clsRim.EntryCount - 1;
+                int num3 = rimParser.EntryCount - 1;
                 int index2 = num2;
                 while (index2 <= num3)
                 {
-                    if (fileTypes.ContainsKey(((RimKeyEntry) clsRim.KeyEntryList[index2]).ResTypeStr))
+                    if (fileTypes.ContainsKey(((RimKeyEntry) rimParser.KeyEntryList[index2]).ResTypeStr))
                     {
-                        string input = new ASCIIEncoding().GetString(clsRim.GetRimResource(index2));
-                        if (regex.Match(input).Success) resultsForm.lbMatches.Items.Add(new KotorTreeNode((RimKeyEntry) clsRim.KeyEntryList[index2]) {FilePath = fileInfo.FullName, RiMorErFindex = index2, KotorVerIndex = kotorVerIndex});
+                        string input = new ASCIIEncoding().GetString(rimParser.GetRimResource(index2));
+                        if (regex.Match(input).Success) resultsForm.lbMatches.Items.Add(new KotorTreeNode((RimKeyEntry) rimParser.KeyEntryList[index2]) {FilePath = fileInfo.FullName, RimOrErfIndex = index2, KotorVerIndex = kotorVerIndex});
                     }
 
                     ++index2;
@@ -118,11 +119,11 @@ namespace KotorTool_2._0.MainForm
         public void ScanBifForText(int kotorVerIndex, int biffListIndex, Hashtable htFileTypeIDs, Regex oRegex, ListBox.ObjectCollection lboc)
         {
             ASCIIEncoding asciiEncoding = new ASCIIEncoding();
-            string path = ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\" + ((BiffEntry) _mainState._biffEntries[kotorVerIndex][biffListIndex]).Filename;
+            string path = ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\" + ((BiffEntry) _mainState.BiffEntries[kotorVerIndex][biffListIndex]).Filename;
             FileStream fsin = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000);
             BiffArchive biffArchive = new BiffArchive(fsin);
 
-            foreach (KeyEntry ke in _mainState._biffEntryListArray[kotorVerIndex, biffListIndex])
+            foreach (KeyEntry ke in _mainState.BiffEntryListArray[kotorVerIndex, biffListIndex])
             {
                 int num = 0;
                 switch (num)
@@ -194,7 +195,7 @@ namespace KotorTool_2._0.MainForm
             {
                 KotorTreeNode kotorTreeNode = new KotorTreeNode(keyEntry, erfFilePath);
                 kotorTreeNode.ContainingFileType = "ERF";
-                kotorTreeNode.RiMorErFindex = num;
+                kotorTreeNode.RimOrErfIndex = num;
                 foreach (KotorTreeNode node in ktn.Nodes)
                 {
                     if (StringType.StrCmp(node.Text, StringType.FromChar(Strings.UCase(kotorTreeNode.Text[0])),
@@ -247,16 +248,14 @@ namespace KotorTool_2._0.MainForm
         public void ScanForSavesAndBuildTree(string path, KotorTreeNode node)
         {
             DirectoryInfo[] directories = new DirectoryInfo(path).GetDirectories();
+           
             int index = 0;
+         
             while (index < directories.Length)
             {
                 DirectoryInfo directoryInfo = directories[index];
-                KotorTreeNode kotorTreeNode1 = new KotorTreeNode(directoryInfo.Name);
-                kotorTreeNode1.FilePath = directoryInfo.FullName;
-                KotorTreeNode kotorTreeNode2 = new KotorTreeNode("GLOBALVARS.res");
-                kotorTreeNode2.Tag = "globalvar";
-                kotorTreeNode2.FilePath = kotorTreeNode1.FilePath;
-                kotorTreeNode2.Filename = "GLOBALVARS.res";
+                KotorTreeNode kotorTreeNode1 = new KotorTreeNode(directoryInfo.Name) {FilePath = directoryInfo.FullName};
+                KotorTreeNode kotorTreeNode2 = new KotorTreeNode("GLOBALVARS.res") {Tag = "globalvar", FilePath = kotorTreeNode1.FilePath, Filename = "GLOBALVARS.res"};
                 kotorTreeNode1.Nodes.Add(kotorTreeNode2);
                 node.Nodes.Add(kotorTreeNode1);
                 ++index;
@@ -266,20 +265,24 @@ namespace KotorTool_2._0.MainForm
         public void ReadRIMentries(TreeViewPresenter presenter, string rimFilePath, KotorTreeNode ktn)
         {
             int num = 0;
-            FileStream fileStream = new FileStream(rimFilePath, FileMode.Open, FileAccess.Read);
-            BinaryReader binaryReader = new BinaryReader(fileStream, Encoding.ASCII);
-            ClsRim clsRim = new ClsRim(binaryReader.ReadBytes((int) fileStream.Length));
+            FileStream fileStream = FStream.Generate(rimFilePath);
+            BinaryReader binaryReader = FStream.GenerateBinReaderWithAscii(fileStream);
+            
+            RimParser rimParser = new RimParser(binaryReader.ReadBytes((int) fileStream.Length));
             binaryReader.Close();
+        
             KotorTreeNode kotorTreeNode = new KotorTreeNode();
            
-            foreach (RimKeyEntry keyEntry in clsRim.KeyEntryList)
+            
+            
+            foreach (RimKeyEntry keyEntry in rimParser.KeyEntryList)
             {
-                KotorTreeNode node = new KotorTreeNode(keyEntry, rimFilePath) {ContainingFileType = "RIM", RiMorErFindex = num};
+                KotorTreeNode node = new KotorTreeNode(keyEntry, rimFilePath) {ContainingFileType = "RIM", RimOrErfIndex = num};
                 ++num;
                 presenter.OrganizeNodesByResType(kotorTreeNode, node);
                 if (StringType.StrCmp(keyEntry.ResTypeStr, "pth", false) == 0)
                 {
-                    Console.WriteLine(ktn.Filename + "\\" + keyEntry.ResourceName + " " + StringType.FromInteger(keyEntry.Length));
+                    Console.WriteLine(ktn.Filename + "\\" + keyEntry.ResourceName + " " + keyEntry.Length);
                 }
             }
 

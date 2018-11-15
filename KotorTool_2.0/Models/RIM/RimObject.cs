@@ -13,7 +13,7 @@ namespace KotorTool_2._0.Models.RIM
             BinaryReader binaryReader = new BinaryReader(fileStream, Encoding.ASCII);
             byte[] indata = binaryReader.ReadBytes((int) fileStream.Length);
             binaryReader.Close();
-            return new ClsRim(indata).GetRimResource(ktn.RiMorErFindex);
+            return new RimParser(indata).GetRimResource(ktn.RimOrErfIndex);
         }
     }
 }

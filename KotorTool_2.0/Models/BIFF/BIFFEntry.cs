@@ -24,7 +24,7 @@ namespace KotorTool_2._0.Models.BIFF
             int stringlength = binaryReader.ReadInt16();
             _location = binaryReader.ReadInt16();
             fs.Seek(stringoffset, 0);
-            Filename = new string(binaryReader.ReadChars(checked(stringlength - 1)));
+            Filename = new string(binaryReader.ReadChars(stringlength - 1));
             if (Filename.StartsWith("\\\\"))
             {
                 Filename = Filename.Substring(1);

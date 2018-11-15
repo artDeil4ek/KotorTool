@@ -36,6 +36,9 @@
         </e>
         <e p="Constants.cs" t="Include" />
         <e p="Crypt.cs" t="Include" />
+        <e p="CustomButton.cs" t="Include" />
+        <e p="CustomButton.Designer.cs" t="Include" />
+        <e p="CustomButton.resx" t="Include" />
         <e p="DialogEditor" t="Include">
           <e p="frmDialogEditor.cs" t="Include" />
           <e p="frmDialogEditor.resx" t="Include" />
@@ -168,7 +171,6 @@
             <e p="clsMapInfoCreator.cs" t="Include" />
             <e p="clsProject.cs" t="Include" />
             <e p="clsProjectManager.cs" t="Include" />
-            <e p="clsRIM.cs" t="Include" />
             <e p="clsSSF.cs" t="Include" />
             <e p="clsUTC.cs" t="Include" />
             <e p="clsUTD.cs" t="Include" />
@@ -178,6 +180,7 @@
             <e p="clsUTS.cs" t="Include" />
             <e p="clsUTT.cs" t="Include" />
             <e p="clsUTW.cs" t="Include" />
+            <e p="RimParser.cs" t="Include" />
           </e>
           <e p="ERF" t="Include">
             <e p="ERFKeyEntry.cs" t="Include" />
@@ -250,6 +253,9 @@
           <e p="Settings.settings" t="Include" />
         </e>
         <e p="Resources" t="Include">
+          <e p="black_floor.jpg" t="Include" />
+          <e p="black_floor1.jpg" t="Include" />
+          <e p="black_grid.jpg" t="Include" />
           <e p="Jedi_symbol.png" t="Include" />
         </e>
         <e p="Services" t="Include">

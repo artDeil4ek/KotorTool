@@ -886,25 +886,25 @@ namespace KotorTool_2._0.Forms
         _boolArray
       }, null, 0 != 0, 1 != 0);
       int num3 = 0;
-      int num4 = checked (Globals.GetListItemCount("CatNumber") - 1);
+      int num4 = Globals.GetListItemCount("CatNumber") - 1;
       int index1 = num3;
       while (index1 <= num4)
       {
         _numericArray[index1] = ByteType.FromObject(DgNumericGlobals[index1, 1]);
-        checked { ++index1; }
+        ++index1; 
       }
       LateBinding.LateSetComplex(Globals.GetNodeValue("ValNumber"), null, "bytes", new object[1]
       {
         _numericArray
       }, null, 0 != 0, 1 != 0);
       int num5 = 0;
-      int num6 = checked (Globals.GetListItemCount("CatString") - 1);
+      int num6 = Globals.GetListItemCount("CatString") - 1;
       int index2 = num5;
       while (index2 <= num6)
       {
         Globals.SetNodeValue("CatString(" + StringType.FromInteger(index2) + ").Name", RuntimeHelpers.GetObjectValue(DgStringGlobals[index2, 0]));
         Globals.SetNodeValue("ValString(" + StringType.FromInteger(index2) + ").String", RuntimeHelpers.GetObjectValue(DgStringGlobals[index2, 1]));
-        checked { ++index2; }
+         ++index2; 
       }
       if (StringType.StrCmp(_gSavePath, "", false) == 0)
         _gSavePath = ConfigOptions.Paths.DefaultSaveLocation;
@@ -916,15 +916,9 @@ namespace KotorTool_2._0.Forms
 
     public void BuildBoolDataTable()
     {
-      _dtBool.Columns.Add(new DataColumn("Variable", typeof (string)));
-      _dtBool.Columns.Add(new DataColumn("Active", typeof (bool))
-      {
-        DefaultValue = false
-      });
-      _dtBool.Columns.Add(new DataColumn("Active_Compare", typeof (bool))
-      {
-        DefaultValue = false
-      });
+      _dtBool.Columns.Add(new DataColumn("Variable", typeof(string)));
+      _dtBool.Columns.Add(new DataColumn("Active", typeof(bool)) {DefaultValue = false});
+      _dtBool.Columns.Add(new DataColumn("Active_Compare", typeof(bool)) {DefaultValue = false});
     }
 
     public void BuildBoolDataGrid()
@@ -932,25 +926,22 @@ namespace KotorTool_2._0.Forms
       _dtBool.DefaultView.AllowDelete = false;
       _dtBool.DefaultView.AllowNew = false;
       _dtBool.DefaultView.AllowEdit = true;
+     
       DataGridTableStyle table = new DataGridTableStyle();
+     
       DgBoolGlobals.TableStyles.Clear();
       table.MappingName = _dtBool.TableName;
       table.AlternatingBackColor = Color.FromArgb(byte.MaxValue, 240, 240, 240);
-      DataGridTextBoxColumn gridTextBoxColumn = new DataGridTextBoxColumn();
-      gridTextBoxColumn.MappingName = "Variable";
-      gridTextBoxColumn.HeaderText = "Variable";
-      gridTextBoxColumn.ReadOnly = true;
+     
+      DataGridTextBoxColumn gridTextBoxColumn = new DataGridTextBoxColumn {MappingName = "Variable", HeaderText = "Variable", ReadOnly = true};
       table.GridColumnStyles.Add(gridTextBoxColumn);
-      DataGridBoolColumn dataGridBoolColumn1 = new DataGridBoolColumn();
-      dataGridBoolColumn1.MappingName = "Active";
-      dataGridBoolColumn1.HeaderText = "Active";
-      dataGridBoolColumn1.AllowNull = false;
+    
+      DataGridBoolColumn dataGridBoolColumn1 = new DataGridBoolColumn {MappingName = "Active", HeaderText = "Active", AllowNull = false};
       table.GridColumnStyles.Add(dataGridBoolColumn1);
-      DataGridBoolColumn dataGridBoolColumn2 = new DataGridBoolColumn();
-      dataGridBoolColumn2.MappingName = "Active_Compare_off";
-      dataGridBoolColumn2.HeaderText = "Active (Compare)";
-      dataGridBoolColumn2.AllowNull = false;
+     
+      DataGridBoolColumn dataGridBoolColumn2 = new DataGridBoolColumn {MappingName = "Active_Compare_off", HeaderText = "Active (Compare)", AllowNull = false};
       table.GridColumnStyles.Add(dataGridBoolColumn2);
+   
       DgBoolGlobals.TableStyles.Add(table);
       DgBoolGlobals.SetDataBinding(_dtBool.DefaultView, null);
       DgBoolGlobals.CaptionVisible = false;
@@ -1083,15 +1074,11 @@ namespace KotorTool_2._0.Forms
           row.EndEdit();
           bool flag1 = false;
           bool flag2 = false;
-          if (row[1] == DBNull.Value)
-            flag1 = true;
-          if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(row[1], 0, false) < 0, ObjectType.ObjTst(row[1], (int) byte.MaxValue, false) > 0)))
-            flag2 = true;
+          if (row[1] == DBNull.Value) flag1 = true;
+          if (BooleanType.FromObject(ObjectType.BitOrObj(ObjectType.ObjTst(row[1], 0, false) < 0, ObjectType.ObjTst(row[1], (int) byte.MaxValue, false) > 0))) flag2 = true;
           row.ClearErrors();
-          if (flag1)
-            row.SetColumnError(1, "You must enter a numeric value for this item");
-          if (flag2)
-            row.SetColumnError(2, "You must enter a numeric value from 0-255 for this item");
+          if (flag1) row.SetColumnError(1, "You must enter a numeric value for this item");
+          if (flag2) row.SetColumnError(2, "You must enter a numeric value from 0-255 for this item");
         }
      
     }
@@ -1099,20 +1086,16 @@ namespace KotorTool_2._0.Forms
     private void miOpenFirst_Click(object sender, EventArgs e)
     {
       string str = StringType.FromObject(FileUtils.GetFilePath("load", "", "GLOBALVARS.res", "", ""));
-      if (StringType.StrCmp(str, "", false) == 0)
-        return;
+      if (StringType.StrCmp(str, "", false) == 0) return;
       _gSavePath = str;
       LblFile1.Text = str;
-      if (!_bTablesAndGridsBuilt)
-        BuildTablesAndGrids();
-      else
-        ClearTables();
+      if (!_bTablesAndGridsBuilt) BuildTablesAndGrids();
+      else ClearTables();
       FileStream fs = new FileStream(str, FileMode.Open);
       Globals = new ClsGlobalVars(fs, KotorVersionIndex);
       fs.Close();
       FillGrids();
-      if (GlobalsCompare != null)
-        SetFilterState(true);
+      if (GlobalsCompare != null) SetFilterState(true);
       if (GlobalsCompare == null)
       {
         TabControl1.Location = new Point(8, 32);
@@ -1168,10 +1151,11 @@ namespace KotorTool_2._0.Forms
       dataSource2.Sort = sort2;
       DataView dataSource3 = (DataView) DgStringGlobals.DataSource;
       string sort3 = dataSource3.Sort;
-      dataSource3.Sort = "";
-      dataSource3.RowFilter = "";
+      dataSource3.Sort = string.Empty;
+      dataSource3.RowFilter = string.Empty;
+     
       int num5 = 0;
-      int num6 = checked (GlobalsCompare.GetListItemCount("CatString") - 1);
+      int num6 = GlobalsCompare.GetListItemCount("CatString") - 1;
       int index2 = num5;
       while (index2 <= num6)
       {

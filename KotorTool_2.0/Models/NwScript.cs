@@ -10,24 +10,24 @@ namespace KotorTool_2._0.Models
     {
         public static void ExtractNwScripts(MainFormState mainState)
         {
-            if (mainState._hasK1 && !Directory.Exists(Path.Combine(ConfigOptions.Paths.KotorLocation(0), "override")))
+            if (mainState.HasK1 && !Directory.Exists(Path.Combine(ConfigOptions.Paths.KotorLocation(0), "override")))
             {
                 Directory.CreateDirectory(Path.Combine(ConfigOptions.Paths.KotorLocation(0), "override"));
             }
 
-            if (mainState._hasK2 && !Directory.Exists(Path.Combine(ConfigOptions.Paths.KotorLocation(1), "override")))
+            if (mainState.HasK2 && !Directory.Exists(Path.Combine(ConfigOptions.Paths.KotorLocation(1), "override")))
             {
                 Directory.CreateDirectory(Path.Combine(ConfigOptions.Paths.KotorLocation(1), "override"));
             }
 
             string str = Path.Combine(ConfigOptions.Paths.KotorLocation(0), "override\\nwscript.nss");
             string outputPath = Path.Combine(ConfigOptions.Paths.KotorLocation(1), "override\\nwscript.nss");
-            if (mainState._hasK1 && !File.Exists(str))
+            if (mainState.HasK1 && !File.Exists(str))
             {
                 BiffFunctions.ExportBiffResource(Path.Combine(ConfigOptions.Paths.KotorLocation(0), "data\\scripts.bif"), str, 3533);
             }
 
-            if (!mainState._hasK2 || File.Exists(str))
+            if (!mainState.HasK2 || File.Exists(str))
             {
                 return;
             }

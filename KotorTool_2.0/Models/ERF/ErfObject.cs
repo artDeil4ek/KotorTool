@@ -8,7 +8,7 @@ namespace KotorTool_2._0.Models.ERF
     {
         public byte[] GetErfResource(string erfFilePath, KotorTreeNode ktn)
         {
-            return new ClsErf(new FileStream(erfFilePath, FileMode.Open, FileAccess.Read)).GetErfResource(ktn.RiMorErFindex);
+            return new ClsErf(new FileStream(erfFilePath, FileMode.Open, FileAccess.Read)).GetErfResource(ktn.RimOrErfIndex);
         }
 
         public byte[] GetErfResource(string erfFilePath, string resRef, int resType)

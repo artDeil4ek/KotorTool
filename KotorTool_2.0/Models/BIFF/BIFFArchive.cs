@@ -1,8 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace KotorTool_2._0.Models.BIFF
 {
-    public class BiffArchive
+    public class BiffArchive : IDisposable
     {
         private int _varResCnt;
         private int _fixedResCnt;
@@ -13,6 +14,10 @@ namespace KotorTool_2._0.Models.BIFF
         private string _version;
         public int ResCount => _varResCnt;
 
+        public void Dispose()
+        {
+            _fs?.Dispose();
+        }
 
         public BiffArchive()
         {

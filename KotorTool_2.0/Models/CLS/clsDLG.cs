@@ -15,14 +15,18 @@ namespace KotorTool_2._0.Models.CLS
 {
     public class ClsDlg
     {
-        public ArrayList StartingList;
-        public ClsGff DlgGff;
-        public TreeView Tv;
+        
+        public readonly ClsGff DlgGff;
+        private readonly TreeView Tv;
         private readonly ClsDialogTlk _clsDialogTlk;
-        public ArrayList EntryNodeList;
-        public ArrayList ReplyNodeList;
         private readonly Hashtable _nodeHt;
         private readonly bool _isDebugMode;
+        private ArrayList _entryNodeList;
+        private ArrayList _replyNodeList;
+        
+        public ArrayList StartingList;
+       
+      
 
         public ClsDlg(int kotorVerIndex)
         {
@@ -181,8 +185,8 @@ namespace KotorTool_2._0.Models.CLS
                 ++index;
             }
 
-            EntryNodeList = new ArrayList();
-            ReplyNodeList = new ArrayList();
+            _entryNodeList = new ArrayList();
+            _replyNodeList = new ArrayList();
             ScanTvForEntryNodes((DlgConvListNode) Tv.Nodes[0], "Root");
             ScanTvForLinkNodes((DlgConvListNode) Tv.Nodes[0], "Root");
         }
@@ -331,9 +335,9 @@ namespace KotorTool_2._0.Models.CLS
                 bool flag = true;
                 string str3 = !(!listItemPath.StartsWith("EntryList") & !flag)
                     ? ""
-                    : (StringType.StrCmp(dlgConvListNode1.Speaker, "", false) != 0
+                    : StringType.StrCmp(dlgConvListNode1.Speaker, "", false) != 0
                         ? "[" + dlgConvListNode1.Speaker + "] - "
-                        : "[OWNER] - ");
+                        : "[OWNER] - ";
                 if (num3 == 0)
                 {
                     dlgConvListNode1.Text = str3 + str2;
@@ -359,10 +363,8 @@ namespace KotorTool_2._0.Models.CLS
                     Console.WriteLine("Node " + dlgNode.LinkDesc + " of Node " + dlgConvListNode1.LinkDesc +
                                       " is a link, scanning children skipped");
 
-                checked
-                {
-                    ++index;
-                }
+               ++index;
+                
             }
         }
 
@@ -374,12 +376,12 @@ namespace KotorTool_2._0.Models.CLS
                 {
                     if (StringType.StrCmp(currNodeType, "Entry", false) == 0)
                     {
-                        ReplyNodeList.Add(node);
+                        _replyNodeList.Add(node);
                         ScanTvForEntryNodes(node, "Reply");
                     }
                     else
                     {
-                        EntryNodeList.Add(node);
+                        _entryNodeList.Add(node);
                         ScanTvForEntryNodes(node, "Entry");
                     }
                 }
@@ -390,7 +392,7 @@ namespace KotorTool_2._0.Models.CLS
         {
             DlgConvListNode dlgConvListNode;
 
-            foreach (DlgConvListNode entryNode in EntryNodeList)
+            foreach (DlgConvListNode entryNode in _entryNodeList)
             {
                 if (entryNode.LinkedNodesList != null)
                 {
@@ -403,7 +405,7 @@ namespace KotorTool_2._0.Models.CLS
             }
 
 
-            foreach (DlgConvListNode replyNode in ReplyNodeList)
+            foreach (DlgConvListNode replyNode in _replyNodeList)
             {
                 if (replyNode.LinkedNodesList != null)
                 {
@@ -427,7 +429,7 @@ namespace KotorTool_2._0.Models.CLS
                 {
                     if (node.IsLink == 1)
                     {
-                        node.LinkedToNode = FindNodeInListByLinkId(ReplyNodeList, node.LinkedToIndex);
+                        node.LinkedToNode = FindNodeInListByLinkId(_replyNodeList, node.LinkedToIndex);
                         if (node.Text != null)
                             ;
                         if (node.LinkedToNode.LinkedNodesList == null)
@@ -441,7 +443,7 @@ namespace KotorTool_2._0.Models.CLS
                 {
                     if (node.IsLink == 1)
                     {
-                        node.LinkedToNode = FindNodeInListByLinkId(EntryNodeList, node.LinkedToIndex);
+                        node.LinkedToNode = FindNodeInListByLinkId(_entryNodeList, node.LinkedToIndex);
                         if (node.Text != null)
                             ;
                         if (node.LinkedToNode.LinkedNodesList == null)

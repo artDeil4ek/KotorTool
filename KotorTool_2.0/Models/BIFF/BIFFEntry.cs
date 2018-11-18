@@ -11,7 +11,6 @@ namespace KotorTool_2._0.Models.BIFF
         private int _location;
 
         public readonly string Filename;
-
         public readonly string BiFname;
 
         public BiffEntry(int index, FileStream fs, int offset)

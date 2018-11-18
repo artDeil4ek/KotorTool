@@ -9,7 +9,7 @@ using KotorTool_2._0.Utils;
 
 namespace KotorTool_2._0.Models.CLS
 {
-    public partial class ClsGff : IGff
+    public partial class ClsGff : IGff, IDisposable
     {
         private int _gStructOffset;
         private int _gStructCount;
@@ -40,6 +40,12 @@ namespace KotorTool_2._0.Models.CLS
         private int _offsetCnt;
         private const int SizeofGffStruct = 12;
         private const int SizeofGffField = 12;
+
+        public void Dispose()
+        {
+            _gMs?.Dispose();
+            _gRdr?.Dispose();
+        }
 
         public bool RtfMode
         {

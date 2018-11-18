@@ -22,14 +22,12 @@ namespace KotorTool_2._0.Models.CLS
         public ArrayList EntryNodeList;
         public ArrayList ReplyNodeList;
         private readonly Hashtable _nodeHt;
-        public Options.ConfigOptions CurrentSettings;
         private readonly bool _isDebugMode;
 
         public ClsDlg(int kotorVerIndex)
         {
             _nodeHt = new Hashtable();
             _isDebugMode = false;
-            CurrentSettings = UserSettings.GetSettings();
             _clsDialogTlk = new ClsDialogTlk(ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\dialog.tlk");
         }
 

@@ -542,3 +542,4 @@ C:\RiderProjects\KotorTool\KotorTool_2.0\bin\Debug\System.Reactive.xml
 C:\RiderProjects\KotorTool\KotorTool_2.0\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\RiderProjects\KotorTool\KotorTool_2.0\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\RiderProjects\KotorTool\KotorTool_2.0\obj\Debug\KotorTool_2._0.CustomButton.resources
+C:\RiderProjects\KotorTool\KotorTool_2.0\obj\Debug\KotorTool_2.0.csprojAssemblyReference.cache

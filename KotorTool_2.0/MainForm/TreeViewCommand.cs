@@ -25,7 +25,6 @@ namespace KotorTool_2._0.MainForm
 {
     public class TreeViewCommand
     {
-        
         public Form OpenFileFromCmdLine(MainFormState mainState)
         {
             /*
@@ -141,19 +140,29 @@ namespace KotorTool_2._0.MainForm
           */
             return new Form();
         }
-        
-        
-         public void HandleDataByNodeType(TreeView treeView, KotorTreeNode node, object sender)
+
+
+        public void HandleDataByNodeType(TreeView treeView, KotorTreeNode node, object sender)
         {
             Cursor current = Cursor.Current;
             Constants.CurrentSettings = UserSettings.GetSettings();
             object tag = node.Tag;
             byte[] numArray1 = null;
+          
+            /*
+             * 
+             *GET RIM HERE
+             * 
+             */
             if (ObjectType.ObjTst(tag, "RIM_Res", false) == 0)
             {
                 numArray1 = new RimObject().GetRimResource(node.FilePath, node);
             }
-
+            /*
+             * 
+             *GET BIFF HERE
+             * 
+             */
             else if (ObjectType.ObjTst(tag, "BIFF_Res", false) == 0)
             {
                 if (StringType.StrCmp(node.ResTypeStr, "mdl", false) != 0)
@@ -161,6 +170,11 @@ namespace KotorTool_2._0.MainForm
                     numArray1 = BiffFunctions.GetBiffResource(node.FilePath, node.LocalResId).Data;
                 }
             }
+            /*
+             *
+             * GET ERF HERE
+             * 
+             */
             else if (ObjectType.ObjTst(tag, "ERF_Res", false) == 0)
             {
                 numArray1 = new ErfObject().GetErfResource(node.FilePath, node);
@@ -172,16 +186,24 @@ namespace KotorTool_2._0.MainForm
                     return;
                 }
 
-                new FrmGlobalVarEditor(new ClsGlobalVars(ByteFunctions.ReadByteArray(node.FilePath + "\\" + node.Filename), KotorTreeNode.NodeTreeRootIndex(treeView, node)), node.FilePath, KotorTreeNode.NodeTreeRootIndex(treeView,node)).Show();
+                new FrmGlobalVarEditor(new ClsGlobalVars(ByteFunctions.ReadByteArray(node.FilePath + "\\" + node.Filename),KotorTreeNode.NodeTreeRootIndex(treeView, node)), node.FilePath,KotorTreeNode.NodeTreeRootIndex(treeView, node)).Show();
                 return;
             }
-
+            /*
+             *
+             *
+             *HANDLE MDL FILES HERE
+             * 
+             */
             string resTypeStr = node.ResTypeStr;
             if (StringType.StrCmp(resTypeStr, "mdl", false) == 0)
             {
-                if (ConfigOptions.Paths.ModelExportLocation == null || !Directory.Exists(ConfigOptions.Paths.ModelExportLocation))
+                if (ConfigOptions.Paths.ModelExportLocation == null ||
+                    !Directory.Exists(ConfigOptions.Paths.ModelExportLocation))
                 {
-                    Interaction.MsgBox("The Model Export Location is not set.\n\nA default path has been set in the Path Manager; you may accept it or choose your own.", MsgBoxStyle.Critical, "Path not set");
+                    Interaction.MsgBox(
+                        "The Model Export Location is not set.\n\nA default path has been set in the Path Manager; you may accept it or choose your own.",
+                        MsgBoxStyle.Critical, "Path not set");
                     using (frmPathManager frmPathManager = new frmPathManager())
                     {
                         if (!Directory.Exists(MainFormState.GRootPath + "working\\Exported Models"))
@@ -199,21 +221,30 @@ namespace KotorTool_2._0.MainForm
                     Constants.CurrentSettings = UserSettings.GetSettings();
                 }
 
-                int mdlRoomCount = Mdl.GetMdlRoomCount(treeView,node);
+                int mdlRoomCount = Mdl.GetMdlRoomCount(treeView, node);
                 frmMdlOpsSwitches frmMdlOpsSwitches = new frmMdlOpsSwitches();
-                frmMdlOpsSwitches.chkbExtractAnimations.Checked = ConfigOptions.Toggles.ModelExtractionExtractAnimations;
+                frmMdlOpsSwitches.chkbExtractAnimations.Checked =
+                    ConfigOptions.Toggles.ModelExtractionExtractAnimations;
                 frmMdlOpsSwitches.chkbConvertSkin.Checked = ConfigOptions.Toggles.ModelExtractionConvertSkinToTrimesh;
-                frmMdlOpsSwitches.chkbEachModelInOwnDir.Checked = ConfigOptions.Toggles.ModelExtractionEachModelInOwnDirectory;
-                frmMdlOpsSwitches.chkbCleanWorkingDir.Checked = ConfigOptions.Toggles.ModelExtractionCleanWorkingDirectoryBeforeExport;
+                frmMdlOpsSwitches.chkbEachModelInOwnDir.Checked =
+                    ConfigOptions.Toggles.ModelExtractionEachModelInOwnDirectory;
+                frmMdlOpsSwitches.chkbCleanWorkingDir.Checked =
+                    ConfigOptions.Toggles.ModelExtractionCleanWorkingDirectoryBeforeExport;
                 frmMdlOpsSwitches.tbModelExtractionPath.Text = ConfigOptions.Paths.ModelExportLocation;
                 if (frmMdlOpsSwitches.ShowDialog() != DialogResult.OK)
                 {
                     return;
                 }
 
-                while (frmMdlOpsSwitches.tbModelExtractionPath.Text.EndsWith("\\")) frmMdlOpsSwitches.tbModelExtractionPath.Text = frmMdlOpsSwitches.tbModelExtractionPath.Text.Substring(0, frmMdlOpsSwitches.tbModelExtractionPath.Text.Length - 1);
-              
-                if (StringType.StrCmp(frmMdlOpsSwitches.tbModelExtractionPath.Text.Replace("\\" + Mdl.GetMdlRoomBaseName(treeView,node), ""), ConfigOptions.Paths.ModelExportLocation, false) != 0)
+                while (frmMdlOpsSwitches.tbModelExtractionPath.Text.EndsWith("\\"))
+                    frmMdlOpsSwitches.tbModelExtractionPath.Text =
+                        frmMdlOpsSwitches.tbModelExtractionPath.Text.Substring(0,
+                            frmMdlOpsSwitches.tbModelExtractionPath.Text.Length - 1);
+
+                if (StringType.StrCmp(
+                        frmMdlOpsSwitches.tbModelExtractionPath.Text.Replace(
+                            "\\" + Mdl.GetMdlRoomBaseName(treeView, node), ""), ConfigOptions.Paths.ModelExportLocation,
+                        false) != 0)
                 {
                     ConfigOptions.Paths.ModelExportLocation = frmMdlOpsSwitches.tbModelExtractionPath.Text;
                     UserSettings.SaveSettings(Constants.CurrentSettings);
@@ -226,20 +257,22 @@ namespace KotorTool_2._0.MainForm
 
                 bool flag1 = frmMdlOpsSwitches.chkbEachModelInOwnDir.Checked;
                 bool flag2 = frmMdlOpsSwitches.chkbCleanWorkingDir.Checked;
-              
+
                 frmProgressMeter frmProgressMeter = new frmProgressMeter();
                 frmProgressMeter.stepAmount = 1;
                 frmProgressMeter.maxvalue = Convert.ToInt32(frmMdlOpsSwitches.nudNumberToExtract.Value);
                 frmProgressMeter.message = "Extracting models";
-               // ((Control) frmProgressMeter).Location = new UtilWindowRelativePositioner(this, frmProgressMeter).GetConcentric();
+                // ((Control) frmProgressMeter).Location = new UtilWindowRelativePositioner(this, frmProgressMeter).GetConcentric();
                 frmProgressMeter.Show();
-                
+
                 DirectoryUtils.EnsureWorkingDirectoryExists();
                 ConfigOptions.Toggles.ModelExtractionExtractAnimations = frmMdlOpsSwitches.ExtractAnimations;
                 ConfigOptions.Toggles.ModelExtractionConvertSkinToTrimesh = frmMdlOpsSwitches.ConvertSkin;
-                ConfigOptions.Toggles.ModelExtractionEachModelInOwnDirectory = frmMdlOpsSwitches.chkbEachModelInOwnDir.Checked;
-                ConfigOptions.Toggles.ModelExtractionCleanWorkingDirectoryBeforeExport = frmMdlOpsSwitches.chkbCleanWorkingDir.Checked;
-                
+                ConfigOptions.Toggles.ModelExtractionEachModelInOwnDirectory =
+                    frmMdlOpsSwitches.chkbEachModelInOwnDir.Checked;
+                ConfigOptions.Toggles.ModelExtractionCleanWorkingDirectoryBeforeExport =
+                    frmMdlOpsSwitches.chkbCleanWorkingDir.Checked;
+
                 UserSettings.SaveSettings(Constants.CurrentSettings);
                 if (flag2)
                 {
@@ -249,13 +282,17 @@ namespace KotorTool_2._0.MainForm
                 if (frmMdlOpsSwitches.chkbExportMdlAlignData.Checked | frmMdlOpsSwitches.chkbMdlAlignDataOnly.Checked)
                 {
                     string fileName = "";
-                    if (KotorTreeNode.NodeTreeRootIndex(treeView,node) == 1)
+                    if (KotorTreeNode.NodeTreeRootIndex(treeView, node) == 1)
                     {
                         fileName = node.ResRef.Substring(0, 6);
                     }
 
-                    StreamWriter streamWriter = new StreamWriter(new FileStream("C:\\3dsmax7\\scripts\\NWmax\\plugins\\test.txt", FileMode.Create));
-                    StreamReader streamReader = new StreamReader(new MemoryStream(BiffFunctions.GetBiffResourceData(KotorTreeNode.NodeTreeRootIndex(treeView,node), fileName, 3000)));
+                    StreamWriter streamWriter =
+                        new StreamWriter(new FileStream("C:\\3dsmax7\\scripts\\NWmax\\plugins\\test.txt",
+                            FileMode.Create));
+                    StreamReader streamReader = new StreamReader(new MemoryStream(
+                        BiffFunctions.GetBiffResourceData(KotorTreeNode.NodeTreeRootIndex(treeView, node), fileName,
+                            3000)));
                     streamReader.ReadLine();
                     streamReader.ReadLine();
                     streamReader.ReadLine();
@@ -272,7 +309,8 @@ namespace KotorTool_2._0.MainForm
                         {
                             if (strArray != null)
                             {
-                                strArray[index] = (Convert.ToSingle(strArray[index]) * 100f).ToString(CultureInfo.InvariantCulture);
+                                strArray[index] =
+                                    (Convert.ToSingle(strArray[index]) * 100f).ToString(CultureInfo.InvariantCulture);
                             }
 
                             ++index;
@@ -280,7 +318,9 @@ namespace KotorTool_2._0.MainForm
 
                         if (strArray != null)
                         {
-                            streamWriter.WriteLine(frmMdlOpsSwitches.tbModelExtractionPath.Text + "\\" + strArray[0] + "-ascii.mdl," + strArray[0] + "," + strArray[1] + "," + strArray[2] + "," + strArray[3]);
+                            streamWriter.WriteLine(frmMdlOpsSwitches.tbModelExtractionPath.Text + "\\" + strArray[0] +
+                                                   "-ascii.mdl," + strArray[0] + "," + strArray[1] + "," + strArray[2] +
+                                                   "," + strArray[3]);
                         }
 
                         ++num3;
@@ -307,7 +347,8 @@ namespace KotorTool_2._0.MainForm
                         }
 
                         ByteFunctions.WriteByteArray(path + ".mdl", data);
-                        BiffFunctions.ExportBiffResource(KotorTreeNode.NodeTreeRootIndex(treeView,node), node.ResRef, 3008, path + ".mdx");
+                        BiffFunctions.ExportBiffResource(KotorTreeNode.NodeTreeRootIndex(treeView, node), node.ResRef,
+                            3008, path + ".mdx");
                         frmProgressMeter.status = "Exporting model " + node.ResRef;
                         string str1 = MainFormState.GRootPath + "mdlops.exe";
                         try
@@ -344,10 +385,15 @@ namespace KotorTool_2._0.MainForm
                                 string str3 = str2.Trim();
                                 if (str3.Length > 0 & StringType.StrCmp(str3, "null", false) != 0)
                                 {
-                                    byte[] erfResource = new ErfObject().GetErfResource(ConfigOptions.Paths.KotorLocation(KotorTreeNode.NodeTreeRootIndex(treeView,node)) + "\\TexturePacks\\swpc_tex_tpa.erf", str3, 3007);
+                                    byte[] erfResource = new ErfObject().GetErfResource(
+                                        ConfigOptions.Paths.KotorLocation(
+                                            KotorTreeNode.NodeTreeRootIndex(treeView, node)) +
+                                        "\\TexturePacks\\swpc_tex_tpa.erf", str3, 3007);
                                     frmImageViewer.SetupTpcData(erfResource, "foo");
                                     frmImageViewer.DecodeImage();
-                                    frmImageViewer.WriteTgaFile(path.Substring(0, path.LastIndexOf("\\", StringComparison.Ordinal) + 1) + str3 + ".tga");
+                                    frmImageViewer.WriteTgaFile(
+                                        path.Substring(0, path.LastIndexOf("\\", StringComparison.Ordinal) + 1) + str3 +
+                                        ".tga");
                                 }
                             }
 
@@ -377,12 +423,25 @@ namespace KotorTool_2._0.MainForm
                 frmProgressMeter.Close();
                 Interaction.MsgBox("Extraction Complete", MsgBoxStyle.Information, "Model Extraction");
             }
+            /*
+             *
+             *END MDL OPERATIONS HERE
+             * 
+             */
+            
+            /*
+             *
+             * 2DA HANDLING HERE
+             * 
+             */
             else if (StringType.StrCmp(resTypeStr, "2da", false) == 0)
             {
                 Cursor.Current = Cursors.WaitCursor;
-                new Frm2DaEditor(node.Filename, numArray1, KotorTreeNode.NodeTreeRootIndex(treeView,node)).Show();
+                new Frm2DaEditor(node.Filename, numArray1, KotorTreeNode.NodeTreeRootIndex(treeView, node)).Show();
             }
-            else if (StringType.StrCmp(resTypeStr, "pwk", false) == 0 || StringType.StrCmp(resTypeStr, "dwk", false) == 0 || StringType.StrCmp(resTypeStr, "wok", false) == 0)
+            else if (StringType.StrCmp(resTypeStr, "pwk", false) == 0 ||
+                     StringType.StrCmp(resTypeStr, "dwk", false) == 0 ||
+                     StringType.StrCmp(resTypeStr, "wok", false) == 0)
             {
                 using (FrmBwmEditor bwmEditor = new FrmBwmEditor(numArray1, node.Filename))
                 {
@@ -390,14 +449,17 @@ namespace KotorTool_2._0.MainForm
                 }
             }
 
-            else if (StringType.StrCmp(resTypeStr, "nss", false) == 0 || StringType.StrCmp(resTypeStr, "vis", false) == 0 || StringType.StrCmp(resTypeStr, "txi", false) == 0 || StringType.StrCmp(resTypeStr, "lyt", false) == 0)
+            else if (StringType.StrCmp(resTypeStr, "nss", false) == 0 ||
+                     StringType.StrCmp(resTypeStr, "vis", false) == 0 ||
+                     StringType.StrCmp(resTypeStr, "txi", false) == 0 ||
+                     StringType.StrCmp(resTypeStr, "lyt", false) == 0)
             {
                 using (frmTextEditor frmTextEditor = new frmTextEditor(node.Filename))
                 {
                     ASCIIEncoding asciiEncoding = new ASCIIEncoding();
                     frmTextEditor.tbGeneric.Text = asciiEncoding.GetString(numArray1);
                     frmTextEditor.tbGeneric.SelectionLength = 0;
-                    frmTextEditor.KotorVersionIndex = KotorTreeNode.NodeTreeRootIndex(treeView,node);
+                    frmTextEditor.KotorVersionIndex = KotorTreeNode.NodeTreeRootIndex(treeView, node);
                     if (StringType.StrCmp(node.ResTypeStr, "nss", false) == 0) frmTextEditor.PrepareForScriptEditing();
                     frmTextEditor.Show();
                 }
@@ -422,7 +484,7 @@ namespace KotorTool_2._0.MainForm
                 Cursor.Current = Cursors.WaitCursor;
                 if ((uint) (Control.ModifierKeys & Keys.Shift) > 0U)
                 {
-                    ClsGff clsGff = new ClsGff(KotorTreeNode.NodeTreeRootIndex(treeView,node));
+                    ClsGff clsGff = new ClsGff(KotorTreeNode.NodeTreeRootIndex(treeView, node));
                     clsGff.RtfMode = false;
                     clsGff.Parse(numArray1);
                     using (frmTextEditor frmTextEditor = new frmTextEditor())
@@ -437,7 +499,7 @@ namespace KotorTool_2._0.MainForm
                 }
                 else if ((uint) (Control.ModifierKeys & Keys.Control | (Keys) (-(ConfigOptions.Toggles.AlwaysUnknownGfFasText ? 1 : 0))) > 0U)
                 {
-                    ClsGff clsGff = new ClsGff(KotorTreeNode.NodeTreeRootIndex(treeView,node));
+                    ClsGff clsGff = new ClsGff(KotorTreeNode.NodeTreeRootIndex(treeView, node));
                     clsGff.RtfMode = true;
                     clsGff.Parse(numArray1);
                     using (frmTextEditor frmTextEditor = new frmTextEditor())
@@ -457,7 +519,9 @@ namespace KotorTool_2._0.MainForm
             }
             else if (StringType.StrCmp(resTypeStr, "utc", false) == 0)
             {
-                using (frmUTC_Editor frmUtcEditor = new frmUTC_Editor(new ClsUtc(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView,node)), KotorTreeNode.NodeTreeRootIndex(treeView,node)))
+                using (frmUTC_Editor frmUtcEditor = new frmUTC_Editor(
+                    new ClsUtc(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView, node)),
+                    KotorTreeNode.NodeTreeRootIndex(treeView, node)))
                 {
                     frmUtcEditor.EditingFilePath = ConfigOptions.Paths.DefaultSaveLocation + "\\" + node.Text;
                     frmUtcEditor.Show();
@@ -465,7 +529,9 @@ namespace KotorTool_2._0.MainForm
             }
             else if (StringType.StrCmp(resTypeStr, "utd", false) == 0)
             {
-                using (frmUTD_Editor frmUtdEditor = new frmUTD_Editor(new ClsUtd(numArray1,KotorTreeNode.NodeTreeRootIndex(treeView,node)), KotorTreeNode.NodeTreeRootIndex(treeView,node)))
+                using (frmUTD_Editor frmUtdEditor = new frmUTD_Editor(
+                    new ClsUtd(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView, node)),
+                    KotorTreeNode.NodeTreeRootIndex(treeView, node)))
                 {
                     frmUtdEditor.EditingFilePath = ConfigOptions.Paths.DefaultSaveLocation + "\\" + node.Text;
                     frmUtdEditor.Show();
@@ -473,7 +539,9 @@ namespace KotorTool_2._0.MainForm
             }
             else if (StringType.StrCmp(resTypeStr, "uti", false) == 0)
             {
-                using (frmUTI_Editor frmUtiEditor = new frmUTI_Editor(new ClsUti(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView,node)), KotorTreeNode.NodeTreeRootIndex(treeView,node)))
+                using (frmUTI_Editor frmUtiEditor = new frmUTI_Editor(
+                    new ClsUti(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView, node)),
+                    KotorTreeNode.NodeTreeRootIndex(treeView, node)))
                 {
                     frmUtiEditor.EditingFilePath = ConfigOptions.Paths.DefaultSaveLocation + "\\" + node.Text;
                     frmUtiEditor.Show();
@@ -481,7 +549,9 @@ namespace KotorTool_2._0.MainForm
             }
             else if (StringType.StrCmp(resTypeStr, "utm", false) == 0)
             {
-                using (frmUTM_Editor frmUtmEditor = new frmUTM_Editor(new ClsUtm(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView,node)), KotorTreeNode.NodeTreeRootIndex(treeView,node)))
+                using (frmUTM_Editor frmUtmEditor = new frmUTM_Editor(
+                    new ClsUtm(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView, node)),
+                    KotorTreeNode.NodeTreeRootIndex(treeView, node)))
                 {
                     frmUtmEditor.EditingFilePath = ConfigOptions.Paths.DefaultSaveLocation + "\\" + node.Text;
                     frmUtmEditor.Show();
@@ -489,7 +559,9 @@ namespace KotorTool_2._0.MainForm
             }
             else if (StringType.StrCmp(resTypeStr, "utp", false) == 0)
             {
-                using (FrmUtpEditor frmUtpEditor = new FrmUtpEditor(new ClsUtp(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView,node)), KotorTreeNode.NodeTreeRootIndex(treeView,node)))
+                using (FrmUtpEditor frmUtpEditor =
+                    new FrmUtpEditor(new ClsUtp(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView, node)),
+                        KotorTreeNode.NodeTreeRootIndex(treeView, node)))
                 {
                     frmUtpEditor.EditingFilePath = ConfigOptions.Paths.DefaultSaveLocation + "\\" + node.Text;
                     frmUtpEditor.Show();
@@ -497,7 +569,9 @@ namespace KotorTool_2._0.MainForm
             }
             else if (StringType.StrCmp(resTypeStr, "uts", false) == 0)
             {
-                using (frmUTS_Editor frmUtsEditor = new frmUTS_Editor(new ClsUts(numArray1,KotorTreeNode.NodeTreeRootIndex(treeView,node)), KotorTreeNode.NodeTreeRootIndex(treeView,node)))
+                using (frmUTS_Editor frmUtsEditor = new frmUTS_Editor(
+                    new ClsUts(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView, node)),
+                    KotorTreeNode.NodeTreeRootIndex(treeView, node)))
                 {
                     frmUtsEditor.EditingFilePath = ConfigOptions.Paths.DefaultSaveLocation + "\\" + node.Text;
                     frmUtsEditor.Show();
@@ -505,7 +579,9 @@ namespace KotorTool_2._0.MainForm
             }
             else if (StringType.StrCmp(resTypeStr, "utt", false) == 0)
             {
-                using (frmUTT_Editor frmUttEditor = new frmUTT_Editor(new ClsUtt(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView,node)), KotorTreeNode.NodeTreeRootIndex(treeView,node)))
+                using (frmUTT_Editor frmUttEditor = new frmUTT_Editor(
+                    new ClsUtt(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView, node)),
+                    KotorTreeNode.NodeTreeRootIndex(treeView, node)))
                 {
                     frmUttEditor.EditingFilePath = ConfigOptions.Paths.DefaultSaveLocation + "\\" + node.Text;
                     frmUttEditor.Show();
@@ -513,13 +589,21 @@ namespace KotorTool_2._0.MainForm
             }
             else if (StringType.StrCmp(resTypeStr, "utw", false) == 0)
             {
-                using (frmUTW_Editor frmUtwEditor = new frmUTW_Editor(new ClsUtw(numArray1,KotorTreeNode.NodeTreeRootIndex(treeView,node)),KotorTreeNode.NodeTreeRootIndex(treeView,node)))
+                using (frmUTW_Editor frmUtwEditor = new frmUTW_Editor(
+                    new ClsUtw(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView, node)),
+                    KotorTreeNode.NodeTreeRootIndex(treeView, node)))
                 {
                     frmUtwEditor.EditingFilePath = ConfigOptions.Paths.DefaultSaveLocation + "\\" + node.Text;
                     frmUtwEditor.Show();
                 }
             }
-            else if (StringType.StrCmp(resTypeStr, "tpc", false) == 0 || StringType.StrCmp(resTypeStr, "txb", false) == 0)
+            /*
+             *
+             * TPC HANDLING HERE
+             * 
+             */
+            else if (StringType.StrCmp(resTypeStr, "tpc", false) == 0 ||
+                     StringType.StrCmp(resTypeStr, "txb", false) == 0)
             {
                 if (Control.ModifierKeys == Keys.Shift)
                 {
@@ -530,27 +614,45 @@ namespace KotorTool_2._0.MainForm
                     FrmImageViewer.Factory.ShowTgaImage(node);
                 }
             }
+            /*
+             *
+             * TGA HANDLING HERE
+             * 
+             */
             else if (StringType.StrCmp(resTypeStr, "tga", false) == 0)
             {
-               // FrmImageViewer.Factory.OpenTgaInExternalViewer(node.Filename, numArray1);
+                // FrmImageViewer.Factory.ShowTga(node.Filename, numArray1);
             }
-
+            /*
+             *
+             *DLG HANLDING HERE
+             *
+             * 
+             */
             else if (StringType.StrCmp(resTypeStr, "dlg", false) == 0)
             {
-                using (FrmDialogEditor dialogEditor = new FrmDialogEditor(numArray1, node.ResRef, KotorTreeNode.NodeTreeRootIndex(treeView,node)))
+                using (FrmDialogEditor dialogEditor = new FrmDialogEditor(numArray1, node.ResRef,
+                    KotorTreeNode.NodeTreeRootIndex(treeView, node)))
                 {
                     dialogEditor.Show();
                 }
             }
-
+           /*
+            *
+            * SSF HANDLING HERE
+            * 
+            */
             else if (StringType.StrCmp(resTypeStr, "ssf", false) == 0)
             {
-                ClsSsf ssf = new ClsSsf(numArray1,KotorTreeNode.NodeTreeRootIndex(treeView,node));
+                ClsSsf ssf = new ClsSsf(numArray1, KotorTreeNode.NodeTreeRootIndex(treeView, node));
                 FrmSsfEditor frmSsfEditor = new FrmSsfEditor(ssf);
                 int num1 = 0;
                 do
                 {
-                    Console.WriteLine("Index: " + StringType.FromInteger(num1) + "  StringRef: " + StringType.FromInteger(ssf.GetRefArray(num1)) + "  SoundResRef: '" + ssf.GetRefArraySoundResRef(num1) + "'  String: '" + ssf.GetRefArrayString(num1) + "'");
+                    Console.WriteLine("Index: " + StringType.FromInteger(num1) + "  StringRef: " +
+                                      StringType.FromInteger(ssf.GetRefArray(num1)) + "  SoundResRef: '" +
+                                      ssf.GetRefArraySoundResRef(num1) + "'  String: '" + ssf.GetRefArrayString(num1) +
+                                      "'");
                     ++num1;
                 } while (num1 <= 39);
 
@@ -559,20 +661,24 @@ namespace KotorTool_2._0.MainForm
 
             Cursor.Current = current;
         }
-   
-        
-         public object ExtractSelectedKotorFile(KotorTreeNode node, string outputpath = "", string saveMsg = "", Hashtable resTypes = null)
+
+
+        public object ExtractSelectedKotorFile(KotorTreeNode node, string outputpath = "", string saveMsg = "",
+            Hashtable resTypes = null)
         {
             object tag = node.Tag;
             if (ObjectType.ObjTst(tag, "RIM", false) == 0)
             {
                 if (StringType.StrCmp(saveMsg, "", false) == 0) saveMsg = "Select Folder to extract RIM to...";
-                if (StringType.StrCmp(outputpath, "", false) == 0) outputpath = StringType.FromObject(ObjectType.StrCatObj(FileUtils.GetFilePath("", ConfigOptions.Paths.DefaultSaveLocation, "", saveMsg, ""), "\\"));
+                if (StringType.StrCmp(outputpath, "", false) == 0)
+                    outputpath = StringType.FromObject(ObjectType.StrCatObj(
+                        FileUtils.GetFilePath("", ConfigOptions.Paths.DefaultSaveLocation, "", saveMsg, ""), "\\"));
                 if (StringType.StrCmp(outputpath, "\\", false) != 0)
                 {
                     Cursor current = Cursor.Current;
                     Cursor.Current = Cursors.WaitCursor;
-                    FileStream fileStream = new FileStream(node.FilePath + "\\" + node.Filename, FileMode.Open, FileAccess.Read);
+                    FileStream fileStream = new FileStream(node.FilePath + "\\" + node.Filename, FileMode.Open,
+                        FileAccess.Read);
                     BinaryReader binaryReader = new BinaryReader(fileStream, Encoding.ASCII);
                     byte[] indata = binaryReader.ReadBytes((int) fileStream.Length);
                     binaryReader.Close();
@@ -584,7 +690,10 @@ namespace KotorTool_2._0.MainForm
                         int index = num1;
                         while (index <= num2)
                         {
-                            ByteFunctions.WriteByteArray(outputpath + ((RimKeyEntry) rimParser.KeyEntryList[index]).ResourceName + "." + ((RimKeyEntry) rimParser.KeyEntryList[index]).ResTypeStr, rimParser.GetRimResource(index));
+                            ByteFunctions.WriteByteArray(
+                                outputpath + ((RimKeyEntry) rimParser.KeyEntryList[index]).ResourceName + "." +
+                                ((RimKeyEntry) rimParser.KeyEntryList[index]).ResTypeStr,
+                                rimParser.GetRimResource(index));
                             ++index;
                         }
                     }
@@ -595,18 +704,25 @@ namespace KotorTool_2._0.MainForm
                         int index = num1;
                         while (index <= num2)
                         {
-                            if (resTypes.Contains(((RimKeyEntry) rimParser.KeyEntryList[index]).ResType)) ByteFunctions.WriteByteArray(outputpath + ((RimKeyEntry) rimParser.KeyEntryList[index]).ResourceName + "." + ((RimKeyEntry) rimParser.KeyEntryList[index]).ResTypeStr, rimParser.GetRimResource(index));
-                              ++index;
+                            if (resTypes.Contains(((RimKeyEntry) rimParser.KeyEntryList[index]).ResType))
+                                ByteFunctions.WriteByteArray(
+                                    outputpath + ((RimKeyEntry) rimParser.KeyEntryList[index]).ResourceName + "." +
+                                    ((RimKeyEntry) rimParser.KeyEntryList[index]).ResTypeStr,
+                                    rimParser.GetRimResource(index));
+                            ++index;
                         }
                     }
-                      Cursor.Current = current;
+
+                    Cursor.Current = current;
                 }
                 else
                     goto label_78;
             }
             else if (ObjectType.ObjTst(tag, "RIM_Res", false) == 0) // CHECKS FOR RIM TAG
             {
-                outputpath = StringType.FromObject(FileUtils.GetFilePath("save", ConfigOptions.Paths.DefaultSaveLocation, node.Filename, "Save " + node.Filename + " file...", node.ResTypeStr));
+                outputpath = StringType.FromObject(FileUtils.GetFilePath("save",
+                    ConfigOptions.Paths.DefaultSaveLocation, node.Filename, "Save " + node.Filename + " file...",
+                    node.ResTypeStr));
                 if (StringType.StrCmp(outputpath, "", false) != 0)
                 {
                     byte[] rimResource = new RimObject().GetRimResource(node.FilePath, node);
@@ -617,7 +733,10 @@ namespace KotorTool_2._0.MainForm
             }
             else if (ObjectType.ObjTst(tag, "BIFF", false) == 0) // CHECKS FOR BIFF TAG
             {
-                if (StringType.StrCmp(outputpath, string.Empty, false) == 0) outputpath = StringType.FromObject(ObjectType.StrCatObj(FileUtils.GetFilePath("", ConfigOptions.Paths.DefaultSaveLocation, "", "Select Folder to extract BIF to...", ""), "\\"));
+                if (StringType.StrCmp(outputpath, string.Empty, false) == 0)
+                    outputpath = StringType.FromObject(ObjectType.StrCatObj(
+                        FileUtils.GetFilePath("", ConfigOptions.Paths.DefaultSaveLocation, "",
+                            "Select Folder to extract BIF to...", ""), "\\"));
                 if (StringType.StrCmp(outputpath, "\\", false) != 0)
                 {
                     Cursor current = Cursor.Current;
@@ -629,11 +748,14 @@ namespace KotorTool_2._0.MainForm
                         int index = num1;
                         while (index <= num2)
                         {
-                            BiffFunctions.ExportBiffResource(node.FilePath + "\\" + node.Filename, outputpath + ((KotorTreeNode) node1.Nodes[index]).ResRef + "." + ((KotorTreeNode) node1.Nodes[index]).ResTypeStr, ((KotorTreeNode) node1.Nodes[index]).LocalResId);
+                            BiffFunctions.ExportBiffResource(node.FilePath + "\\" + node.Filename,
+                                outputpath + ((KotorTreeNode) node1.Nodes[index]).ResRef + "." +
+                                ((KotorTreeNode) node1.Nodes[index]).ResTypeStr,
+                                ((KotorTreeNode) node1.Nodes[index]).LocalResId);
                             ++index;
                         }
                     }
-                 
+
                     Cursor.Current = current;
                 }
                 else
@@ -641,40 +763,48 @@ namespace KotorTool_2._0.MainForm
             }
             else if (ObjectType.ObjTst(tag, "BIFF_Res", false) == 0) //CHECKS FOR BIFF RES
             {
-                outputpath = StringType.FromObject(FileUtils.GetFilePath("save", ConfigOptions.Paths.DefaultSaveLocation, node.Filename, "Save " + node.Filename + " file...", node.ResTypeStr));
-                if (StringType.StrCmp(outputpath, string.Empty, false) != 0) BiffFunctions.ExportBiffResource(node.FilePath, outputpath, node.LocalResId);
+                outputpath = StringType.FromObject(FileUtils.GetFilePath("save",
+                    ConfigOptions.Paths.DefaultSaveLocation, node.Filename, "Save " + node.Filename + " file...",
+                    node.ResTypeStr));
+                if (StringType.StrCmp(outputpath, string.Empty, false) != 0)
+                    BiffFunctions.ExportBiffResource(node.FilePath, outputpath, node.LocalResId);
                 else goto label_78;
             }
             else if (ObjectType.ObjTst(tag, "ERF", false) == 0) //CHECKS FOR ERF TAG
             {
-                outputpath = StringType.FromObject(ObjectType.StrCatObj(FileUtils.GetFilePath(string.Empty, ConfigOptions.Paths.DefaultSaveLocation, "", "Select Folder to extract ERF to...", ""), "\\"));
+                outputpath = StringType.FromObject(ObjectType.StrCatObj(
+                    FileUtils.GetFilePath(string.Empty, ConfigOptions.Paths.DefaultSaveLocation, "",
+                        "Select Folder to extract ERF to...", ""), "\\"));
                 if (StringType.StrCmp(outputpath, "\\", false) != 0)
                 {
-                    FileStream fs = new FileStream(node.FilePath + "\\" + node.Filename, FileMode.Open, FileAccess.Read);
-                    ClsErf clsErf = new ClsErf(fs);
-                    frmProgressMeter frmProgressMeter = new frmProgressMeter();
-                    frmProgressMeter.stepAmount = 1;
-                    frmProgressMeter.maxvalue = clsErf.EntryCount;
-                    frmProgressMeter.message = "Extracting files from " + node.Filename;
-                    //((Control) frmProgressMeter).Location = new UtilWindowRelativePositioner(this, frmProgressMeter).GetConcentric();
-                    frmProgressMeter.Show();
-                    int num1 = 0;
-                    int num2 = clsErf.EntryCount - 1;
-                    int index = num1;
-                    while (index <= num2)
+                    frmProgressMeter frmProgressMeter;
+                    using (ClsErf clsErf = new ClsErf(FStream.Generate(node.FilePath + "\\" + node.Filename)))
                     {
-                        byte[] erfResource = clsErf.GetErfResource(index);
-                        ErfKeyEntry keyEntry = (ErfKeyEntry) clsErf.KeyEntryList[index];
-                        frmProgressMeter.status = "Writing " + keyEntry.ResourceName + "." + keyEntry.ResTypeStr;
-                        FileStream fileStream = new FileStream(outputpath + keyEntry.ResourceName + "." + keyEntry.ResTypeStr, FileMode.Create);
-                        fileStream.Write(erfResource, 0, erfResource.Length);
-                        fileStream.Close();
-                        frmProgressMeter.stepUp();
-                        ++index;
-                        
+                        frmProgressMeter = new frmProgressMeter
+                        {
+                            stepAmount = 1,
+                            maxvalue = clsErf.EntryCount,
+                            message = "Extracting files from " + node.Filename
+                        };
+                        frmProgressMeter.Show();
+                        int num1 = 0;
+                        int num2 = clsErf.EntryCount - 1;
+                        int index = num1;
+                        while (index <= num2)
+                        {
+                            byte[] erfResource = clsErf.GetErfResource(index);
+                            ErfKeyEntry keyEntry = (ErfKeyEntry) clsErf.KeyEntryList[index];
+                            frmProgressMeter.status = "Writing " + keyEntry.ResourceName + "." + keyEntry.ResTypeStr;
+                            FileStream fileStream =
+                                new FileStream(outputpath + keyEntry.ResourceName + "." + keyEntry.ResTypeStr,
+                                    FileMode.Create);
+                            fileStream.Write(erfResource, 0, erfResource.Length);
+                            fileStream.Close();
+                            frmProgressMeter.stepUp();
+                            ++index;
+                        }
                     }
 
-                    fs.Close();
                     frmProgressMeter.Close();
                 }
                 else
@@ -695,9 +825,16 @@ namespace KotorTool_2._0.MainForm
                     else
                         sLeft = "tga";
 
-                    outputpath = StringType.StrCmp(sLeft, "tga", false) != 0 ? StringType.FromObject(FileUtils.GetFilePath("save", ConfigOptions.Paths.DefaultSaveLocation, node.Filename, "Save " + node.Filename + " file...", "tpc")) : StringType.FromObject(FileUtils.GetFilePath("save", ConfigOptions.Paths.DefaultSaveLocation, node.ResRef + ".tga", "Save " + node.ResRef + ".tga file...", "tga"));
+                    outputpath = StringType.StrCmp(sLeft, "tga", false) != 0
+                        ? StringType.FromObject(FileUtils.GetFilePath("save", ConfigOptions.Paths.DefaultSaveLocation,
+                            node.Filename, "Save " + node.Filename + " file...", "tpc"))
+                        : StringType.FromObject(FileUtils.GetFilePath("save", ConfigOptions.Paths.DefaultSaveLocation,
+                            node.ResRef + ".tga", "Save " + node.ResRef + ".tga file...", "tga"));
                 }
-                else outputpath = StringType.FromObject(FileUtils.GetFilePath("save", ConfigOptions.Paths.DefaultSaveLocation, node.Filename + string.Empty, "Save " + node.Filename + " file...", ""));
+                else
+                    outputpath = StringType.FromObject(FileUtils.GetFilePath("save",
+                        ConfigOptions.Paths.DefaultSaveLocation, node.Filename + string.Empty,
+                        "Save " + node.Filename + " file...", ""));
 
                 if (StringType.StrCmp(outputpath, "", false) != 0)
                 {
@@ -721,10 +858,15 @@ namespace KotorTool_2._0.MainForm
             {
                 string containingFileType = ((KotorTreeNode) node.Parent).ContainingFileType;
                 KotorTreeNode parent = (KotorTreeNode) node.Parent;
-                if (StringType.StrCmp(containingFileType, "BIF", false) == 0 || StringType.StrCmp(containingFileType, "rim", false) == 0)
+                if (StringType.StrCmp(containingFileType, "BIF", false) == 0 ||
+                    StringType.StrCmp(containingFileType, "rim", false) == 0)
                 {
-                    if (StringType.StrCmp(saveMsg, string.Empty, false) == 0) saveMsg = "Select Folder to extract entire subtype to...";
-                    if (StringType.StrCmp(outputpath, string.Empty, false) == 0) outputpath = StringType.FromObject(ObjectType.StrCatObj(FileUtils.GetFilePath(string.Empty, ConfigOptions.Paths.DefaultSaveLocation, string.Empty, saveMsg, string.Empty), "\\"));
+                    if (StringType.StrCmp(saveMsg, string.Empty, false) == 0)
+                        saveMsg = "Select Folder to extract entire subtype to...";
+                    if (StringType.StrCmp(outputpath, string.Empty, false) == 0)
+                        outputpath = StringType.FromObject(ObjectType.StrCatObj(
+                            FileUtils.GetFilePath(string.Empty, ConfigOptions.Paths.DefaultSaveLocation, string.Empty,
+                                saveMsg, string.Empty), "\\"));
                     if (StringType.StrCmp(outputpath, "\\", false) == 0) goto label_78;
                 }
 
@@ -733,14 +875,17 @@ namespace KotorTool_2._0.MainForm
                 {
                     Cursor current = Cursor.Current;
                     Cursor.Current = Cursors.WaitCursor;
-                    foreach (KotorTreeNode node1 in node.Nodes) BiffFunctions.ExportBiffResource(parent.FilePath + "\\" + parent.Filename, outputpath + node1.ResRef + "." + node1.ResTypeStr, node1.LocalResId);
+                    foreach (KotorTreeNode node1 in node.Nodes)
+                        BiffFunctions.ExportBiffResource(parent.FilePath + "\\" + parent.Filename,
+                            outputpath + node1.ResRef + "." + node1.ResTypeStr, node1.LocalResId);
                     Cursor.Current = current;
                 }
                 else if (StringType.StrCmp(sLeft, "rim", false) == 0)
                 {
                     Cursor current = Cursor.Current;
                     Cursor.Current = Cursors.WaitCursor;
-                    FileStream fileStream = new FileStream(parent.FilePath + "\\" + parent.Filename, FileMode.Open, FileAccess.Read);
+                    FileStream fileStream = new FileStream(parent.FilePath + "\\" + parent.Filename, FileMode.Open,
+                        FileAccess.Read);
                     BinaryReader binaryReader = new BinaryReader(fileStream, Encoding.ASCII);
                     byte[] indata = binaryReader.ReadBytes((int) fileStream.Length);
                     binaryReader.Close();
@@ -750,7 +895,11 @@ namespace KotorTool_2._0.MainForm
                     int index = num1;
                     while (index <= num2)
                     {
-                        if (((RimKeyEntry) rimParser.KeyEntryList[index]).ResType == node.ResType) ByteFunctions.WriteByteArray(outputpath + ((RimKeyEntry) rimParser.KeyEntryList[index]).ResourceName + "." + ((RimKeyEntry) rimParser.KeyEntryList[index]).ResTypeStr, rimParser.GetRimResource(index));
+                        if (((RimKeyEntry) rimParser.KeyEntryList[index]).ResType == node.ResType)
+                            ByteFunctions.WriteByteArray(
+                                outputpath + ((RimKeyEntry) rimParser.KeyEntryList[index]).ResourceName + "." +
+                                ((RimKeyEntry) rimParser.KeyEntryList[index]).ResTypeStr,
+                                rimParser.GetRimResource(index));
                         ++index;
                     }
 
@@ -763,8 +912,5 @@ namespace KotorTool_2._0.MainForm
             object obj = new object();
             return obj;
         }
-        
-        
-        
     }
 }

@@ -373,6 +373,7 @@
     <Compile Include="TextEditor\frmTextEditorFind.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utils\BinaryEngine.cs" />
     <Compile Include="Utils\ByteFunctions.cs" />
     <Compile Include="Utils\DirectoryUtils.cs" />
     <Compile Include="Utils\FStream.cs" />

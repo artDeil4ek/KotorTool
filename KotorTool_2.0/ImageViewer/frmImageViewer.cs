@@ -301,26 +301,8 @@ namespace KotorTool_2._0.ImageViewer
         }
 
 
-        private void ShowImage(int bytesPerPixel, PixelFormat pxFormat)
-        {
-            if (_ghImage.IsAllocated) _ghImage.Free();
-            _ghImage = GCHandle.Alloc(Pixeldata, GCHandleType.Pinned);
-            IntPtr scan0 = _ghImage.AddrOfPinnedObject();
-            try
-            {
-                _pbox.Image = new Bitmap(_xSize, _ySize, checked(bytesPerPixel * _xSize), pxFormat, scan0);
-            }
-            catch (Exception ex)
-            {
-                ProjectData.SetProjectError(ex);
-                Interaction.MsgBox("Cannot view this image", MsgBoxStyle.Critical, "Weirdness Alert");
-                ProjectData.ClearProjectError();
-            }
-
-            _pbox.Size = new Size(_xSize, _ySize);
-            _bitsPerPixel = (short) (bytesPerPixel * 8);
-            Text = "Image Viewer: " + _fname;
-        }
+      
+        
 
 
         public void DecodeImage()
@@ -340,7 +322,7 @@ namespace KotorTool_2._0.ImageViewer
             {
                 _bNeedToFlipForWriting = false;
                 int num1 = 0;
-                int num2 = (short) unchecked(_xSize * _ySize) - 1;
+                int num2 = _xSize * _ySize - 1;
                 int num3 = num1;
                 while (num3 <= num2)
                 {
@@ -353,7 +335,7 @@ namespace KotorTool_2._0.ImageViewer
                 Pixeldata = new Byte[TpcData.Length];
                 Array.Copy(TpcData, Pixeldata, TpcData.Length);
                 Array pixeldata = Pixeldata;
-                FlipImageVertically(ref pixeldata, checked(3 * _xSize), _ySize);
+                FlipImageVertically(ref pixeldata, 3 * _xSize, _ySize);
                 Pixeldata = (byte[]) pixeldata;
             }
             else if (_dataSize == 0 & _encoding1 == 4 & _mipmapCnt == 1)
@@ -380,11 +362,11 @@ namespace KotorTool_2._0.ImageViewer
             else if (_encoding1 == 2 | _encoding1 == 4)
             {
                 _bNeedToFlipForWriting = true;
-                long[] numArray1 = new long[1] {_xSize};
+                long[] numArray1 = {_xSize};
                 long[] numArray2 = numArray1;
                 int index1 = 0;
                 int index2 = index1;
-                long num1 = checked(numArray1[index1] * _ySize);
+                long num1 = numArray1[index1] * _ySize;
                 numArray2[index2] = num1;
                 long[] numArray3 = numArray1;
                 int index3 = 0;
@@ -416,9 +398,9 @@ namespace KotorTool_2._0.ImageViewer
             else
             {
                 ShowImage(4, PixelFormat.Format32bppArgb);
-                int byteIndex = checked(128 + MipLevel2Bytes(_mipmapCnt, _encoding1 * 4));
+                int byteIndex = 128 + MipLevel2Bytes(_mipmapCnt, _encoding1 * 4);
                 ASCIIEncoding asciiEncoding = new ASCIIEncoding();
-                object o1 = checked(TpcData.Length - byteIndex);
+                object o1 = TpcData.Length - byteIndex;
                 _tbImageInfo.Text = ObjectType.ObjTst(o1, 0, false) <= 0 ? "" : asciiEncoding.GetString(TpcData, byteIndex, IntegerType.FromObject(o1));
             }
 
@@ -473,6 +455,27 @@ namespace KotorTool_2._0.ImageViewer
             return (int) Math.Round(num / 16.0 / dxtBytesPerTexel);
         }
 
+
+        public void ShowImage(int BytesPerPixel, PixelFormat pxFormat)
+        {
+            if (_ghImage.IsAllocated)
+                _ghImage.Free();
+            _ghImage = GCHandle.Alloc((object)this.Pixeldata, GCHandleType.Pinned);
+            IntPtr scan0 = _ghImage.AddrOfPinnedObject();
+            try
+            {
+                _pbox.Image = (Image)new Bitmap((int)this._xSize, (int)this._ySize, checked(BytesPerPixel * (int)this._xSize), pxFormat, scan0);
+            }
+            catch (Exception ex)
+            {
+                ProjectData.SetProjectError(ex);
+                int num = (int)Interaction.MsgBox((object)"Cannot view this image", MsgBoxStyle.Critical, (object)"Weirdness Alert");
+                ProjectData.ClearProjectError();
+            }
+            _pbox.Size = new Size((int)this._xSize, (int)this._ySize);
+            _bitsPerPixel = checked((short)(BytesPerPixel * 8));
+            //_ext = "Image Viewer: " + _fName;
+        }
 
         private void FlipImageVertically(ref Array pixelData, int stride, int ySize)
         {
@@ -582,6 +585,8 @@ namespace KotorTool_2._0.ImageViewer
             public static void ShowTgaImage(KotorTreeNode node)
             {
                 Array data;
+              
+                /*Get data from Erf or Biff file */
                 if (StringType.StrCmp(node.ContainingFileType, "ERF", false) == 0)
                 {
                     data = new ErfObject().GetErfResource(node.FilePath, node);

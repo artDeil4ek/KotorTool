@@ -18,9 +18,7 @@ namespace KotorTool_2._0.MainForm
         public string[] CmdArgs;
         public bool HasK1;
         public bool HasK2;
-      //  public Form GCmdLineOpenedForm;
-     //   public MenuStrip MenuStrip1;
-      
+ 
              
 
         public static bool HasKotor1()

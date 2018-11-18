@@ -285,6 +285,7 @@
           <e p="frmTextEditorFind.resx" t="Include" />
         </e>
         <e p="UTILS" t="Include">
+          <e p="BinaryEngine.cs" t="Include" />
           <e p="ByteFunctions.cs" t="Include" />
           <e p="DirectoryUtils.cs" t="Include" />
           <e p="FileUtils.cs" t="Include" />

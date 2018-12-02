@@ -45,9 +45,7 @@ namespace KotorTool_2._0.Models.BIFF
         {
             ClsChitinKey clsChitinKey = ChitinKey.KxChitinKey(kotorVerIndex);
             int resIdForResRef = clsChitinKey.FindResIdForResRef(fileName, fileResType);
-
             if (resIdForResRef == -1) return null;
-
             FileStream fsin = new FileStream(ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\" + clsChitinKey.BiffList[resIdForResRef >> 20].Filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000);
             byte[] data = new BiffArchive(fsin).GetBiffResource(checked(resIdForResRef - resIdForResRef >> 20 << 20)).Data;
             fsin.Close();
@@ -74,31 +72,34 @@ namespace KotorTool_2._0.Models.BIFF
                     int num2 = binaryReader.ReadInt32();
                     BiffVarRsrcEntryInfo[] array = new BiffVarRsrcEntryInfo[num];
                     int arg540 = 0;
-                    
-                        int num3 = num - 1;
-                        for (int i = arg540; i <= num3; i++)
-                        {
-                            fileStream.Seek(num2 + 16 * i, 0);
-                            array[i] = new BiffVarRsrcEntryInfo(binaryReader.ReadInt32(), binaryReader.ReadInt32(), binaryReader.ReadInt32(), binaryReader.ReadInt32());
-                        }
+                    int num3 = num - 1;
+                    for (int i = arg540; i <= num3; i++)
+                    {
+                        fileStream.Seek(num2 + 16 * i, 0);
+                        array[i] = new BiffVarRsrcEntryInfo(binaryReader.ReadInt32(), binaryReader.ReadInt32(), binaryReader.ReadInt32(), binaryReader.ReadInt32());
+                    }
 
-                        return array;
-                    
+                    return array;
                 }
             }
         }
 
         public static BiffArchive K1TemplatesBif()
         {
-           // @"E:\Steam\steamapps\common\swkotor\"
-           // return Constants.Gk1TemplatesBif ?? (Constants.Gk1TemplatesBif = new BiffArchive(new FileStream(UserSettings.GetSettings().KotorLocation(0) + "\\data\\templates.bif", FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000)));
+            // @"E:\Steam\steamapps\common\swkotor\"
             return Constants.Gk1TemplatesBif ?? (Constants.Gk1TemplatesBif = new BiffArchive(FStream.Generate(@"E:\Steam\steamapps\common\swkotor\" + "\\data\\templates.bif")));
         }
 
+     
+        
+        /*
+         *
+         * Replace HardCoded Strings here
+         * 
+         */
         public static BiffArchive K2TemplatesBif()
         {
             //@"E:\Steam\steamapps\common\Knights of the Old Republic II\"
-           // return Constants.Gk2TemplatesBif ?? (Constants.Gk2TemplatesBif = new BiffArchive(new FileStream(UserSettings.GetSettings().KotorLocation(1) + "\\data\\Templates.bif", FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000)));
             return Constants.Gk2TemplatesBif ?? (Constants.Gk2TemplatesBif = new BiffArchive(FStream.Generate(@"E:\Steam\steamapps\common\Knights of the Old Republic II\" + "\\data\\Templates.bif")));
         }
 

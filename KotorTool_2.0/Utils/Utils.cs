@@ -3,11 +3,9 @@ using System.Collections;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using KotorTool_2._0.Forms;
-
 using KotorTool_2._0.Models;
 using KotorTool_2._0.Models.BIFF;
-using KotorTool_2._0.TextEditor;
+using KotorTool_2._0.Ui.TextEditor;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using FrmMain = KotorTool_2._0.MainForm.FrmMain;

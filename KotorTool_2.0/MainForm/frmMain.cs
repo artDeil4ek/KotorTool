@@ -4,20 +4,16 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Runtime.CompilerServices;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using KotorTool_2._0.ByteViewer;
-using KotorTool_2._0.Forms;
-using KotorTool_2._0.ImageViewer;
 using KotorTool_2._0.Models;
 using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.Models.CLS;
 using KotorTool_2._0.Models.ERF;
 using KotorTool_2._0.Models.RIM;
 using KotorTool_2._0.Options;
+using KotorTool_2._0.Ui.ByteViewer;
+using KotorTool_2._0.Ui.Forms;
+using KotorTool_2._0.Ui.MapInfoStatus;
 using KotorTool_2._0.Utils;
 using KotorTool_2._0.ViewModels;
 using Microsoft.VisualBasic;
@@ -52,126 +48,133 @@ namespace KotorTool_2._0.MainForm
 
         private void InitializeComponent()
         {
-            containerPanel = new Panel();
-            menuStrip1 = new MenuStrip();
-            fileToolStripMenuItem = new ToolStripMenuItem();
-            optionsToolStripMenuItem = new ToolStripMenuItem();
-            aboutToolStripMenuItem = new ToolStripMenuItem();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
-            KotorTslTreeViewPanel = new Panel();
-            menuStrip1.SuspendLayout();
-            tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
-            SuspendLayout();
+            this.containerPanel = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.KotorTslTreeViewPanel = new System.Windows.Forms.Panel();
+            this.menuStrip1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.SuspendLayout();
             // 
             // containerPanel
             // 
-            containerPanel.BackColor = Color.DimGray;
-            containerPanel.BorderStyle = BorderStyle.FixedSingle;
-            containerPanel.Location = new Point(-5, -1);
-            containerPanel.Name = "containerPanel";
-            containerPanel.Size = new Size(616, 788);
-            containerPanel.TabIndex = 0;
+            this.containerPanel.BackColor = System.Drawing.Color.DimGray;
+            this.containerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.containerPanel.Location = new System.Drawing.Point(-5, -1);
+            this.containerPanel.Name = "containerPanel";
+            this.containerPanel.Size = new System.Drawing.Size(616, 788);
+            this.containerPanel.TabIndex = 0;
             // 
             // menuStrip1
             // 
-            menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] {
-            fileToolStripMenuItem,
-            optionsToolStripMenuItem,
-            aboutToolStripMenuItem});
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1180, 33);
-            menuStrip1.TabIndex = 1;
-            menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.menuStrip1.Font = new System.Drawing.Font("Calibri", 9F);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 29);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.optionsToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1180, 30);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(50, 29);
-            fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control;
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(47, 28);
+            this.fileToolStripMenuItem.Text = "File";
             // 
             // optionsToolStripMenuItem
             // 
-            optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            optionsToolStripMenuItem.Size = new Size(141, 29);
-            optionsToolStripMenuItem.Text = "ConfigOptions";
+            this.optionsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(126, 28);
+            this.optionsToolStripMenuItem.Text = "ConfigOptions";
             // 
             // aboutToolStripMenuItem
             // 
-            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(74, 29);
-            aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(66, 28);
+            this.aboutToolStripMenuItem.Text = "About";
             // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Dock = DockStyle.Left;
-            tabControl1.Font = new Font("Microsoft Tai Le", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tabControl1.ItemSize = new Size(99, 35);
-            tabControl1.Location = new Point(0, 33);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(616, 831);
-            tabControl1.TabIndex = 2;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Tai Le", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.ItemSize = new System.Drawing.Size(99, 35);
+            this.tabControl1.Location = new System.Drawing.Point(0, 30);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(616, 834);
+            this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
             // 
-            tabPage1.BackColor = Color.Black;
-            tabPage1.BorderStyle = BorderStyle.FixedSingle;
-            tabPage1.Controls.Add(containerPanel);
-            tabPage1.ForeColor = SystemColors.ButtonFace;
-            tabPage1.Location = new Point(4, 39);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(608, 788);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Kotor";
+            this.tabPage1.BackColor = System.Drawing.Color.Black;
+            this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabPage1.Controls.Add(this.containerPanel);
+            this.tabPage1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabPage1.Location = new System.Drawing.Point(4, 39);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(608, 791);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Kotor";
             // 
             // tabPage2
             // 
-            tabPage2.Controls.Add(KotorTslTreeViewPanel);
-            tabPage2.Location = new Point(4, 39);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(608, 788);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Controls.Add(this.KotorTslTreeViewPanel);
+            this.tabPage2.Location = new System.Drawing.Point(4, 39);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(608, 791);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // KotorTslTreeViewPanel
             // 
-            KotorTslTreeViewPanel.Location = new Point(-4, 0);
-            KotorTslTreeViewPanel.Name = "KotorTslTreeViewPanel";
-            KotorTslTreeViewPanel.Size = new Size(612, 788);
-            KotorTslTreeViewPanel.TabIndex = 0;
+            this.KotorTslTreeViewPanel.Location = new System.Drawing.Point(-4, 0);
+            this.KotorTslTreeViewPanel.Name = "KotorTslTreeViewPanel";
+            this.KotorTslTreeViewPanel.Size = new System.Drawing.Size(612, 788);
+            this.KotorTslTreeViewPanel.TabIndex = 0;
             // 
             // FrmMain
             // 
-            AutoScaleBaseSize = new Size(8, 19);
-            BackColor = Color.FromArgb(64, 64, 64);
-            BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1180, 864);
-            Controls.Add(tabControl1);
-            Controls.Add(menuStrip1);
-            DoubleBuffered = true;
-            MainMenuStrip = menuStrip1;
-            MinimumSize = new Size(8, 19);
-            Name = "FrmMain";
-            SizeGripStyle = SizeGripStyle.Show;
-            Text = "Kotor Tool";
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
-            tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage2.ResumeLayout(false);
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleBaseSize = new System.Drawing.Size(8, 19);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackgroundImage = global::KotorTool_2._0.Properties.Resources.Dark_with_carbon_fiber_texture_background_vector_01;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1180, 864);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
+            this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(8, 19);
+            this.Name = "FrmMain";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
+            this.Text = "Kotor Tool";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

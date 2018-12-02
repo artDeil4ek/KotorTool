@@ -40,8 +40,8 @@ namespace KotorTool_2._0.ViewModels
         public void InitialiseDecorations()
         {
            //  ForeColor = Color.Aqua;
-             int myNodeFontSize = Int32.Parse("10");
-             NodeFont = new Font("Arial",myNodeFontSize);
+        /*     int myNodeFontSize = Int32.Parse("10");
+             NodeFont = new Font("Arial",myNodeFontSize);*/
         }
         
         public List<TreeNode> GetNodes()
@@ -67,6 +67,7 @@ namespace KotorTool_2._0.ViewModels
             KotorVerIndex = -1;
         }
 
+        
         public KotorTreeNode(KeyEntry ke)
         {
             InitialiseDecorations();

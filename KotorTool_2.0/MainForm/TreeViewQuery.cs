@@ -1,23 +1,22 @@
 using System;
 using System.Collections;
 using System.IO;
-using System.Reactive.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using KotorTool_2._0.Forms;
 using KotorTool_2._0.Models;
 using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.Models.CLS;
 using KotorTool_2._0.Models.ERF;
 using KotorTool_2._0.Models.RIM;
 using KotorTool_2._0.Options;
+using KotorTool_2._0.Ui.Forms;
 using KotorTool_2._0.Utils;
 using KotorTool_2._0.ViewModels;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
-using MoreLinq;
 
 namespace KotorTool_2._0.MainForm
 {
@@ -221,9 +220,10 @@ namespace KotorTool_2._0.MainForm
             }
         }
 
-        public void ScanForErFsAndBuildTree(KotorTreeNode ktn, string directory)
+        public async void ScanForErFsAndBuildTree(KotorTreeNode ktn, string directory)
         {
-            FileInfo[] files = new DirectoryInfo(ConfigOptions.Paths.KotorLocation(KotorTreeNode.NodeTreeRootIndex(_treeView,ktn)) + "\\" + directory).GetFiles();
+            FileInfo[] files = await Task.Factory.StartNew(() => new DirectoryInfo(ConfigOptions.Paths.KotorLocation(KotorTreeNode.NodeTreeRootIndex(_treeView,ktn)) + "\\" + directory).GetFiles());
+          
             int index = 0;
             while (index < files.Length)
             {
@@ -245,12 +245,10 @@ namespace KotorTool_2._0.MainForm
             }
         }
 
-        public void ScanForSavesAndBuildTree(string path, KotorTreeNode node)
+        public async void ScanForSavesAndBuildTree(string path, KotorTreeNode node)
         {
-            DirectoryInfo[] directories = new DirectoryInfo(path).GetDirectories();
-           
+            DirectoryInfo[] directories = await Task.Factory.StartNew(() => new DirectoryInfo(path).GetDirectories());
             int index = 0;
-         
             while (index < directories.Length)
             {
                 DirectoryInfo directoryInfo = directories[index];
@@ -272,9 +270,7 @@ namespace KotorTool_2._0.MainForm
             binaryReader.Close();
         
             KotorTreeNode kotorTreeNode = new KotorTreeNode();
-           
-            
-            
+
             foreach (RimKeyEntry keyEntry in rimParser.KeyEntryList)
             {
                 KotorTreeNode node = new KotorTreeNode(keyEntry, rimFilePath) {ContainingFileType = "RIM", RimOrErfIndex = num};

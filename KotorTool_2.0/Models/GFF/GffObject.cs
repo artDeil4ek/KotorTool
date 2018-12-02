@@ -4,9 +4,10 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using KotorTool_2._0.Forms;
 using KotorTool_2._0.MainForm;
 using KotorTool_2._0.Models.CLS;
+using KotorTool_2._0.Ui.DialogEditor;
+using KotorTool_2._0.Ui.Forms;
 using KotorTool_2._0.Utils;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
@@ -18,7 +19,7 @@ namespace KotorTool_2._0.Models.GFF
         public void EditGffResource(string filename, byte[] data)
         {
             DirectoryUtils.EnsureWorkingDirectoryExists();
-            if (File.Exists(MainFormState.GRootPath + "working\\" + filename))File.Delete(MainFormState.GRootPath + "working\\" + filename);
+            if (File.Exists(MainFormState.GRootPath + "working\\" + filename)) File.Delete(MainFormState.GRootPath + "working\\" + filename);
             ByteFunctions.WriteByteArray(MainFormState.GRootPath + "working\\" + filename, data);
             LaunchGffEditor(MainFormState.GRootPath + "working\\" + filename);
         }
@@ -26,7 +27,10 @@ namespace KotorTool_2._0.Models.GFF
         private void LaunchGffEditor(string filename)
         {
             string fileName = MainFormState.GRootPath + "gffeditor.exe";
-            try{Process.Start(fileName, filename);}
+            try
+            {
+                Process.Start(fileName, filename);
+            }
             catch (Exception ex)
             {
                 ProjectData.SetProjectError(ex);
@@ -84,7 +88,7 @@ namespace KotorTool_2._0.Models.GFF
             {
                 ProjectData.SetProjectError(ex);
                 new Mru().ManageMruMainFileList(filepath, true);
-                Interaction.MsgBox("Could not find file: " + filepath, MsgBoxStyle.Critical,"");
+                Interaction.MsgBox("Could not find file: " + filepath, MsgBoxStyle.Critical, string.Empty);
                 ProjectData.ClearProjectError();
                 goto label_26;
             }
@@ -92,7 +96,7 @@ namespace KotorTool_2._0.Models.GFF
             {
                 ProjectData.SetProjectError(ex);
                 new Mru().ManageMruMainFileList(filepath, true);
-                Interaction.MsgBox("Could not directory in path to: " + filepath,MsgBoxStyle.Critical, "");
+                Interaction.MsgBox("Could not directory in path to: " + filepath, MsgBoxStyle.Critical, string.Empty);
                 ProjectData.ClearProjectError();
                 goto label_26;
             }
@@ -184,10 +188,9 @@ namespace KotorTool_2._0.Models.GFF
                 }
 
                 ++num8;
-                
             }
 
-            String str = "";
+            String str = string.Empty;
             return str;
         }
     }

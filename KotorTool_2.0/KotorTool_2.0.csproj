@@ -103,30 +103,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="2daEditor\frm2DAEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AboutDialog\frmAbout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AboutDialog\frmAutoDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AppearanceWizard\frmAppearanceWizard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BwmEditor\frmBWMEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ByteViewer\ByteViewerCommands.cs" />
-    <Compile Include="ByteViewer\ByteViewerConfig.cs" />
-    <Compile Include="ByteViewer\ByteViewerQueries.cs" />
-    <Compile Include="ByteViewer\frmByteViewer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CExoLocStringLangPicker\frmCExoLocStringLanguagePicker.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="Crypt.cs" />
     <Compile Include="CustomButton.cs">
@@ -134,48 +110,6 @@
     </Compile>
     <Compile Include="CustomButton.Designer.cs">
       <DependentUpon>CustomButton.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DialogEditor\frmDialogEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ErfManager\frmERFManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FilterDesigner\frmFilterDesigner.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\DataGridEnableTextBoxColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Forms\clsGridDisplay.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Forms\frmBasicHelp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmCreateAnimListEntry.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmDialogTlk.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmErrorMessageWithCopyableText.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmInstanceOrRefPrompt.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GlobalVarEditor\frmGlobalVar_Editor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ImageViewer\frmImageViewer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InventoryEditor\frmInventoryEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ItemPropertyEditor\frmItemPropertyEditor.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm\Aabb.cs" />
     <Compile Include="MainForm\frmMain.cs">
@@ -186,9 +120,6 @@
     <Compile Include="MainForm\TreeViewCommand.cs" />
     <Compile Include="MainForm\TreeViewPresenter.cs" />
     <Compile Include="MainForm\TreeViewQuery.cs" />
-    <Compile Include="MapInfoStatus\frmMapInfoStatus.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Models\ChitinKey.cs" />
     <Compile Include="Models\ERF\ErfObject.cs" />
     <Compile Include="Models\GFF\GffObject.cs" />
@@ -199,25 +130,7 @@
     <Compile Include="Models\RIM\RimObject.cs" />
     <Compile Include="Models\Tga.cs" />
     <Compile Include="Models\Tpc.cs" />
-    <Compile Include="ModuleEditor\frmModuleEditorOptions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModuleEditor\frmModuleEditor_MissingItemSelector.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModuleEditor\frmModuleIfo_AreaEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModuleEditor\frmModuleItem_Base_Editor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModuleEditor\frmModule_Editor.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="MoreLinq\MoreEnumerable.ForEach.cs" />
-    <Compile Include="OptionsEditor\frmOptions.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Options\ConfigOptions.cs" />
     <Compile Include="Services\I2Da.cs" />
     <Compile Include="Services\IBwm.cs" />
@@ -226,78 +139,6 @@
     <Compile Include="Services\IErf.cs" />
     <Compile Include="Services\IGff.cs" />
     <Compile Include="Services\IKeyEntry.cs" />
-    <Compile Include="Forms\frmMdlOpsSwitches.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmOverrideFilesUsed.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmPackageTypeSelector.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmParent.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmPathManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmProgressMeter.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmProjectManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmProjectManagerProperties.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmPromptForString.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmQueryUserInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmRefSearchCriteria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmRefSearchResults.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmResourceTypeSelector.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmSpecifyKotorVersion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmTPCFileSaveType.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmUTC_Editor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmUTD_Editor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmUTI_Editor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmUTM_Editor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmUTP_Editor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmUTS_Editor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmUTT_Editor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmUTW_Editor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\InventoryPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="MapInfo.cs" />
     <Compile Include="Models\BIFF\BIFFArchive.cs" />
@@ -352,27 +193,68 @@
     <Compile Include="MyMapInfoSurrogate.cs" />
     <Compile Include="ProjectFileItemTreeNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\RegReminder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\RepeatButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Services\IMapInfoCreator.cs" />
     <Compile Include="Services\IRim.cs" />
     <Compile Include="Services\ISsf.cs" />
-    <Compile Include="SoundChooser\frmSoundChooser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SsfEditor\frmSSFEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TextEditor\frmTextEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TextEditor\frmTextEditorFind.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Ui\2daEditor\frm2DAEditor.cs" />
+    <Compile Include="Ui\AboutDialog\frmAbout.cs" />
+    <Compile Include="Ui\AboutDialog\frmAutoDialog.cs" />
+    <Compile Include="Ui\AppearanceWizard\frmAppearanceWizard.cs" />
+    <Compile Include="Ui\BwmEditor\frmBWMEditor.cs" />
+    <Compile Include="Ui\ByteViewer\ByteViewerConfig.cs" />
+    <Compile Include="Ui\ByteViewer\frmByteViewer.cs" />
+    <Compile Include="Ui\CExoLocStringLangPicker\frmCExoLocStringLanguagePicker.cs" />
+    <Compile Include="Ui\DialogEditor\frmDialogEditor.cs" />
+    <Compile Include="Ui\ErfManager\frmERFManager.cs" />
+    <Compile Include="Ui\FilterDesigner\frmFilterDesigner.cs" />
+    <Compile Include="Ui\Forms\clsGridDisplay.cs" />
+    <Compile Include="Ui\Forms\DataGridEnableTextBoxColumn.cs" />
+    <Compile Include="Ui\Forms\frmBasicHelp.cs" />
+    <Compile Include="Ui\Forms\frmCreateAnimListEntry.cs" />
+    <Compile Include="Ui\Forms\frmDialogTlk.cs" />
+    <Compile Include="Ui\Forms\frmErrorMessageWithCopyableText.cs" />
+    <Compile Include="Ui\Forms\frmInstanceOrRefPrompt.cs" />
+    <Compile Include="Ui\Forms\frmMdlOpsSwitches.cs" />
+    <Compile Include="Ui\Forms\frmOverrideFilesUsed.cs" />
+    <Compile Include="Ui\Forms\frmPackageTypeSelector.cs" />
+    <Compile Include="Ui\Forms\frmParent.cs" />
+    <Compile Include="Ui\Forms\frmPathManager.cs" />
+    <Compile Include="Ui\Forms\frmProgressMeter.cs" />
+    <Compile Include="Ui\Forms\frmProjectManager.cs" />
+    <Compile Include="Ui\Forms\frmProjectManagerProperties.cs" />
+    <Compile Include="Ui\Forms\frmPromptForString.cs" />
+    <Compile Include="Ui\Forms\frmQueryUserInfo.cs" />
+    <Compile Include="Ui\Forms\frmRefSearchCriteria.cs" />
+    <Compile Include="Ui\Forms\frmRefSearchResults.cs" />
+    <Compile Include="Ui\Forms\frmResourceTypeSelector.cs" />
+    <Compile Include="Ui\Forms\frmSpecifyKotorVersion.cs" />
+    <Compile Include="Ui\Forms\frmTPCFileSaveType.cs" />
+    <Compile Include="Ui\Forms\frmUTC_Editor.cs" />
+    <Compile Include="Ui\Forms\frmUTD_Editor.cs" />
+    <Compile Include="Ui\Forms\frmUTI_Editor.cs" />
+    <Compile Include="Ui\Forms\frmUTM_Editor.cs" />
+    <Compile Include="Ui\Forms\frmUTP_Editor.cs" />
+    <Compile Include="Ui\Forms\frmUTS_Editor.cs" />
+    <Compile Include="Ui\Forms\frmUTT_Editor.cs" />
+    <Compile Include="Ui\Forms\frmUTW_Editor.cs" />
+    <Compile Include="Ui\Forms\InventoryPanel.cs" />
+    <Compile Include="Ui\Forms\RegReminder.cs" />
+    <Compile Include="Ui\Forms\RepeatButton.cs" />
+    <Compile Include="Ui\GlobalVarEditor\frmGlobalVar_Editor.cs" />
+    <Compile Include="Ui\ImageViewer\frmImageViewer.cs" />
+    <Compile Include="Ui\InventoryEditor\frmInventoryEditor.cs" />
+    <Compile Include="Ui\ItemPropertyEditor\frmItemPropertyEditor.cs" />
+    <Compile Include="Ui\MapInfoStatus\frmMapInfoStatus.cs" />
+    <Compile Include="Ui\ModuleEditor\frmModuleEditorOptions.cs" />
+    <Compile Include="Ui\ModuleEditor\frmModuleEditor_MissingItemSelector.cs" />
+    <Compile Include="Ui\ModuleEditor\frmModuleIfo_AreaEditor.cs" />
+    <Compile Include="Ui\ModuleEditor\frmModuleItem_Base_Editor.cs" />
+    <Compile Include="Ui\ModuleEditor\frmModule_Editor.cs" />
+    <Compile Include="Ui\OptionsEditor\frmOptions.cs" />
+    <Compile Include="Ui\SoundChooser\frmSoundChooser.cs" />
+    <Compile Include="Ui\SsfEditor\frmSSFEditor.cs" />
+    <Compile Include="Ui\TextEditor\frmTextEditor.cs" />
+    <Compile Include="Ui\TextEditor\frmTextEditorFind.cs" />
     <Compile Include="Utils\BinaryEngine.cs" />
     <Compile Include="Utils\ByteFunctions.cs" />
     <Compile Include="Utils\DirectoryUtils.cs" />
@@ -401,61 +283,10 @@
     <Compile Include="ViewModels\RowFilter.cs" />
     <Compile Include="ViewModels\RowFilterPart.cs" />
     <Compile Include="ViewModels\TreeBaseItem.cs" />
-    <EmbeddedResource Include="2daEditor\frm2DAEditor.resx" />
-    <EmbeddedResource Include="AboutDialog\frmAbout.resx" />
-    <EmbeddedResource Include="AboutDialog\frmAutoDialog.resx" />
-    <EmbeddedResource Include="AppearanceWizard\frmAppearanceWizard.resx" />
-    <EmbeddedResource Include="BwmEditor\frmBWMEditor.resx" />
-    <EmbeddedResource Include="ByteViewer\frmByteViewer.resx" />
-    <EmbeddedResource Include="CExoLocStringLangPicker\frmCExoLocStringLanguagePicker.resx" />
     <EmbeddedResource Include="CustomButton.resx">
       <DependentUpon>CustomButton.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DialogEditor\frmDialogEditor.resx" />
-    <EmbeddedResource Include="ErfManager\frmERFManager.resx" />
-    <EmbeddedResource Include="FilterDesigner\frmFilterDesigner.resx" />
-    <EmbeddedResource Include="Forms\frmBasicHelp.resx" />
-    <EmbeddedResource Include="Forms\frmCreateAnimListEntry.resx" />
-    <EmbeddedResource Include="Forms\frmDialogTlk.resx" />
-    <EmbeddedResource Include="Forms\frmErrorMessageWithCopyableText.resx" />
-    <EmbeddedResource Include="Forms\frmInstanceOrRefPrompt.resx" />
-    <EmbeddedResource Include="GlobalVarEditor\frmGlobalVar_Editor.resx" />
-    <EmbeddedResource Include="ImageViewer\frmImageViewer.resx" />
-    <EmbeddedResource Include="InventoryEditor\frmInventoryEditor.resx" />
-    <EmbeddedResource Include="ItemPropertyEditor\frmItemPropertyEditor.resx" />
-    <EmbeddedResource Include="Forms\frmMdlOpsSwitches.resx">
-      <DependentUpon>frmMdlOpsSwitches.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmOverrideFilesUsed.resx" />
-    <EmbeddedResource Include="Forms\frmPackageTypeSelector.resx" />
-    <EmbeddedResource Include="Forms\frmParent.resx" />
-    <EmbeddedResource Include="Forms\frmPathManager.resx" />
-    <EmbeddedResource Include="Forms\frmProgressMeter.resx" />
-    <EmbeddedResource Include="Forms\frmProjectManager.resx" />
-    <EmbeddedResource Include="Forms\frmProjectManagerProperties.resx" />
-    <EmbeddedResource Include="Forms\frmPromptForString.resx" />
-    <EmbeddedResource Include="Forms\frmQueryUserInfo.resx" />
-    <EmbeddedResource Include="Forms\frmRefSearchCriteria.resx" />
-    <EmbeddedResource Include="Forms\frmRefSearchResults.resx" />
-    <EmbeddedResource Include="Forms\frmResourceTypeSelector.resx" />
-    <EmbeddedResource Include="Forms\frmSpecifyKotorVersion.resx" />
-    <EmbeddedResource Include="Forms\frmTPCFileSaveType.resx" />
-    <EmbeddedResource Include="Forms\frmUTC_Editor.resx" />
-    <EmbeddedResource Include="Forms\frmUTD_Editor.resx" />
-    <EmbeddedResource Include="Forms\frmUTI_Editor.resx" />
-    <EmbeddedResource Include="Forms\frmUTM_Editor.resx" />
-    <EmbeddedResource Include="Forms\frmUTP_Editor.resx" />
-    <EmbeddedResource Include="Forms\frmUTS_Editor.resx" />
-    <EmbeddedResource Include="Forms\frmUTT_Editor.resx" />
-    <EmbeddedResource Include="Forms\frmUTW_Editor.resx" />
     <EmbeddedResource Include="MainForm\frmMain.resx" />
-    <EmbeddedResource Include="MapInfoStatus\frmMapInfoStatus.resx" />
-    <EmbeddedResource Include="ModuleEditor\frmModuleEditorOptions.resx" />
-    <EmbeddedResource Include="ModuleEditor\frmModuleEditor_MissingItemSelector.resx" />
-    <EmbeddedResource Include="ModuleEditor\frmModuleIfo_AreaEditor.resx" />
-    <EmbeddedResource Include="ModuleEditor\frmModuleItem_Base_Editor.resx" />
-    <EmbeddedResource Include="ModuleEditor\frmModule_Editor.resx" />
-    <EmbeddedResource Include="OptionsEditor\frmOptions.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -466,10 +297,61 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SoundChooser\frmSoundChooser.resx" />
-    <EmbeddedResource Include="SsfEditor\frmSSFEditor.resx" />
-    <EmbeddedResource Include="TextEditor\frmTextEditor.resx" />
-    <EmbeddedResource Include="TextEditor\frmTextEditorFind.resx" />
+    <EmbeddedResource Include="Ui\2daEditor\frm2DAEditor.resx" />
+    <EmbeddedResource Include="Ui\AboutDialog\frmAbout.resx" />
+    <EmbeddedResource Include="Ui\AboutDialog\frmAutoDialog.resx" />
+    <EmbeddedResource Include="Ui\AppearanceWizard\frmAppearanceWizard.resx" />
+    <EmbeddedResource Include="Ui\BwmEditor\frmBWMEditor.resx" />
+    <EmbeddedResource Include="Ui\ByteViewer\frmByteViewer.resx" />
+    <EmbeddedResource Include="Ui\CExoLocStringLangPicker\frmCExoLocStringLanguagePicker.resx" />
+    <EmbeddedResource Include="Ui\DialogEditor\frmDialogEditor.resx" />
+    <EmbeddedResource Include="Ui\ErfManager\frmERFManager.resx" />
+    <EmbeddedResource Include="Ui\FilterDesigner\frmFilterDesigner.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmBasicHelp.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmCreateAnimListEntry.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmDialogTlk.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmErrorMessageWithCopyableText.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmInstanceOrRefPrompt.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmMdlOpsSwitches.resx">
+      <DependentUpon>frmMdlOpsSwitches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Forms\frmOverrideFilesUsed.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmPackageTypeSelector.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmParent.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmPathManager.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmProgressMeter.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmProjectManager.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmProjectManagerProperties.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmPromptForString.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmQueryUserInfo.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmRefSearchCriteria.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmRefSearchResults.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmResourceTypeSelector.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmSpecifyKotorVersion.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmTPCFileSaveType.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmUTC_Editor.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmUTD_Editor.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmUTI_Editor.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmUTM_Editor.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmUTP_Editor.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmUTS_Editor.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmUTT_Editor.resx" />
+    <EmbeddedResource Include="Ui\Forms\frmUTW_Editor.resx" />
+    <EmbeddedResource Include="Ui\GlobalVarEditor\frmGlobalVar_Editor.resx" />
+    <EmbeddedResource Include="Ui\ImageViewer\frmImageViewer.resx" />
+    <EmbeddedResource Include="Ui\InventoryEditor\frmInventoryEditor.resx" />
+    <EmbeddedResource Include="Ui\ItemPropertyEditor\frmItemPropertyEditor.resx" />
+    <EmbeddedResource Include="Ui\MapInfoStatus\frmMapInfoStatus.resx" />
+    <EmbeddedResource Include="Ui\ModuleEditor\frmModuleEditorOptions.resx" />
+    <EmbeddedResource Include="Ui\ModuleEditor\frmModuleEditor_MissingItemSelector.resx" />
+    <EmbeddedResource Include="Ui\ModuleEditor\frmModuleIfo_AreaEditor.resx" />
+    <EmbeddedResource Include="Ui\ModuleEditor\frmModuleItem_Base_Editor.resx" />
+    <EmbeddedResource Include="Ui\ModuleEditor\frmModule_Editor.resx" />
+    <EmbeddedResource Include="Ui\OptionsEditor\frmOptions.resx" />
+    <EmbeddedResource Include="Ui\SoundChooser\frmSoundChooser.resx" />
+    <EmbeddedResource Include="Ui\SsfEditor\frmSSFEditor.resx" />
+    <EmbeddedResource Include="Ui\TextEditor\frmTextEditor.resx" />
+    <EmbeddedResource Include="Ui\TextEditor\frmTextEditorFind.resx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -492,9 +374,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Observable.txt" />
+    <None Include="Resources\10125.jpg" />
     <Content Include="Resources\black_floor.jpg" />
+    <None Include="Resources\Dark-with-carbon-fiber-texture-background-vector-01.jpg" />
     <None Include="Resources\black_floor1.jpg" />
     <Content Include="Resources\black_grid.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Attributes" />
+    <Folder Include="Ui" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.ComponentModel;
-using System.Windows.Forms;
 using KotorTool_2._0.ViewModels;
 using Microsoft.Win32;
 

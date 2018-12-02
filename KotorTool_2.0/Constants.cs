@@ -1,7 +1,6 @@
-﻿using KotorTool_2._0.Forms;
-using KotorTool_2._0.ImageViewer;
-using KotorTool_2._0.Models.BIFF;
+﻿using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.Models.CLS;
+using KotorTool_2._0.Ui.ImageViewer;
 using KotorTool_2._0.ViewModels;
 
 namespace KotorTool_2._0

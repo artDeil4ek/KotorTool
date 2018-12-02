@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using KotorTool_2._0.MainForm;
-using KotorTool_2._0.TextEditor;
+using KotorTool_2._0.Ui.TextEditor;
 using KotorTool_2._0.Utils;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;

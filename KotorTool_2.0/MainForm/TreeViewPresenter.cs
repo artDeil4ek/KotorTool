@@ -2,31 +2,25 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using KotorTool_2._0.Forms;
-using KotorTool_2._0.ImageViewer;
+
 using KotorTool_2._0.Models;
 using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.Models.CLS;
-using KotorTool_2._0.Models.ERF;
 using KotorTool_2._0.Models.GFF;
-using KotorTool_2._0.Models.RIM;
 using KotorTool_2._0.Options;
-using KotorTool_2._0.OptionsEditor;
-using KotorTool_2._0.TextEditor;
+using KotorTool_2._0.Ui.Forms;
+using KotorTool_2._0.Ui.ImageViewer;
+using KotorTool_2._0.Ui.OptionsEditor;
+using KotorTool_2._0.Ui.TextEditor;
 using KotorTool_2._0.Utils;
 using KotorTool_2._0.ViewModels;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
-using MoreLinq;
 
 namespace KotorTool_2._0.MainForm
 {
@@ -72,16 +66,19 @@ namespace KotorTool_2._0.MainForm
             KotorTreeNode kotorTreeNode2 = new KotorTreeNode("") {Tag = "dummy"};
             kotorTreeNode1.Nodes.Add(kotorTreeNode2);
             root.Nodes.Add(kotorTreeNode1);
+           
             KotorTreeNode kotorTreeNode3 = new KotorTreeNode("RIMs") {Tag = "RIM_Root", FilePath = ConfigOptions.Paths.KotorLocation(_treeView.Nodes.IndexOf(root)) + "\\Modules"};
             KotorTreeNode kotorTreeNode4 = new KotorTreeNode("Modules") {Tag = "RIM_Modules"};
             KotorTreeNode kotorTreeNode5 = new KotorTreeNode("") {Tag = "dummy"};
             kotorTreeNode4.Nodes.Add(kotorTreeNode5);
             kotorTreeNode3.Nodes.Add(kotorTreeNode4);
+          
             KotorTreeNode kotorTreeNode6 = new KotorTreeNode("Rims") {Tag = "RIM_Rims"};
             KotorTreeNode kotorTreeNode7 = new KotorTreeNode("") {Tag = "dummy"};
             kotorTreeNode6.Nodes.Add(kotorTreeNode7);
             kotorTreeNode3.Nodes.Add(kotorTreeNode6);
             root.Nodes.Add(kotorTreeNode3);
+           
             KotorTreeNode kotorTreeNode8 = new KotorTreeNode("ERFs") {Tag = "ERF_Root", FilePath = ConfigOptions.Paths.KotorLocation(_treeView.Nodes.IndexOf(root)) + "\\texturePacks"};
             KotorTreeNode kotorTreeNode9 = new KotorTreeNode("TexturePacks") {Tag = "ERF_TexturePacks"};
             KotorTreeNode kotorTreeNode10 = new KotorTreeNode("") {Tag = "dummy"};
@@ -688,7 +685,8 @@ namespace KotorTool_2._0.MainForm
                 ++index;
             }
         }
-
+       
+        
         private void MiViewGffFileOnClick(object sender, EventArgs e)
         {
             object objectValue = RuntimeHelpers.GetObjectValue(FileUtils.GetFilePath("load", ConfigOptions.Paths.DefaultImportLocation, string.Empty, "Open GFF files...", string.Empty, true));

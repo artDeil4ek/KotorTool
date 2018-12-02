@@ -63,9 +63,29 @@ namespace KotorTool_2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _10125 {
+            get {
+                object obj = ResourceManager.GetObject("10125", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap black_floor {
             get {
                 object obj = ResourceManager.GetObject("black_floor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dark_with_carbon_fiber_texture_background_vector_01 {
+            get {
+                object obj = ResourceManager.GetObject("Dark-with-carbon-fiber-texture-background-vector-01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

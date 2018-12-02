@@ -1,6 +1,8 @@
 using System.IO;
 using System.Text;
+using KotorTool_2._0.Attributes;
 using KotorTool_2._0.Models.CLS;
+using KotorTool_2._0.Utils;
 using KotorTool_2._0.ViewModels;
 
 namespace KotorTool_2._0.Models.RIM
@@ -9,11 +11,11 @@ namespace KotorTool_2._0.Models.RIM
     {
         public byte[] GetRimResource(string rimFilePath, KotorTreeNode ktn)
         {
-            FileStream fileStream = new FileStream(rimFilePath, FileMode.Open, FileAccess.Read);
-            BinaryReader binaryReader = new BinaryReader(fileStream, Encoding.ASCII);
-            byte[] indata = binaryReader.ReadBytes((int) fileStream.Length);
-            binaryReader.Close();
-            return new RimParser(indata).GetRimResource(ktn.RimOrErfIndex);
+            using (BinaryEngine engine = new BinaryEngine(rimFilePath))
+            {
+                byte[] inData = engine.Br.ReadBytes((int) engine.Fs.Length);
+                return new RimParser(inData).GetRimResource(ktn.RimOrErfIndex);
+            }
         }
     }
 }

@@ -11,14 +11,14 @@ namespace KotorTool_2._0.Utils
     
     public class BinaryEngine : IDisposable
     {
-        private FileStream fs;
-        private BinaryReader br;
-        private IBinaryEngine _binaryEngine;
+        public FileStream Fs;
+        public BinaryReader Br;
+        public IBinaryEngine _binaryEngine;
 
         public BinaryEngine(string filePath)
         {
-             fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000);
-             br = new BinaryReader(fs);
+             Fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000);
+             Br = new BinaryReader(Fs);
         }
 
         public BinaryEngine SetExecution(IBinaryEngine binaryEngine)
@@ -26,7 +26,7 @@ namespace KotorTool_2._0.Utils
             _binaryEngine = binaryEngine;
             return this;
         }
-
+        
         public void Execute(IBinaryEngine binaryEngine)
         {
             _binaryEngine = binaryEngine;
@@ -35,13 +35,29 @@ namespace KotorTool_2._0.Utils
         
         public void Execute()
         {
-            _binaryEngine.execute();
+            _binaryEngine?.execute();
         }
 
         public void Dispose()
         {
-            fs?.Dispose();
-            br?.Dispose();
+            Fs?.Dispose();
+            Br?.Dispose();
+        }
+
+        public static byte[] GetBytes(string filePath)
+        {
+            using (BinaryEngine binaryEngine = new BinaryEngine(filePath))
+            {
+               return binaryEngine.Br.ReadBytes((int) binaryEngine.Fs.Length);
+            }
+        }
+
+        public static void ReadWithAction(string filePath, Action<FileStream, BinaryReader> action)
+        {
+            using (BinaryEngine binaryEngine = new BinaryEngine(filePath))
+            {
+                action.Invoke(binaryEngine.Fs, binaryEngine.Br);
+            }
         }
     }
 }

@@ -1,8 +1,10 @@
-﻿using KotorTool_2._0.Utils;
+﻿using System;
+using KotorTool_2._0.Utils;
 
 
 namespace KotorTool_2._0.Models.RIM
 {
+    [Serializable]
     public class RimKeyEntry
     {
         public string ResourceName;

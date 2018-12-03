@@ -237,7 +237,7 @@ namespace KotorTool_2._0.MainForm
                     streamReader.ReadLine();
                     streamWriter.WriteLine(mdlRoomCount);
 
-                    BasicIterator(mdlRoomCount, 1, i =>
+                    FlowUtils.BasicIterator(mdlRoomCount, 1, i =>
                     {
                         string[] strArray = streamReader.ReadLine()?.Trim().Split(' ');
                         int index = 1;
@@ -629,14 +629,7 @@ namespace KotorTool_2._0.MainForm
 
         }
 
-        public void BasicIterator(int index, int endPoint, Action<int> action)
-        {
-            while (index <= endPoint)
-            {
-                action.Invoke(index);
-                index++;
-            }
-        }
+     
         
         
         public object ExtractSelectedKotorFile(KotorTreeNode node, string outputpath = "", string saveMsg = "",
@@ -653,12 +646,12 @@ namespace KotorTool_2._0.MainForm
                     RimParser rimParser = new RimParser(BinaryEngine.GetBytes(node.FilePath + "\\" + node.Filename));
                     if (resTypes == null)
                     {
-                        BasicIterator(rimParser.EntryCount - 1, 0, i => { ByteFunctions.WriteByteArray(outputpath + ((RimKeyEntry) rimParser.KeyEntryList[i]).ResourceName + "." + ((RimKeyEntry) rimParser.KeyEntryList[i]).ResTypeStr, rimParser.GetRimResource(i)); });
-                        BasicIterator(rimParser.EntryCount - 1, 0, i => { ByteFunctions.WriteByteArray(outputpath + ((RimKeyEntry) rimParser.KeyEntryList[i]).ResourceName + "." + ((RimKeyEntry) rimParser.KeyEntryList[i]).ResTypeStr, rimParser.GetRimResource(i)); });
+                        FlowUtils.BasicIterator(rimParser.EntryCount - 1, 0, i => { ByteFunctions.WriteByteArray(outputpath + ((RimKeyEntry) rimParser.KeyEntryList[i]).ResourceName + "." + ((RimKeyEntry) rimParser.KeyEntryList[i]).ResTypeStr, rimParser.GetRimResource(i)); });
+                        FlowUtils.BasicIterator(rimParser.EntryCount - 1, 0, i => { ByteFunctions.WriteByteArray(outputpath + ((RimKeyEntry) rimParser.KeyEntryList[i]).ResourceName + "." + ((RimKeyEntry) rimParser.KeyEntryList[i]).ResTypeStr, rimParser.GetRimResource(i)); });
                     }
                     else
                     {
-                        BasicIterator(rimParser.EntryCount - 1, 0, i =>
+                        FlowUtils.BasicIterator(rimParser.EntryCount - 1, 0, i =>
                         {
                             if (resTypes.Contains(((RimKeyEntry) rimParser.KeyEntryList[i]).ResType)) ByteFunctions.WriteByteArray(outputpath + ((RimKeyEntry) rimParser.KeyEntryList[i]).ResourceName + "." + ((RimKeyEntry) rimParser.KeyEntryList[i]).ResTypeStr, rimParser.GetRimResource(i));
                         });
@@ -691,7 +684,7 @@ namespace KotorTool_2._0.MainForm
                     
                     foreach (KotorTreeNode node1 in node.Nodes)
                     {
-                        BasicIterator(node1.GetNodeCount(false) - 1, 0, i => { BiffFunctions.ExportBiffResource(node.FilePath + "\\" + node.Filename, outputpath + ((KotorTreeNode) node1.Nodes[i]).ResRef + "." + ((KotorTreeNode) node1.Nodes[i]).ResTypeStr, ((KotorTreeNode) node1.Nodes[i]).LocalResId); });
+                        FlowUtils.BasicIterator(node1.GetNodeCount(false) - 1, 0, i => { BiffFunctions.ExportBiffResource(node.FilePath + "\\" + node.Filename, outputpath + ((KotorTreeNode) node1.Nodes[i]).ResRef + "." + ((KotorTreeNode) node1.Nodes[i]).ResTypeStr, ((KotorTreeNode) node1.Nodes[i]).LocalResId); });
                    }
 
                   
@@ -718,7 +711,7 @@ namespace KotorTool_2._0.MainForm
                         frmProgressMeter = new frmProgressMeter {stepAmount = 1, maxvalue = clsErf.EntryCount, message = "Extracting files from " + node.Filename};
                         frmProgressMeter.Show();
                         
-                        BasicIterator(clsErf.EntryCount - 1, 0, i =>
+                        FlowUtils.BasicIterator(clsErf.EntryCount - 1, 0, i =>
                         {
                             byte[] erfResource = clsErf.GetErfResource(i);
                             ErfKeyEntry keyEntry = (ErfKeyEntry) clsErf.KeyEntryList[i];
@@ -809,7 +802,7 @@ namespace KotorTool_2._0.MainForm
                     Cursor current = Cursor.Current;
                     Cursor.Current = Cursors.WaitCursor;
                     RimParser rimParser = new RimParser(BinaryEngine.GetBytes(parent.FilePath + "\\" + parent.Filename));
-                    BasicIterator(rimParser.EntryCount - 1, 0, i =>
+                    FlowUtils.BasicIterator(rimParser.EntryCount - 1, 0, i =>
                     {
                         if (((RimKeyEntry) rimParser.KeyEntryList[i]).ResType == node.ResType) ByteFunctions.WriteByteArray(outputpath + ((RimKeyEntry) rimParser.KeyEntryList[i]).ResourceName + "." + ((RimKeyEntry) rimParser.KeyEntryList[i]).ResTypeStr, rimParser.GetRimResource(i));
                     });

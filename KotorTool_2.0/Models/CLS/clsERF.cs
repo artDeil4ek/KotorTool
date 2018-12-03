@@ -30,11 +30,10 @@ namespace KotorTool_2._0.Models.CLS
             char[] chars1 = new char[16];
             binaryWriter.Write((Strings.UCase(Strings.Trim(fileType)) + " V1.0").ToCharArray());
             int num1 = 0;
+
             if (erfLocalizedStringList != null && erfLocalizedStringList.Length > 0)
             {
-                int num2 = !(StringType.StrCmp(Strings.LCase(fileType), "erf", false) == 0 | StringType.StrCmp(Strings.LCase(fileType), "hak", false) == 0)
-                    ? 0
-                    : 1;
+                int num2 = !(StringType.StrCmp(Strings.LCase(fileType), "erf", false) == 0 | StringType.StrCmp(Strings.LCase(fileType), "hak", false) == 0) ? 0 : 1;
                 int num3 = 0;
                 int num4 = erfLocalizedStringList.Length - 1;
                 int index = num3;
@@ -54,10 +53,11 @@ namespace KotorTool_2._0.Models.CLS
             binaryWriter.Write(num1 + 160);
             binaryWriter.Write(num1 + inputFileList.Length * 24 + 160);
             binaryWriter.Write(DateAndTime.Year(DateAndTime.Now) - 1900);
-            binaryWriter.Write((int) DateAndTime.DateDiff(DateInterval.DayOfYear,
-                DateType.FromString("1/1/" + StringType.FromInteger(DateAndTime.Year(DateAndTime.Now))),
-                DateAndTime.Now));
+            binaryWriter.Write((int) DateAndTime.DateDiff(DateInterval.DayOfYear, DateType.FromString("1/1/" + StringType.FromInteger(DateAndTime.Year(DateAndTime.Now))), DateAndTime.Now));
             binaryWriter.Write(descriptionStrRef);
+            
+            
+            
             int num5 = 1;
             do
             {
@@ -68,40 +68,22 @@ namespace KotorTool_2._0.Models.CLS
             fileStream.Seek(160L, SeekOrigin.Begin);
             if (erfLocalizedStringList != null && erfLocalizedStringList.Length > 0)
             {
-                int num2 = !(StringType.StrCmp(Strings.LCase(fileType), "erf", false) == 0 |
-                             StringType.StrCmp(Strings.LCase(fileType), "hak", false) == 0)
-                    ? 0
-                    : 1;
-                int num3 = 0;
-                int num4 = checked(erfLocalizedStringList.Length - 1);
-                int index1 = num3;
-                while (index1 <= num4)
-                {
-                    binaryWriter.Write(erfLocalizedStringList[index1].LanguageId);
-                    binaryWriter.Write(erfLocalizedStringList[index1].StringSize);
-                    char[] chars2 = new char[checked(erfLocalizedStringList[index1].StringSize + num2 - 1 + 1)];
-                    Array.Clear(chars2, 0, chars2.Length);
-                    int num6 = 0;
-                    int num7 = erfLocalizedStringList[index1].StringSize - 1;
-                    int index2 = num6;
-                    while (index2 <= num7)
-                    {
-                        chars2[index2] = erfLocalizedStringList[index1].StringText[index2];
-                        ++index2;
-                    }
+                int num2 = !(StringType.StrCmp(Strings.LCase(fileType), "erf", false) == 0 | StringType.StrCmp(Strings.LCase(fileType), "hak", false) == 0) ? 0 : 1;
 
+                FlowUtils.BasicIterator(erfLocalizedStringList.Length - 1, 0, i =>
+                {
+                    binaryWriter.Write(erfLocalizedStringList[i].LanguageId);
+                    binaryWriter.Write(erfLocalizedStringList[i].StringSize);
+                    char[] chars2 = new char[erfLocalizedStringList[i].StringSize + num2 - 1 + 1];
+                    Array.Clear(chars2, 0, chars2.Length);
+                    FlowUtils.BasicIterator(erfLocalizedStringList[i].StringSize - 1, 0, index => { chars2[index] = erfLocalizedStringList[i].StringText[index]; });
                     binaryWriter.Write(chars2);
-                    ++index1;
-                }
+                });
             }
 
             fileStream.Seek(num1 + 160, SeekOrigin.Begin);
-           
-            
-            int num8 = 0;
-            int num9 = inputFileList.Length - 1;
-            int index3 = num8;
-            while (index3 <= num9)
+
+            FlowUtils.BasicIterator(inputFileList.Length - 1, 0, index =>
             {
                 int index1 = 0;
                 do
@@ -110,56 +92,36 @@ namespace KotorTool_2._0.Models.CLS
                     ++index1;
                 } while (index1 <= 15);
 
-                string withoutExtension = Path.GetFileNameWithoutExtension(inputFileList[index3]);
-             
-                
-                int num2 = 0;
+                string withoutExtension = Path.GetFileNameWithoutExtension(inputFileList[index]);
+
                 if (withoutExtension != null)
                 {
-                    int num3 = withoutExtension.Length - 1;
-                    int index2 = num2;
-                    while (index2 <= num3)
-                    {
-                        chars1[index2] = withoutExtension[index2];
-                        ++index2;
-                    }
+                    FlowUtils.BasicIterator(withoutExtension.Length - 1, 0, i => { chars1[i] = withoutExtension[i]; });
                 }
 
                 binaryWriter.Write(chars1);
-                binaryWriter.Write(index3);
-                binaryWriter.Write( ResourceIdentification.GetIdForRsrcType(Strings.Mid(Path.GetExtension(inputFileList[index3]), 2)));
+                binaryWriter.Write(index);
+                binaryWriter.Write(ResourceIdentification.GetIdForRsrcType(Strings.Mid(Path.GetExtension(inputFileList[index]), 2)));
                 binaryWriter.Write((byte) 0);
                 binaryWriter.Write((byte) 0);
+            });
 
-                ++index3;
-            }
+            uint uint321 = Convert.ToUInt32(fileStream.Position + inputFileList.Length * 8);
 
-            uint uint321 = Convert.ToUInt32(checked(fileStream.Position + inputFileList.Length * 8));
-            int num10 = 0;
-            int num11 = checked(inputFileList.Length - 1);
-            int index4 = num10;
-            while (index4 <= num11)
+            FlowUtils.BasicIterator(inputFileList.Length - 1, 0, i =>
             {
                 binaryWriter.Write(uint321);
-                uint uint322 = Convert.ToUInt32(new FileInfo(inputFileList[index4]).Length);
+                uint uint322 = Convert.ToUInt32(new FileInfo(inputFileList[i]).Length);
                 binaryWriter.Write(uint322);
-                uint321 = Convert.ToUInt32(checked(Convert.ToInt64(uint321) + Convert.ToInt64(uint322)));
+                uint321 = Convert.ToUInt32(Convert.ToInt64(uint321) + Convert.ToInt64(uint322));
+            });
 
-                ++index4;
-            }
-
-            int num12 = 0;
-            int num13 = checked(inputFileList.Length - 1);
-            int index5 = num12;
-            while (index5 <= num13)
+            FlowUtils.BasicIterator(inputFileList.Length - 1, 0, i =>
             {
-                BinaryReader binaryReader =
-                    new BinaryReader(new FileStream(inputFileList[index5], FileMode.Open, FileAccess.Read));
-                fileStream.Write(binaryReader.ReadBytes(checked((int) new FileInfo(inputFileList[index5]).Length)), 0,
-                    checked((int) new FileInfo(inputFileList[index5]).Length));
+                BinaryReader binaryReader = new BinaryReader(new FileStream(inputFileList[i], FileMode.Open, FileAccess.Read));
+                fileStream.Write(binaryReader.ReadBytes((int) new FileInfo(inputFileList[i]).Length), 0, (int) new FileInfo(inputFileList[i]).Length);
                 binaryReader.Close();
-                ++index5;
-            }
+            });
 
             binaryWriter.Close();
         }
@@ -179,15 +141,17 @@ namespace KotorTool_2._0.Models.CLS
             fs.Seek(_offKeyList, SeekOrigin.Begin);
             _keyData = binaryReader.ReadBytes(checked(24 * EntryCount));
             _resInfoData = binaryReader.ReadBytes(checked(16 * EntryCount));
+            
+            
             int num1 = 0;
             int num2 = checked(EntryCount - 1);
             int index = num1;
             while (index <= num2)
             {
                 stringBuilder.Append(asciiEncoding.GetString(_keyData, index * 24, 16));
-                
+
                 int num3 = 0;
-                
+
                 while (_keyData[num3 + index * 24] != 0)
                 {
                     ++num3;
@@ -197,19 +161,10 @@ namespace KotorTool_2._0.Models.CLS
                 stringBuilder.Length = num3;
                 string resourceName = stringBuilder.ToString();
                 stringBuilder.Length = 0;
-                int resourceId = (int) Math.Round(_keyData[index * 24 + 16] +
-                                                          _keyData[index * 24 + 17] * 256.0 +
-                                                          _keyData[index * 24 + 18] * 65536.0 +
-                                                          _keyData[index * 24 + 19] * 16777216.0);
+                int resourceId = (int) Math.Round(_keyData[index * 24 + 16] + _keyData[index * 24 + 17] * 256.0 + _keyData[index * 24 + 18] * 65536.0 + _keyData[index * 24 + 19] * 16777216.0);
                 short resType = (short) Math.Round(_keyData[index * 24 + 20] + _keyData[index * 24 + 21] * 256.0);
-                int offset = (int) Math.Round(_resInfoData[index * 8] +
-                                                      _resInfoData[index * 8 + 1] * 256.0 +
-                                                      _resInfoData[index * 8 + 2] * 65536.0 +
-                                                      _resInfoData[index * 8 + 3] * 16777216.0);
-                int length = (int) Math.Round(_resInfoData[index * 8 + 4] +
-                                                      _resInfoData[index * 8 + 5] * 256.0 +
-                                                      _resInfoData[index * 8 + 6] * 65536.0 +
-                                                      _resInfoData[index * 8 + 7] * 16777216.0);
+                int offset = (int) Math.Round(_resInfoData[index * 8] + _resInfoData[index * 8 + 1] * 256.0 + _resInfoData[index * 8 + 2] * 65536.0 + _resInfoData[index * 8 + 3] * 16777216.0);
+                int length = (int) Math.Round(_resInfoData[index * 8 + 4] + _resInfoData[index * 8 + 5] * 256.0 + _resInfoData[index * 8 + 6] * 65536.0 + _resInfoData[index * 8 + 7] * 16777216.0);
                 KeyEntryList.Add(new ErfKeyEntry(resourceName, resType, resourceId, offset, length, index));
 
                 ++index;

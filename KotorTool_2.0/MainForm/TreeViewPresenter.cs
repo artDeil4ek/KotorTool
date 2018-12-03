@@ -66,19 +66,19 @@ namespace KotorTool_2._0.MainForm
             KotorTreeNode kotorTreeNode2 = new KotorTreeNode("") {Tag = "dummy"};
             kotorTreeNode1.Nodes.Add(kotorTreeNode2);
             root.Nodes.Add(kotorTreeNode1);
-           
+
             KotorTreeNode kotorTreeNode3 = new KotorTreeNode("RIMs") {Tag = "RIM_Root", FilePath = ConfigOptions.Paths.KotorLocation(_treeView.Nodes.IndexOf(root)) + "\\Modules"};
             KotorTreeNode kotorTreeNode4 = new KotorTreeNode("Modules") {Tag = "RIM_Modules"};
             KotorTreeNode kotorTreeNode5 = new KotorTreeNode("") {Tag = "dummy"};
             kotorTreeNode4.Nodes.Add(kotorTreeNode5);
             kotorTreeNode3.Nodes.Add(kotorTreeNode4);
-          
+
             KotorTreeNode kotorTreeNode6 = new KotorTreeNode("Rims") {Tag = "RIM_Rims"};
             KotorTreeNode kotorTreeNode7 = new KotorTreeNode("") {Tag = "dummy"};
             kotorTreeNode6.Nodes.Add(kotorTreeNode7);
             kotorTreeNode3.Nodes.Add(kotorTreeNode6);
             root.Nodes.Add(kotorTreeNode3);
-           
+
             KotorTreeNode kotorTreeNode8 = new KotorTreeNode("ERFs") {Tag = "ERF_Root", FilePath = ConfigOptions.Paths.KotorLocation(_treeView.Nodes.IndexOf(root)) + "\\texturePacks"};
             KotorTreeNode kotorTreeNode9 = new KotorTreeNode("TexturePacks") {Tag = "ERF_TexturePacks"};
             KotorTreeNode kotorTreeNode10 = new KotorTreeNode("") {Tag = "dummy"};
@@ -133,7 +133,10 @@ namespace KotorTool_2._0.MainForm
 
             foreach (BiffEntry biffEntry in _mainState.BiffEntries[index1])
             {
-                KotorTreeNode kotorTreeNode = new KotorTreeNode(Strings.Mid(biffEntry.Filename, biffEntry.Filename.LastIndexOf("\\", StringComparison.Ordinal) + 2)) {Tag = "BIFF", Filename = Strings.Mid(biffEntry.Filename, biffEntry.Filename.LastIndexOf("\\", StringComparison.Ordinal) + 2), FilePath = filePath + "\\" + Strings.Mid(biffEntry.Filename, 1, biffEntry.Filename.LastIndexOf("\\", StringComparison.Ordinal)), ContainingFileType = "BIF"};
+                KotorTreeNode kotorTreeNode = new KotorTreeNode(Strings.Mid(biffEntry.Filename, biffEntry.Filename.LastIndexOf("\\", StringComparison.Ordinal) + 2))
+                {
+                    Tag = "BIFF", Filename = Strings.Mid(biffEntry.Filename, biffEntry.Filename.LastIndexOf("\\", StringComparison.Ordinal) + 2), FilePath = filePath + "\\" + Strings.Mid(biffEntry.Filename, 1, biffEntry.Filename.LastIndexOf("\\", StringComparison.Ordinal)), ContainingFileType = "BIF"
+                };
                 root.Nodes[0].Nodes.Add(kotorTreeNode);
                 Console.WriteLine("Bif name: " + biffEntry.Filename + "  Length: " + StringType.FromInteger(biffEntry.Filelength));
             }

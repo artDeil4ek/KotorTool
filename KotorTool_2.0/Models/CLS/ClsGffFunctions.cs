@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.Models.GFF;
 using KotorTool_2._0.Services;
+using KotorTool_2._0.Utils;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 
@@ -180,7 +181,7 @@ namespace KotorTool_2._0.Models.CLS
                     fieldEntry.Type = (GffFieldTypes) _gRdr.ReadInt32();
                     fieldEntry.LabelIndex = _gRdr.ReadInt32();
                     gffStruct.Fields[index] = (GffField) GffReadField(fieldEntry);
-++index;
+                    ++index;
                 }
             }
 
@@ -300,7 +301,6 @@ namespace KotorTool_2._0.Models.CLS
                             if (_gBRtfMode) PrintMsg("\\cf3Substring:\\cf0  " + StringType.FromInteger(index2) + "  \\cf2 ID:\\cf0  " + StringType.FromInteger(gffExoLocSubString.StringId) + " \\cf2 Value:\\cf0  " + gffExoLocSubString.Value + "\n" + "\\par", true);
                             else PrintMsg("Substring: " + StringType.FromInteger(index2) + " ID: " + StringType.FromInteger(gffExoLocSubString.StringId) + "  Value: " + gffExoLocSubString.Value, true);
                             ++index2;
-                            
                         }
                     }
 
@@ -339,30 +339,18 @@ namespace KotorTool_2._0.Models.CLS
                     _gTabLevel = _gTabLevel + 1;
                     if (gffList.StructIndices.Count > 0)
                     {
-                        int num1 = 0;
-                        int num2 = gffList.StructIndices.Count - 1;
-                        int index2 = num1;
-                        while (index2 <= num2)
-                        {
-                            gffList.StructIndices[index2] = _gRdr.ReadInt32();
-                            ++index2;
-                        }
+                        FlowUtils.BasicIterator(gffList.StructIndices.Count - 1, 0, i => { gffList.StructIndices[i] = _gRdr.ReadInt32(); });
 
-                        int num3 = 0;
-                        int num4 = gffList.StructIndices.Count - 1;
-                        int index3 = num3;
-                        while (index3 <= num4)
+                        FlowUtils.BasicIterator(gffList.StructIndices.Count - 1, 0, i =>
                         {
-                            if (LateBinding.LateIndexGet(GStructArr, new[] {RuntimeHelpers.GetObjectValue(gffList.StructIndices[index3])}, null) == null)
+                            if (LateBinding.LateIndexGet(GStructArr, new[] {RuntimeHelpers.GetObjectValue(gffList.StructIndices[i])}, null) == null)
                             {
                                 _gMs.Seek(0L, SeekOrigin.Begin);
-                                _gMs.Seek(LongType.FromObject(ObjectType.AddObj(_gStructOffset, ObjectType.MulObj(gffList.StructIndices[index3], 12))), SeekOrigin.Begin);
+                                _gMs.Seek(LongType.FromObject(ObjectType.AddObj(_gStructOffset, ObjectType.MulObj(gffList.StructIndices[i], 12))), SeekOrigin.Begin);
                                 GffStructEntry myStructEntry = new GffStructEntry {Type = _gRdr.ReadInt32(), DataOrDataOffset = _gRdr.ReadInt32(), FieldCount = _gRdr.ReadInt32()};
-                                LateBinding.LateIndexSet(GStructArr, new object[2] {RuntimeHelpers.GetObjectValue(gffList.StructIndices[index3]), GffReadStruct(ref myStructEntry)}, null);
+                                LateBinding.LateIndexSet(GStructArr, new object[2] {RuntimeHelpers.GetObjectValue(gffList.StructIndices[i]), GffReadStruct(ref myStructEntry)}, null);
                             }
-  ++index3;
-                            
-                        }
+                        });
                     }
 
                     _gTabLevel = checked(_gTabLevel - 1);

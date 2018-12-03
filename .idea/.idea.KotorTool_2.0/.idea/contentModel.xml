@@ -292,6 +292,7 @@
           <e p="ByteFunctions.cs" t="Include" />
           <e p="DirectoryUtils.cs" t="Include" />
           <e p="FileUtils.cs" t="Include" />
+          <e p="FlowUtils.cs" t="Include" />
           <e p="FStream.cs" t="Include" />
           <e p="PathManager.cs" t="Include" />
           <e p="ResourceIdentification.cs" t="Include" />

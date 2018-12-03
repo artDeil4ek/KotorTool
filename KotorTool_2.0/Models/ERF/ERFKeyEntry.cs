@@ -1,9 +1,11 @@
 ﻿
+using System;
 using KotorTool_2._0.Utils;
-using FrmMain = KotorTool_2._0.MainForm.FrmMain;
+
 
 namespace KotorTool_2._0.Models.ERF
 {
+    [Serializable]
     public class ErfKeyEntry
     {
         public readonly string ResourceName;

@@ -258,6 +258,7 @@
     <Compile Include="Utils\BinaryEngine.cs" />
     <Compile Include="Utils\ByteFunctions.cs" />
     <Compile Include="Utils\DirectoryUtils.cs" />
+    <Compile Include="Utils\FlowUtils.cs" />
     <Compile Include="Utils\FStream.cs" />
     <Compile Include="Utils\FileUtils.cs" />
     <Compile Include="Utils\PathManager.cs" />

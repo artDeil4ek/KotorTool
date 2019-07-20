@@ -7,24 +7,24 @@ namespace KotorTool_2._0.Models
     {
         public void ManageMruMainFileList(string filepath, bool delete = false)
         {
-            int index = ConfigOptions.MruMainFiles.IndexOf(filepath);
+            int index = ConfigOptions.ConfigData.MruMainFiles.IndexOf(filepath);
             if (!delete)
             {
                 if (index == -1)
                 {
-                    ConfigOptions.MruMainFiles.Insert(0, filepath);
-                    if (ConfigOptions.MruMainFiles.Count > 10)
+                    ConfigOptions.ConfigData.MruMainFiles.Insert(0, filepath);
+                    if (ConfigOptions.ConfigData.MruMainFiles.Count > 10)
                     {
-                        while (ConfigOptions.MruMainFiles.Count > 10) ConfigOptions.MruMainFiles.RemoveAt(ConfigOptions.MruMainFiles.Count - 1);
+                        while (ConfigOptions.ConfigData.MruMainFiles.Count > 10) ConfigOptions.ConfigData.MruMainFiles.RemoveAt(ConfigOptions.ConfigData.MruMainFiles.Count - 1);
                     }
                 }
                 else
                 {
-                    ConfigOptions.MruMainFiles.RemoveAt(index);
-                    ConfigOptions.MruMainFiles.Insert(0, filepath);
+                    ConfigOptions.ConfigData.MruMainFiles.RemoveAt(index);
+                    ConfigOptions.ConfigData.MruMainFiles.Insert(0, filepath);
                 }
             }
-            else if (index != -1) ConfigOptions.MruMainFiles.RemoveAt(index);
+            else if (index != -1) ConfigOptions.ConfigData.MruMainFiles.RemoveAt(index);
 
             UserSettings.SaveSettings(Constants.CurrentSettings);
         }

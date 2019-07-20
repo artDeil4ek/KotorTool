@@ -498,7 +498,7 @@ namespace KotorTool_2._0.Ui.ModuleEditor
         private ClsGff _areFile;
         private ClsGff _ifoFile;
         private ClsGff _gitFile;
-        private ClsChitinKey _chitinKey;
+        private ClsChitinKeyProvider _chitinKey;
         private ClsDialogTlk _dialogTlk;
         private bool _comboBoxSettingError;
         private Room[] _rooms;
@@ -3744,7 +3744,7 @@ namespace KotorTool_2._0.Ui.ModuleEditor
             KotorVersionIndex = kotorVersion;
             CurrentSettings = UserSettings.GetSettings();
             _dialogTlk = new ClsDialogTlk(ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\dialog.tlk");
-            _chitinKey = new ClsChitinKey(ConfigOptions.Paths.KeyFileLocation(KotorVersionIndex));
+            _chitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(KotorVersionIndex));
             _areFile = areFile;
             _ifoFile = ifoFile;
             _gitFile = gitFile;
@@ -7248,7 +7248,7 @@ namespace KotorTool_2._0.Ui.ModuleEditor
             return Color.FromArgb(byte.MaxValue, int32 & byte.MaxValue, (int32 & 65280) >> 8, (int32 & 16711680) >> 16);
         }
 
-        public Cls2Da ReadCls2Da(string twoDaName, ClsChitinKey chitinKey)
+        public Cls2Da ReadCls2Da(string twoDaName, ClsChitinKeyProvider chitinKey)
         {
             bool flag = true;
             byte[] numArray = null;
@@ -7277,7 +7277,7 @@ namespace KotorTool_2._0.Ui.ModuleEditor
 
             if (flag)
             {
-                int resIdForResRef = chitinKey.FindResIdForResRef(twoDaName, 2017);
+                int resIdForResRef = chitinKey.FindResourceIdForResourceRef(twoDaName, 2017);
               //  numArray = BiffArchive
               //      .GetBiffResource(
               //          CurrentSettings.KotorLocation(KotorVersionIndex) + "\\" +
@@ -7288,7 +7288,7 @@ namespace KotorTool_2._0.Ui.ModuleEditor
             return new Cls2Da(numArray);
         }
 
-        private void FillComboBoxFrom2Da(ComboBox cmbx, string colName, string twoDaName, ClsChitinKey chitinKey,
+        private void FillComboBoxFrom2Da(ComboBox cmbx, string colName, string twoDaName, ClsChitinKeyProvider chitinKey,
             ClsDialogTlk dialogTlk)
         {
             Cls2Da cls2Da = ReadCls2Da(twoDaName, chitinKey);

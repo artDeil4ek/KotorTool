@@ -33,7 +33,7 @@ namespace KotorTool_2._0.Utils
         {
             string ctrlName = editButton.Name.Replace("btnEdit", "tb");
             TextBox control = (TextBox) FindControl(editButton.Parent, ctrlName);
-            Hashtable bifFileHash = ChitinKey.KxChitinKey(kotorVersionIndex).GetBifFileHash("scripts");
+            Hashtable bifFileHash = ChitinKey.KxChitinKey(kotorVersionIndex).GetBiffFileHash("scripts");
             string str1 = control.Text.Trim();
             if (StringType.StrCmp(str1, "", false) == 0) return;
             string str2 = Path.Combine(Path.GetDirectoryName(editingFilePath) ?? throw new InvalidOperationException(), str1 + ".nss");

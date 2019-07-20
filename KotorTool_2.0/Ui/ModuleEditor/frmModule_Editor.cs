@@ -3327,7 +3327,7 @@ namespace KotorTool_2._0.Ui.ModuleEditor
       SetEditorCaption();
       g_UserPalettePath = g_ProjectPath + "\\userpalette";
       g_GlobalTemplatesPath = MainFormState.GRootPath + "\\Global Templates\\k" + StringType.FromInteger(KotorVersionIndex + 1);
-      htTemplateBifFiles = ChitinKey.KxChitinKey(KotorVersionIndex).GetBifFileHash("templates");
+      htTemplateBifFiles = ChitinKey.KxChitinKey(KotorVersionIndex).GetBiffFileHash("templates");
       try
       {
         Stream serializationStream = (Stream) File.OpenRead(MainFormState.GRootPath + "K1TemplateTags.bfd");
@@ -6703,7 +6703,7 @@ label_4:
       if (!(g_ShowPaletteNames | g_ShowPaletteResRefs))
         return;
       FrmMain frmMain = new FrmMain();
-      int resIdForResRef = ChitinKey.KxChitinKey(KotorVersionIndex).FindResIdForResRef(paletteName, 2030);
+      int resIdForResRef = ChitinKey.KxChitinKey(KotorVersionIndex).FindResourceIdForResourceRef(paletteName, 2030);
       string biffPath = ConfigOptions.Paths.KotorLocation(KotorVersionIndex) + "\\" + ChitinKey.KxChitinKey(KotorVersionIndex).BiffList[resIdForResRef >> 20].Filename;
       ClsGff clsGff = new ClsGff(BiffFunctions.GetBiffResource(biffPath, checked (resIdForResRef - resIdForResRef >> 20 << 20)).Data, KotorVersionIndex, true);
       g_CurrentPaletteName = paletteName;

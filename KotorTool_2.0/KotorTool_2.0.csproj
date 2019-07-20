@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>KotorTool_2._0</RootNamespace>
     <AssemblyName>KotorTool_2.0</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -111,6 +112,7 @@
     <Compile Include="Crypt.cs" />
     <Compile Include="CustomAttributes\CursorChangeAttribute.cs" />
     <Compile Include="MainForm\Adapters\TreeViewDataAdapter.cs" />
+    <Compile Include="MainForm\Extensions\TreeViewExtensions.cs" />
     <Compile Include="Ui\CustomButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,13 +148,13 @@
     <Compile Include="Models\Tpc.cs" />
     <Compile Include="MoreLinq\MoreEnumerable.ForEach.cs" />
     <Compile Include="Options\ConfigOptions.cs" />
-    <Compile Include="Services\I2Da.cs" />
-    <Compile Include="Services\IBwm.cs" />
-    <Compile Include="Services\IChitinKey.cs" />
-    <Compile Include="Services\IDialogTlk.cs" />
-    <Compile Include="Services\IErf.cs" />
-    <Compile Include="Services\IGff.cs" />
-    <Compile Include="Services\IKeyEntry.cs" />
+    <Compile Include="Services\Abstractions\I2Da.cs" />
+    <Compile Include="Services\Abstractions\IBwm.cs" />
+    <Compile Include="Services\Abstractions\IChitinKey.cs" />
+    <Compile Include="Services\Abstractions\IDialogTlk.cs" />
+    <Compile Include="Services\Abstractions\IErf.cs" />
+    <Compile Include="Services\Abstractions\IGff.cs" />
+    <Compile Include="Services\Abstractions\IKeyEntry.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="MapInfo.cs" />
     <Compile Include="Models\BIFF\BIFFArchive.cs" />
@@ -207,9 +209,9 @@
     <Compile Include="MyMapInfoSurrogate.cs" />
     <Compile Include="ProjectFileItemTreeNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IMapInfoCreator.cs" />
-    <Compile Include="Services\IRim.cs" />
-    <Compile Include="Services\ISsf.cs" />
+    <Compile Include="Services\Abstractions\IMapInfoCreator.cs" />
+    <Compile Include="Services\Abstractions\IRim.cs" />
+    <Compile Include="Services\Abstractions\ISsf.cs" />
     <Compile Include="Ui\2daEditor\frm2DAEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -514,6 +516,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Attributes\" />
+    <Folder Include="Services\Implimentations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoreData\CoreData.csproj">
+      <Project>{86616b55-32ef-4dda-b594-f12f60a53031}</Project>
+      <Name>CoreData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

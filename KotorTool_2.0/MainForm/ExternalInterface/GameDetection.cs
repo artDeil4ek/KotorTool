@@ -28,7 +28,6 @@ namespace KotorTool_2._0.MainForm.ExternalInterface
         public static bool HasKotor2()
         {
             RegistryKey registryKey = Registry.LocalMachine.OpenSubKey("software\\LucasArts\\KotOR2");
-
             bool flag = true;
             if (registryKey != null) flag = registryKey.GetValue("path") != null;
             return flag;

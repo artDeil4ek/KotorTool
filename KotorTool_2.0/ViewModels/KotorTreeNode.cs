@@ -14,38 +14,17 @@ using FrmMain = KotorTool_2._0.MainForm.FrmMain;
 
 namespace KotorTool_2._0.ViewModels
 {
+
+
+    /// <summary>
+    /// TODO: Seperate this class out into seperate files, (Declutter)
+    /// TODO: Figure out why this has so many constructors 
+    /// </summary>
     public class KotorTreeNode : TreeNode
     {
 
         public NodeVm NodeVm;
-  
-        public string Filename
-        {
-            get
-            {
-                if (StringType.StrCmp(NodeVm.FileName, String.Empty, false) != 0) return NodeVm.FileName;
-                return NodeVm.ResourceRef + "." + ResourceIdentification.GetRsrcTypeForId(NodeVm.ResourceType);
-            }
-            set => NodeVm.FileName = value;
-        }
 
-        public void InitialiseDecorations()
-        {
-           //  ForeColor = Color.Aqua;
-        /*     int myNodeFontSize = Int32.Parse("10");
-             NodeFont = new Font("Arial",myNodeFontSize);*/
-        }
-        
-        public List<TreeNode> GetNodes()
-        {
-            List<TreeNode> list = new List<TreeNode>();
-            foreach (TreeNode node in Nodes)
-            {
-                list.Add(node);
-            }
-            return list;
-        }
-        
 
         public KotorTreeNode()
         {
@@ -59,7 +38,12 @@ namespace KotorTool_2._0.ViewModels
             NodeVm.KotorVersionIndex = -1;
         }
 
-        
+        public KotorTreeNode(RimKeyEntry rke, string sourcePath) : this(rke)
+        {
+            InitialiseDecorations();
+            NodeVm.FilePath = sourcePath;
+        }
+
         public KotorTreeNode(KeyEntry ke)
         {
             InitialiseDecorations();
@@ -87,11 +71,7 @@ namespace KotorTool_2._0.ViewModels
             Tag = "RIM_Res";
         }
 
-        public KotorTreeNode(RimKeyEntry rke, string sourcePath) : this(rke)
-        {
-            InitialiseDecorations();
-            NodeVm.FilePath = sourcePath;
-        }
+
 
         public KotorTreeNode(ErfKeyEntry eke)
         {
@@ -109,6 +89,56 @@ namespace KotorTool_2._0.ViewModels
             InitialiseDecorations();
             NodeVm.FilePath = sourcePath;
         }
+
+        public string Filename
+        {
+            get
+            {
+                if (StringType.StrCmp(NodeVm.FileName, String.Empty, false) != 0) return NodeVm.FileName;
+                return NodeVm.ResourceRef + "." + ResourceIdentification.GetRsrcTypeForId(NodeVm.ResourceType);
+            }
+            set => NodeVm.FileName = value;
+        }
+
+        public void InitialiseDecorations()
+        {
+           //  ForeColor = Color.Aqua;
+        /*     int myNodeFontSize = Int32.Parse("10");
+             NodeFont = new Font("Arial",myNodeFontSize);*/
+        }
+
+        /// <summary>
+        /// Ui function for setting the style of the node
+        /// </summary>
+        /// <param name="fontColor"></param>
+        /// <param name="font"></param>
+        public void SetStyle(Color fontColor, Font font)
+        {
+            ForeColor = fontColor;
+            NodeFont = font;
+        }
+
+
+        /// <summary>
+        /// ----Needs to be refactored to return a 
+        /// </summary>
+        /// <returns></returns>
+        public List<TreeNode> GetNodes()
+        {
+            List<TreeNode> list = new List<TreeNode>();
+            foreach (TreeNode node in Nodes)
+            {
+                list.Add(node);
+            }
+            return list;
+        }
+        
+
+      
+        
+       
+
+        
 
         public override string ToString()
         {

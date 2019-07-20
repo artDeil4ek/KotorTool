@@ -243,7 +243,7 @@ namespace KotorTool_2._0.MainForm
             }
             if (mainState.HasK1)
             {
-                Constants.Gk1ChitinKey = new ClsChitinKey(ConfigOptions.Paths.KeyFileLocation(0));
+                Constants.Gk1ChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(0));
                 Console.WriteLine("gK1ChitinKey: Lsum = " + StringType.FromLong(Constants.Gk1ChitinKey.Lsum) + ", Llength = " + StringType.FromLong(Constants.Gk1ChitinKey.Llength));
                 
                 if (!Constants.Gk1ChitinKey.IsValid(0))
@@ -258,7 +258,7 @@ namespace KotorTool_2._0.MainForm
             }
             if (mainState.HasK2)
             {
-                Constants.Gk2ChitinKey = new ClsChitinKey(ConfigOptions.Paths.KeyFileLocation(1));
+                Constants.Gk2ChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(1));
                 Console.WriteLine("gK2ChitinKey: Lsum = " + StringType.FromLong(Constants.Gk2ChitinKey.Lsum) + ", Llength = " + StringType.FromLong(Constants.Gk2ChitinKey.Llength));
                 if (!Constants.Gk2ChitinKey.IsValid(1))
                 {

@@ -2058,7 +2058,7 @@ namespace KotorTool_2._0.Ui.Forms
             UTT.SetNodeValueFromTextBox(tbComment, "Comment");
         }
 
-        public Cls2Da ReadCls2DA(string TwoDAName, ClsChitinKey ChitinKey)
+        public Cls2Da ReadCls2DA(string TwoDAName, ClsChitinKeyProvider ChitinKey)
         {
             bool flag = true;
             byte[] numArray = new byte[0];
@@ -2087,7 +2087,7 @@ namespace KotorTool_2._0.Ui.Forms
 
             if (flag)
             {
-                int resIdForResRef = ChitinKey.FindResIdForResRef(TwoDAName, 2017);
+                int resIdForResRef = ChitinKey.FindResourceIdForResourceRef(TwoDAName, 2017);
                 //numArray = BiffArchive.GetBiffResource(CurrentSettings.KotorLocation(KotorVersionIndex) + "\\" + ChitinKey.BiffList[resIdForResRef >> 20].Filename, resIdForResRef).Data;
                 Console.WriteLine("Read " + TwoDAName + ".2da from 2da.bif");
             }
@@ -2106,7 +2106,7 @@ namespace KotorTool_2._0.Ui.Forms
             cmbxType.SelectedIndex = IntegerType.FromObject(UTT.GetNodeValue("Type"));
         }
 
-        private void FillComboBoxFrom2DA(ComboBox cmbx, string colName, string TwoDAName, ClsChitinKey ChitinKey, ClsDialogTlk DialogTlk)
+        private void FillComboBoxFrom2DA(ComboBox cmbx, string colName, string TwoDAName, ClsChitinKeyProvider ChitinKey, ClsDialogTlk DialogTlk)
         {
             Cls2Da cls2Da = ReadCls2DA(TwoDAName, ChitinKey);
             if (DialogTlk != null)

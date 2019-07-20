@@ -5,6 +5,7 @@ using System.Text;
 
 using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.Services;
+using KotorTool_2._0.Services.Abstractions;
 using KotorTool_2._0.Utils;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
@@ -14,24 +15,14 @@ namespace KotorTool_2._0.Models.CLS
 {
  
 
-  public class ClsChitinKey : IChitinKey
+  public class ClsChitinKeyProvider : IChitinKeyProvider
   {
-    private readonly FileStream _keyfs;
-    private readonly MemoryStream _gMs;
-    private readonly BinaryReader _rdr;
-    private readonly int _bifCount;
-    private readonly int _keyCount;
-    private readonly int _fileTableOff;
-    private readonly int _keyTableOff;
-    public long Lsum;
-    public long Llength;
-    public BiffEntry[] BiffList;
-    private readonly Hashtable _htBif;
-    private Hashtable _htResRefPlusId;
-    private string _lastRequestedBifNameHash;
-    public Hashtable BiffListInfo;
 
-    public ClsChitinKey(string keyPath)
+
+
+      public ChitinKeyData data;
+
+    public ClsChitinKeyProvider(string keyPath)
     {
       FileStream keyfs;
       _htBif = new Hashtable();
@@ -77,7 +68,7 @@ namespace KotorTool_2._0.Models.CLS
       }
     }
 
-    public Hashtable GetBifFileHash(string bifName)
+    public Hashtable GetBiffFileHash(string bifName)
     {
       if (_htResRefPlusId == null || StringType.StrCmp(_lastRequestedBifNameHash, bifName, false) != 0)
       {
@@ -128,7 +119,7 @@ namespace KotorTool_2._0.Models.CLS
       return _htResRefPlusId;
     }
 
-    public int FindResIdForResRef(string resRef, int resType)
+    public int FindResourceIdForResourceRef(string resRef, int resType)
     {
       StringBuilder stringBuilder = new StringBuilder();
       int num1 = 0;
@@ -154,7 +145,7 @@ namespace KotorTool_2._0.Models.CLS
       return -1;
     }
 
-    public ArrayList GetKeysforResourceType(short resType)
+    public ArrayList GetKeysForResourceType(short resType)
     {
       ArrayList arrayList = new ArrayList();
       StringBuilder stringBuilder = new StringBuilder();

@@ -77,7 +77,7 @@ namespace KotorTool_2._0.Ui.GlobalVarEditor
     public ClsGlobalVars Globals;
     public ClsGlobalVars GlobalsCompare;
     public ClsDialogTlk GClsDialogTlk;
-    public ClsChitinKey GClsChitinKey;
+    public ClsChitinKeyProvider GClsChitinKey;
     private DataTable _dtBool;
     private DataTable _dtNumeric;
     private DataTable _dtString;

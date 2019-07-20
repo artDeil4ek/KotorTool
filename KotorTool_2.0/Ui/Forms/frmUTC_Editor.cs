@@ -5840,7 +5840,7 @@ namespace KotorTool_2._0.Ui.Forms
 
     public void Setup()
     {
-      ClsChitinKey clsChitinKey = new ClsChitinKey(ConfigOptions.Paths.KeyFileLocation(KotorVersionIndex));
+      ClsChitinKeyProvider clsChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(KotorVersionIndex));
       BuildComboBoxes(clsChitinKey);
       UTC.SetTextBoxFromCExoLocStringNodeValue(tbFirstName, "FirstName");
       UTC.SetTextBoxFromCExoLocStringNodeValue(tbLastName, "LastName");
@@ -5944,7 +5944,7 @@ namespace KotorTool_2._0.Ui.Forms
       Interaction.MsgBox("One or more drop down menus could not be set.\n\nThis occurs when the file's index value for a menu exceeds the number of items on the menu itself.\n\nMenus with this error have been colored to make them more visible and will need to have a valid menu item selected.", MsgBoxStyle.Critical, "Menu setting error");
     }
 
-    private object BuildComboBoxes(ClsChitinKey clsChitin)
+    private object BuildComboBoxes(ClsChitinKeyProvider clsChitin)
     {
       FillComboBoxFrom2DA(cmbxAppearance, "label", "appearance", clsChitin, null);
       if (!UTC.SyncComboBox(cmbxAppearance, "Appearance_Type"))
@@ -5987,7 +5987,7 @@ namespace KotorTool_2._0.Ui.Forms
       return obj;
     }
 
-    private void FillComboBoxFrom2DA(ComboBox cmbx, string colName, string TwoDAName, ClsChitinKey ChitinKey, ClsDialogTlk DialogTlk)
+    private void FillComboBoxFrom2DA(ComboBox cmbx, string colName, string TwoDAName, ClsChitinKeyProvider ChitinKey, ClsDialogTlk DialogTlk)
     {
       Cls2Da cls2Da = ReadCls2DA(TwoDAName, ChitinKey);
       if (DialogTlk != null)
@@ -6026,7 +6026,7 @@ namespace KotorTool_2._0.Ui.Forms
       cmbxPerceptionRange.SelectedIndex = checked (Convert.ToInt32(RuntimeHelpers.GetObjectValue(objectValue)) - 9);
     }
 
-    private void FillChkListBoxFrom2DA(CheckedListBox lbx, string colName, string TwoDAName, ClsChitinKey ChitinKey, ClsDialogTlk DialogTlk)
+    private void FillChkListBoxFrom2DA(CheckedListBox lbx, string colName, string TwoDAName, ClsChitinKeyProvider ChitinKey, ClsDialogTlk DialogTlk)
     {
       Cls2Da cls2Da = ReadCls2DA(TwoDAName, ChitinKey);
       if (DialogTlk != null)
@@ -6057,7 +6057,7 @@ namespace KotorTool_2._0.Ui.Forms
       }
     }
 
-    private void FillSpellsChkListBoxFrom2DA(CheckedListBox lbx, ClsChitinKey ChitinKey, ClsDialogTlk DialogTlk)
+    private void FillSpellsChkListBoxFrom2DA(CheckedListBox lbx, ClsChitinKeyProvider ChitinKey, ClsDialogTlk DialogTlk)
     {
       Cls2Da cls2Da = ReadCls2DA("spells", ChitinKey);
       int num = 0;
@@ -6079,7 +6079,7 @@ namespace KotorTool_2._0.Ui.Forms
       }
     }
 
-    private void FillSpecialAbilitiesChkListBoxFrom2DA(CheckedListBox lbx, ClsChitinKey ChitinKey, ClsDialogTlk DialogTlk)
+    private void FillSpecialAbilitiesChkListBoxFrom2DA(CheckedListBox lbx, ClsChitinKeyProvider ChitinKey, ClsDialogTlk DialogTlk)
     {
       ArrayList arrayList = new ArrayList();
       Cls2Da cls2Da = ReadCls2DA("spells", ChitinKey);
@@ -6448,7 +6448,7 @@ namespace KotorTool_2._0.Ui.Forms
       frmTextEditor.Show();
     }
 
-    public Cls2Da ReadCls2DA(string TwoDAName, ClsChitinKey ChitinKey)
+    public Cls2Da ReadCls2DA(string TwoDAName, ClsChitinKeyProvider ChitinKey)
     {
       bool flag = true;
       byte[] numArray = null;
@@ -6476,7 +6476,7 @@ namespace KotorTool_2._0.Ui.Forms
       }
       if (flag)
       {
-        int resIdForResRef = ChitinKey.FindResIdForResRef(TwoDAName, 2017);
+        int resIdForResRef = ChitinKey.FindResourceIdForResourceRef(TwoDAName, 2017);
         //numArray = BiffArchive.GetBiffResource(CurrentSettings.KotorLocation(KotorVersionIndex) + "\\" + ChitinKey.BiffList[resIdForResRef >> 20].Filename, resIdForResRef).Data;
         Console.WriteLine("Read " + TwoDAName + ".2da from 2da.bif");
       }

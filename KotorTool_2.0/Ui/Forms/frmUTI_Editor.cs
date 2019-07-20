@@ -129,7 +129,7 @@ namespace KotorTool_2._0.Ui.Forms
     private IContainer components;
     public ClsUti UTI;
     public ClsDialogTlk g_clsDialogTlk;
-    public ClsChitinKey g_clsChitinKey;
+    public ClsChitinKeyProvider g_clsChitinKey;
     private DataTable dt;
     private DataView DView;
     public int UnidentDescLang;
@@ -1608,7 +1608,7 @@ namespace KotorTool_2._0.Ui.Forms
 
     public void Setup()
     {
-      g_clsChitinKey = new ClsChitinKey(ConfigOptions.Paths.KeyFileLocation(KotorVersionIndex));
+      g_clsChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(KotorVersionIndex));
       UTI.SetTextBoxToNodeValue(tbTemplateResRef, "TemplateResRef");
       UTI.SetTextBoxToNodeValue(tbTag, "Tag");
       UTI.SetNumericUpDownToUIntNodeValue(nudCost, "Cost");
@@ -1691,7 +1691,7 @@ namespace KotorTool_2._0.Ui.Forms
       }
       if (flag)
       {
-        int resIdForResRef = g_clsChitinKey.FindResIdForResRef("baseitems", 2017);
+        int resIdForResRef = g_clsChitinKey.FindResourceIdForResourceRef("baseitems", 2017);
         //numArray = BiffArchive.GetBiffResource(CurrentSettings.KotorLocation(KotorVersionIndex) + "\\" + g_clsChitinKey.BiffList[resIdForResRef >> 20].Filename, resIdForResRef).Data;
         Console.WriteLine("Read baseitems.2da from 2da.bif");
       }
@@ -1809,7 +1809,7 @@ namespace KotorTool_2._0.Ui.Forms
       }
       if (flag)
       {
-        int resIdForResRef = g_clsChitinKey.FindResIdForResRef(TwoDAName, 2017);
+        int resIdForResRef = g_clsChitinKey.FindResourceIdForResourceRef(TwoDAName, 2017);
        // numArray = BiffArchive.GetBiffResource(CurrentSettings.KotorLocation(KotorVersionIndex) + "\\" + g_clsChitinKey.BiffList[resIdForResRef >> 20].Filename, resIdForResRef).Data;
       }
       return new Cls2Da(numArray);

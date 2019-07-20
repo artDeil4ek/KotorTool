@@ -220,7 +220,7 @@ namespace KotorTool_2._0.Ui.Forms
     public ClsUtd UTD;
     public ClsDialogTlk g_clsDialogTlk;
     private bool ComboBoxSettingError;
-    public ClsChitinKey g_clsChitinKey;
+    public ClsChitinKeyProvider g_clsChitinKey;
     private int DescriptionLang;
     private int NameLang;
     private bool m_bSaveGameMode;
@@ -3054,7 +3054,7 @@ namespace KotorTool_2._0.Ui.Forms
       UTD.SetNodeValueFromTextBox(tbComment, "Comment");
     }
 
-    public Cls2Da ReadCls2DA(string TwoDAName, ClsChitinKey ChitinKey)
+    public Cls2Da ReadCls2DA(string TwoDAName, ClsChitinKeyProvider ChitinKey)
     {
       bool flag = true;
         byte[] numArray = null;
@@ -3082,7 +3082,7 @@ namespace KotorTool_2._0.Ui.Forms
       }
       if (flag)
       {
-        int resIdForResRef = ChitinKey.FindResIdForResRef(TwoDAName, 2017);
+        int resIdForResRef = ChitinKey.FindResourceIdForResourceRef(TwoDAName, 2017);
         //numArray = BiffArchive.GetBiffResource(CurrentSettings.KotorLocation(KotorVersionIndex) + "\\" + ChitinKey.BiffList[resIdForResRef >> 20].Filename, resIdForResRef).Data;
         Console.WriteLine("Read " + TwoDAName + ".2da from 2da.bif");
       }
@@ -3091,7 +3091,7 @@ namespace KotorTool_2._0.Ui.Forms
 
     private void BuildComboBoxes()
     {
-      g_clsChitinKey = new ClsChitinKey(ConfigOptions.Paths.KeyFileLocation(KotorVersionIndex));
+      g_clsChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(KotorVersionIndex));
       FillComboBoxFrom2DA(cmbxDoorType, "label", "genericdoors", g_clsChitinKey, null);
       if (!UTD.SyncComboBox(cmbxDoorType, "GenericType"))
         ComboBoxSettingError = true;
@@ -3101,7 +3101,7 @@ namespace KotorTool_2._0.Ui.Forms
       g_clsChitinKey = null;
     }
 
-    private void FillComboBoxFrom2DA(ComboBox cmbx, string colName, string TwoDAName, ClsChitinKey ChitinKey, ClsDialogTlk DialogTlk)
+    private void FillComboBoxFrom2DA(ComboBox cmbx, string colName, string TwoDAName, ClsChitinKeyProvider ChitinKey, ClsDialogTlk DialogTlk)
     {
       Cls2Da cls2Da = ReadCls2DA(TwoDAName, ChitinKey);
       if (DialogTlk != null)

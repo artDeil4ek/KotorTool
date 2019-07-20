@@ -98,7 +98,7 @@ namespace KotorTool_2._0.Ui.ItemPropertyEditor
     private IContainer components;
     private UserSettings usetting;
     public ClsDialogTlk g_clsDialogTlk;
-    public ClsChitinKey g_clsChitinKey;
+    public ClsChitinKeyProvider g_clsChitinKey;
     private Cls2Da itempropdef;
     private Cls2Da iprp_costtable;
     private Cls2Da iprp_paramtable;
@@ -616,7 +616,7 @@ namespace KotorTool_2._0.Ui.ItemPropertyEditor
       CurrentSettings = UserSettings.GetSettings();
       KotorVersionIndex = KotorVerIndex;
       g_clsDialogTlk = new ClsDialogTlk(ConfigOptions.Paths.KotorLocation(KotorVerIndex) + "\\dialog.tlk");
-      g_clsChitinKey = new ClsChitinKey(ConfigOptions.Paths.KeyFileLocation(KotorVerIndex));
+      g_clsChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(KotorVerIndex));
       Load2DAs();
       FillComboBoxFrom2DA(cmbxPropertyName, "name", itempropdef, g_clsDialogTlk);
       FillComboBoxFrom2DA(cmbxUpgrade, "label", ReadCls2DA("upgrade", g_clsChitinKey));
@@ -1189,7 +1189,7 @@ namespace KotorTool_2._0.Ui.ItemPropertyEditor
       }
     }
 
-    public Cls2Da ReadCls2DA(string TwoDAName, ClsChitinKey ChitinKey)
+    public Cls2Da ReadCls2DA(string TwoDAName, ClsChitinKeyProvider ChitinKey)
     {
       bool flag = true;
       byte[] numArray = null;
@@ -1217,7 +1217,7 @@ namespace KotorTool_2._0.Ui.ItemPropertyEditor
       }
       if (flag)
       {
-        int resIdForResRef = ChitinKey.FindResIdForResRef(TwoDAName, 2017);
+        int resIdForResRef = ChitinKey.FindResourceIdForResourceRef(TwoDAName, 2017);
        // numArray = BiffArchive.GetBiffResource(CurrentSettings.KotorLocation(KotorVersionIndex) + "\\" + ChitinKey.BiffList[resIdForResRef >> 20].Filename, resIdForResRef).Data;
         Console.WriteLine("Read " + TwoDAName + ".2da from 2da.bif");
       }

@@ -6,17 +6,17 @@ namespace KotorTool_2._0.Models
 {
     public class ChitinKey
     {
-        private static ClsChitinKey K1ChitinKey()
+        private static ClsChitinKeyProvider K1ChitinKey()
         {
-            return Constants.Gk1ChitinKey ?? (Constants.Gk1ChitinKey = new ClsChitinKey(ConfigOptions.Paths.KeyFileLocation(0)));
+            return Constants.Gk1ChitinKey ?? (Constants.Gk1ChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(0)));
         }
 
-        private static ClsChitinKey K2ChitinKey()
+        private static ClsChitinKeyProvider K2ChitinKey()
         {
-            return Constants.Gk2ChitinKey ?? (Constants.Gk2ChitinKey = new ClsChitinKey(ConfigOptions.Paths.KeyFileLocation(1)));
+            return Constants.Gk2ChitinKey ?? (Constants.Gk2ChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(1)));
         }
 
-        public static ClsChitinKey KxChitinKey(int kotorVerIndex)
+        public static ClsChitinKeyProvider KxChitinKey(int kotorVerIndex)
         {
             return kotorVerIndex == 0 ? K1ChitinKey() : K2ChitinKey();
         }

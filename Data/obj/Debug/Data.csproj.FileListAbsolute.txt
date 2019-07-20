@@ -1,0 +1,6 @@
+C:\Users\steve\source\repos\KotorTool\Data\bin\Debug\Data.dll
+C:\Users\steve\source\repos\KotorTool\Data\bin\Debug\Data.pdb
+C:\Users\steve\source\repos\KotorTool\Data\obj\Debug\Data.csprojAssemblyReference.cache
+C:\Users\steve\source\repos\KotorTool\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
+C:\Users\steve\source\repos\KotorTool\Data\obj\Debug\Data.dll
+C:\Users\steve\source\repos\KotorTool\Data\obj\Debug\Data.pdb

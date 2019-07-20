@@ -36,7 +36,7 @@ namespace KotorTool_2._0.Models.BIFF
         /// <param name="outputPath"></param>
         public static void ExportBiffResource(int kotorVerIndex, string fileNameToExport, int fileResType, string outputPath)
         {
-            int resIdForResRef = ChitinKey.KxChitinKey(kotorVerIndex).FindResIdForResRef(fileNameToExport, fileResType);
+            int resIdForResRef = ChitinKey.KxChitinKey(kotorVerIndex).FindResourceIdForResourceRef(fileNameToExport, fileResType);
             if (resIdForResRef == -1) throw new NotSupportedException();
             ExportBiffResource(ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\" + ChitinKey.KxChitinKey(kotorVerIndex).BiffList[resIdForResRef >> 20].Filename, outputPath, resIdForResRef - resIdForResRef >> 20 << 20);
         }
@@ -68,8 +68,8 @@ namespace KotorTool_2._0.Models.BIFF
         /// <returns></returns>
         public static byte[] GetBiffResourceData(int kotorVerIndex, string fileName, int fileResType)
         {
-            ClsChitinKey clsChitinKey = ChitinKey.KxChitinKey(kotorVerIndex);
-            int resIdForResRef = clsChitinKey.FindResIdForResRef(fileName, fileResType);
+            ClsChitinKeyProvider clsChitinKey = ChitinKey.KxChitinKey(kotorVerIndex);
+            int resIdForResRef = clsChitinKey.FindResourceIdForResourceRef(fileName, fileResType);
             if (resIdForResRef == -1) return null;
             FileStream fsin = new FileStream(ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\" + clsChitinKey.BiffList[resIdForResRef >> 20].Filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000);
             byte[] data = new BiffArchive(fsin).GetBiffResource(checked(resIdForResRef - resIdForResRef >> 20 << 20)).Data;
@@ -88,7 +88,7 @@ namespace KotorTool_2._0.Models.BIFF
         /// <returns></returns>
         public static byte[] GetTemplateBifResourceData(int kotorVerIndex, string fileName, int fileResType)
         {
-            int resIdForResRef = ChitinKey.KxChitinKey(kotorVerIndex).FindResIdForResRef(fileName, fileResType);
+            int resIdForResRef = ChitinKey.KxChitinKey(kotorVerIndex).FindResourceIdForResourceRef(fileName, fileResType);
             if (resIdForResRef == -1) return null;
             return KxTemplatesBif(kotorVerIndex).GetBiffResource(checked(resIdForResRef - resIdForResRef >> 20 << 20)).Data;
         }

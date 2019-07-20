@@ -1229,7 +1229,7 @@ namespace KotorTool_2._0.Ui.InventoryEditor
 
         public void BuildTreeParents()
         {
-            ClsChitinKey clsChitinKey = new ClsChitinKey(ConfigOptions.Paths.KeyFileLocation(_kotorVersionIndex));
+            ClsChitinKeyProvider clsChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(_kotorVersionIndex));
             string[] strArray1 = new string[2];
             FileStream fsin = new FileStream( ConfigOptions.Paths.KotorLocation(_kotorVersionIndex) + "\\data\\templates.bif", FileMode.Open);
             BiffArchive biffArchive = new BiffArchive(fsin);
@@ -1260,7 +1260,7 @@ namespace KotorTool_2._0.Ui.InventoryEditor
 
             if (flag1)
             {
-                int resIdForResRef = clsChitinKey.FindResIdForResRef("baseitems", 2017);
+                int resIdForResRef = clsChitinKey.FindResourceIdForResourceRef("baseitems", 2017);
                 // numArray = BiffArchive.GetBiffResource(CurrentSettings.KotorLocation(KotorVersionIndex) + "\\" + clsChitinKey.BiffList[resIdForResRef >> 20].Filename, resIdForResRef).Data;
                 Console.WriteLine("Read baseitems.2da from 2da.bif");
             }
@@ -1296,7 +1296,7 @@ namespace KotorTool_2._0.Ui.InventoryEditor
                 else if (treeBaseItem.Name.StartsWith("Creature")) TreeView.Nodes[limit].Nodes.Add(new TreeNode(treeBaseItem.Name) {Tag = "BI=" + StringType.FromInteger(treeBaseItem.Index) + "|ES=" + treeBaseItem.Slots});
             }
 
-            ArrayList keysforResourceType = clsChitinKey.GetKeysforResourceType(ResourceIdentification.GetIdForRsrcType("uti"));
+            ArrayList keysforResourceType = clsChitinKey.GetKeysForResourceType(ResourceIdentification.GetIdForRsrcType("uti"));
             frmProgressMeter frmProgressMeter = new frmProgressMeter();
             frmProgressMeter.stepAmount = 1;
             frmProgressMeter.maxvalue = keysforResourceType.Count;

@@ -22,32 +22,62 @@ namespace KotorTool_2._0.MainForm
 {
     public class TreeViewQuery
     {
-        private MainFormState _mainState;
-        private TreeView _treeView;
 
+
+        private readonly MainFormState _mainState;
+        private readonly TreeView _treeView;
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mainState"></param>
+        /// <param name="treeView"></param>
         public TreeViewQuery(MainFormState mainState, TreeView treeView)
         {
             _mainState = mainState;
             _treeView = treeView;
         }
-        
-          public void SearchBifsForText(int kotorVerIndex, string searchText, bool caseSensitive, Hashtable fileTypes, frmRefSearchResults resultsForm, int bifToSearchId)
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="kotorVersionIndex"></param>
+        /// <param name="searchText"></param>
+        /// <param name="caseSensitive"></param>
+        /// <param name="fileTypes"></param>
+        /// <param name="resultsForm"></param>
+        /// <param name="biffToSearchId"></param>
+        public void SearchBifsForText(int kotorVersionIndex, string searchText, bool caseSensitive, Hashtable fileTypes, frmRefSearchResults resultsForm, int biffToSearchId)
         {
-            Hashtable htFileTypeIDs = new Hashtable();
+            Hashtable hashTableFileTypeIDs = new Hashtable();
             foreach (object fileType in fileTypes)
             {
-                DictionaryEntry dictionaryEntry = (DictionaryEntry) (fileType ?? Activator.CreateInstance(typeof(DictionaryEntry)));
-                htFileTypeIDs.Add(ResourceIdentification.GetIdForRsrcType(StringType.FromObject(dictionaryEntry.Key)), RuntimeHelpers.GetObjectValue(dictionaryEntry.Value));
+                DictionaryEntry dictionaryEntry = (DictionaryEntry)(fileType ?? Activator.CreateInstance(typeof(DictionaryEntry)));
+                hashTableFileTypeIDs.Add(ResourceIdentification.GetIdForRsrcType(StringType.FromObject(dictionaryEntry.Key)), RuntimeHelpers.GetObjectValue(dictionaryEntry.Value));
             }
 
             Regex oRegex = !caseSensitive ? new Regex(searchText, RegexOptions.IgnoreCase) : new Regex(searchText);
-            ScanBifForText(kotorVerIndex, bifToSearchId, htFileTypeIDs, oRegex, resultsForm.lbMatches.Items);
+            ScanBifForText(kotorVersionIndex, biffToSearchId, hashTableFileTypeIDs, oRegex, resultsForm.lbMatches.Items);
         }
-        
-        public void SearchAllModuleRimsForText(int kotorVerIndex, string searchText, bool caseSensitive, Hashtable fileTypes, frmRefSearchResults resultsForm)
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="kotorVersionIndex"></param>
+        /// <param name="searchText"></param>
+        /// <param name="caseSensitive"></param>
+        /// <param name="fileTypes"></param>
+        /// <param name="resultsForm"></param>
+        public void SearchAllModuleRimsForText(int kotorVersionIndex, string searchText, bool caseSensitive, Hashtable fileTypes, frmRefSearchResults resultsForm)
         {
             Cursor current = Cursor.Current;
-            FileInfo[] files = new DirectoryInfo(ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\Modules").GetFiles("*.rim");
+            FileInfo[] files = new DirectoryInfo(ConfigOptions.Paths.KotorLocation(kotorVersionIndex) + "\\Modules").GetFiles("*.rim");
             Regex regex = !caseSensitive ? new Regex(searchText, RegexOptions.IgnoreCase) : new Regex(searchText.Trim());
             FileInfo[] fileInfoArray = files;
             int index1 = 0;
@@ -90,7 +120,7 @@ namespace KotorTool_2._0.MainForm
                 {
                     using (BinaryReader binaryReader = new BinaryReader(fileStream, Encoding.ASCII))
                     {
-                        inData = binaryReader.ReadBytes((int) fileStream.Length);
+                        inData = binaryReader.ReadBytes((int)fileStream.Length);
                     }
                 }
 
@@ -100,10 +130,10 @@ namespace KotorTool_2._0.MainForm
                 int index2 = num2;
                 while (index2 <= num3)
                 {
-                    if (fileTypes.ContainsKey(((RimKeyEntry) rimParser.KeyEntryList[index2]).ResTypeStr))
+                    if (fileTypes.ContainsKey(((RimKeyEntry)rimParser.KeyEntryList[index2]).ResTypeStr))
                     {
                         string input = new ASCIIEncoding().GetString(rimParser.GetRimResource(index2));
-                        if (regex.Match(input).Success) resultsForm.lbMatches.Items.Add(new KotorTreeNode((RimKeyEntry) rimParser.KeyEntryList[index2]) {FilePath = fileInfo.FullName, RimOrErfIndex = index2, KotorVerIndex = kotorVerIndex});
+                        if (regex.Match(input).Success) resultsForm.lbMatches.Items.Add(new KotorTreeNode((RimKeyEntry)rimParser.KeyEntryList[index2]) { FilePath = fileInfo.FullName, RimOrErfIndex = index2, KotorVerIndex = kotorVersionIndex });
                     }
 
                     ++index2;
@@ -115,10 +145,20 @@ namespace KotorTool_2._0.MainForm
             Cursor.Current = current;
         }
         
+        
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="kotorVerIndex"></param>
+        /// <param name="biffListIndex"></param>
+        /// <param name="htFileTypeIDs"></param>
+        /// <param name="oRegex"></param>
+        /// <param name="lboc"></param>
         public void ScanBifForText(int kotorVerIndex, int biffListIndex, Hashtable htFileTypeIDs, Regex oRegex, ListBox.ObjectCollection lboc)
         {
             ASCIIEncoding asciiEncoding = new ASCIIEncoding();
-            string path = ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\" + ((BiffEntry) _mainState.BiffEntries[kotorVerIndex][biffListIndex]).Filename;
+            string path = ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\" + ((BiffEntry)_mainState.BiffEntries[kotorVerIndex][biffListIndex]).Filename;
             FileStream fsin = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000);
             BiffArchive biffArchive = new BiffArchive(fsin);
 
@@ -171,7 +211,14 @@ namespace KotorTool_2._0.MainForm
 
             fsin.Close();
         }
-       
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="erfFilePath"></param>
+        /// <param name="ktn"></param>
         public void ReadErfEntries(string erfFilePath, KotorTreeNode ktn)
         {
             int charCode1 = 48;
@@ -219,11 +266,17 @@ namespace KotorTool_2._0.MainForm
                 index += -1;
             }
         }
-
+        
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ktn"></param>
+        /// <param name="directory"></param>
         public async void ScanForErFsAndBuildTree(KotorTreeNode ktn, string directory)
         {
-            FileInfo[] files = await Task.Factory.StartNew(() => new DirectoryInfo(ConfigOptions.Paths.KotorLocation(KotorTreeNode.NodeTreeRootIndex(_treeView,ktn)) + "\\" + directory).GetFiles());
-          
+            FileInfo[] files = await Task.Factory.StartNew(() => new DirectoryInfo(ConfigOptions.Paths.KotorLocation(KotorTreeNode.NodeTreeRootIndex(_treeView, ktn)) + "\\" + directory).GetFiles());
+
             int index = 0;
             while (index < files.Length)
             {
@@ -245,6 +298,12 @@ namespace KotorTool_2._0.MainForm
             }
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="node"></param>
         public async void ScanForSavesAndBuildTree(string path, KotorTreeNode node)
         {
             DirectoryInfo[] directories = await Task.Factory.StartNew(() => new DirectoryInfo(path).GetDirectories());
@@ -252,28 +311,36 @@ namespace KotorTool_2._0.MainForm
             while (index < directories.Length)
             {
                 DirectoryInfo directoryInfo = directories[index];
-                KotorTreeNode kotorTreeNode1 = new KotorTreeNode(directoryInfo.Name) {FilePath = directoryInfo.FullName};
-                KotorTreeNode kotorTreeNode2 = new KotorTreeNode("GLOBALVARS.res") {Tag = "globalvar", FilePath = kotorTreeNode1.FilePath, Filename = "GLOBALVARS.res"};
+                KotorTreeNode kotorTreeNode1 = new KotorTreeNode(directoryInfo.Name) { FilePath = directoryInfo.FullName };
+                KotorTreeNode kotorTreeNode2 = new KotorTreeNode("GLOBALVARS.res") { Tag = "globalvar", FilePath = kotorTreeNode1.FilePath, Filename = "GLOBALVARS.res" };
                 kotorTreeNode1.Nodes.Add(kotorTreeNode2);
                 node.Nodes.Add(kotorTreeNode1);
                 ++index;
             }
         }
 
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="presenter"></param>
+        /// <param name="rimFilePath"></param>
+        /// <param name="ktn"></param>
         public void ReadRIMentries(TreeViewPresenter presenter, string rimFilePath, KotorTreeNode ktn)
         {
             int num = 0;
             FileStream fileStream = FStream.Generate(rimFilePath);
             BinaryReader binaryReader = FStream.GenerateBinReaderWithAscii(fileStream);
-            
-            RimParser rimParser = new RimParser(binaryReader.ReadBytes((int) fileStream.Length));
+
+            RimParser rimParser = new RimParser(binaryReader.ReadBytes((int)fileStream.Length));
             binaryReader.Close();
-        
+
             KotorTreeNode kotorTreeNode = new KotorTreeNode();
 
             foreach (RimKeyEntry keyEntry in rimParser.KeyEntryList)
             {
-                KotorTreeNode node = new KotorTreeNode(keyEntry, rimFilePath) {ContainingFileType = "RIM", RimOrErfIndex = num};
+                KotorTreeNode node = new KotorTreeNode(keyEntry, rimFilePath) { ContainingFileType = "RIM", RimOrErfIndex = num };
                 ++num;
                 presenter.OrganizeNodesByResType(kotorTreeNode, node);
                 if (StringType.StrCmp(keyEntry.ResTypeStr, "pth", false) == 0)

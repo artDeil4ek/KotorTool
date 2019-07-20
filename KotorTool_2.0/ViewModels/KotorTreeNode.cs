@@ -15,26 +15,19 @@ namespace KotorTool_2._0.ViewModels
 {
     public class KotorTreeNode : TreeNode
     {
-        private string _mFileName;
-        public string ContainingFileType;
-        public string ResTypeStr => ResourceIdentification.GetRsrcTypeForId(ResType);
-        public int ResType { get; set; }
-        public string ResRef { get; }
-        public int LocalResId => ResId & 1048575;
-        public int ResId { get; }
-        public string FilePath { get; set; }
-        public int RimOrErfIndex { get; set; }
-        public int KotorVerIndex { get; set; }
 
+
+
+        public NodeVm NodeVm;
   
         public string Filename
         {
             get
             {
-                if (StringType.StrCmp(_mFileName, "", false) != 0) return _mFileName;
-                return ResRef + "." + ResourceIdentification.GetRsrcTypeForId(ResType);
+                if (StringType.StrCmp(NodeVm.FileName, String.Empty, false) != 0) return NodeVm.FileName;
+                return NodeVm.ResourceRef + "." + ResourceIdentification.GetRsrcTypeForId(NodeVm.ResourceType);
             }
-            set => _mFileName = value;
+            set => NodeVm.FileName = value;
         }
 
         public void InitialiseDecorations()
@@ -58,64 +51,64 @@ namespace KotorTool_2._0.ViewModels
         public KotorTreeNode()
         {
             InitialiseDecorations();
-            KotorVerIndex = -1;
+            NodeVm.KotorVersionIndex = -1;
         }
 
         public KotorTreeNode(string text) : base(text)
         {
             InitialiseDecorations();
-            KotorVerIndex = -1;
+            NodeVm.KotorVersionIndex = -1;
         }
 
         
         public KotorTreeNode(KeyEntry ke)
         {
             InitialiseDecorations();
-            KotorVerIndex = -1;
-            ResId = ke.ResId;
-            ResRef = ke.ResRef;
-            ResType = ke.ResourceType;
-            Text = ke.ResRef + "." + ResTypeStr;
+            NodeVm.KotorVersionIndex = -1;
+            NodeVm.ResourceId = ke.ResId;
+            NodeVm.ResourceRef = ke.ResRef;
+            NodeVm.ResourceType = ke.ResourceType;
+            Text = ke.ResRef + "." + NodeVm.ResTypeStr;
         }
 
         public KotorTreeNode(KeyEntry ke, string sourcePath) : this(ke)
         {
             InitialiseDecorations();
-            FilePath = sourcePath;
+            NodeVm.FilePath = sourcePath;
         }
 
         public KotorTreeNode(RimKeyEntry rke)
         {
             InitialiseDecorations();
-            KotorVerIndex = -1;
-            ResId = rke.ResourceId;
-            ResRef = rke.ResourceName;
-            ResType = rke.ResType;
-            Text = ResRef + "." + ResTypeStr + " (" + StringType.FromInteger(rke.Length) + ")";
+            NodeVm.KotorVersionIndex = -1;
+            NodeVm.ResourceId = rke.ResourceId;
+            NodeVm.ResourceRef = rke.ResourceName;
+            NodeVm.ResourceType = rke.ResType;
+            Text = NodeVm.ResourceRef + "." + NodeVm + " (" + StringType.FromInteger(rke.Length) + ")";
             Tag = "RIM_Res";
         }
 
         public KotorTreeNode(RimKeyEntry rke, string sourcePath) : this(rke)
         {
             InitialiseDecorations();
-            FilePath = sourcePath;
+            NodeVm.FilePath = sourcePath;
         }
 
         public KotorTreeNode(ErfKeyEntry eke)
         {
             InitialiseDecorations();
-            KotorVerIndex = -1;
-            ResId = eke.ResourceId;
-            ResRef = eke.ResourceName;
-            ResType = eke.ResType;
-            Text = ResRef + "." + ResTypeStr;
+            NodeVm.KotorVersionIndex = -1;
+            NodeVm.ResourceId = eke.ResourceId;
+            NodeVm.ResourceRef = eke.ResourceName;
+            NodeVm.ResourceType = eke.ResType;
+            Text = NodeVm.ResourceRef + "." + NodeVm;
             Tag = "ERF_Res";
         }
 
-        public KotorTreeNode(ErfKeyEntry eke, string sourcePath) : this(eke)
+        public KotorTreeNode(ErfKeyEntry erfKeyEntry, string sourcePath) : this(erfKeyEntry)
         {
             InitialiseDecorations();
-            FilePath = sourcePath;
+            NodeVm.FilePath = sourcePath;
         }
 
         public override string ToString()
@@ -152,7 +145,7 @@ namespace KotorTool_2._0.ViewModels
                 }
                 else
                 {
-                    num = node.KotorVerIndex;
+                    num = node.NodeVm.KotorVersionIndex;
                     ProjectData.ClearProjectError();
                 }
             }

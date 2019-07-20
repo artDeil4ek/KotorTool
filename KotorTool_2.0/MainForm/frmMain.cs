@@ -46,6 +46,7 @@ namespace KotorTool_2._0.MainForm
            
         }
 
+        #region Init
         private void InitializeComponent()
         {
             this.containerPanel = new System.Windows.Forms.Panel();
@@ -177,7 +178,14 @@ namespace KotorTool_2._0.MainForm
             this.PerformLayout();
 
         }
+        #endregion
 
+
+        /// <summary>
+        /// ---------------  OnLoad  ----------------------------
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnLoad(object sender, EventArgs e)
         {
 
@@ -293,6 +301,8 @@ namespace KotorTool_2._0.MainForm
             }
             UserSettings.SaveSettings(Constants.CurrentSettings);
         }
+
+
 
         protected void OnClosing(CancelEventArgs e)
         {
@@ -506,10 +516,14 @@ namespace KotorTool_2._0.MainForm
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+
+
+
+
         }
         
 
-        #endregion
+        
         
     }
 }

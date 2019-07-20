@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using System.Windows;
 using System.Windows.Forms;
 using KotorTool_2._0.Models;
 using KotorTool_2._0.Models.BIFF;
@@ -153,10 +154,10 @@ namespace KotorTool_2._0.MainForm
         private void HandleMdlFiles(KotorTreeNode node, TreeView treeView)
         {
             string resTypeStr = node.ResTypeStr;
+           
             if (StringType.StrCmp(resTypeStr, "mdl", false) == 0)
             {
-                if (ConfigOptions.Paths.ModelExportLocation == null ||
-                    !Directory.Exists(ConfigOptions.Paths.ModelExportLocation))
+                if (ConfigOptions.Paths.ModelExportLocation == null || !Directory.Exists(ConfigOptions.Paths.ModelExportLocation))
                 {
                     Interaction.MsgBox(
                         "The Model Export Location is not set.\n\nA default path has been set in the Path Manager; you may accept it or choose your own.",
@@ -179,12 +180,17 @@ namespace KotorTool_2._0.MainForm
                 }
 
                 int mdlRoomCount = Mdl.GetMdlRoomCount(treeView, node);
-                frmMdlOpsSwitches frmMdlOpsSwitches = new frmMdlOpsSwitches();
-                frmMdlOpsSwitches.chkbExtractAnimations.Checked = ConfigOptions.Toggles.ModelExtractionExtractAnimations;
-                frmMdlOpsSwitches.chkbConvertSkin.Checked = ConfigOptions.Toggles.ModelExtractionConvertSkinToTrimesh;
-                frmMdlOpsSwitches.chkbEachModelInOwnDir.Checked = ConfigOptions.Toggles.ModelExtractionEachModelInOwnDirectory;
-                frmMdlOpsSwitches.chkbCleanWorkingDir.Checked = ConfigOptions.Toggles.ModelExtractionCleanWorkingDirectoryBeforeExport;
-                frmMdlOpsSwitches.tbModelExtractionPath.Text = ConfigOptions.Paths.ModelExportLocation;
+                frmMdlOpsSwitches frmMdlOpsSwitches = new frmMdlOpsSwitches
+                {
+                    chkbExtractAnimations = {Checked = ConfigOptions.Toggles.ModelExtractionExtractAnimations},
+                    chkbConvertSkin = {Checked = ConfigOptions.Toggles.ModelExtractionConvertSkinToTrimesh},
+                    chkbEachModelInOwnDir = {Checked = ConfigOptions.Toggles.ModelExtractionEachModelInOwnDirectory},
+                    chkbCleanWorkingDir =
+                    {
+                        Checked = ConfigOptions.Toggles.ModelExtractionCleanWorkingDirectoryBeforeExport
+                    },
+                    tbModelExtractionPath = {Text = ConfigOptions.Paths.ModelExportLocation}
+                };
                 if (frmMdlOpsSwitches.ShowDialog() != DialogResult.OK)
                 {
                     return;
@@ -594,7 +600,6 @@ namespace KotorTool_2._0.MainForm
             /*
              *
              *DLG HANLDING HERE
-             *
              * 
              */
             else if (StringType.StrCmp(resTypeStr, "dlg", false) == 0)

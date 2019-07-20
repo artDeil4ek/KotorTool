@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.ComponentModel;
 using KotorTool_2._0.ViewModels;
@@ -17,8 +18,6 @@ namespace KotorTool_2._0.MainForm
         public string[] CmdArgs;
         public bool HasK1;
         public bool HasK2;
- 
-             
 
         public static bool HasKotor1()
         {
@@ -28,9 +27,26 @@ namespace KotorTool_2._0.MainForm
             return flag;
         }
 
+        public static bool HasKotor1(Func<String> registryFunc)
+        {
+            RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(registryFunc.Invoke());
+            bool flag = true;
+            if (registryKey != null) flag = registryKey.GetValue("path") != null;
+            return flag;
+        }
+
         public static bool HasKotor2()
         {
             RegistryKey registryKey = Registry.LocalMachine.OpenSubKey("software\\LucasArts\\KotOR2");
+
+            bool flag = true;
+            if (registryKey != null) flag = registryKey.GetValue("path") != null;
+            return flag;
+        }
+
+        public static bool HasKotor2(Func<String> registryFunc)
+        {
+            RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(registryFunc.Invoke());
             bool flag = true;
             if (registryKey != null) flag = registryKey.GetValue("path") != null;
             return flag;
@@ -48,7 +64,6 @@ namespace KotorTool_2._0.MainForm
             if (HasKotor2()) return 1;
             int num = 0;
             return num;
-
         }
 
     }

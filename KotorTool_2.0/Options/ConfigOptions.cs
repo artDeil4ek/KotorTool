@@ -8,20 +8,29 @@ using Microsoft.VisualBasic.CompilerServices;
 namespace KotorTool_2._0.Options
 {
     [Serializable]
-    public  class ConfigOptions
+    public class ConfigOptions
     {
         public static ConfigOptions configOptions { get; set; }
-        
+
+
         public static ConfigOptions GetInstance()
         {
             if (configOptions != null)
             {
                 return configOptions;
             }
-           return  new ConfigOptions();
-            
+            return new ConfigOptions();
+
         }
-        
+
+
+        public class ConfigData
+        {
+            private string Key { get; set; }
+            public static ArrayList MruMainFiles { get; set; }
+        }
+
+
         [Serializable]
         public class Paths
         {
@@ -51,7 +60,7 @@ namespace KotorTool_2._0.Options
             public static string ProjMgrDlgEditorPath;
             public static string ProjMgrTxtEditorPath;
             public static ArrayList TreeOpenPaths;
-            
+
             public static string KotorLocation(int index)
             {
                 switch (index)
@@ -61,11 +70,11 @@ namespace KotorTool_2._0.Options
                     case 1:
                         return DefaultKotorTslLocation;
                     default:
-                        string str = "";
+                        string str = String.Empty;
                         return str;
                 }
             }
-            
+
             public static string KeyFileLocation(int index)
             {
                 switch (index)
@@ -75,12 +84,12 @@ namespace KotorTool_2._0.Options
                     case 1:
                         return DefaultKotorTslLocation + "\\chitin.key";
                     default:
-                        string str = "";
+                        string str = String.Empty;
                         return str;
                 }
             }
         }
-       
+
         [Serializable]
         public class Toggles
         {
@@ -107,51 +116,9 @@ namespace KotorTool_2._0.Options
             public static bool UseOverrideFiles;
         }
 
-        [Serializable]
-        public class WindowSettings
-        {
-            private Point MainWindowLoc;
-            private Size MainWindowSize;
-            private int MainWindowSplitterPos;
-            public static Point ImageViewerWindowLoc;
-            private Point FrmGlobalVarEditorWindowLoc;
-            public static Size ImageViewerWindowSize;
-            private Size FrmGlobalVarEditorWindowSize;
-            public static Point ByteViewerWindowLoc;
-            public static Size ByteViewerWindowSize;
-            public static Point TextEditorWindowLoc;
-            public static Size TextEditorWindowSize;
-            private Point ErfManagerWindowLoc;
-            private Size ErfManagerWindowSize;
-            private Point _2DaEditorWindowLoc;
-            private Size _2DaEditorWindowSize;
-            private Point UtcEditorWindowLoc;
-            private Size UtcEditorWindowSize;
-            private Point UtdEditorWindowLoc;
-            private Size UtdEditorWindowSize;
-            private Point UtiEditorWindowLoc;
-            private Size UtiEditorWindowSize;
-            private Point UtmEditorWindowLoc;
-            private Size UtmEditorWindowSize;
-            private Point UtpEditorWindowLoc;
-            private Size UtpEditorWindowSize;
-            private Point UtsEditorWindowLoc;
-            private Size UtsEditorWindowSize;
-            private Point UttEditorWindowLoc;
-            private Size UttEditorWindowSize;
-            private Point UtwEditorWindowLoc;
-            private Size UtwEditorWindowSize;
-            private Point ProjectManagerWindowLoc;
-            private Size ProjectManagerWindowSize;
-            public static Point InventoryEditorWindowLoc;
-            public static Size InventoryEditorWindowSize;
-            private Point ModuleEditorWindowLoc;
-            private Size ModuleEditorWindowSize;
-            public static Decimal ModuleEditorModuleElementIndicatorSize;
-        }
-        
-        private string Key;
-        public static ArrayList MruMainFiles;
-        
-        }
+
+
+
+
+    }
 }

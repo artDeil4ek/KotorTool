@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KotorTool_2._0.MainForm.Abstractions
 {
-    interface IContext
+    public interface IContext
     {
     }
 }

@@ -10,20 +10,30 @@ namespace KotorTool_2._0.Models.BIFF
 {
     static class BiffFunctions
     {
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="biffPath"></param>
+        /// <param name="outputPath"></param>
+        /// <param name="resourceId"></param>
         public static void ExportBiffResource(string biffPath, string outputPath, int resourceId)
         {
-            
-            /*
-            *check for memory leaks
-            * 
-            */
             BiffVarRsrcEntry biffResource = new BiffArchive(FStream.Generate(biffPath)).GetBiffResource(resourceId);
             BinaryWriter binaryWriter = new BinaryWriter(FStream.Generate(outputPath));
             binaryWriter.Write(biffResource.Data);
             binaryWriter.Close();
-            
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="kotorVerIndex"></param>
+        /// <param name="fileNameToExport"></param>
+        /// <param name="fileResType"></param>
+        /// <param name="outputPath"></param>
         public static void ExportBiffResource(int kotorVerIndex, string fileNameToExport, int fileResType, string outputPath)
         {
             int resIdForResRef = ChitinKey.KxChitinKey(kotorVerIndex).FindResIdForResRef(fileNameToExport, fileResType);
@@ -31,6 +41,13 @@ namespace KotorTool_2._0.Models.BIFF
             ExportBiffResource(ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\" + ChitinKey.KxChitinKey(kotorVerIndex).BiffList[resIdForResRef >> 20].Filename, outputPath, resIdForResRef - resIdForResRef >> 20 << 20);
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="biffPath"></param>
+        /// <param name="resourceId"></param>
+        /// <returns></returns>
         public static BiffVarRsrcEntry GetBiffResource(string biffPath, int resourceId)
         {
             /*
@@ -41,6 +58,14 @@ namespace KotorTool_2._0.Models.BIFF
             return biffResource;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="kotorVerIndex"></param>
+        /// <param name="fileName"></param>
+        /// <param name="fileResType"></param>
+        /// <returns></returns>
         public static byte[] GetBiffResourceData(int kotorVerIndex, string fileName, int fileResType)
         {
             ClsChitinKey clsChitinKey = ChitinKey.KxChitinKey(kotorVerIndex);
@@ -53,6 +78,14 @@ namespace KotorTool_2._0.Models.BIFF
             return data;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="kotorVerIndex"></param>
+        /// <param name="fileName"></param>
+        /// <param name="fileResType"></param>
+        /// <returns></returns>
         public static byte[] GetTemplateBifResourceData(int kotorVerIndex, string fileName, int fileResType)
         {
             int resIdForResRef = ChitinKey.KxChitinKey(kotorVerIndex).FindResIdForResRef(fileName, fileResType);
@@ -84,14 +117,19 @@ namespace KotorTool_2._0.Models.BIFF
             }
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static BiffArchive K1TemplatesBif()
         {
             // @"E:\Steam\steamapps\common\swkotor\"
             return Constants.Gk1TemplatesBif ?? (Constants.Gk1TemplatesBif = new BiffArchive(FStream.Generate(@"E:\Steam\steamapps\common\swkotor\" + "\\data\\templates.bif")));
         }
 
-     
-        
+
+
         /*
          *
          * Replace HardCoded Strings here

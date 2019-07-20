@@ -29,10 +29,9 @@ namespace KotorTool_2._0.ViewModels
         }
         else if (column == 2 && StringType.StrCmp(Strings.LCase(columnEntry.DisplayName), Strings.LCase(searchStr), false) == 0) return index;
 
-        checked
-        {
+        
           ++index;
-        }
+        
       }
 
       return -1;

@@ -11,7 +11,7 @@ namespace Persistence.Builders
     public class FileBuilder : IFileBuilder
     {
 
-        public string FileContent { get; set; }
+        public object FileContent { get; set; }
 
         private FileTypes type { get; set; }
 

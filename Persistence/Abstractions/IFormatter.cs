@@ -11,6 +11,6 @@ namespace Persistence.Abstractions
     {
         FileTypes Type { get; set; }
         IFormatter SetType(FileTypes fileType);
-        IFormatter Format(String content);
+        IFormatter Format(Object content);
     }
 }

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Windows.Forms;
-
+using KotorTool_2._0.MainForm.Collections;
+using KotorTool_2._0.MainForm.Data;
 using KotorTool_2._0.Models;
 using KotorTool_2._0.Models.ERF;
 using KotorTool_2._0.Models.RIM;
@@ -15,8 +16,6 @@ namespace KotorTool_2._0.ViewModels
 {
     public class KotorTreeNode : TreeNode
     {
-
-
 
         public NodeVm NodeVm;
   
@@ -68,7 +67,7 @@ namespace KotorTool_2._0.ViewModels
             NodeVm.ResourceId = ke.ResId;
             NodeVm.ResourceRef = ke.ResRef;
             NodeVm.ResourceType = ke.ResourceType;
-            Text = ke.ResRef + "." + NodeVm.ResTypeStr;
+            Text = ke.ResRef + "." + NodeVm.ResourceTypeStr;
         }
 
         public KotorTreeNode(KeyEntry ke, string sourcePath) : this(ke)
@@ -115,42 +114,7 @@ namespace KotorTool_2._0.ViewModels
         {
             return Text;
         }
-        
-        public static int NodeTreeRootIndex(TreeView treeView, KotorTreeNode node)
-        {
-            int num = 0;
-            try
-            {
-                string lower1 = node.FullPath.ToLower();
-                string sLeft = lower1;
-                if (StringType.StrCmp(sLeft, "kotor i", false) == 0) num = 0;
-                else if (StringType.StrCmp(sLeft, "kotor ii", false) == 0)
-                {
-                    num = 1;
-                }
-                else
-                {
-                    string lower2 = lower1.Substring(0, lower1.IndexOf(treeView.PathSeparator, StringComparison.Ordinal)).ToLower();
-                    if (StringType.StrCmp(lower2, "kotor i", false) == 0) num = 0;
-                    else if (StringType.StrCmp(lower2, "kotor ii", false) == 0) num = 1;
-                }
-            }
-            catch (Exception ex)
-            {
-                ProjectData.SetProjectError(ex);
-                if (node == null)
-                {
-                    num = -1;
-                    ProjectData.ClearProjectError();
-                }
-                else
-                {
-                    num = node.NodeVm.KotorVersionIndex;
-                    ProjectData.ClearProjectError();
-                }
-            }
 
-            return num;
-        }
+        
     }
 }

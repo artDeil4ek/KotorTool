@@ -48,7 +48,7 @@
     <Compile Include="Abstractions\IFileWriter.cs" />
     <Compile Include="Abstractions\IFormatter.cs" />
     <Compile Include="Builders\FileBuilder.cs" />
-    <Compile Include="Files\FilePersistence.cs" />
+    <Compile Include="Files\PathWriter.cs" />
     <Compile Include="Formatting\BsonFormatter.cs" />
     <Compile Include="Formatting\JsonFormatter.cs" />
     <Compile Include="Formatting\XmlFormatter.cs" />

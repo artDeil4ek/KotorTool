@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KotorTool_2._0.MainForm.Abstractions;
+using KotorTool_2._0.MainForm.Adapters;
+using KotorTool_2._0.MainForm.Data;
 using KotorTool_2._0.Models;
 using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.Models.ERF;
@@ -30,50 +33,34 @@ namespace KotorTool_2._0.MainForm
         /// </summary>
         /// <param name="resTypeStr"></param>
         /// <param name="treeView"></param>
-        private void HandleMdlFiles(String resTypeStr, TreeView treeView)
+        private void HandleMdlFiles(IState state, String resTypeStr, NodeData nodeData, TreeView treeView)
         {
-            
+
+            MdlHandlerBehavior mdlHandlerBehavior = new MdlHandlerBehavior();
 
             if (StringType.StrCmp(resTypeStr, "mdl", false) == 0)
             {
                 if (ConfigOptions.Paths.ModelExportLocation == null || !Directory.Exists(ConfigOptions.Paths.ModelExportLocation))
                 {
+                    
+                        Interaction.MsgBox("The Model Export Location is not set.\n\nA default path has been set in the Path Manager; you may accept it or choose your own.",
+                            MsgBoxStyle.Critical, "Path not set");
 
-
-                    Interaction.MsgBox("The Model Export Location is not set.\n\nA default path has been set in the Path Manager; you may accept it or choose your own.", MsgBoxStyle.Critical, "Path not set");
-
-
-                    using (frmPathManager frmPathManager = new frmPathManager())
-                    {
-
-                        if (!Directory.Exists(MainFormState.GRootPath + "working\\Exported Models"))
-                        {
-                            Directory.CreateDirectory(MainFormState.GRootPath + "working\\Exported Models");
-                        }
-
-
-                        /*
-                         *
-                         * Init the path manager here
-                         *  
-                         */
-                        frmPathManager.tbModuleExportPath.Text = MainFormState.GRootPath + "working\\Exported Models";
-                        frmPathManager.StartPosition = FormStartPosition.CenterScreen;
-                        frmPathManager.TabControl1.SelectedIndex = 2;
-                        frmPathManager.tbModuleExportPath.BackColor = Color.MistyRose;
-                        frmPathManager.ShowDialog();
-                    }
-
-                    Constants.CurrentSettings = UserSettings.GetSettings();
+                        mdlHandlerBehavior.OpenPathManager(state);
+                        Constants.CurrentSettings = UserSettings.GetSettings();
+                    
                 }
 
 
                 /*
                  *
                  * This needs to be refactored to be more generic, remove the ui models from the parameters
+                 * Make the parameters for this the Node Data Object
                  *
                  */
                 int mdlRoomCount = Mdl.GetMdlRoomCount(treeView, node);
+                int mdlCount = 
+                //int mdlRoomCount = Mdl.GetMdlRoomCount(treeView, nodeData);
 
 
                 /*
@@ -82,34 +69,25 @@ namespace KotorTool_2._0.MainForm
                  * 
                  *
                  */
-                frmMdlOpsSwitches frmMdlOpsSwitches = new frmMdlOpsSwitches
-                {
-                    chkbExtractAnimations = { Checked = ConfigOptions.Toggles.ModelExtractionExtractAnimations },
-                    chkbConvertSkin = { Checked = ConfigOptions.Toggles.ModelExtractionConvertSkinToTrimesh },
-                    chkbEachModelInOwnDir = { Checked = ConfigOptions.Toggles.ModelExtractionEachModelInOwnDirectory },
-                    chkbCleanWorkingDir =
-                    {
-                        Checked = ConfigOptions.Toggles.ModelExtractionCleanWorkingDirectoryBeforeExport
-                    },
-                    tbModelExtractionPath = { Text = ConfigOptions.Paths.ModelExportLocation }
-                };
+
+                
+                var mdlOpenMdlOpsSwitches = mdlHandlerBehavior.OpenMdlOpsSwitches();
 
 
-
-                if (frmMdlOpsSwitches.ShowDialog() != DialogResult.OK)
+                if (mdlOpenMdlOpsSwitches.ShowDialog() != DialogResult.OK)
                 {
                     return;
                 }
 
-                while (frmMdlOpsSwitches.tbModelExtractionPath.Text.EndsWith("\\")) frmMdlOpsSwitches.tbModelExtractionPath.Text = frmMdlOpsSwitches.tbModelExtractionPath.Text.Substring(0, frmMdlOpsSwitches.tbModelExtractionPath.Text.Length - 1);
+                while (mdlOpenMdlOpsSwitches.tbModelExtractionPath.Text.EndsWith("\\")) frmMdlOpsSwitches.tbModelExtractionPath.Text = frmMdlOpsSwitches.tbModelExtractionPath.Text.Substring(0, frmMdlOpsSwitches.tbModelExtractionPath.Text.Length - 1);
 
-                if (StringType.StrCmp(frmMdlOpsSwitches.tbModelExtractionPath.Text.Replace("\\" + Mdl.GetMdlRoomBaseName(treeView, node), ""), ConfigOptions.Paths.ModelExportLocation, false) != 0)
+                if (StringType.StrCmp(mdlOpenMdlOpsSwitches.tbModelExtractionPath.Text.Replace("\\" + Mdl.GetMdlRoomBaseName(treeView, node), ""), ConfigOptions.Paths.ModelExportLocation, false) != 0)
                 {
                     ConfigOptions.Paths.ModelExportLocation = frmMdlOpsSwitches.tbModelExtractionPath.Text;
                     UserSettings.SaveSettings(Constants.CurrentSettings);
                 }
 
-                if (!Directory.Exists(frmMdlOpsSwitches.tbModelExtractionPath.Text))
+                if (!Directory.Exists(mdlOpenMdlOpsSwitches.tbModelExtractionPath.Text))
                 {
                     Directory.CreateDirectory(frmMdlOpsSwitches.tbModelExtractionPath.Text);
                 }
@@ -139,7 +117,7 @@ namespace KotorTool_2._0.MainForm
                     string fileName = String.Empty;
                     if (KotorTreeNode.NodeTreeRootIndex(treeView, node) == 1)
                     {
-                        fileName = node.ResRef.Substring(0, 6);
+                        fileName = nodeData.ResourceRef.Substring(0, 6);
                     }
 
                     StreamWriter streamWriter = new StreamWriter(new FileStream("C:\\3dsmax7\\scripts\\NWmax\\plugins\\test.txt", FileMode.Create));
@@ -181,9 +159,9 @@ namespace KotorTool_2._0.MainForm
                     int num2 = num1;
                     while (num2 <= int32)
                     {
-                        frmProgressMeter.status = "Getting data for " + node.ResRef;
-                        byte[] data = BiffFunctions.GetBiffResource(node.FilePath, node.LocalResId).Data;
-                        string path = frmMdlOpsSwitches.tbModelExtractionPath.Text + "\\" + node.ResRef;
+                        frmProgressMeter.status = "Getting data for " + nodeData.ResourceRef;
+                        byte[] data = BiffFunctions.GetBiffResource(nodeData.FilePath, nodeData.LocalResourceId).Data;
+                        string path = frmMdlOpsSwitches.tbModelExtractionPath.Text + "\\" + nodeData.ResourceRef;
                         if (flag1)
                         {
                             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
@@ -252,7 +230,7 @@ namespace KotorTool_2._0.MainForm
                             ProjectData.ClearProjectError();
                         }
 
-                        node = (KotorTreeNode)node.NextNode;
+                        nodeData = (KotorTreeNode)node.NextNode;
                         frmProgressMeter.stepUp();
 
                         ++num2;
@@ -273,7 +251,7 @@ namespace KotorTool_2._0.MainForm
 
     private void HandleMdlFiles(KotorTreeNode node, TreeView treeView)
         {
-            string resTypeStr = node.ResTypeStr;
+            string resTypeStr = node.NodeVm.ResourceTypeStr;
 
             if (StringType.StrCmp(resTypeStr, "mdl", false) == 0)
             {

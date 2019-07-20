@@ -8,6 +8,6 @@ namespace Persistence.Abstractions
 {
     public interface IFileWriter
     {
-        void WriteToFile();
+        void WriteToFile(Object content);
     }
 }

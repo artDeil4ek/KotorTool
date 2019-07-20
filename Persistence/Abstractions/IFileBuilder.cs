@@ -8,7 +8,7 @@ namespace Persistence.Abstractions
 {
     public interface IFileBuilder
     {
-        String FileContent { get; set; }
+        object FileContent { get; set; }
         IFileBuilder Build();
     }
 }

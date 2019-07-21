@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using KotorTool_2._0.MainForm.Data;
+using KotorTool_2._0.Data;
 using KotorTool_2._0.ViewModels;
 
 namespace KotorTool_2._0.AppConfiguration
@@ -17,7 +17,8 @@ namespace KotorTool_2._0.AppConfiguration
 
         public MappingService()
         {
-            var config = new MapperConfiguration(cfg => {
+            var config = new MapperConfiguration(cfg =>
+            {
                 cfg.CreateMap<NodeVm, NodeData>();
             });
 

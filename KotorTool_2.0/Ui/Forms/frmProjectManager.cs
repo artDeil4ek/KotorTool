@@ -2912,7 +2912,7 @@ namespace KotorTool_2._0.Ui.Forms
             EnsureDirectoryExists(WorkingPath);
             if (File.Exists(path)) File.Delete(path);
             Process process = new Process();
-            process.StartInfo.FileName = MainFormState.GRootPath + "nwnnsscomp.exe";
+            process.StartInfo.FileName = MainFormState.GameRootPath + "nwnnsscomp.exe";
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.CreateNoWindow = true;
             process.StartInfo.Arguments = "-c " + str + " -o " + "\"" + path + "\"" + " " + "\"" + sourcefilepath + "\"";

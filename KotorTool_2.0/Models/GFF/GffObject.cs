@@ -19,14 +19,14 @@ namespace KotorTool_2._0.Models.GFF
         public void EditGffResource(string filename, byte[] data)
         {
             DirectoryUtils.EnsureWorkingDirectoryExists();
-            if (File.Exists(MainFormState.GRootPath + "working\\" + filename)) File.Delete(MainFormState.GRootPath + "working\\" + filename);
-            ByteFunctions.WriteByteArray(MainFormState.GRootPath + "working\\" + filename, data);
-            LaunchGffEditor(MainFormState.GRootPath + "working\\" + filename);
+            if (File.Exists(MainFormState.GameRootPath + "working\\" + filename)) File.Delete(MainFormState.GameRootPath + "working\\" + filename);
+            ByteFunctions.WriteByteArray(MainFormState.GameRootPath + "working\\" + filename, data);
+            LaunchGffEditor(MainFormState.GameRootPath + "working\\" + filename);
         }
 
         private void LaunchGffEditor(string filename)
         {
-            string fileName = MainFormState.GRootPath + "gffeditor.exe";
+            string fileName = MainFormState.GameRootPath + "gffeditor.exe";
             try
             {
                 Process.Start(fileName, filename);

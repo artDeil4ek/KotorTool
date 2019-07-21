@@ -1,75 +1,127 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using CoreData.Biff;
 
 namespace KotorTool_2._0.Models.BIFF
 {
+
+
+    [Serializable]
     public class BiffArchive : IDisposable
     {
-        private int _varResCnt;
-        private int _fixedResCnt;
-        private int _varResEntryOff;
-        private int _fixedResEntryOff;
-        private readonly FileStream _fs;
-        private string _signature;
-        private string _version;
-        public int ResCount => _varResCnt;
 
-        public void Dispose()
-        {
-            _fs?.Dispose();
-        }
 
+
+
+        /// <summary>
+        /// Needs to be put in its on data structure file/class
+        /// </summary>
+        public int VariableResourceCount;
+        public int FixedResourceCount;
+        public int VariableResourceEntryOff;
+        public int FixedResourceEntryOff;
+        public string Signature;
+        public string Version;
+        public FileStream FileStream;
+
+
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public BiffArchive()
         {
         }
         
+        
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fixedResEntryOff"></param>
         public BiffArchive(FileStream fixedResEntryOff)
         {
-            _fs = fixedResEntryOff;
-            ReadBiffHeader(_fs);
-            
+            FileStream = fixedResEntryOff;
+            ReadBiffHeader(FileStream);
         }
 
 
-        public BiffArchive(FileStream fsin, int fixedResEntryOff)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fsin"></param>
+        /// <param name="fixedResourceEntryOff"></param>
+        public BiffArchive(FileStream fsin, int fixedResourceEntryOff)
         {
-            _fs = fsin;
-            _fixedResEntryOff = fixedResEntryOff;
-            ReadBiffHeader(_fs);
+            FileStream = fsin;
+            FixedResourceEntryOff = fixedResourceEntryOff;
+            ReadBiffHeader(FileStream);
         }
 
-       
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fs"></param>
         private void ReadBiffHeader(FileStream fs)
         {
             BinaryReader binaryReader = new BinaryReader(fs);
 
-            _signature = new string(binaryReader.ReadChars(4));
-            _version = new string(binaryReader.ReadChars(4));
-            _varResCnt = binaryReader.ReadInt32();
-            _fixedResCnt = binaryReader.ReadInt32();
-            _varResEntryOff = binaryReader.ReadInt32();
+            Signature = new string(binaryReader.ReadChars(4));
+            Version = new string(binaryReader.ReadChars(4));
+            VariableResourceCount = binaryReader.ReadInt32();
+            FixedResourceCount = binaryReader.ReadInt32();
+            VariableResourceEntryOff = binaryReader.ReadInt32();
+        }
+       
+        
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <returns></returns>
+        public BiffVariableResourceEntryInfo GetBiffResourceInfo(int offset)
+        {
+
+            BinaryReader binaryReader = new BinaryReader(FileStream);
+            FileStream.Seek(VariableResourceEntryOff + 16 * offset, 0);
+
+            return new BiffVariableResourceEntryInfo
+            {
+                ResourceId = binaryReader.ReadInt32(),
+                Offset = binaryReader.ReadInt32(),
+                FileSize = binaryReader.ReadInt32(),
+                ResourceType = binaryReader.ReadInt32()
+            };
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="offset"></param>
+        /// <returns></returns>
+        public BiffVariableResourceEntry GetBiffResource(int offset)
+        {
+            BinaryReader binaryReader = new BinaryReader(FileStream);
+
+            BiffVariableResourceEntry biffVariableResourceEntry = new BiffVariableResourceEntry();
+            BiffVariableResourceEntryInfo biffResourceInfo = GetBiffResourceInfo(offset);
+            FileStream.Seek(biffResourceInfo.Offset, 0);
+
+            biffVariableResourceEntry.Data = binaryReader.ReadBytes(biffResourceInfo.FileSize);
+            return biffVariableResourceEntry;
         }
 
 
-        public BiffVarRsrcEntryInfo GetBiffResourceInfo(int offset)
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Dispose()
         {
-            BinaryReader binaryReader = new BinaryReader(_fs);
-            _fs.Seek(_varResEntryOff + 16 * offset, 0);
-            return new BiffVarRsrcEntryInfo(binaryReader.ReadInt32(), binaryReader.ReadInt32(), binaryReader.ReadInt32(), binaryReader.ReadInt32());
-        }
-
-
-        public BiffVarRsrcEntry GetBiffResource(int offset)
-        {
-            BinaryReader binaryReader = new BinaryReader(_fs);
-
-            BiffVarRsrcEntry bIffVarRsrcEntry = new BiffVarRsrcEntry();
-            BiffVarRsrcEntryInfo bIffResourceInfo = GetBiffResourceInfo(offset);
-            _fs.Seek(bIffResourceInfo.Offset, 0);
-            bIffVarRsrcEntry.Data = binaryReader.ReadBytes(bIffResourceInfo.FileSize);
-            return bIffVarRsrcEntry;
+            FileStream?.Dispose();
         }
     }
 }

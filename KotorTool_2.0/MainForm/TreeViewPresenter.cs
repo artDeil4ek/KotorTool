@@ -133,12 +133,12 @@ namespace KotorTool_2._0.MainForm
 
             foreach (BiffEntry biffEntry in _mainState.BiffEntries[index1])
             {
-                KotorTreeNode kotorTreeNode = new KotorTreeNode(Strings.Mid(biffEntry.Filename, biffEntry.Filename.LastIndexOf("\\", StringComparison.Ordinal) + 2))
+                KotorTreeNode kotorTreeNode = new KotorTreeNode(Strings.Mid(biffEntry.FileName, biffEntry.FileName.LastIndexOf("\\", StringComparison.Ordinal) + 2))
                 {
-                    Tag = "BIFF", Filename = Strings.Mid(biffEntry.Filename, biffEntry.Filename.LastIndexOf("\\", StringComparison.Ordinal) + 2), FilePath = filePath + "\\" + Strings.Mid(biffEntry.Filename, 1, biffEntry.Filename.LastIndexOf("\\", StringComparison.Ordinal)), ContainingFileType = "BIF"
+                    Tag = "BIFF", Filename = Strings.Mid(biffEntry.FileName, biffEntry.FileName.LastIndexOf("\\", StringComparison.Ordinal) + 2), FilePath = filePath + "\\" + Strings.Mid(biffEntry.FileName, 1, biffEntry.FileName.LastIndexOf("\\", StringComparison.Ordinal)), ContainingFileType = "BIF"
                 };
                 root.Nodes[0].Nodes.Add(kotorTreeNode);
-                Console.WriteLine("Bif name: " + biffEntry.Filename + "  Length: " + StringType.FromInteger(biffEntry.Filelength));
+                Console.WriteLine("Bif name: " + biffEntry.FileName + "  Length: " + StringType.FromInteger(biffEntry.FileLength));
             }
 
             fs.Seek(num3, SeekOrigin.Begin);
@@ -166,7 +166,7 @@ namespace KotorTool_2._0.MainForm
             int index4 = num10;
             while (index4 <= num11)
             {
-                frmProgressMeter.status = "Building tree for " + ((BiffEntry) _mainState.BiffEntries[index1][index4]).Filename;
+                frmProgressMeter.status = "Building tree for " + ((BiffEntry) _mainState.BiffEntries[index1][index4]).FileName;
                 if (index4 != 18 || buildModelsBifNode)
                 {
                     TreeNode treeNode = new KotorTreeNode();
@@ -178,7 +178,7 @@ namespace KotorTool_2._0.MainForm
                         KotorTreeNode node = new KotorTreeNode((KeyEntry) _mainState.BiffEntryListArray[index1, index4][index5]);
                         node.Tag = "BIFF_Res";
                         node.ContainingFileType = "BIF";
-                        node.FilePath = filePath + "\\" + ((BiffEntry) _mainState.BiffEntries[index1][index4]).Filename;
+                        node.FilePath = filePath + "\\" + ((BiffEntry) _mainState.BiffEntries[index1][index4]).FileName;
                         OrganizeNodesByResType((KotorTreeNode) treeNode, node);
                         if (num9 / num6 == num9 / (double) num6) frmProgressMeter.stepUp();
                         ++num9;
@@ -307,7 +307,7 @@ namespace KotorTool_2._0.MainForm
         {
             //if (e.Node.GetType() == (Type) (object) "System.Windows.Form.TreeNode") return;
             KotorTreeNode node = (KotorTreeNode) e.Node;
-            if (!(KotorTreeNode.NodeTreeRootIndex(_treeView, node) == 0 & _mainState.HasK1) && !(KotorTreeNode.NodeTreeRootIndex(_treeView, node) == 1 & _mainState.HasK2)) return;
+            if (!(KotorTreeNode.NodeTreeRootIndex(_treeView, node) == 0 & _mainState.HasKotor1) && !(KotorTreeNode.NodeTreeRootIndex(_treeView, node) == 1 & _mainState.HasKotor2)) return;
             if (node.Parent == null || node.Tag == null)
             {
                 //this.miExtract.Enabled = false;
@@ -478,17 +478,17 @@ namespace KotorTool_2._0.MainForm
         private void TreeView_MouseDown(object sender, MouseEventArgs e)
         {
             Point pt = new Point(e.X, e.Y);
-            _mainState.SecondToLastClickedTvNode = _mainState.LastClickedTvNode;
-            _mainState.LastClickedTvNode = (KotorTreeNode) _treeView.GetNodeAt(pt);
-            if (_mainState.LastClickedTvNode != null)
+            _mainState.SecondToLastClickedTreeViewNode = _mainState.LastClickedTreeViewNode;
+            _mainState.LastClickedTreeViewNode = (KotorTreeNode) _treeView.GetNodeAt(pt);
+            if (_mainState.LastClickedTreeViewNode != null)
             {
-                _treeView.SelectedNode = _mainState.LastClickedTvNode;
+                _treeView.SelectedNode = _mainState.LastClickedTreeViewNode;
                 Constants.CurrentSettings = UserSettings.GetSettings();
-                ConfigOptions.Paths.LastClickedTvNodePath = _mainState.LastClickedTvNode.FullPath;
+                ConfigOptions.Paths.LastClickedTvNodePath = _mainState.LastClickedTreeViewNode.FullPath;
                 UserSettings.SaveSettings(Constants.CurrentSettings);
             }
 
-            if (e.Button != MouseButtons.Right || _mainState.LastClickedTvNode == null || ObjectType.ObjTst(_mainState.LastClickedTvNode.Tag, "RIM", false) != 0 || ObjectType.ObjTst(_mainState.LastClickedTvNode.Parent.Tag, "RIM_Modules", false) != 0 || _mainState.LastClickedTvNode.Filename.Replace(".rim", "").EndsWith("_s"))
+            if (e.Button != MouseButtons.Right || _mainState.LastClickedTreeViewNode == null || ObjectType.ObjTst(_mainState.LastClickedTreeViewNode.Tag, "RIM", false) != 0 || ObjectType.ObjTst(_mainState.LastClickedTreeViewNode.Parent.Tag, "RIM_Modules", false) != 0 || _mainState.LastClickedTreeViewNode.Filename.Replace(".rim", "").EndsWith("_s"))
             {
             }
 
@@ -504,7 +504,7 @@ namespace KotorTool_2._0.MainForm
 
         private int CurrentTreeRootIndex()
         {
-            string lower1 = _mainState.LastClickedTvNode.FullPath.ToLower();
+            string lower1 = _mainState.LastClickedTreeViewNode.FullPath.ToLower();
             string sLeft = lower1;
            
             if (StringType.StrCmp(sLeft, "kotor i", false) == 0) return 0;
@@ -564,7 +564,7 @@ namespace KotorTool_2._0.MainForm
             hashtable1.Add(2035, 0);
             hashtable1.Add(2032, 0);
             hashtable1.Add(2058, 0);
-            if (_mainState.HasK1 && !File.Exists("K1TemplateTags.bfd"))
+            if (_mainState.HasKotor1 && !File.Exists("K1TemplateTags.bfd"))
             {
                 if (ObjectType.ObjTst(_treeView.Nodes[0].Nodes[0].Nodes[0].Tag, "dummy", false) == 0)
                 {
@@ -590,7 +590,7 @@ namespace KotorTool_2._0.MainForm
                 serializationStream.Close();
             }
 
-            if (!_mainState.HasK2 || File.Exists("K2TemplateTags.bfd")) return;
+            if (!_mainState.HasKotor2 || File.Exists("K2TemplateTags.bfd")) return;
             if (ObjectType.ObjTst(_treeView.Nodes[1].Nodes[0].Nodes[0].Tag, "dummy", false) == 0)
             {
                 Cursor.Current = Cursors.WaitCursor;
@@ -660,7 +660,7 @@ namespace KotorTool_2._0.MainForm
         {
             try
             {
-                Process.Start(MainFormState.GRootPath + "KT_Help.chm");
+                Process.Start(MainFormState.GameRootPath + "KT_Help.chm");
             }
             catch (Exception ex)
             {

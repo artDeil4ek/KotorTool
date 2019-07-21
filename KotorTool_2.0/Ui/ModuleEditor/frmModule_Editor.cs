@@ -3326,11 +3326,11 @@ namespace KotorTool_2._0.Ui.ModuleEditor
       KotorVersionIndex = GffObject.GetGffFileKotorVersionIndex(file);
       SetEditorCaption();
       g_UserPalettePath = g_ProjectPath + "\\userpalette";
-      g_GlobalTemplatesPath = MainFormState.GRootPath + "\\Global Templates\\k" + StringType.FromInteger(KotorVersionIndex + 1);
+      g_GlobalTemplatesPath = MainFormState.GameRootPath + "\\Global Templates\\k" + StringType.FromInteger(KotorVersionIndex + 1);
       htTemplateBifFiles = ChitinKey.KxChitinKey(KotorVersionIndex).GetBiffFileHash("templates");
       try
       {
-        Stream serializationStream = (Stream) File.OpenRead(MainFormState.GRootPath + "K1TemplateTags.bfd");
+        Stream serializationStream = (Stream) File.OpenRead(MainFormState.GameRootPath + "K1TemplateTags.bfd");
         htK1Tags = (Hashtable) binaryFormatter.Deserialize(serializationStream);
         serializationStream.Close();
       }
@@ -3341,7 +3341,7 @@ namespace KotorTool_2._0.Ui.ModuleEditor
       }
       try
       {
-        Stream serializationStream = (Stream) File.OpenRead(MainFormState.GRootPath + "K2TemplateTags.bfd");
+        Stream serializationStream = (Stream) File.OpenRead(MainFormState.GameRootPath + "K2TemplateTags.bfd");
         htK2Tags = (Hashtable) binaryFormatter.Deserialize(serializationStream);
         serializationStream.Close();
       }
@@ -3444,7 +3444,7 @@ namespace KotorTool_2._0.Ui.ModuleEditor
         MapInfo mapInfo;
         try
         {
-          serializationStream1 = (Stream) File.OpenRead(MainFormState.GRootPath + "MapInfo.bfd");
+          serializationStream1 = (Stream) File.OpenRead(MainFormState.GameRootPath + "MapInfo.bfd");
           mapInfo = (MapInfo) binaryFormatter.Deserialize(serializationStream1);
           serializationStream1.Close();
         }
@@ -3456,7 +3456,7 @@ namespace KotorTool_2._0.Ui.ModuleEditor
           serializationStream1.Close();
           if (mapInfo.GetType() == Type.GetType("KotorTool_2.MapInfo"))
           {
-            Stream serializationStream2 = (Stream) File.OpenWrite(MainFormState.GRootPath + "MapInfo.bfd");
+            Stream serializationStream2 = (Stream) File.OpenWrite(MainFormState.GameRootPath + "MapInfo.bfd");
             new BinaryFormatter().Serialize(serializationStream2, (object) mapInfo);
             serializationStream2.Close();
           }
@@ -6153,7 +6153,7 @@ label_4:
             if (ObjectType.ObjTst(objArray2[3], (object) "up", false) == 0)
               sourceFileName = g_ProjectPath + "\\userpalette\\" + str2;
             else if (ObjectType.ObjTst(objArray2[3], (object) "gt", false) == 0)
-              sourceFileName = MainFormState.GRootPath + "\\Global Templates\\k" + StringType.FromInteger(checked (KotorVersionIndex + 1)) + "\\" + str2;
+              sourceFileName = MainFormState.GameRootPath + "\\Global Templates\\k" + StringType.FromInteger(checked (KotorVersionIndex + 1)) + "\\" + str2;
             File.Copy(sourceFileName, g_ProjectPath + "\\" + frmPromptForString.tbValue.Text.Trim() + "." + ResourceIdentification.GetRsrcTypeForId(int32));
             str1 = frmPromptForString.tbValue.Text.Trim();
           }
@@ -6812,7 +6812,7 @@ label_4:
       else
       {
         DirectoryInfo dir1 = new DirectoryInfo(g_ProjectPath + "\\userpalette");
-        DirectoryInfo dir2 = new DirectoryInfo(MainFormState.GRootPath + "\\Global Templates\\k" + StringType.FromInteger(checked (KotorVersionIndex + 1)));
+        DirectoryInfo dir2 = new DirectoryInfo(MainFormState.GameRootPath + "\\Global Templates\\k" + StringType.FromInteger(checked (KotorVersionIndex + 1)));
         tvUserPalette.Nodes[0].Nodes.Clear();
         tvUserPalette.Nodes[1].Nodes.Clear();
         tvUserPalette.Nodes[2].Nodes.Clear();

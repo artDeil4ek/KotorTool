@@ -914,7 +914,7 @@ namespace KotorTool_2._0.Ui.Forms
             @struct.Type = num4;
             @struct.FieldCount = 4;
             @struct.Fields = new GffField[4];
-            @struct.Fields[0] = new GffField(GffFieldTypes.GffCResRef, "InventoryRes", packItems.ResRef);
+            @struct.Fields[0] = new GffField(GffFieldTypes.GffCResRef, "InventoryRes", packItems.ResourceRef);
             @struct.Fields[1] = new GffField(GffFieldTypes.GffWord, "Repos_PosX", num4);
             @struct.Fields[2] = new GffField(GffFieldTypes.GffWord, "Repos_PosY", 0);
             @struct.Fields[3] = new GffField(GffFieldTypes.GffByte, "Dropable", 1);

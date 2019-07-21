@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using KotorTool_2._0.Data;
 using KotorTool_2._0.MainForm.Collections;
-using KotorTool_2._0.MainForm.Data;
 using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.ViewModels;
 

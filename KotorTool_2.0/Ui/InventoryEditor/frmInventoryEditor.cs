@@ -1642,7 +1642,7 @@ namespace KotorTool_2._0.Ui.InventoryEditor
 
             foreach (InventoryItem resRef2NameLookup in ResRef2NameLookupList)
             {
-                if (StringType.StrCmp(resRef2NameLookup.ResRef, resRef, false) == 0)
+                if (StringType.StrCmp(resRef2NameLookup.ResourceRef, resRef, false) == 0)
                 {
                     name = resRef2NameLookup.Name;
                     break;

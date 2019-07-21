@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using KotorTool_2._0.MainForm.Collections;
-using KotorTool_2._0.MainForm.Data;
 using KotorTool_2._0.Models;
 using KotorTool_2._0.Models.ERF;
 using KotorTool_2._0.Models.RIM;
@@ -18,7 +17,8 @@ namespace KotorTool_2._0.ViewModels
 
     /// <summary>
     /// TODO: Seperate this class out into seperate files, (Declutter)
-    /// TODO: Figure out why this has so many constructors 
+    /// TODO: Figure out why this has so many constructors
+    /// todo: Set up next node and previous node information in the guids
     /// </summary>
     public class KotorTreeNode : TreeNode
     {
@@ -32,17 +32,23 @@ namespace KotorTool_2._0.ViewModels
             NodeVm.KotorVersionIndex = -1;
         }
 
+
+
         public KotorTreeNode(string text) : base(text)
         {
             InitialiseDecorations();
             NodeVm.KotorVersionIndex = -1;
         }
 
+
+
         public KotorTreeNode(RimKeyEntry rke, string sourcePath) : this(rke)
         {
             InitialiseDecorations();
             NodeVm.FilePath = sourcePath;
         }
+
+
 
         public KotorTreeNode(KeyEntry ke)
         {
@@ -59,6 +65,9 @@ namespace KotorTool_2._0.ViewModels
             InitialiseDecorations();
             NodeVm.FilePath = sourcePath;
         }
+
+
+
 
         public KotorTreeNode(RimKeyEntry rke)
         {
@@ -84,12 +93,18 @@ namespace KotorTool_2._0.ViewModels
             Tag = "ERF_Res";
         }
 
+
+
         public KotorTreeNode(ErfKeyEntry erfKeyEntry, string sourcePath) : this(erfKeyEntry)
         {
             InitialiseDecorations();
             NodeVm.FilePath = sourcePath;
         }
-
+     
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public string Filename
         {
             get
@@ -100,12 +115,18 @@ namespace KotorTool_2._0.ViewModels
             set => NodeVm.FileName = value;
         }
 
+
+
         public void InitialiseDecorations()
         {
-           //  ForeColor = Color.Aqua;
-        /*     int myNodeFontSize = Int32.Parse("10");
-             NodeFont = new Font("Arial",myNodeFontSize);*/
+            
+            /*
+             * ForeColor = Color.Aqua;
+             * NodeFont = new Font("Arial",Int32.Parse("10"));
+             */
+
         }
+
 
         /// <summary>
         /// Ui function for setting the style of the node
@@ -117,6 +138,7 @@ namespace KotorTool_2._0.ViewModels
             ForeColor = fontColor;
             NodeFont = font;
         }
+
 
 
         /// <summary>

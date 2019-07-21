@@ -14,6 +14,14 @@ namespace KotorTool_2._0.Utils
 {
     public static class Utils
     {
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parentCtrl"></param>
+        /// <param name="ctrlName"></param>
+        /// <returns></returns>
         public static Control FindControl(Control parentCtrl, string ctrlName)
         {
             foreach (Control control1 in parentCtrl.Controls)
@@ -29,6 +37,17 @@ namespace KotorTool_2._0.Utils
             return null;
         }
 
+
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="editButton"></param>
+        /// <param name="editingFilePath"></param>
+        /// <param name="kotorVersionIndex"></param>
         public static void EditScriptForTextBox(Button editButton, string editingFilePath, int kotorVersionIndex)
         {
             string ctrlName = editButton.Name.Replace("btnEdit", "tb");

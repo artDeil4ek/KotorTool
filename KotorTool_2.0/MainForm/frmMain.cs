@@ -189,7 +189,7 @@ namespace KotorTool_2._0.MainForm
         private void OnLoad(object sender, EventArgs e)
         {
 
-            mainState = new MainFormState {BiffEntryListArray = new ArrayList[2, 31], BiffEntries = new ArrayList[3], HasK1 = true, HasK2 = true};
+            mainState = new MainFormState {BiffEntryListArray = new ArrayList[2, 31], BiffEntries = new ArrayList[3], HasKotor1 = true, HasKotor2 = true};
 
             Console.WriteLine(mainState.BiffEntries.Length);
          
@@ -213,8 +213,8 @@ namespace KotorTool_2._0.MainForm
             _treeViewPresenter = new TreeViewPresenter(mainState, treeView);
             containerPanel.Controls.Add(treeView);
 
-            MainFormState.GRootPath = StringType.FromObject(registryKey.GetValue("path"));
-            if (!MainFormState.GRootPath.EndsWith("\\")){ MainFormState.GRootPath += "\\"; }
+            MainFormState.GameRootPath = StringType.FromObject(registryKey.GetValue("path"));
+            if (!MainFormState.GameRootPath.EndsWith("\\")){ MainFormState.GameRootPath += "\\"; }
 
             treeView.HideSelection = false;
             Text = "Kotor Tool v" + Application.ProductVersion + "/2018";
@@ -222,17 +222,17 @@ namespace KotorTool_2._0.MainForm
             treeView.Height = containerPanel.Height;
             treeView.Width = containerPanel.Width;
 
-            if (!mainState.HasK1 & !mainState.HasK2){ Interaction.MsgBox("No installation of Kotor I or II was detected.\n\nMost features will not work.", MsgBoxStyle.Critical, "No games detected"); }
+            if (!mainState.HasKotor1 & !mainState.HasKotor2){ Interaction.MsgBox("No installation of Kotor I or II was detected.\n\nMost features will not work.", MsgBoxStyle.Critical, "No games detected"); }
 
-            if (StringType.StrCmp(ConfigOptions.Paths.DefaultKotorLocation, string.Empty, false) == 0 & mainState.HasK1 | StringType.StrCmp(ConfigOptions.Paths.DefaultKotorTslLocation, string.Empty, false) == 0 & mainState.HasK2)
+            if (StringType.StrCmp(ConfigOptions.Paths.DefaultKotorLocation, string.Empty, false) == 0 & mainState.HasKotor1 | StringType.StrCmp(ConfigOptions.Paths.DefaultKotorTslLocation, string.Empty, false) == 0 & mainState.HasKotor2)
             {
                 using (frmPathManager frmPathManager = new frmPathManager())
                 {
                     
                     Interaction.MsgBox("We've attempted to detect your KotOR installation,\rbut please verify the directories are correct.", MsgBoxStyle.Information, "First run configuration");
                    
-                    if (StringType.StrCmp(ConfigOptions.Paths.DefaultKotorLocation, string.Empty, false) == 0 & mainState.HasK1) frmPathManager.btnAutoDetectKotor1_Click(null, null);
-                    if (StringType.StrCmp(ConfigOptions.Paths.DefaultKotorTslLocation, string.Empty, false) == 0 & mainState.HasK2) frmPathManager.btnAutoDetectKotor2_Click(null, null);
+                    if (StringType.StrCmp(ConfigOptions.Paths.DefaultKotorLocation, string.Empty, false) == 0 & mainState.HasKotor1) frmPathManager.btnAutoDetectKotor1_Click(null, null);
+                    if (StringType.StrCmp(ConfigOptions.Paths.DefaultKotorTslLocation, string.Empty, false) == 0 & mainState.HasKotor2) frmPathManager.btnAutoDetectKotor2_Click(null, null);
                    
                     frmPathManager.StartPosition = FormStartPosition.CenterScreen;
                     frmPathManager.ShowDialog(this);
@@ -241,7 +241,7 @@ namespace KotorTool_2._0.MainForm
                 Constants.CurrentSettings = UserSettings.GetSettings();
                 ConfigOptions.Toggles.BuildModelsBifNode = true;
             }
-            if (mainState.HasK1)
+            if (mainState.HasKotor1)
             {
                 Constants.Gk1ChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(0));
                 Console.WriteLine("gK1ChitinKey: Lsum = " + StringType.FromLong(Constants.Gk1ChitinKey.Lsum) + ", Llength = " + StringType.FromLong(Constants.Gk1ChitinKey.Llength));
@@ -256,7 +256,7 @@ namespace KotorTool_2._0.MainForm
                     Interaction.MsgBox("Your Kotor I chitin.key file appears to have been altered from the official version.\n\nIf you have not altered it by installing custom packages, you may want to reinstall KotOR to fix this.", MsgBoxStyle.Critical, "Chitin.key file altered");
                 }
             }
-            if (mainState.HasK2)
+            if (mainState.HasKotor2)
             {
                 Constants.Gk2ChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(1));
                 Console.WriteLine("gK2ChitinKey: Lsum = " + StringType.FromLong(Constants.Gk2ChitinKey.Lsum) + ", Llength = " + StringType.FromLong(Constants.Gk2ChitinKey.Llength));
@@ -273,21 +273,21 @@ namespace KotorTool_2._0.MainForm
 
             _treeViewPresenter.SetupTreeRoots();
 
-            if (!mainState.HasK1) treeView.Nodes[0].ForeColor = Color.Gray;
-            if (!mainState.HasK2) treeView.Nodes[1].ForeColor = Color.Gray;
-            if (mainState.HasK1) _treeViewPresenter.SetupRootChildren((KotorTreeNode)treeView.Nodes[0]);
-            if (mainState.HasK2) _treeViewPresenter.SetupRootChildren((KotorTreeNode)treeView.Nodes[1]);
+            if (!mainState.HasKotor1) treeView.Nodes[0].ForeColor = Color.Gray;
+            if (!mainState.HasKotor2) treeView.Nodes[1].ForeColor = Color.Gray;
+            if (mainState.HasKotor1) _treeViewPresenter.SetupRootChildren((KotorTreeNode)treeView.Nodes[0]);
+            if (mainState.HasKotor2) _treeViewPresenter.SetupRootChildren((KotorTreeNode)treeView.Nodes[1]);
 
             if (ConfigOptions.Toggles.BuildBiffTreeOnStartup)
             {
-                if (mainState.HasK1) _treeViewPresenter.BuildTreeView((KotorTreeNode)treeView.Nodes[0]);
-                if (mainState.HasK2) _treeViewPresenter.BuildTreeView((KotorTreeNode)treeView.Nodes[1]);
+                if (mainState.HasKotor1) _treeViewPresenter.BuildTreeView((KotorTreeNode)treeView.Nodes[0]);
+                if (mainState.HasKotor2) _treeViewPresenter.BuildTreeView((KotorTreeNode)treeView.Nodes[1]);
             }
 
             if (MainFormState.IsOnly1KotOrInstalled())
             {
-                if (mainState.HasK1) treeView.SelectedNode = treeView.Nodes[0];
-                if (mainState.HasK2) treeView.SelectedNode = treeView.Nodes[1];
+                if (mainState.HasKotor1) treeView.SelectedNode = treeView.Nodes[0];
+                if (mainState.HasKotor2) treeView.SelectedNode = treeView.Nodes[1];
             }
 
             _treeViewPresenter.CreateTemplateTagsHashFiles();
@@ -319,7 +319,7 @@ namespace KotorTool_2._0.MainForm
         #region MenuItems
         private void CreateMapInfoBFD_Click(object sender, EventArgs e)
         {
-            new ClsMapInfoCreator().Write(MainFormState.GRootPath);
+            new ClsMapInfoCreator().Write(MainFormState.GameRootPath);
         }
       
         
@@ -465,13 +465,13 @@ namespace KotorTool_2._0.MainForm
         private void CleanWorkingDirectoryOnClick(object sender, EventArgs e)
         {
             if (Interaction.MsgBox("Are you sure you want to delete all of the files in your working directory?", MsgBoxStyle.OkCancel | MsgBoxStyle.Question | MsgBoxStyle.DefaultButton2, "Clean working directory") != MsgBoxResult.Ok) return;
-            DirectoryUtils.CleanDirectory(MainFormState.GRootPath + "working");
+            DirectoryUtils.CleanDirectory(MainFormState.GameRootPath + "working");
         }
         
         
         private void OpenWorkingDirectoryOnClick(object sender, EventArgs e)
         {
-            new Process { StartInfo = { FileName = "explorer.exe ", Arguments = MainFormState.GRootPath + "working" } }.Start();
+            new Process { StartInfo = { FileName = "explorer.exe ", Arguments = MainFormState.GameRootPath + "working" } }.Start();
         }
         
         

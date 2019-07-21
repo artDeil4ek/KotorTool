@@ -10,8 +10,13 @@ namespace KotorTool_2._0.Options
     [Serializable]
     public class ConfigOptions
     {
-        public static ConfigOptions configOptions { get; set; }
 
+
+
+        /// <summary>
+        /// Singleton Pattern for retrieving Configurations
+        /// </summary>
+        public static ConfigOptions configOptions { get; set; }
 
         public static ConfigOptions GetInstance()
         {
@@ -24,7 +29,21 @@ namespace KotorTool_2._0.Options
         }
 
 
-        public class ConfigData
+
+
+
+
+        public Paths paths { get; set; }
+        public Toggles toggles { get; set; }
+
+        public ConfigOptions()
+        {
+            paths = new Paths();
+            toggles = new Toggles();
+        }
+
+
+         public class ConfigData
         {
             private string Key { get; set; }
             public static ArrayList MruMainFiles { get; set; }
@@ -90,30 +109,31 @@ namespace KotorTool_2._0.Options
             }
         }
 
+
         [Serializable]
         public class Toggles
         {
-            public static bool BuildBiffTreeOnStartup;
-            public static bool AlwaysConvertTpc2Tga;
-            public static bool DockImageViewer;
-            public static bool TextEditorWordWrap;
-            public static bool AlwaysUnknownGfFasText;
-            public static bool ShowModuleLocations;
-            public static bool ShowModuleDescriptions;
-            public static bool BuildModelsBifNode;
-            public static bool ProjMgrUseExternTxtEditor;
-            public static bool ProjMgrUseExternDlgEditor;
-            public static bool ModuleEditorShowLocatorRay;
-            public static bool ModuleEditorConfirmDeletes;
-            public static bool CheckForUpdatesAtStartup;
-            public static bool DownloadUpdatesAutomatically;
-            public static bool RememberLastTreeNode;
-            public static bool RememberTreeViewState;
-            public static bool ModelExtractionExtractAnimations;
-            public static bool ModelExtractionConvertSkinToTrimesh;
-            public static bool ModelExtractionEachModelInOwnDirectory;
-            public static bool ModelExtractionCleanWorkingDirectoryBeforeExport;
-            public static bool UseOverrideFiles;
+            public bool BuildBiffTreeOnStartup;
+            public bool AlwaysConvertTpc2Tga;
+            public bool DockImageViewer;
+            public bool TextEditorWordWrap;
+            public bool AlwaysUnknownGfFasText;
+            public bool ShowModuleLocations;
+            public  bool ShowModuleDescriptions;
+            public  bool BuildModelsBifNode;
+            public  bool ProjMgrUseExternTxtEditor;
+            public  bool ProjMgrUseExternDlgEditor;
+            public  bool ModuleEditorShowLocatorRay;
+            public  bool ModuleEditorConfirmDeletes;
+            public  bool CheckForUpdatesAtStartup;
+            public  bool DownloadUpdatesAutomatically;
+            public  bool RememberLastTreeNode;
+            public  bool RememberTreeViewState;
+            public  bool ModelExtractionExtractAnimations;
+            public  bool ModelExtractionConvertSkinToTrimesh;
+            public  bool ModelExtractionEachModelInOwnDirectory;
+            public bool ModelExtractionCleanWorkingDirectoryBeforeExport;
+            public bool UseOverrideFiles;
         }
 
 

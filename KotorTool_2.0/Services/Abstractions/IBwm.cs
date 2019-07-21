@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using KotorTool_2._0.Models.CLS;
 
-namespace KotorTool_2._0.Services
+namespace KotorTool_2._0.Services.Abstractions
 {
     public interface IBwm
     {

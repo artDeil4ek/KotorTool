@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using KotorTool_2._0.Services;
+using KotorTool_2._0.Services.Abstractions;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 

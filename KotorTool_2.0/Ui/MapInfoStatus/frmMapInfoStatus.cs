@@ -104,7 +104,7 @@ namespace KotorTool_2._0.Ui.MapInfoStatus
         public static MapInfo ReadMapInfoFile()
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            Stream serializationStream1 = File.OpenRead(MainFormState.GRootPath + "MapInfo.bfd");
+            Stream serializationStream1 = File.OpenRead(MainFormState.GameRootPath + "MapInfo.bfd");
             MapInfo mapInfo;
             try
             {
@@ -119,7 +119,7 @@ namespace KotorTool_2._0.Ui.MapInfoStatus
                 serializationStream1.Close();
                 if (mapInfo.GetType() == Type.GetType("KotorTool_2.MapInfo"))
                 {
-                    Stream serializationStream2 = File.OpenWrite(MainFormState.GRootPath + "MapInfo.bfd");
+                    Stream serializationStream2 = File.OpenWrite(MainFormState.GameRootPath + "MapInfo.bfd");
                     new BinaryFormatter().Serialize(serializationStream2, mapInfo);
                     serializationStream2.Close();
                 }

@@ -1,6 +1,11 @@
-﻿namespace CoreData.Biff
+﻿using System;
+using System.Diagnostics;
+
+namespace CoreData.Biff
 {
-    public class BiffVarRsrcEntry
+    
+    [Serializable]
+    public class BiffVariableResourceEntry
     {
         public byte[] Data { get; set; }
     }

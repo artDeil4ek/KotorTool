@@ -14,9 +14,14 @@ namespace KotorTool_2._0.Utils
             int num = 0;
             try
             {
+
+
                 FileSystemInfo[] directories = directoryInfo1.GetDirectories();
                 Console.WriteLine("Number of directories: {0}", directories.Length);
                 FileSystemInfo[] fileSystemInfoArray = directories;
+
+
+
                 int index1 = 0;
                 while (index1 < fileSystemInfoArray.Length)
                 {
@@ -121,11 +126,11 @@ namespace KotorTool_2._0.Utils
             }
         }
         
-         public static void EnsureWorkingDirectoryExists()
+         public static void EnsureWorkingDirectoryExists(MainFormState state)
         {
-            if (Directory.Exists(MainFormState.GRootPath + "working"))
+            if (Directory.Exists(state.GameRootPath + "working"))
                 return;
-            Directory.CreateDirectory(MainFormState.GRootPath + "working");
+            Directory.CreateDirectory(state.GameRootPath + "working");
         }
         
     }

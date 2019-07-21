@@ -1,0 +1,6 @@
+C:\Users\steve\source\repos\KotorTool\KotorApi\bin\Debug\KotorApi.dll
+C:\Users\steve\source\repos\KotorTool\KotorApi\bin\Debug\KotorApi.pdb
+C:\Users\steve\source\repos\KotorTool\KotorApi\obj\Debug\KotorApi.csprojAssemblyReference.cache
+C:\Users\steve\source\repos\KotorTool\KotorApi\obj\Debug\KotorApi.csproj.CoreCompileInputs.cache
+C:\Users\steve\source\repos\KotorTool\KotorApi\obj\Debug\KotorApi.dll
+C:\Users\steve\source\repos\KotorTool\KotorApi\obj\Debug\KotorApi.pdb

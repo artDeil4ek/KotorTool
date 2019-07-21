@@ -199,7 +199,7 @@ namespace KotorTool_2._0.Models.CLS
             return index;
         }
 
-        public byte[] GetErftpcResourceHeader(int index)
+        public byte[] GetErfTpcResourceHeader(int index)
         {
             using (BinaryReader binaryReader = new BinaryReader(_fstream, Encoding.ASCII))
             {

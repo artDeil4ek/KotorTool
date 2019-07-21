@@ -89,7 +89,7 @@ namespace KotorTool_2._0.Models.CLS
             _gMs.Seek(8L, SeekOrigin.Begin);
             _gStructOffset = _gRdr.ReadInt32();
             _gStructCount = _gRdr.ReadInt32();
-            GStructArr = new object[_gStructCount];
+            GStructArray = new object[_gStructCount];
             _gFieldOffset = _gRdr.ReadInt32();
             _gFieldCount = _gRdr.ReadInt32();
             _gLabelOffset = _gRdr.ReadInt32();
@@ -116,7 +116,7 @@ namespace KotorTool_2._0.Models.CLS
             structEntry.DataOrDataOffset = _gRdr.ReadInt32();
             structEntry.FieldCount = _gRdr.ReadInt32();
             //  _rootGffStruct = GffReadStruct(ref structEntry);
-            LateBinding.LateIndexSet(GStructArr, new object[2]
+            LateBinding.LateIndexSet(GStructArray, new object[2]
             {
                 0,
                 _rootGffStruct
@@ -132,11 +132,11 @@ namespace KotorTool_2._0.Models.CLS
             ArrayList arrayList = new ArrayList();
             int num1 = 0;
             int num2 =
-                checked(((GffStruct) LateBinding.LateIndexGet(GStructArr, new object[1] {0}, null)).Fields.Length - 1);
+                checked(((GffStruct) LateBinding.LateIndexGet(GStructArray, new object[1] {0}, null)).Fields.Length - 1);
             int index = num1;
             while (index <= num2)
             {
-                arrayList.Add(((GffStruct) LateBinding.LateIndexGet(GStructArr, new object[1]
+                arrayList.Add(((GffStruct) LateBinding.LateIndexGet(GStructArray, new object[1]
                 {
                     0
                 }, null)).Fields[index].Label);
@@ -317,11 +317,11 @@ namespace KotorTool_2._0.Models.CLS
                     field.Value = gffVoid;
                     break;
                 case GffFieldTypes.GffStruct:
-                    if (LateBinding.LateIndexGet(GStructArr, new[] {RuntimeHelpers.GetObjectValue(fieldEntry.DataOrDataOffset)}, null) == null)
+                    if (LateBinding.LateIndexGet(GStructArray, new[] {RuntimeHelpers.GetObjectValue(fieldEntry.DataOrDataOffset)}, null) == null)
                     {
                         _gMs.Seek(LongType.FromObject(ObjectType.AddObj(_gStructOffset, ObjectType.MulObj(fieldEntry.DataOrDataOffset, 12))), SeekOrigin.Begin);
                         GffStructEntry myStructEntry = new GffStructEntry {Type = _gRdr.ReadInt32(), DataOrDataOffset = _gRdr.ReadInt32(), FieldCount = _gRdr.ReadInt32()};
-                        LateBinding.LateIndexSet(GStructArr, new[] {RuntimeHelpers.GetObjectValue(fieldEntry.DataOrDataOffset), GffReadStruct(ref myStructEntry)}, null);
+                        LateBinding.LateIndexSet(GStructArray, new[] {RuntimeHelpers.GetObjectValue(fieldEntry.DataOrDataOffset), GffReadStruct(ref myStructEntry)}, null);
                     }
 
                     field.Value = RuntimeHelpers.GetObjectValue(fieldEntry.DataOrDataOffset);
@@ -343,12 +343,12 @@ namespace KotorTool_2._0.Models.CLS
 
                         FlowUtils.BasicIterator(gffList.StructIndices.Count - 1, 0, i =>
                         {
-                            if (LateBinding.LateIndexGet(GStructArr, new[] {RuntimeHelpers.GetObjectValue(gffList.StructIndices[i])}, null) == null)
+                            if (LateBinding.LateIndexGet(GStructArray, new[] {RuntimeHelpers.GetObjectValue(gffList.StructIndices[i])}, null) == null)
                             {
                                 _gMs.Seek(0L, SeekOrigin.Begin);
                                 _gMs.Seek(LongType.FromObject(ObjectType.AddObj(_gStructOffset, ObjectType.MulObj(gffList.StructIndices[i], 12))), SeekOrigin.Begin);
                                 GffStructEntry myStructEntry = new GffStructEntry {Type = _gRdr.ReadInt32(), DataOrDataOffset = _gRdr.ReadInt32(), FieldCount = _gRdr.ReadInt32()};
-                                LateBinding.LateIndexSet(GStructArr, new object[2] {RuntimeHelpers.GetObjectValue(gffList.StructIndices[i]), GffReadStruct(ref myStructEntry)}, null);
+                                LateBinding.LateIndexSet(GStructArray, new object[2] {RuntimeHelpers.GetObjectValue(gffList.StructIndices[i]), GffReadStruct(ref myStructEntry)}, null);
                             }
                         });
                     }
@@ -512,7 +512,7 @@ namespace KotorTool_2._0.Models.CLS
                     {
                         if (_nodeSearchLevel == checked(_nodeSearchPath.Length - 1)) return GffField;
                         _nodeSearchLevel = checked(_nodeSearchLevel + 1);
-                        if (GffField.Type == GffFieldTypes.GffStruct) return FindNode((GffStruct) LateBinding.LateIndexGet(GStructArr, new object[1] {RuntimeHelpers.GetObjectValue(GffField.Value)}, null));
+                        if (GffField.Type == GffFieldTypes.GffStruct) return FindNode((GffStruct) LateBinding.LateIndexGet(GStructArray, new object[1] {RuntimeHelpers.GetObjectValue(GffField.Value)}, null));
                         if (GffField.Type == GffFieldTypes.GffList)
                         {
                             if (_nodeSearchLevel == checked(_nodeSearchPath.Length - 1)) return GffField;
@@ -529,7 +529,7 @@ namespace KotorTool_2._0.Models.CLS
 
         public GffStruct FindListElement(GffList list)
         {
-            GffStruct gffStruct = (GffStruct) LateBinding.LateIndexGet(GStructArr,
+            GffStruct gffStruct = (GffStruct) LateBinding.LateIndexGet(GStructArray,
                 new object[1]
                 {
                     RuntimeHelpers.GetObjectValue(
@@ -587,26 +587,26 @@ namespace KotorTool_2._0.Models.CLS
         {
             ArrayList structIndices = GetListNode(pathToList).StructIndices;
             int num1 = 0;
-            int num2 = GStructArr.Length - 1;
+            int num2 = GStructArray.Length - 1;
             int num3 = num1;
             while (num3 <= num2)
             {
-                if (LateBinding.LateIndexGet(GStructArr, new object[] {num3}, null) != null) ++num3;
+                if (LateBinding.LateIndexGet(GStructArray, new object[] {num3}, null) != null) ++num3;
                 else break;
             }
 
-            if (num3 < GStructArr.Length)
+            if (num3 < GStructArray.Length)
             {
                 structIndices.Add(num3);
-                LateBinding.LateIndexSet(GStructArr, new object[] {num3, @struct}, null);
+                LateBinding.LateIndexSet(GStructArray, new object[] {num3, @struct}, null);
             }
             else
             {
-                Array instance = new GffStruct[checked(GStructArr.Length + 1)];
-                Array.Copy(GStructArr, instance, GStructArr.Length);
-                GStructArr = instance;
-                structIndices.Add(checked(GStructArr.Length - 1));
-                LateBinding.LateIndexSet(GStructArr, new object[] {GStructArr.Length - 1, @struct}, null);
+                Array instance = new GffStruct[checked(GStructArray.Length + 1)];
+                Array.Copy(GStructArray, instance, GStructArray.Length);
+                GStructArray = instance;
+                structIndices.Add(checked(GStructArray.Length - 1));
+                LateBinding.LateIndexSet(GStructArray, new object[] {GStructArray.Length - 1, @struct}, null);
             }
         }
 
@@ -614,7 +614,7 @@ namespace KotorTool_2._0.Models.CLS
         {
             int num = IntegerType.FromObject(GetListNode(pathToList).StructIndices[index]);
             GetListNode(pathToList).StructIndices.RemoveAt(index);
-            LateBinding.LateIndexSet(GStructArr, new object[2] {num, null}, null);
+            LateBinding.LateIndexSet(GStructArray, new object[2] {num, null}, null);
             FixGffListRefs();
         }
 
@@ -629,11 +629,11 @@ namespace KotorTool_2._0.Models.CLS
             {
                 int num = IntegerType.FromObject(structIndices[index]);
                 structIndices.RemoveAt(index);
-                ScanStructForLists((GffStruct) LateBinding.LateIndexGet(GStructArr, new object[]
+                ScanStructForLists((GffStruct) LateBinding.LateIndexGet(GStructArray, new object[]
                 {
                     num
                 }, null));
-                LateBinding.LateIndexSet(GStructArr, new object[2]
+                LateBinding.LateIndexSet(GStructArray, new object[2]
                 {
                     num,
                     null
@@ -654,7 +654,7 @@ namespace KotorTool_2._0.Models.CLS
             {
                 int num = IntegerType.FromObject(structIndices[index]);
                 structIndices.RemoveAt(index);
-                LateBinding.LateIndexSet(GStructArr, new object[2]
+                LateBinding.LateIndexSet(GStructArray, new object[2]
                 {
                     num,
                     null
@@ -672,11 +672,11 @@ namespace KotorTool_2._0.Models.CLS
             if (removedStructIndex == -1)
             {
                 int num2 = 0;
-                int num3 = checked(GStructArr.Length - 1);
+                int num3 = checked(GStructArray.Length - 1);
                 num1 = num2;
                 while (num1 <= num3)
                 {
-                    if (LateBinding.LateIndexGet(GStructArr, new object[1] {num1}, null) != null)
+                    if (LateBinding.LateIndexGet(GStructArray, new object[1] {num1}, null) != null)
                         ++num1;
                     else
                         break;
@@ -685,7 +685,7 @@ namespace KotorTool_2._0.Models.CLS
             else
                 num1 = removedStructIndex;
 
-            if (num1 == GStructArr.Length)
+            if (num1 == GStructArray.Length)
                 return;
 
             foreach (GffList gffList in _gGffListArr)
@@ -714,11 +714,11 @@ namespace KotorTool_2._0.Models.CLS
 
             CleanupStructArrayAfterDelete();
             int num4 = 0;
-            int num5 = checked(GStructArr.Length - 1);
+            int num5 = checked(GStructArray.Length - 1);
             int num6 = num4;
             while (num6 <= num5)
             {
-                GffField[] fields = ((GffStruct) LateBinding.LateIndexGet(GStructArr, new object[1] {num6}, null))
+                GffField[] fields = ((GffStruct) LateBinding.LateIndexGet(GStructArray, new object[1] {num6}, null))
                     .Fields;
                 int index = 0;
                 while (index < fields.Length)
@@ -744,16 +744,16 @@ namespace KotorTool_2._0.Models.CLS
         {
             bool flag = false;
             int num1 = 0;
-            int num2 = GStructArr.Length - 2;
+            int num2 = GStructArray.Length - 2;
             int num3 = num1;
             while (num3 <= num2)
             {
-                if (LateBinding.LateIndexGet(GStructArr, new object[1] {num3}, null) == null || flag)
+                if (LateBinding.LateIndexGet(GStructArray, new object[1] {num3}, null) == null || flag)
                 {
-                    LateBinding.LateIndexSet(GStructArr, new object[2]
+                    LateBinding.LateIndexSet(GStructArray, new object[2]
                     {
                         num3,
-                        RuntimeHelpers.GetObjectValue(LateBinding.LateIndexGet(GStructArr, new object[1]
+                        RuntimeHelpers.GetObjectValue(LateBinding.LateIndexGet(GStructArray, new object[1]
                         {
                             num3 + 1
                         }, null))
@@ -765,9 +765,9 @@ namespace KotorTool_2._0.Models.CLS
                 ++num3;
             }
 
-            Array instance = new GffStruct[GStructArr.Length - 1];
-            Array.Copy(GStructArr, instance, GStructArr.Length - 1);
-            GStructArr = instance;
+            Array instance = new GffStruct[GStructArray.Length - 1];
+            Array.Copy(GStructArray, instance, GStructArray.Length - 1);
+            GStructArray = instance;
         }
 
         private void ScanStructForLists(GffStruct @struct)
@@ -786,7 +786,7 @@ namespace KotorTool_2._0.Models.CLS
                     int index2 = num1;
                     while (index2 <= num2)
                     {
-                        ScanStructForLists((GffStruct) LateBinding.LateIndexGet(GStructArr, new object[1]
+                        ScanStructForLists((GffStruct) LateBinding.LateIndexGet(GStructArray, new object[1]
                         {
                             RuntimeHelpers.GetObjectValue(((GffList) gffFieldTypes.Value).StructIndices[index2])
                         }, null));
@@ -819,7 +819,7 @@ namespace KotorTool_2._0.Models.CLS
             _nodeSearchPath = Strings.Split(path, ".");
             _nodeSearchLevel = 0;
             return IntegerType.FromObject(LateBinding.LateGet(
-                LateBinding.LateIndexGet(GStructArr,
+                LateBinding.LateIndexGet(GStructArray,
                     new object[1] {RuntimeHelpers.GetObjectValue(FindNode(_rootGffStruct))}, null), null, "fieldCount",
                 new object[0], null, null));
         }
@@ -942,7 +942,7 @@ namespace KotorTool_2._0.Models.CLS
                         IntegerType.FromString(strArray[checked(strArray.Length - 1)])]);
             }
 
-            GffStruct gffStruct1 = (GffStruct) LateBinding.LateIndexGet(GStructArr, new object[1] {num}, null);
+            GffStruct gffStruct1 = (GffStruct) LateBinding.LateIndexGet(GStructArray, new object[1] {num}, null);
             gffStruct1.Fields = (GffField[]) Microsoft.VisualBasic.CompilerServices.Utils.CopyArray(
                 gffStruct1.Fields,
                 new GffFieldTypes[checked(gffStruct1.Fields.Length + 1)]);
@@ -957,7 +957,7 @@ namespace KotorTool_2._0.Models.CLS
         public void AddKtNode()
         {
             GffField gffField = new GffField(GffFieldTypes.GffCResRef, "KTInfoMaj", Application.ProductVersion);
-            GffField[] fields = ((GffStruct) LateBinding.LateIndexGet(GStructArr, new object[1] {0}, null)).Fields;
+            GffField[] fields = ((GffStruct) LateBinding.LateIndexGet(GStructArray, new object[1] {0}, null)).Fields;
             GffFieldTypes[] gffFieldTypesArray =
                 (GffFieldTypes[]) Microsoft.VisualBasic.CompilerServices.Utils.CopyArray(fields,
                     new GffFieldTypes[fields.Length + 1]);
@@ -1022,9 +1022,9 @@ namespace KotorTool_2._0.Models.CLS
 
         public void CreateRootStruct()
         {
-            GStructArr = new object[1];
+            GStructArray = new object[1];
             _rootGffStruct.Fields = new GffField[0];
-            LateBinding.LateIndexSet(GStructArr, new object[2]
+            LateBinding.LateIndexSet(GStructArray, new object[2]
             {
                 0,
                 _rootGffStruct
@@ -1038,16 +1038,16 @@ namespace KotorTool_2._0.Models.CLS
             Hashtable hashtable = new Hashtable();
             int num1 = 0;
             AddKtInfoToGff();
-            int num2 = checked(GStructArr.Length * 12);
+            int num2 = checked(GStructArray.Length * 12);
             binaryWriter1.Write((Strings.UCase(Strings.Trim(filetype)) + " V3.2").ToCharArray());
             int num3 = 0;
             int num4 = 0;
             int num5 = 0;
-            int num6 = GStructArr.Length - 1;
+            int num6 = GStructArray.Length - 1;
             int num7 = num5;
             while (num7 <= num6)
             {
-                GffField[] fields = ((GffStruct) LateBinding.LateIndexGet(GStructArr, new object[1] {num7}, null))
+                GffField[] fields = ((GffStruct) LateBinding.LateIndexGet(GStructArray, new object[1] {num7}, null))
                     .Fields;
                 int index = 0;
                 while (index < fields.Length)
@@ -1075,12 +1075,12 @@ namespace KotorTool_2._0.Models.CLS
             int num9 = checked(hashtable.Count * 16);
             int num10 = 0;
             int num11 = 0;
-            int num12 = checked(GStructArr.Length - 1);
+            int num12 = checked(GStructArray.Length - 1);
             int num13 = num11;
             int num14 = 0;
             while (num13 <= num12)
             {
-                GffField[] fields = ((GffStruct) LateBinding.LateIndexGet(GStructArr, new object[1] {num13}, null))
+                GffField[] fields = ((GffStruct) LateBinding.LateIndexGet(GStructArray, new object[1] {num13}, null))
                     .Fields;
                 int index = 0;
                 while (index < fields.Length)
@@ -1141,14 +1141,14 @@ namespace KotorTool_2._0.Models.CLS
             }
 
             int num16 = 0;
-            int num17 = checked(GStructArr.Length - 1);
+            int num17 = checked(GStructArray.Length - 1);
             int num18 = num16;
             int num19 = 0;
             while (num18 <= num17)
             {
-                if (((GffStruct) LateBinding.LateIndexGet(GStructArr, new object[1] {num18}, null)).FieldCount > 1)
+                if (((GffStruct) LateBinding.LateIndexGet(GStructArray, new object[1] {num18}, null)).FieldCount > 1)
 
-                    num19 += ((GffStruct) LateBinding.LateIndexGet(GStructArr, new object[1]
+                    num19 += ((GffStruct) LateBinding.LateIndexGet(GStructArray, new object[1]
                     {
                         num18
                     }, null)).FieldCount;
@@ -1170,7 +1170,7 @@ namespace KotorTool_2._0.Models.CLS
             int offset6 = num24;
             binaryWriter1.Seek(8, SeekOrigin.Begin);
             binaryWriter1.Write(56);
-            binaryWriter1.Write(GStructArr.Length);
+            binaryWriter1.Write(GStructArray.Length);
             binaryWriter1.Write(num20);
             binaryWriter1.Write(checked((int) Math.Round(num8 / 12.0)));
             binaryWriter1.Write(num21);
@@ -1182,11 +1182,11 @@ namespace KotorTool_2._0.Models.CLS
             binaryWriter1.Write(num24);
             binaryWriter1.Write(num14);
             int num25 = 0;
-            int num26 = checked(GStructArr.Length - 1);
+            int num26 = checked(GStructArray.Length - 1);
             int num27 = num25;
             while (num27 <= num26)
             {
-                GffStruct gffStruct = (GffStruct) LateBinding.LateIndexGet(GStructArr, new object[1] {num27}, null);
+                GffStruct gffStruct = (GffStruct) LateBinding.LateIndexGet(GStructArray, new object[1] {num27}, null);
                 gffStruct.DataOrDataOffset = gffStruct.FieldCount != 1 ? checked(offset5 - num23) : num1;
                 binaryWriter1.Seek(offset1, SeekOrigin.Begin);
                 binaryWriter1.Write(gffStruct.Type);

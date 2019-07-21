@@ -1,0 +1,2 @@
+C:\Users\steve\source\repos\KotorTool\FileTests\obj\Debug\FileTests.csprojAssemblyReference.cache
+C:\Users\steve\source\repos\KotorTool\FileTests\obj\Debug\FileTests.csproj.CoreCompileInputs.cache

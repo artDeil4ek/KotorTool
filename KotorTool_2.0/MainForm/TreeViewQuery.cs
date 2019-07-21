@@ -158,7 +158,7 @@ namespace KotorTool_2._0.MainForm
         public void ScanBifForText(int kotorVerIndex, int biffListIndex, Hashtable htFileTypeIDs, Regex oRegex, ListBox.ObjectCollection lboc)
         {
             ASCIIEncoding asciiEncoding = new ASCIIEncoding();
-            string path = ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\" + ((BiffEntry)_mainState.BiffEntries[kotorVerIndex][biffListIndex]).Filename;
+            string path = ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\" + ((BiffEntry)_mainState.BiffEntries[kotorVerIndex][biffListIndex]).FileName;
             FileStream fsin = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000);
             BiffArchive biffArchive = new BiffArchive(fsin);
 

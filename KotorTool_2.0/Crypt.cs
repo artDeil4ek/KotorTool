@@ -55,7 +55,7 @@ namespace KotorTool_2._0
 
 
 
-        [DebuggerDisplay("{inStr}")]
+        
         public string Decrypt(string inStr)
         {
             string str = string.Empty;

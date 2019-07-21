@@ -4,7 +4,7 @@
     {
         byte[] GetErfResource(int index);
         byte[] GetErfResource(string resRef, int resType);
-        byte[] GetErftpcResourceHeader(int index);
+        byte[] GetErfTpcResourceHeader(int index);
         int FindIndexForResRef(string resRef, int resType);
     }
 }

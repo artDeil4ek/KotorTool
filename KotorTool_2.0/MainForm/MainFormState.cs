@@ -12,15 +12,15 @@ namespace KotorTool_2._0.MainForm
     public class MainFormState : IState
     {
         public IContainer components;
-        public string GRootPath;
+        public string GameRootPath;
         public ArrayList[,] BiffEntryListArray;
         public ArrayList[] BiffEntries;
-        public KotorTreeNode LastClickedTvNode;
-        public KotorTreeNode SecondToLastClickedTvNode;
+        public KotorTreeNode LastClickedTreeViewNode;
+        public KotorTreeNode SecondToLastClickedTreeViewNode;
         public byte[] Buffer;
         public string[] CmdArgs;
-        public bool HasK1;
-        public bool HasK2;
+        public bool HasKotor1;
+        public bool HasKotor2;
     }
 
 

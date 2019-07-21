@@ -1,6 +1,6 @@
 ﻿using KotorTool_2._0.ViewModels;
 
-namespace KotorTool_2._0.Services
+namespace KotorTool_2._0.Services.Abstractions
 {
     public interface IDialogTlk
     {

@@ -9,7 +9,9 @@ namespace KotorTool_2._0.ViewModels
 {
     public class NodeVm
     {
-        public Guid guid { get; set; }
+        public Guid Guid { get; set; }
+        public Guid NextNodeId { get; set; }
+        public Guid PreviousNodeId { get; set; }
         public string FileName { get; set; }
         public string ContainingFileType { get; set; }
         public string ResourceTypeStr => ResourceIdentification.GetRsrcTypeForId(ResourceType);

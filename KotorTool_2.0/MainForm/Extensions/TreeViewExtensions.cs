@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KotorTool_2._0.AppConfiguration;
-using KotorTool_2._0.MainForm.Data;
+using KotorTool_2._0.Data;
 using KotorTool_2._0.ViewModels;
 
 namespace KotorTool_2._0.MainForm.Extensions
@@ -17,21 +17,24 @@ namespace KotorTool_2._0.MainForm.Extensions
         public static IEnumerable<NodeData> MapTreeNodesToData(this TreeView treeView)
         {
 
-            TreeNode oMainNode = treeView.Nodes[0];
-            PrintNodesRecursive(oMainNode);
+            var collection = new List<NodeData>();
 
-            void PrintNodesRecursive(TreeNode oParentNode)
+            TreeNode mainNode = treeView.Nodes[0];
+            AddNodeDataRecursive(mainNode);
+
+
+            void AddNodeDataRecursive(TreeNode parentNode)
             {
-                Console.WriteLine(oParentNode.Text);
-
-                // Start recursion on all subnodes.
-                foreach (TreeNode oSubNode in oParentNode.Nodes)
+                foreach (TreeNode subNode in parentNode.Nodes)
                 {
-                    PrintNodesRecursive(oSubNode);
+                    KotorTreeNode node = (KotorTreeNode)subNode;
+                    collection.Add(MappingService.IMapper.Map<NodeVm, NodeData>(node.NodeVm));
+
+                    AddNodeDataRecursive(subNode);
                 }
             }
 
-            return null;
+            return collection;
         }
 
 
@@ -44,9 +47,7 @@ namespace KotorTool_2._0.MainForm.Extensions
             TreeNode mainNode = treeView.Nodes[0];
             AddNodeDataRecursive(mainNode);
 
-            /*
-             * --Recursive Inner Anonymous Function
-             */
+           
              void AddNodeDataRecursive(TreeNode parentNode)
             {
                 foreach (TreeNode subNode in parentNode.Nodes)

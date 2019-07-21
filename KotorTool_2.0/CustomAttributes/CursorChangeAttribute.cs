@@ -13,10 +13,7 @@ namespace KotorTool_2._0.CustomAttributes
 
         public CursorChangeAttribute(CursorTypes type)
         {
-            switch (type)
-            {
-                    case 
-            }
+        
         }
          
     }

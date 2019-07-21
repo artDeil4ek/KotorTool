@@ -6363,10 +6363,10 @@ namespace KotorTool_2._0.Ui.Forms
             @struct.Type = num7;
             @struct.FieldCount = 4;
             @struct.Fields = new GffField[4];
-            @struct.Fields[0] = new GffField(GffFieldTypes.GffCResRef, "InventoryRes", packItems.ResRef);
+            @struct.Fields[0] = new GffField(GffFieldTypes.GffCResRef, "InventoryRes", packItems.ResourceRef);
             @struct.Fields[1] = new GffField(GffFieldTypes.GffWord, "Repos_PosX", num7);
             @struct.Fields[2] = new GffField(GffFieldTypes.GffWord, "Repos_PosY", 0);
-            byte num10 = !packItems.Dropable ? (byte) 0 : (byte) 1;
+            byte num10 = !packItems.Droppable ? (byte) 0 : (byte) 1;
             @struct.Fields[3] = new GffField(GffFieldTypes.GffByte, "Dropable", num10);
             if (!UTC.VerifyNodeExists("ItemList"))
               UTC.CreateList("", "ItemList");
@@ -6381,14 +6381,14 @@ namespace KotorTool_2._0.Ui.Forms
     
         foreach (InventoryItem equippedItems in frmInventoryEditor.GetEquippedItemsList())
         {
-          if (equippedItems.ResRef != null)
+          if (equippedItems.ResourceRef != null)
           {
             GffStruct @struct = new GffStruct();
             @struct.Type = IntegerType.FromString(equippedItems.EquipableSlots);
             @struct.FieldCount = 2;
             @struct.Fields = new GffField[2];
-            @struct.Fields[0] = new GffField(GffFieldTypes.GffCResRef, "EquippedRes", equippedItems.ResRef);
-            byte num8 = !equippedItems.Dropable ? (byte) 0 : (byte) 1;
+            @struct.Fields[0] = new GffField(GffFieldTypes.GffCResRef, "EquippedRes", equippedItems.ResourceRef);
+            byte num8 = !equippedItems.Droppable ? (byte) 0 : (byte) 1;
             @struct.Fields[1] = new GffField(GffFieldTypes.GffByte, "Dropable", num8);
             if (!UTC.VerifyNodeExists("Equip_ItemList"))
               UTC.CreateList("", "Equip_ItemList");

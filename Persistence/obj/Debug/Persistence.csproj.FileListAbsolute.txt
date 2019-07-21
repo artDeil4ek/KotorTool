@@ -1,0 +1,2 @@
+C:\Users\steve\source\repos\KotorTool\Persistence\obj\Debug\Persistence.csprojAssemblyReference.cache
+C:\Users\steve\source\repos\KotorTool\Persistence\obj\Debug\Persistence.csproj.CoreCompileInputs.cache

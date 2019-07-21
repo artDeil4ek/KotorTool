@@ -25,7 +25,7 @@ namespace KotorTool_2._0.Models.CLS
         private int _gListIndicesCount;
         private MemoryStream _gMs;
         private BinaryReader _gRdr;
-        protected Array GStructArr;
+        protected Array GStructArray;
         private readonly ArrayList _gGffListArr;
         private int _gTabLevel;
         private readonly StringBuilder _gStringbuilder;

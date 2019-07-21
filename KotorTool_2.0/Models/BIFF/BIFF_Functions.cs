@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-
+using CoreData.Biff;
 using KotorTool_2._0.Models.CLS;
 using KotorTool_2._0.Options;
 using KotorTool_2._0.Utils;
@@ -20,7 +20,7 @@ namespace KotorTool_2._0.Models.BIFF
         /// <param name="resourceId"></param>
         public static void ExportBiffResource(string biffPath, string outputPath, int resourceId)
         {
-            BiffVarRsrcEntry biffResource = new BiffArchive(FStream.Generate(biffPath)).GetBiffResource(resourceId);
+            BiffVariableResourceEntry biffResource = new BiffArchive(FStream.Generate(biffPath)).GetBiffResource(resourceId);
             BinaryWriter binaryWriter = new BinaryWriter(FStream.Generate(outputPath));
             binaryWriter.Write(biffResource.Data);
             binaryWriter.Close();
@@ -48,13 +48,13 @@ namespace KotorTool_2._0.Models.BIFF
         /// <param name="biffPath"></param>
         /// <param name="resourceId"></param>
         /// <returns></returns>
-        public static BiffVarRsrcEntry GetBiffResource(string biffPath, int resourceId)
+        public static BiffVariableResourceEntry GetBiffResource(string biffPath, int resourceId)
         {
             /*
              *check for memory leaks
              * 
              */
-            BiffVarRsrcEntry biffResource = new BiffArchive(FStream.Generate(biffPath)).GetBiffResource(resourceId);
+            BiffVariableResourceEntry biffResource = new BiffArchive(FStream.Generate(biffPath)).GetBiffResource(resourceId);
             return biffResource;
         }
 
@@ -93,7 +93,14 @@ namespace KotorTool_2._0.Models.BIFF
             return KxTemplatesBif(kotorVerIndex).GetBiffResource(checked(resIdForResRef - resIdForResRef >> 20 << 20)).Data;
         }
 
-        public static BiffVarRsrcEntryInfo[] GetBiffResourceInfoList(string biffPath)
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="biffPath"></param>
+        /// <returns></returns>
+        public static BiffVariableResourceEntryInfo[] GetBiffResourceInfoList(string biffPath)
         {
             using (FileStream fileStream = new FileStream(biffPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000))
             {
@@ -102,14 +109,22 @@ namespace KotorTool_2._0.Models.BIFF
                     binaryReader.ReadChars(8);
                     int num = binaryReader.ReadInt32();
                     binaryReader.ReadInt32();
-                    int num2 = binaryReader.ReadInt32();
-                    BiffVarRsrcEntryInfo[] array = new BiffVarRsrcEntryInfo[num];
+                    int entryIndex = binaryReader.ReadInt32();
+                    BiffVariableResourceEntryInfo[] array = new BiffVariableResourceEntryInfo[num];
                     int arg540 = 0;
-                    int num3 = num - 1;
-                    for (int i = arg540; i <= num3; i++)
+                    int entryOffset = num - 1;
+                    for (int i = arg540; i <= entryOffset; i++)
                     {
-                        fileStream.Seek(num2 + 16 * i, 0);
-                        array[i] = new BiffVarRsrcEntryInfo(binaryReader.ReadInt32(), binaryReader.ReadInt32(), binaryReader.ReadInt32(), binaryReader.ReadInt32());
+
+                        fileStream.Seek(entryIndex + 16 * i, 0);
+
+                        array[i] = new BiffVariableResourceEntryInfo
+                        {
+                            ResourceId = binaryReader.ReadInt32(),
+                            Offset = binaryReader.ReadInt32(),
+                            FileSize = binaryReader.ReadInt32(),
+                            ResourceType = binaryReader.ReadInt32()
+                        };
                     }
 
                     return array;
@@ -135,12 +150,22 @@ namespace KotorTool_2._0.Models.BIFF
          * Replace HardCoded Strings here
          * 
          */
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static BiffArchive K2TemplatesBif()
         {
             //@"E:\Steam\steamapps\common\Knights of the Old Republic II\"
             return Constants.Gk2TemplatesBif ?? (Constants.Gk2TemplatesBif = new BiffArchive(FStream.Generate(@"E:\Steam\steamapps\common\Knights of the Old Republic II\" + "\\data\\Templates.bif")));
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="kotorVerIndex"></param>
+        /// <returns></returns>
         private static BiffArchive KxTemplatesBif(int kotorVerIndex)
         {
             return kotorVerIndex == 0 ? K1TemplatesBif() : K2TemplatesBif();

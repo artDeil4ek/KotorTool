@@ -39,12 +39,12 @@ namespace KotorTool_2._0.MainForm
             {
                 using (frmPathManager frmPathManager = new frmPathManager())
                 {
-                    if (!Directory.Exists(mainFormState.GRootPath + ExportedModelPathAddition))
+                    if (!Directory.Exists(mainFormState.GameRootPath + ExportedModelPathAddition))
                     {
-                        Directory.CreateDirectory(mainFormState.GRootPath + ExportedModelPathAddition);
+                        Directory.CreateDirectory(mainFormState.GameRootPath + ExportedModelPathAddition);
                     }
 
-                    frmPathManager.tbModuleExportPath.Text = mainFormState.GRootPath + ExportedModelPathAddition;
+                    frmPathManager.tbModuleExportPath.Text = mainFormState.GameRootPath + ExportedModelPathAddition;
                     frmPathManager.StartPosition = FormStartPosition.CenterScreen;
                     frmPathManager.TabControl1.SelectedIndex = 2;
                     frmPathManager.tbModuleExportPath.BackColor = Color.MistyRose;
@@ -184,7 +184,7 @@ namespace KotorTool_2._0.MainForm
                     BiffFunctions.ExportBiffResource(KotorTreeNode.NodeTreeRootIndex(treeView, node), node.ResRef,
                         3008, path + ".mdx");
                     frmProgressMeter.status = "Exporting model " + node.ResRef;
-                    string str1 = MainFormState.GRootPath + "mdlops.exe";
+                    string str1 = MainFormState.GameRootPath + "mdlops.exe";
                     try
                     {
                         Process process = new Process { StartInfo = { FileName = str1, CreateNoWindow = true } };

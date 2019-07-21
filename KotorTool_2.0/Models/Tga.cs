@@ -20,10 +20,10 @@ namespace KotorTool_2._0.Models
             else
             {
                 //EnsureWorkingDirectoryExists();
-                ByteFunctions.WriteByteArray(MainFormState.GRootPath + "working\\" + filename, data);
+                ByteFunctions.WriteByteArray(MainFormState.GameRootPath + "working\\" + filename, data);
                 try
                 {
-                    Process.Start(imageViewerLocation, "\"" + MainFormState.GRootPath + "working\\" + filename + "\"");
+                    Process.Start(imageViewerLocation, "\"" + MainFormState.GameRootPath + "working\\" + filename + "\"");
                 }
                 catch (Exception ex)
                 {

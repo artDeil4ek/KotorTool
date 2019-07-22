@@ -14,6 +14,12 @@ namespace KotorTool_2._0.MainForm.Extensions
     {
 
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="treeView"></param>
+        /// <returns></returns>
         public static IEnumerable<NodeData> MapTreeNodesToData(this TreeView treeView)
         {
 
@@ -37,31 +43,37 @@ namespace KotorTool_2._0.MainForm.Extensions
             return collection;
         }
 
-
-
-        public static async Task<IEnumerable<NodeData>> MapTreeNodesToDataAsync(this TreeView treeView)
+        
+        
+        /// <summary>
+        /// --- This method should initialise all of the nodes of the treeview by using a recursive inner function
+        /// --- previous node guid, current node guid, next node guid should be initialised each call
+        /// </summary>
+        /// <param name="treeView"></param>
+        public static void InitialiseAllNodeIds(this TreeView treeView)
         {
 
-            var collection = new List<NodeData>();
+            // TreeNode mainNode = treeView.Nodes[0];
+            KotorTreeNode mainNode = (KotorTreeNode)treeView.Nodes[0];
+            mainNode.NodeVm.Guid = Guid.NewGuid();
 
-            TreeNode mainNode = treeView.Nodes[0];
-            AddNodeDataRecursive(mainNode);
+            InitNodeDataRecursive(mainNode);
 
-           
-             void AddNodeDataRecursive(TreeNode parentNode)
+
+            void InitNodeDataRecursive(TreeNode parentNode)
             {
                 foreach (TreeNode subNode in parentNode.Nodes)
                 {
-                    KotorTreeNode node = (KotorTreeNode) subNode;
-                    collection.Add(MappingService.IMapper.Map<NodeVm,NodeData>(node.NodeVm));
+                    KotorTreeNode node = (KotorTreeNode)subNode;
+                    node.NodeVm.Guid = Guid.NewGuid();
 
-                    AddNodeDataRecursive(subNode);
+                    InitNodeDataRecursive(subNode);
                 }
             }
 
-            return collection;
-        }
+           
 
+        }
 
 
     }

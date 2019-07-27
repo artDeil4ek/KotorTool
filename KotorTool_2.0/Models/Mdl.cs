@@ -57,7 +57,7 @@ namespace KotorTool_2._0.Models
             return num;
         }
 
-        public static int GetMdlRoomCount(TreeViewDataRepository treeViewDataRepository, NodeData nodeData)
+        public static int GetMdlRoomCount(TreeViewDataRepository treeViewDataRepository,NodeData nodeData)
         {
 
 
@@ -91,10 +91,12 @@ namespace KotorTool_2._0.Models
         /// <returns></returns>
         public static int GetMdlRoomCount(IEnumerable<NodeData> treeViewData, NodeData nodeData)
         {
+
+
+
             int roomCount = -1;
 
-            byte[] biffResourceData = BiffFunctions.GetBiffResourceData(KotorTreeNode.NodeTreeRootIndex(treeView, node),
-                GetMdlRoomBaseName(treeView, node), 3000);
+            byte[] biffResourceData = BiffFunctions.GetBiffResourceData(KotorTreeNode.NodeTreeRootIndex(treeView, node), GetMdlRoomBaseName(treeView, node), 3000);
 
             if (biffResourceData != null)
             {
@@ -103,12 +105,15 @@ namespace KotorTool_2._0.Models
                     streamReader.ReadLine();
                     streamReader.ReadLine();
                     streamReader.ReadLine();
-                    roomCount = Convert.ToInt32(streamReader.ReadLine()?.Replace(" ", string.Empty)
-                        .Replace("roomcount", string.Empty));
+                    roomCount = Convert.ToInt32(streamReader.ReadLine()?.Replace(" ", string.Empty).Replace("roomcount", string.Empty));
                 }
             }
 
             return roomCount;
+
+
+
+
         }
 
     }

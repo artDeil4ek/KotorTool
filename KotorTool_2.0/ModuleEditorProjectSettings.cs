@@ -8,16 +8,9 @@ namespace KotorTool_2._0
 {
   public class ModuleEditorProjectSettings
   {
-
-
-
-
-      public static ModuleEditorProjectOptions GetSettings(string loadPath)
+    public static ModuleEditorProjectOptions GetSettings(string loadPath)
     {
-
-
-
-        ModuleEditorProjectOptions editorProjectOptions1;
+      ModuleEditorProjectOptions editorProjectOptions1;
       try
       {
         loadPath = Path.Combine(loadPath, "project settings.xml");
@@ -43,11 +36,7 @@ namespace KotorTool_2._0
       return editorProjectOptions1;
     }
 
-
-
-
-
-      public static void SaveSettings(ModuleEditorProjectOptions currentSettings, string savePath)
+    public static void SaveSettings(ModuleEditorProjectOptions currentSettings, string savePath)
     {
       try
       {

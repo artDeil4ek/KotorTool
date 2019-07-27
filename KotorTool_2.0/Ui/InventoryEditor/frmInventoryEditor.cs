@@ -1270,9 +1270,9 @@ namespace KotorTool_2._0.Ui.InventoryEditor
 
             foreach (TreeBaseItem treeBaseItem in namesAndTypesList)
             {
-                if (StringType.StrCmp(treeBaseItem.ItemType, "****", false) != 0)
+                if (StringType.StrCmp(treeBaseItem.Itemtype, "****", false) != 0)
                 {
-                    int int32 = Convert.ToInt32(treeBaseItem.ItemType);
+                    int int32 = Convert.ToInt32(treeBaseItem.Itemtype);
                     if (int32 > num1)
                         num1 = int32;
                 }
@@ -1292,7 +1292,7 @@ namespace KotorTool_2._0.Ui.InventoryEditor
 
             foreach (TreeBaseItem treeBaseItem in namesAndTypesList)
             {
-                if (Information.IsNumeric(treeBaseItem.ItemType)) TreeView.Nodes[IntegerType.FromString(treeBaseItem.ItemType)].Nodes.Add(new TreeNode(treeBaseItem.Name) {Tag = "BI=" + StringType.FromInteger(treeBaseItem.Index) + "|ES=" + treeBaseItem.Slots});
+                if (Information.IsNumeric(treeBaseItem.Itemtype)) TreeView.Nodes[IntegerType.FromString(treeBaseItem.Itemtype)].Nodes.Add(new TreeNode(treeBaseItem.Name) {Tag = "BI=" + StringType.FromInteger(treeBaseItem.Index) + "|ES=" + treeBaseItem.Slots});
                 else if (treeBaseItem.Name.StartsWith("Creature")) TreeView.Nodes[limit].Nodes.Add(new TreeNode(treeBaseItem.Name) {Tag = "BI=" + StringType.FromInteger(treeBaseItem.Index) + "|ES=" + treeBaseItem.Slots});
             }
 

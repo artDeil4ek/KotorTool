@@ -311,8 +311,8 @@ namespace KotorTool_2._0.Ui.ModuleEditor
     private Point gLastBackBufferOrigin;
     private Point gCurrentRegionSegmentOrigin;
     private bool LeftMouseClickActive;
-    private ModItemTreeViewNode LastClickedTvModuleNode;
-    private ModItemTreeViewNode CurrentContextMenuTvModuleNode;
+    private ModItemTvNode LastClickedTvModuleNode;
+    private ModItemTvNode CurrentContextMenuTvModuleNode;
     private bool g_ShowPaletteNames;
     private bool g_ShowPaletteResRefs;
     private string g_CurrentPaletteName;
@@ -3550,7 +3550,7 @@ label_62:
       tbarbtnPlaceable.Pushed = gModuleEditorSettings.FilterShowPlaceables;
       tbarbtnSound.Pushed = gModuleEditorSettings.FilterShowSounds;
       tbarbtnTrigger.Pushed = gModuleEditorSettings.FilterShowTriggers;
-      tbarbtnWaypoint.Pushed = gModuleEditorSettings.FilterShowWayPoints;
+      tbarbtnWaypoint.Pushed = gModuleEditorSettings.FilterShowWaypoints;
       chkbShowTags.Checked = gModuleEditorSettings.ShowTagsOnModulePalette;
     }
 
@@ -3905,7 +3905,7 @@ label_62:
         if (WaypointArr[index5].IsEqual(IndicatedModItem))
           IndicateModItem(Graphics.FromImage((Image) bmp), num7, num8);
         Color color = !BooleanType.FromObject(GITfile.GetNodeValue("WaypointList(" + StringType.FromInteger(index5) + ").HasMapNote")) ? Color.Orange : Color.Red;
-        if (gModuleEditorSettings.FilterShowWayPoints)
+        if (gModuleEditorSettings.FilterShowWaypoints)
         {
           if (gModuleEditorSettings.ShowItemLabels)
           {
@@ -4811,7 +4811,7 @@ label_4:
       }
     }
 
-    private ModItem GetTreeNodesModItem(ModItemTreeViewNode node)
+    private ModItem GetTreeNodesModItem(ModItemTvNode node)
     {
       switch (node.ItemType)
       {
@@ -5734,13 +5734,13 @@ label_4:
 
     private void tvModule_MouseDown(object sender, MouseEventArgs e)
     {
-      LastClickedTvModuleNode = (ModItemTreeViewNode) tvModule.GetNodeAt(new Point(e.X, e.Y));
+      LastClickedTvModuleNode = (ModItemTvNode) tvModule.GetNodeAt(new Point(e.X, e.Y));
     }
 
     private void tvModule_MouseUp(object sender, MouseEventArgs e)
     {
       Point pos = new Point(e.X, e.Y);
-      ModItemTreeViewNode clickedTvModuleNode = LastClickedTvModuleNode;
+      ModItemTvNode clickedTvModuleNode = LastClickedTvModuleNode;
       if (clickedTvModuleNode != null)
         CurrentContextMenuTvModuleNode = clickedTvModuleNode;
       if (e.Button == MouseButtons.Right)
@@ -5775,14 +5775,14 @@ label_4:
     {
       if (tvModule.SelectedNode == null || ObjectType.ObjTst(tvModule.SelectedNode.Tag, (object) "Item", false) != 0)
         return;
-      IndicatedModItem = GetTreeNodesModItem((ModItemTreeViewNode) tvModule.SelectedNode);
+      IndicatedModItem = GetTreeNodesModItem((ModItemTvNode) tvModule.SelectedNode);
       LoadBackground();
       Draw();
     }
 
     private void tvModule_BeforeExpand(object sender, TreeViewCancelEventArgs e)
     {
-      ModItemTreeViewNode node = (ModItemTreeViewNode) e.Node;
+      ModItemTvNode node = (ModItemTvNode) e.Node;
       if (!g_tvModule_TreeOpenPaths.Contains((object) node.FullPath))
         g_tvModule_TreeOpenPaths.Add((object) node.FullPath);
       AddNodeChildrenToTreePaths(node, g_tvModule_TreeOpenPaths);
@@ -5790,7 +5790,7 @@ label_4:
 
     private void tvModule_BeforeCollapse(object sender, TreeViewCancelEventArgs e)
     {
-      ModItemTreeViewNode node = (ModItemTreeViewNode) e.Node;
+      ModItemTvNode node = (ModItemTvNode) e.Node;
       int index = checked (g_tvModule_TreeOpenPaths.Count - 1);
       while (index >= 0)
       {
@@ -5841,7 +5841,7 @@ label_4:
 
     private void cmiTvModuleItemProperties_Click(object sender, EventArgs e)
     {
-      ModItemTreeViewNode menuTvModuleNode = CurrentContextMenuTvModuleNode;
+      ModItemTvNode menuTvModuleNode = CurrentContextMenuTvModuleNode;
       Pen pen = new Pen(Color.Orange, 1f);
       pen.EndCap = LineCap.ArrowAnchor;
       ModItem treeNodesModItem = GetTreeNodesModItem(menuTvModuleNode);
@@ -5856,7 +5856,7 @@ label_4:
 
     private void cmiTvModuleItemEdit_Click(object sender, EventArgs e)
     {
-      ModItemTreeViewNode menuTvModuleNode = CurrentContextMenuTvModuleNode;
+      ModItemTvNode menuTvModuleNode = CurrentContextMenuTvModuleNode;
       Pen pen = new Pen(Color.Orange, 1f);
       pen.EndCap = LineCap.ArrowAnchor;
       ModItem treeNodesModItem = GetTreeNodesModItem(menuTvModuleNode);
@@ -5873,7 +5873,7 @@ label_4:
     {
       if (bConfirmDeletes && Interaction.MsgBox((object) "Are you sure you want to delete this?", MsgBoxStyle.OkCancel, (object) "Delete Item") != MsgBoxResult.Ok)
         return;
-      ModItemTreeViewNode menuTvModuleNode = CurrentContextMenuTvModuleNode;
+      ModItemTvNode menuTvModuleNode = CurrentContextMenuTvModuleNode;
       string fullPath = menuTvModuleNode.Parent.FullPath;
       DeleteModuleItem(GetTreeNodesModItem(menuTvModuleNode));
       CurrentModItem = (ModItem) null;
@@ -6301,7 +6301,7 @@ label_4:
           struct5.Fields[12] = new GffField(GffFieldTypes.GffFloat, "XOrientation", (object) 1f);
           struct5.Fields[13] = new GffField(GffFieldTypes.GffFloat, "YOrientation", (object) 0.0f);
           GITfile.AddListElement("WaypointList", struct5);
-          gModuleEditorSettings.FilterShowWayPoints = true;
+          gModuleEditorSettings.FilterShowWaypoints = true;
           break;
       }
       LoadBackground();
@@ -6583,7 +6583,7 @@ label_4:
       gModuleEditorSettings.FilterShowPlaceables = tbarbtnPlaceable.Pushed;
       gModuleEditorSettings.FilterShowSounds = tbarbtnSound.Pushed;
       gModuleEditorSettings.FilterShowTriggers = tbarbtnTrigger.Pushed;
-      gModuleEditorSettings.FilterShowWayPoints = tbarbtnWaypoint.Pushed;
+      gModuleEditorSettings.FilterShowWaypoints = tbarbtnWaypoint.Pushed;
       ModuleEditorProjectSettings.SaveSettings(gModuleEditorSettings, g_ProjectPath);
       LoadBackground();
       Draw();
@@ -6626,7 +6626,7 @@ label_4:
 
     private void AddTvModuleNodes(string parentLabel, ModItem[] ModItemArr, int imageIndex = -1, bool ShowTags = false)
     {
-      ModItemTreeViewNode modItemTvNode1 = new ModItemTreeViewNode(parentLabel);
+      ModItemTvNode modItemTvNode1 = new ModItemTvNode(parentLabel);
       modItemTvNode1.ImageIndex = imageIndex;
       modItemTvNode1.SelectedImageIndex = imageIndex;
       tvModule.Nodes.Add((TreeNode) modItemTvNode1);
@@ -6641,21 +6641,21 @@ label_4:
         int num = 0;
         if (modItem != null)
         {
-          ModItemTreeViewNode modItemTvNode2;
+          ModItemTvNode modItemTvNode2;
           if (ShowTags)
           {
             if (StringType.StrCmp(modItem.Tag, "", false) != 0)
             {
-              modItemTvNode2 = new ModItemTreeViewNode(modItem.Tag);
+              modItemTvNode2 = new ModItemTvNode(modItem.Tag);
             }
             else
             {
               string modItemTag = GetModItemTag(modItem.FileName);
-              modItemTvNode2 = modItemTag != null ? (StringType.StrCmp(modItemTag, "", false) != 0 ? new ModItemTreeViewNode(modItemTag) : new ModItemTreeViewNode(modItem.ResRef + " (missing tag)")) : new ModItemTreeViewNode(modItem.ResRef + " (missing file)");
+              modItemTvNode2 = modItemTag != null ? (StringType.StrCmp(modItemTag, "", false) != 0 ? new ModItemTvNode(modItemTag) : new ModItemTvNode(modItem.ResRef + " (missing tag)")) : new ModItemTvNode(modItem.ResRef + " (missing file)");
             }
           }
           else
-            modItemTvNode2 = new ModItemTreeViewNode(modItem.ResRef);
+            modItemTvNode2 = new ModItemTvNode(modItem.ResRef);
           modItemTvNode2.ArrayIndex = num;
           modItemTvNode2.ItemType = modItem.ItemType;
           modItemTvNode2.Tag = (object) "Item";
@@ -7022,11 +7022,11 @@ label_4:
       return folderBrowserDialog.SelectedPath;
     }
 
-    private void AddNodeChildrenToTreePaths(ModItemTreeViewNode node, ArrayList arTreeOpenPaths)
+    private void AddNodeChildrenToTreePaths(ModItemTvNode node, ArrayList arTreeOpenPaths)
     {
       try
       {
-        foreach (ModItemTreeViewNode node1 in node.Nodes)
+        foreach (ModItemTvNode node1 in node.Nodes)
         {
           if (node1.IsExpanded)
           {

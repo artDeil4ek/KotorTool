@@ -12,8 +12,6 @@ namespace KotorTool_2._0.Models.BIFF
     {
 
 
-       
-        
         /// <summary>
         /// 
         /// </summary>
@@ -29,8 +27,6 @@ namespace KotorTool_2._0.Models.BIFF
         }
 
 
-        
-        
         /// <summary>
         /// 
         /// </summary>
@@ -42,19 +38,10 @@ namespace KotorTool_2._0.Models.BIFF
         {
             int resIdForResRef = ChitinKey.KxChitinKey(kotorVerIndex).FindResourceIdForResourceRef(fileNameToExport, fileResType);
             if (resIdForResRef == -1) throw new NotSupportedException();
-            ExportBiffResource(ConfigOptions.Paths.KotorLocation(kotorVerIndex) 
-                               +
-                               "\\" 
-                               + 
-                               ChitinKey.KxChitinKey(kotorVerIndex)
-                                   .BiffList[resIdForResRef >> 20]
-                                   .Filename, outputPath, resIdForResRef - resIdForResRef >> 20 << 20);
+            ExportBiffResource(ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\" + ChitinKey.KxChitinKey(kotorVerIndex).BiffList[resIdForResRef >> 20].Filename, outputPath, resIdForResRef - resIdForResRef >> 20 << 20);
         }
 
 
-        
-        
-        
         /// <summary>
         /// 
         /// </summary>
@@ -72,38 +59,26 @@ namespace KotorTool_2._0.Models.BIFF
         }
 
 
-        
-        
-        
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="kotorVersionIndex"></param>
+        /// <param name="kotorVerIndex"></param>
         /// <param name="fileName"></param>
-        /// <param name="fileResourceType"></param>
+        /// <param name="fileResType"></param>
         /// <returns></returns>
-        public static byte[] GetBiffResourceData(int kotorVersionIndex, string fileName, int fileResourceType)
+        public static byte[] GetBiffResourceData(int kotorVerIndex, string fileName, int fileResType)
         {
-            ClsChitinKeyProvider clsChitinKey = ChitinKey.KxChitinKey(kotorVersionIndex);
-
-            int resourceIdForResRef = clsChitinKey.FindResourceIdForResourceRef(fileName, fileResourceType);
-            if (resourceIdForResRef == -1) return null;
-
-            byte[] data;
-
-            using (FileStream fileStream = new FileStream(ConfigOptions.Paths.KotorLocation(kotorVersionIndex) + "\\" + clsChitinKey.BiffList[resourceIdForResRef >> 20].Filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000))
-            {
-                data = new BiffArchive(fileStream)
-                          .GetBiffResource(resourceIdForResRef - resourceIdForResRef >> 20 << 20)
-                          .Data;
-            }
+            ClsChitinKeyProvider clsChitinKey = ChitinKey.KxChitinKey(kotorVerIndex);
+            int resIdForResRef = clsChitinKey.FindResourceIdForResourceRef(fileName, fileResType);
+            if (resIdForResRef == -1) return null;
+            FileStream fsin = new FileStream(ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\" + clsChitinKey.BiffList[resIdForResRef >> 20].Filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000);
+            byte[] data = new BiffArchive(fsin).GetBiffResource(checked(resIdForResRef - resIdForResRef >> 20 << 20)).Data;
+            fsin.Close();
 
             return data;
         }
 
 
-        
-        
         /// <summary>
         /// 
         /// </summary>
@@ -115,17 +90,11 @@ namespace KotorTool_2._0.Models.BIFF
         {
             int resIdForResRef = ChitinKey.KxChitinKey(kotorVerIndex).FindResourceIdForResourceRef(fileName, fileResType);
             if (resIdForResRef == -1) return null;
-
-            return KxTemplatesBif(kotorVerIndex)
-                                 .GetBiffResource(checked(resIdForResRef - resIdForResRef >> 20 << 20))
-                                 .Data;
+            return KxTemplatesBif(kotorVerIndex).GetBiffResource(checked(resIdForResRef - resIdForResRef >> 20 << 20)).Data;
         }
 
 
 
-        
-        
-        
         /// <summary>
         /// 
         /// </summary>
@@ -164,9 +133,6 @@ namespace KotorTool_2._0.Models.BIFF
         }
 
 
-        
-        
-        
         /// <summary>
         /// 
         /// </summary>
@@ -179,7 +145,11 @@ namespace KotorTool_2._0.Models.BIFF
 
 
 
-        
+        /*
+         *
+         * Replace HardCoded Strings here
+         * 
+         */
         /// <summary>
         /// 
         /// </summary>
@@ -191,16 +161,14 @@ namespace KotorTool_2._0.Models.BIFF
         }
 
 
-
-
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="kotorVersionIndex"></param>
+        /// <param name="kotorVerIndex"></param>
         /// <returns></returns>
-        private static BiffArchive KxTemplatesBif(int kotorVersionIndex)
+        private static BiffArchive KxTemplatesBif(int kotorVerIndex)
         {
-            return kotorVersionIndex == 0 ? K1TemplatesBif() : K2TemplatesBif();
+            return kotorVerIndex == 0 ? K1TemplatesBif() : K2TemplatesBif();
         }
     }
 }

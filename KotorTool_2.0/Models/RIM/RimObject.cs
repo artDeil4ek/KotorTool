@@ -8,7 +8,7 @@ namespace KotorTool_2._0.Models.RIM
     {
         public byte[] GetRimResource(string rimFilePath, KotorTreeNode ktn)
         {
-            return new RimParser(BinaryEngine.GetBytes(rimFilePath)).GetRimResource(ktn.NodeVm.RimOrErfIndex);
+            return new RimParser(BinaryEngine.GetBytes(rimFilePath)).GetRimResource(ktn.RimOrErfIndex);
         }
     }
 }

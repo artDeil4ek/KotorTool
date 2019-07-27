@@ -8,16 +8,16 @@ using System.Windows.Forms;
 
 namespace KotorTool_2._0.ViewModels
 {
-  public class ModItemTreeViewNode : TreeNode
+  public class ModItemTvNode : TreeNode
   {
     public int ArrayIndex;
     public int ItemType;
 
-    public ModItemTreeViewNode()
+    public ModItemTvNode()
     {
     }
 
-    public ModItemTreeViewNode(string text)
+    public ModItemTvNode(string text)
       : base(text)
     {
     }

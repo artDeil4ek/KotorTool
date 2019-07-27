@@ -3,77 +3,81 @@ using Microsoft.VisualBasic.CompilerServices;
 
 namespace KotorTool_2._0.ViewModels
 {
-    public class RowFilterPart
+  public class RowFilterPart
+  {
+    private string _mNativeColName;
+    private string _mDisplayColName;
+    private string _mFilterText;
+    private string _mMatchOper;
+    private string _mConcatOper;
+    private string _mDatatype;
+
+    public string NativeColumnName
     {
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string NativeColumnName { get; set; }
-        public string DisplayColumnName { get; set; }
-        public string MatchOperator { get; set; }
-        public string FilterText { get; set; }
-        public string ConcatOperator { get; set; }
-        public string DataType { get; set; }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [XmlIgnore] public string QuotedFilterText => QuoteFilterText();
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [XmlIgnore]
-        public string FilterString => NativeColumnName + " " + MatchOperator + " " + QuoteFilterText() + " " + ConcatOperator;
-
-
-
-        public RowFilterPart()
-        {
-        }
-
-
-        /// <summary>
-        /// Constructor
-        /// TODO : Is this constructor even necessary???? Maybe take it out and replace with object initialiser
-        /// </summary>
-        /// <param name="nativeColName"></param>
-        /// <param name="displayColName"></param>
-        /// <param name="matchOperator"></param>
-        /// <param name="filterText"></param>
-        /// <param name="concatOpererator"></param>
-        /// <param name="dataType"></param>
-        public RowFilterPart(string nativeColName, string displayColName, string matchOperator, string filterText,
-            string concatOpererator, string dataType)
-        {
-            NativeColumnName = nativeColName;
-            DisplayColumnName = displayColName;
-            MatchOperator = matchOperator;
-            FilterText = filterText;
-            ConcatOperator = concatOpererator;
-            DataType = dataType;
-        }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        private string QuoteFilterText()
-        {
-            string str = "";
-            if (StringType.StrCmp(MatchOperator, "IN", false) == 0 ||
-                StringType.StrCmp(MatchOperator, "NOT IN", false) == 0 ||
-                StringType.StrCmp(DataType, "Int32", false) == 0)
-                str = FilterText;
-            else if (StringType.StrCmp(DataType, "Date", false) == 0)
-                str = "#" + FilterText + "#";
-            else if (StringType.StrCmp(DataType, "String", false) == 0) str = "'" + FilterText + "'";
-            return str;
-        }
+      get => _mNativeColName;
+      set => _mNativeColName = value;
     }
+
+    public string DisplayColumnName
+    {
+      get => _mDisplayColName;
+      set => _mDisplayColName = value;
+    }
+
+    public string MatchOperator
+    {
+      get => _mMatchOper;
+      set => _mMatchOper = value;
+    }
+
+    public string FilterText
+    {
+      get => _mFilterText;
+      set => _mFilterText = value;
+    }
+
+    public string ConcatOperator
+    {
+      get => _mConcatOper;
+      set => _mConcatOper = value;
+    }
+
+    public string Datatype
+    {
+      get => _mDatatype;
+      set => _mDatatype = value;
+    }
+
+    [XmlIgnore]
+    public string QuotedFilterText => QuoteFilterText();
+
+    [XmlIgnore]
+    public string FilterString => _mNativeColName + " " + _mMatchOper + " " + QuoteFilterText() + " " + _mConcatOper;
+
+    public RowFilterPart()
+    {
+    }
+
+    public RowFilterPart(string nativeColName, string displayColName, string matchOper, string filterText, string concatOper, string dataType)
+    {
+      _mNativeColName = nativeColName;
+      _mDisplayColName = displayColName;
+      _mMatchOper = matchOper;
+      _mFilterText = filterText;
+      _mConcatOper = concatOper;
+      _mDatatype = dataType;
+    }
+
+    private string QuoteFilterText()
+    {
+      string str = "";
+      if (StringType.StrCmp(_mMatchOper, "IN", false) == 0 || StringType.StrCmp(_mMatchOper, "NOT IN", false) == 0 || StringType.StrCmp(_mDatatype, "Int32", false) == 0)
+        str = _mFilterText;
+      else if (StringType.StrCmp(Datatype, "Date", false) == 0)
+        str = "#" + _mFilterText + "#";
+      else if (StringType.StrCmp(Datatype, "String", false) == 0)
+        str = "'" + _mFilterText + "'";
+      return str;
+    }
+  }
 }

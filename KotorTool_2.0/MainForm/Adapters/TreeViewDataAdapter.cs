@@ -25,9 +25,9 @@ namespace KotorTool_2._0.MainForm.Adapters
         /// </summary>
         /// <param name="treeViewDataRepository"></param>
         /// <param name="nodeData"></param>
-        /// <param name="pathSeparator"></param>
+        /// <param name="PathSeparator"></param>
         /// <returns></returns>
-        public static int NodeTreeRootIndex(IEnumerable<NodeData> treeViewDataRepository, NodeData nodeData, String pathSeparator)
+        public static int NodeTreeRootIndex(IEnumerable<NodeData> treeViewDataRepository, NodeData nodeData, String PathSeparator)
         {
             int rootIndex = 0;
 
@@ -45,7 +45,7 @@ namespace KotorTool_2._0.MainForm.Adapters
                 }
                 else
                 {
-                    string lower2 = lower1.Substring(0, lower1.IndexOf(pathSeparator, StringComparison.Ordinal)).ToLower();
+                    string lower2 = lower1.Substring(0, lower1.IndexOf(PathSeparator, StringComparison.Ordinal)).ToLower();
                     if (StringType.StrCmp(lower2, "kotor i", false) == 0) rootIndex = 0;
                     else if (StringType.StrCmp(lower2, "kotor ii", false) == 0) rootIndex = 1;
                 }

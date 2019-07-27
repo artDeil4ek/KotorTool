@@ -9,6 +9,5 @@ namespace KotorTool_2._0.AppConfiguration.Settings
     public interface IConfigProvider
     {
          
-
     }
 }

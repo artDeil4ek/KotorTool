@@ -4,6 +4,11 @@ using System;
 
 namespace KotorTool_2._0.ViewModels
 {
+
+
+  /// <summary>
+  /// View Model
+  /// </summary>
   public class ColumnEntry
   {
     public string ColName;

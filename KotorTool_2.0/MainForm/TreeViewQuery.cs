@@ -12,6 +12,7 @@ using KotorTool_2._0.Models.CLS;
 using KotorTool_2._0.Models.ERF;
 using KotorTool_2._0.Models.RIM;
 using KotorTool_2._0.Options;
+using KotorTool_2._0.Properties;
 using KotorTool_2._0.Ui.Forms;
 using KotorTool_2._0.Utils;
 using KotorTool_2._0.ViewModels;
@@ -22,8 +23,7 @@ namespace KotorTool_2._0.MainForm
 {
     public class TreeViewQuery
     {
-
-
+        private const string ERF = "ERF";
         private readonly MainFormState _mainState;
         private readonly TreeView _treeView;
 
@@ -150,19 +150,19 @@ namespace KotorTool_2._0.MainForm
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="kotorVerIndex"></param>
+        /// <param name="kotorVersionIndex"></param>
         /// <param name="biffListIndex"></param>
-        /// <param name="htFileTypeIDs"></param>
+        /// <param name="hashTableFileTypeIds"></param>
         /// <param name="oRegex"></param>
-        /// <param name="lboc"></param>
-        public void ScanBifForText(int kotorVerIndex, int biffListIndex, Hashtable htFileTypeIDs, Regex oRegex, ListBox.ObjectCollection lboc)
+        /// <param name="objectCollection"></param>
+        public void ScanBifForText(int kotorVersionIndex, int biffListIndex, Hashtable hashTableFileTypeIds, Regex oRegex, ListBox.ObjectCollection objectCollection)
         {
             ASCIIEncoding asciiEncoding = new ASCIIEncoding();
-            string path = ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\" + ((BiffEntry)_mainState.BiffEntries[kotorVerIndex][biffListIndex]).FileName;
-            FileStream fsin = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000);
-            BiffArchive biffArchive = new BiffArchive(fsin);
+            string path = ConfigOptions.Paths.KotorLocation(kotorVersionIndex) + Resources.DoubleBackSlash + ((BiffEntry)_mainState.BiffEntries[kotorVersionIndex][biffListIndex]).FileName;
+            FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000);
+            BiffArchive biffArchive = new BiffArchive(fileStream);
 
-            foreach (KeyEntry ke in _mainState.BiffEntryListArray[kotorVerIndex, biffListIndex])
+            foreach (KeyEntry ke in _mainState.BiffEntryListArray[kotorVersionIndex, biffListIndex])
             {
                 int num = 0;
                 switch (num)
@@ -195,21 +195,22 @@ namespace KotorTool_2._0.MainForm
                 }
 
                 ++num;
-                if (htFileTypeIDs.ContainsKey(ke.ResourceType))
+                if (hashTableFileTypeIds.ContainsKey(ke.ResourceType))
                 {
                     string input = asciiEncoding.GetString(biffArchive.GetBiffResource(ke.ResId - ke.ResId >> 20 << 20).Data);
                     if (oRegex.Match(input).Success)
                     {
-                        KotorTreeNode kotorTreeNode = new KotorTreeNode(ke);
-                        kotorTreeNode.FilePath = path;
-                        kotorTreeNode.Tag = "BIFF_Res";
-                        kotorTreeNode.KotorVerIndex = kotorVerIndex;
-                        lboc.Add(kotorTreeNode);
+                        KotorTreeNode kotorTreeNode = new KotorTreeNode(ke)
+                        {
+                            NodeVm = {FilePath = path}, Tag = Resources.BIFF_Res
+                        };
+                        kotorTreeNode.NodeVm.KotorVersionIndex = kotorVersionIndex;
+                        objectCollection.Add(kotorTreeNode);
                     }
                 }
             }
 
-            fsin.Close();
+            fileStream.Close();
         }
 
 
@@ -239,9 +240,10 @@ namespace KotorTool_2._0.MainForm
             int num = 0;
             foreach (ErfKeyEntry keyEntry in clsErf.KeyEntryList)
             {
-                KotorTreeNode kotorTreeNode = new KotorTreeNode(keyEntry, erfFilePath);
-                kotorTreeNode.ContainingFileType = "ERF";
-                kotorTreeNode.RimOrErfIndex = num;
+                KotorTreeNode kotorTreeNode = new KotorTreeNode(keyEntry, erfFilePath)
+                {
+                    NodeVm = {ContainingFileType = ERF, RimOrErfIndex = num}
+                };
                 foreach (KotorTreeNode node in ktn.Nodes)
                 {
                     if (StringType.StrCmp(node.Text, StringType.FromChar(Strings.UCase(kotorTreeNode.Text[0])),
@@ -275,21 +277,21 @@ namespace KotorTool_2._0.MainForm
         /// <param name="directory"></param>
         public async void ScanForErFsAndBuildTree(KotorTreeNode ktn, string directory)
         {
-            FileInfo[] files = await Task.Factory.StartNew(() => new DirectoryInfo(ConfigOptions.Paths.KotorLocation(KotorTreeNode.NodeTreeRootIndex(_treeView, ktn)) + "\\" + directory).GetFiles());
+            FileInfo[] files = await Task.Factory.StartNew(() => 
+                new DirectoryInfo(ConfigOptions.Paths.KotorLocation(KotorTreeNode.NodeTreeRootIndex(_treeView, ktn)) + Resources.DoubleBackSlash + directory).GetFiles());
 
             int index = 0;
             while (index < files.Length)
             {
                 FileInfo fileInfo = files[index];
-                if (StringType.StrCmp(Strings.LCase(fileInfo.Extension), ".erf", false) == 0 | StringType.StrCmp(Strings.LCase(fileInfo.Extension), ".mod", false) == 0)
+                if (StringType.StrCmp(Strings.LCase(fileInfo.Extension), Resources._erf, false) == 0 | StringType.StrCmp(Strings.LCase(fileInfo.Extension), Resources._mod, false) == 0)
                 {
-                    KotorTreeNode kotorTreeNode1 = new KotorTreeNode(fileInfo.Name);
-                    kotorTreeNode1.Tag = "ERF";
-                    kotorTreeNode1.FilePath = fileInfo.DirectoryName;
-                    kotorTreeNode1.Filename = fileInfo.Name;
-                    kotorTreeNode1.ContainingFileType = "ERF";
-                    KotorTreeNode kotorTreeNode2 = new KotorTreeNode("");
-                    kotorTreeNode2.Tag = "dummy";
+                    KotorTreeNode kotorTreeNode1 = new KotorTreeNode(fileInfo.Name)
+                    {
+                        Tag = "ERF", NodeVm = {FilePath = fileInfo.DirectoryName}, Filename = fileInfo.Name
+                    };
+                    kotorTreeNode1.NodeVm.ContainingFileType = "ERF";
+                    KotorTreeNode kotorTreeNode2 = new KotorTreeNode("") {Tag = "dummy"};
                     kotorTreeNode1.Nodes.Add(kotorTreeNode2);
                     ktn.Nodes.Add(kotorTreeNode1);
                 }
@@ -306,17 +308,31 @@ namespace KotorTool_2._0.MainForm
         /// <param name="node"></param>
         public async void ScanForSavesAndBuildTree(string path, KotorTreeNode node)
         {
+
+
             DirectoryInfo[] directories = await Task.Factory.StartNew(() => new DirectoryInfo(path).GetDirectories());
             int index = 0;
             while (index < directories.Length)
             {
                 DirectoryInfo directoryInfo = directories[index];
-                KotorTreeNode kotorTreeNode1 = new KotorTreeNode(directoryInfo.Name) { FilePath = directoryInfo.FullName };
-                KotorTreeNode kotorTreeNode2 = new KotorTreeNode("GLOBALVARS.res") { Tag = "globalvar", FilePath = kotorTreeNode1.FilePath, Filename = "GLOBALVARS.res" };
+
+                KotorTreeNode kotorTreeNode1 = new KotorTreeNode(directoryInfo.Name)
+                {
+                    FilePath = directoryInfo.FullName
+                };
+
+                KotorTreeNode kotorTreeNode2 = new KotorTreeNode(Resources.GLOBALVARS_res)
+                {
+                    Tag = Resources.globalvar,
+                    FullPath = kotorTreeNode1.NodeVm.FilePath,
+                    Filename = Resources.GLOBALVARS_res
+                };
                 kotorTreeNode1.Nodes.Add(kotorTreeNode2);
                 node.Nodes.Add(kotorTreeNode1);
                 ++index;
             }
+
+
         }
 
 
@@ -327,7 +343,7 @@ namespace KotorTool_2._0.MainForm
         /// <param name="presenter"></param>
         /// <param name="rimFilePath"></param>
         /// <param name="ktn"></param>
-        public void ReadRIMentries(TreeViewPresenter presenter, string rimFilePath, KotorTreeNode ktn)
+        public void ReadRimEntries(TreeViewPresenter presenter, string rimFilePath, KotorTreeNode ktn)
         {
             int num = 0;
             FileStream fileStream = FStream.Generate(rimFilePath);
@@ -340,12 +356,17 @@ namespace KotorTool_2._0.MainForm
 
             foreach (RimKeyEntry keyEntry in rimParser.KeyEntryList)
             {
-                KotorTreeNode node = new KotorTreeNode(keyEntry, rimFilePath) { ContainingFileType = "RIM", RimOrErfIndex = num };
+                KotorTreeNode node = new KotorTreeNode(keyEntry, rimFilePath)
+                {
+                    ContainingFileType = Resources.RIM,
+                    RimOrErfIndex = num
+                };
+
                 ++num;
                 presenter.OrganizeNodesByResType(kotorTreeNode, node);
-                if (StringType.StrCmp(keyEntry.ResTypeStr, "pth", false) == 0)
+                if (StringType.StrCmp(keyEntry.ResTypeStr, Resources._pth, false) == 0)
                 {
-                    Console.WriteLine(ktn.Filename + "\\" + keyEntry.ResourceName + " " + keyEntry.Length);
+                    Console.WriteLine(ktn.Filename + Resources.DoubleBackSlash + keyEntry.ResourceName + " " + keyEntry.Length);
                 }
             }
 

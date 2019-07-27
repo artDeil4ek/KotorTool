@@ -400,7 +400,7 @@ namespace KotorTool_2._0.MainForm
             else if (ObjectType.ObjTst(tag, "RIM", false) == 0)
             {
                 if (ObjectType.ObjTst(node.Nodes[0].Tag, "dummy", false) != 0) return;
-                query.ReadRIMentries(this, node.FilePath + "\\" + node.Filename, node);
+                query.ReadRimEntries(this, node.FilePath + "\\" + node.Filename, node);
                 node.Nodes[0].Remove();
             }
             else if (ObjectType.ObjTst(tag, "ERF_TexturePacks", false) == 0)

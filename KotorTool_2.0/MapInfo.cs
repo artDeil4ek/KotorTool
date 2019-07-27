@@ -10,7 +10,7 @@ namespace KotorTool_2._0
     /// --------- Not sure what this is -------
     /// </summary>
     [Serializable]
-    public class MapInfo2
+    public class MapInfoContainer
     {
         public ArrayList MapList;
         public string Version;

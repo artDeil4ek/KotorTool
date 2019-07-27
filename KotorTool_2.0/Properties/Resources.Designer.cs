@@ -22,7 +22,7 @@ namespace KotorTool_2._0.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace KotorTool_2._0.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KotorTool_2._0.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace KotorTool_2._0.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace KotorTool_2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _10125 {
+        public static System.Drawing.Bitmap _10125 {
             get {
                 object obj = ResourceManager.GetObject("10125", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -71,9 +71,72 @@ namespace KotorTool_2._0.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .erf.
+        /// </summary>
+        public static string _erf {
+            get {
+                return ResourceManager.GetString("_erf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .mdl.
+        /// </summary>
+        public static string _mdl {
+            get {
+                return ResourceManager.GetString("_mdl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .mdx.
+        /// </summary>
+        public static string _mdx {
+            get {
+                return ResourceManager.GetString("_mdx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .mod.
+        /// </summary>
+        public static string _mod {
+            get {
+                return ResourceManager.GetString("_mod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to pth.
+        /// </summary>
+        public static string _pth {
+            get {
+                return ResourceManager.GetString("_pth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -textures.txt.
+        /// </summary>
+        public static string _textures_txt {
+            get {
+                return ResourceManager.GetString("_textures_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BIFF_Res.
+        /// </summary>
+        public static string BIFF_Res {
+            get {
+                return ResourceManager.GetString("BIFF_Res", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap black_floor {
+        public static System.Drawing.Bitmap black_floor {
             get {
                 object obj = ResourceManager.GetObject("black_floor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +146,7 @@ namespace KotorTool_2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Dark_with_carbon_fiber_texture_background_vector_01 {
+        public static System.Drawing.Bitmap Dark_with_carbon_fiber_texture_background_vector_01 {
             get {
                 object obj = ResourceManager.GetObject("Dark-with-carbon-fiber-texture-background-vector-01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -91,12 +154,131 @@ namespace KotorTool_2._0.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to \.
+        /// </summary>
+        public static string DoubleBackSlash {
+            get {
+                return ResourceManager.GetString("DoubleBackSlash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extraction Complete.
+        /// </summary>
+        public static string Extraction_Complete {
+            get {
+                return ResourceManager.GetString("Extraction_Complete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to globalvar.
+        /// </summary>
+        public static string globalvar {
+            get {
+                return ResourceManager.GetString("globalvar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GLOBALVARS.res.
+        /// </summary>
+        public static string GLOBALVARS_res {
+            get {
+                return ResourceManager.GetString("GLOBALVARS_res", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Jedi_symbol {
+        public static System.Drawing.Bitmap Jedi_symbol {
             get {
                 object obj = ResourceManager.GetObject("Jedi_symbol", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Model Export Location is not set.
+        ///
+        ///A default path has been set in the Path Manager; you may accept it or choose your own..
+        /// </summary>
+        public static string MdlLocationNotSet {
+            get {
+                return ResourceManager.GetString("MdlLocationNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to mdlops.exe.
+        /// </summary>
+        public static string mdlops_exe {
+            get {
+                return ResourceManager.GetString("mdlops_exe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model Extraction.
+        /// </summary>
+        public static string Model_Extraction {
+            get {
+                return ResourceManager.GetString("Model_Extraction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to path.
+        /// </summary>
+        public static string path {
+            get {
+                return ResourceManager.GetString("path", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path not set.
+        /// </summary>
+        public static string Path_Not_Set {
+            get {
+                return ResourceManager.GetString("Path_Not_Set", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RIM.
+        /// </summary>
+        public static string RIM {
+            get {
+                return ResourceManager.GetString("RIM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to software\Bioware\SW\KOTOR.
+        /// </summary>
+        public static string software_Bioware_SW_KOTOR {
+            get {
+                return ResourceManager.GetString("software_Bioware_SW_KOTOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to software\LucasArts\KotOR2.
+        /// </summary>
+        public static string software_LucasArts_KotOR2 {
+            get {
+                return ResourceManager.GetString("software_LucasArts_KotOR2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to working\Exported Models.
+        /// </summary>
+        public static string working_Exported_Models {
+            get {
+                return ResourceManager.GetString("working_Exported_Models", resourceCulture);
             }
         }
     }

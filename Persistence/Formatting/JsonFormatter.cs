@@ -14,18 +14,20 @@ namespace Persistence.Formatting
         public FileTypes Type { get; set; }
 
 
-        public IFormatter SetType(int fileType)
+
+        public IFormatter SetType(FileTypes fileType)
         {
-
-
-            return this;
+            throw new NotImplementedException();
         }
 
 
-        public IFormatter Format(String content)
-        {
 
-            return this;
+        public IFormatter Format(object content)
+        {
+            throw new NotImplementedException();
         }
+
+
+      
     }
 }

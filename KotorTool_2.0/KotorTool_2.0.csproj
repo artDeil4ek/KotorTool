@@ -166,7 +166,7 @@
     <Compile Include="MapInfo.cs" />
     <Compile Include="Models\BIFF\BIFFArchive.cs" />
     <Compile Include="Models\BIFF\BIFFEntry.cs" />
-    <Compile Include="Models\BIFF\BIFF_Functions.cs" />
+    <Compile Include="Models\BIFF\BiffFunctions.cs" />
     <Compile Include="Models\CLS\cls2DA.cs" />
     <Compile Include="Models\CLS\Cls2DaFunctions.cs" />
     <Compile Include="Models\CLS\clsBaseItems2DA.cs" />
@@ -400,6 +400,7 @@
     <Compile Include="Utils\FlowUtils.cs" />
     <Compile Include="Utils\FStream.cs" />
     <Compile Include="Utils\FileUtils.cs" />
+    <Compile Include="Utils\PathBuilder.cs" />
     <Compile Include="Utils\PathManager.cs" />
     <Compile Include="Utils\ResourceIdentification.cs" />
     <Compile Include="Utils\StringFunctions.cs" />
@@ -414,14 +415,15 @@
     <Compile Include="ViewModels\ColumnVOEntry.cs" />
     <Compile Include="ViewModels\ColumnVOEntryList.cs" />
     <Compile Include="ViewModels\ComboBoxListItem.cs" />
+    <Compile Include="ViewModels\Models\DialogConversationListNodeViewModel.cs" />
     <Compile Include="ViewModels\DialogTlkStrDataElement.cs" />
     <Compile Include="ViewModels\DLGConvListNode.cs" />
     <Compile Include="ViewModels\Factories\TreeNodeFactories\KotorNodeFactory.cs" />
     <Compile Include="ViewModels\InventoryItem.cs" />
     <Compile Include="ViewModels\KotorTreeNode.cs" />
-    <Compile Include="ViewModels\ModItemTvNode.cs" />
+    <Compile Include="ViewModels\ModItemTreeViewNode.cs" />
     <Compile Include="ViewModels\ModuleFileEntry.cs" />
-    <Compile Include="ViewModels\NodeVM.cs" />
+    <Compile Include="ViewModels\Models\NodeVM.cs" />
     <Compile Include="ViewModels\RowFilter.cs" />
     <Compile Include="ViewModels\RowFilterPart.cs" />
     <Compile Include="ViewModels\TreeBaseItem.cs" />
@@ -430,7 +432,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm\frmMain.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>

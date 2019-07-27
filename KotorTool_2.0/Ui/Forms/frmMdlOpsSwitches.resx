@@ -536,7 +536,7 @@
 </value>
   </data>
   <data name="$this.Name" xml:space="preserve">
-    <value>frmMdlOpsSwitches</value>
+    <value>FormMdlOpsSwitches</value>
   </data>
   <data name="Label15.Modifiers" type="System.CodeDom.MemberAttributes, System">
     <value>Assembly</value>

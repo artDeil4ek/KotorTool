@@ -15,6 +15,7 @@ using KotorTool_2._0.Models;
 using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.Models.ERF;
 using KotorTool_2._0.Options;
+using KotorTool_2._0.Properties;
 using KotorTool_2._0.Ui.Forms;
 using KotorTool_2._0.Ui.ImageViewer;
 using KotorTool_2._0.Utils;
@@ -26,12 +27,12 @@ namespace KotorTool_2._0.MainForm
 {
     public class MdlHandler
     {
-
-
         /// <summary>
         /// Refactored Method for handling Mdl Files
         /// </summary>
+        /// <param name="state"></param>
         /// <param name="resTypeStr"></param>
+        /// <param name="nodeData"></param>
         /// <param name="treeView"></param>
         private void HandleMdlFiles(IState state, String resTypeStr, NodeData nodeData, TreeView treeView)
         {
@@ -43,9 +44,7 @@ namespace KotorTool_2._0.MainForm
                 if (ConfigOptions.Paths.ModelExportLocation == null || !Directory.Exists(ConfigOptions.Paths.ModelExportLocation))
                 {
                     
-                        Interaction.MsgBox("The Model Export Location is not set.\n\nA default path has been set in the Path Manager; you may accept it or choose your own.",
-                            MsgBoxStyle.Critical, "Path not set");
-
+                        Interaction.MsgBox(Resources.ExportLocationIsNotSet, MsgBoxStyle.Critical, Resources.PathNotSet);
                         mdlHandlerBehavior.OpenPathManager(state);
                         Constants.CurrentSettings = UserSettings.GetSettings();
                     
@@ -63,13 +62,7 @@ namespace KotorTool_2._0.MainForm
                 //int mdlRoomCount = Mdl.GetMdlRoomCount(treeView, nodeData);
 
 
-                /*
-                 *
-                 *  Init the form for OpsSwitches
-                 * 
-                 *
-                 */
-
+              
                 
                 var mdlOpenMdlOpsSwitches = mdlHandlerBehavior.OpenMdlOpsSwitches();
 
@@ -79,39 +72,43 @@ namespace KotorTool_2._0.MainForm
                     return;
                 }
 
-                while (mdlOpenMdlOpsSwitches.tbModelExtractionPath.Text.EndsWith("\\")) frmMdlOpsSwitches.tbModelExtractionPath.Text = frmMdlOpsSwitches.tbModelExtractionPath.Text.Substring(0, frmMdlOpsSwitches.tbModelExtractionPath.Text.Length - 1);
 
-                if (StringType.StrCmp(mdlOpenMdlOpsSwitches.tbModelExtractionPath.Text.Replace("\\" + Mdl.GetMdlRoomBaseName(treeView, node), ""), ConfigOptions.Paths.ModelExportLocation, false) != 0)
+                while (mdlOpenMdlOpsSwitches.tbModelExtractionPath.Text.EndsWith(Resources.DoubleBackSlash)) FormMdlOpsSwitches.tbModelExtractionPath.Text = FormMdlOpsSwitches.tbModelExtractionPath.Text.Substring(0, FormMdlOpsSwitches.tbModelExtractionPath.Text.Length - 1);
+
+
+                if (StringType.StrCmp(mdlOpenMdlOpsSwitches.tbModelExtractionPath.Text.Replace(Resources.DoubleBackSlash + Mdl.GetMdlRoomBaseName(treeView, node), String.Empty), ConfigOptions.Paths.ModelExportLocation, false) != 0)
                 {
-                    ConfigOptions.Paths.ModelExportLocation = frmMdlOpsSwitches.tbModelExtractionPath.Text;
+                    ConfigOptions.Paths.ModelExportLocation = FormMdlOpsSwitches.tbModelExtractionPath.Text;
                     UserSettings.SaveSettings(Constants.CurrentSettings);
                 }
 
                 if (!Directory.Exists(mdlOpenMdlOpsSwitches.tbModelExtractionPath.Text))
                 {
-                    Directory.CreateDirectory(frmMdlOpsSwitches.tbModelExtractionPath.Text);
+                    Directory.CreateDirectory(FormMdlOpsSwitches.tbModelExtractionPath.Text);
                 }
 
-                bool flag1 = frmMdlOpsSwitches.chkbEachModelInOwnDir.Checked;
-                bool flag2 = frmMdlOpsSwitches.chkbCleanWorkingDir.Checked;
+                bool flag1 = FormMdlOpsSwitches.chkbEachModelInOwnDir.Checked;
+                bool flag2 = FormMdlOpsSwitches.chkbCleanWorkingDir.Checked;
 
-                frmProgressMeter frmProgressMeter = new frmProgressMeter { stepAmount = 1, maxvalue = Convert.ToInt32(frmMdlOpsSwitches.nudNumberToExtract.Value), message = "Extracting models" };
+                frmProgressMeter frmProgressMeter = new frmProgressMeter { stepAmount = 1, maxvalue = Convert.ToInt32(FormMdlOpsSwitches.nudNumberToExtract.Value), message = "Extracting models" };
                 frmProgressMeter.Show();
 
                 DirectoryUtils.EnsureWorkingDirectoryExists();
-                ConfigOptions.Toggles.ModelExtractionExtractAnimations = frmMdlOpsSwitches.ExtractAnimations;
-                ConfigOptions.Toggles.ModelExtractionConvertSkinToTrimesh = frmMdlOpsSwitches.ConvertSkin;
-                ConfigOptions.Toggles.ModelExtractionEachModelInOwnDirectory = frmMdlOpsSwitches.chkbEachModelInOwnDir.Checked;
-                ConfigOptions.Toggles.ModelExtractionCleanWorkingDirectoryBeforeExport = frmMdlOpsSwitches.chkbCleanWorkingDir.Checked;
+
+
+                ConfigOptions.Toggles.ModelExtractionExtractAnimations = FormMdlOpsSwitches.ExtractAnimations;
+                ConfigOptions.Toggles.ModelExtractionConvertSkinToTrimesh = FormMdlOpsSwitches.ConvertSkin;
+                ConfigOptions.Toggles.ModelExtractionEachModelInOwnDirectory = FormMdlOpsSwitches.chkbEachModelInOwnDir.Checked;
+                ConfigOptions.Toggles.ModelExtractionCleanWorkingDirectoryBeforeExport = FormMdlOpsSwitches.chkbCleanWorkingDir.Checked;
 
                 UserSettings.SaveSettings(Constants.CurrentSettings);
 
                 if (flag2)
                 {
-                    DirectoryUtils.CleanDirectory(frmMdlOpsSwitches.tbModelExtractionPath.Text);
+                    DirectoryUtils.CleanDirectory(FormMdlOpsSwitches.tbModelExtractionPath.Text);
                 }
 
-                if (frmMdlOpsSwitches.chkbExportMdlAlignData.Checked | frmMdlOpsSwitches.chkbMdlAlignDataOnly.Checked)
+                if (FormMdlOpsSwitches.chkbExportMdlAlignData.Checked | FormMdlOpsSwitches.chkbMdlAlignDataOnly.Checked)
                 {
 
                     string fileName = String.Empty;
@@ -120,7 +117,7 @@ namespace KotorTool_2._0.MainForm
                         fileName = nodeData.ResourceRef.Substring(0, 6);
                     }
 
-                    StreamWriter streamWriter = new StreamWriter(new FileStream("C:\\3dsmax7\\scripts\\NWmax\\plugins\\test.txt", FileMode.Create));
+                    StreamWriter streamWriter = new StreamWriter(new FileStream(Resources._3dsmaxScriptsPath, FileMode.Create));
                     StreamReader streamReader = new StreamReader(new MemoryStream(BiffFunctions.GetBiffResourceData(KotorTreeNode.NodeTreeRootIndex(treeView, node), fileName, 3000)));
                     streamReader.ReadLine();
                     streamReader.ReadLine();
@@ -144,7 +141,7 @@ namespace KotorTool_2._0.MainForm
 
                         if (strArray != null)
                         {
-                            streamWriter.WriteLine(frmMdlOpsSwitches.tbModelExtractionPath.Text + "\\" + strArray[0] + "-ascii.mdl," + strArray[0] + "," + strArray[1] + "," + strArray[2] + "," + strArray[3]);
+                            streamWriter.WriteLine(FormMdlOpsSwitches.tbModelExtractionPath.Text + "\\" + strArray[0] + "-ascii.mdl," + strArray[0] + "," + strArray[1] + "," + strArray[2] + "," + strArray[3]);
                         }
                     });
 
@@ -152,54 +149,54 @@ namespace KotorTool_2._0.MainForm
                     streamReader.Close();
                 }
 
-                if (!frmMdlOpsSwitches.chkbMdlAlignDataOnly.Checked)
+                if (!FormMdlOpsSwitches.chkbMdlAlignDataOnly.Checked)
                 {
                     int num1 = 1;
-                    int int32 = Convert.ToInt32(frmMdlOpsSwitches.nudNumberToExtract.Value);
+                    int int32 = Convert.ToInt32(FormMdlOpsSwitches.nudNumberToExtract.Value);
                     int num2 = num1;
                     while (num2 <= int32)
                     {
                         frmProgressMeter.status = "Getting data for " + nodeData.ResourceRef;
                         byte[] data = BiffFunctions.GetBiffResource(nodeData.FilePath, nodeData.LocalResourceId).Data;
-                        string path = frmMdlOpsSwitches.tbModelExtractionPath.Text + "\\" + nodeData.ResourceRef;
+                        string path = FormMdlOpsSwitches.tbModelExtractionPath.Text + Resources.DoubleBackSlash + nodeData.ResourceRef;
                         if (flag1)
                         {
                             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
-                            path = path + "\\" + node.ResRef;
+                            path = path + Resources.DoubleBackSlash + node.ResRef;
                         }
 
-                        ByteFunctions.WriteByteArray(path + ".mdl", data);
+                        ByteFunctions.WriteByteArray(path + Resources._mdl, data);
                         BiffFunctions.ExportBiffResource(KotorTreeNode.NodeTreeRootIndex(treeView, node), node.ResRef,
-                            3008, path + ".mdx");
-                        frmProgressMeter.status = "Exporting model " + node.ResRef;
-                        string str1 = MainFormState.GameRootPath + "mdlops.exe";
+                            3008, path + Resources._mdx);
+                        frmProgressMeter.status = Resources.Exporting_model + node.ResRef;
+                        string str1 = MainFormState.GameRootPath + Resources.mdlops_exe;
                         try
                         {
                             Process process = new Process {StartInfo = {FileName = str1, CreateNoWindow = true}};
 
 
-                            if (!frmMdlOpsSwitches.ExtractAnimations)
+                            if (!FormMdlOpsSwitches.ExtractAnimations)
                             {
                                 ProcessStartInfo startInfo = process.StartInfo;
                                 startInfo.Arguments = startInfo.Arguments + "-a ";
                             }
 
-                            if (frmMdlOpsSwitches.ConvertSkin)
+                            if (FormMdlOpsSwitches.ConvertSkin)
                             {
                                 ProcessStartInfo startInfo = process.StartInfo;
                                 startInfo.Arguments = startInfo.Arguments + "-s ";
                             }
 
                             ProcessStartInfo startInfo1 = process.StartInfo;
-                            startInfo1.Arguments = startInfo1.Arguments + "\"" + path + ".mdl" + "\"";
+                            startInfo1.Arguments = startInfo1.Arguments + "\"" + path + Resources._mdl + "\"";
                             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                             process.StartInfo.UseShellExecute = false;
                             process.StartInfo.RedirectStandardOutput = true;
                             process.Start();
                             process.StandardOutput.ReadToEnd();
                             process.WaitForExit(15000);
-                            frmProgressMeter.status = "Extracting textures for " + node.ResRef;
-                            FileStream fileStream = new FileStream(path + "-textures.txt", FileMode.Open);
+                            frmProgressMeter.status = Resources.Extracting_textures_for + node.ResRef;
+                            FileStream fileStream = new FileStream(path + Resources._textures_txt, FileMode.Open);
                             StreamReader streamReader = new StreamReader(fileStream);
                             FrmImageViewer frmImageViewer = new FrmImageViewer();
                             for (string str2 = streamReader.ReadLine(); str2 != null; str2 = streamReader.ReadLine())
@@ -216,9 +213,7 @@ namespace KotorTool_2._0.MainForm
 
                             streamReader.Close();
                             fileStream.Close();
-                            File.Delete(path + ".mdl");
-                            File.Delete(path + ".mdx");
-                            File.Delete(path + "-textures.txt");
+                            CleanupFiles(path);
                         }
                         catch (Exception ex)
                         {
@@ -238,18 +233,23 @@ namespace KotorTool_2._0.MainForm
                 }
 
                 frmProgressMeter.Close();
-                Interaction.MsgBox("Extraction Complete", MsgBoxStyle.Information, "Model Extraction");
+                Interaction.MsgBox(Resources.Extraction_Complete, MsgBoxStyle.Information, Resources.Model_Extraction);
             }
         }
-    
 
+        private void CleanupFiles(string path)
+        {
+            File.Delete(path + Resources._mdl);
+            File.Delete(path + Resources._mdx);
+            File.Delete(path + Resources._textures_txt);
+        }
 
-
-
-
-
-
-    private void HandleMdlFiles(KotorTreeNode node, TreeView treeView)
+        /// <summary>
+        /// Old HandleMdl File
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="treeView"></param>
+        private void HandleMdlFiles(KotorTreeNode node, TreeView treeView)
         {
             string resTypeStr = node.NodeVm.ResourceTypeStr;
 
@@ -258,8 +258,8 @@ namespace KotorTool_2._0.MainForm
                 if (ConfigOptions.Paths.ModelExportLocation == null || !Directory.Exists(ConfigOptions.Paths.ModelExportLocation))
                 {
                     Interaction.MsgBox(
-                        "The Model Export Location is not set.\n\nA default path has been set in the Path Manager; you may accept it or choose your own.",
-                        MsgBoxStyle.Critical, "Path not set");
+                        Resources.ExportLocationIsNotSet,
+                        MsgBoxStyle.Critical, Resources.PathNotSet);
                     using (frmPathManager frmPathManager = new frmPathManager())
                     {
                         if (!Directory.Exists(MainFormState.GameRootPath + "working\\Exported Models"))
@@ -278,7 +278,7 @@ namespace KotorTool_2._0.MainForm
                 }
 
                 int mdlRoomCount = Mdl.GetMdlRoomCount(treeView, node);
-                frmMdlOpsSwitches frmMdlOpsSwitches = new frmMdlOpsSwitches
+                FormMdlOpsSwitches frmMdlOpsSwitches = new FormMdlOpsSwitches
                 {
                     chkbExtractAnimations = { Checked = ConfigOptions.Toggles.ModelExtractionExtractAnimations },
                     chkbConvertSkin = { Checked = ConfigOptions.Toggles.ModelExtractionConvertSkinToTrimesh },
@@ -296,7 +296,7 @@ namespace KotorTool_2._0.MainForm
 
                 while (frmMdlOpsSwitches.tbModelExtractionPath.Text.EndsWith("\\")) frmMdlOpsSwitches.tbModelExtractionPath.Text = frmMdlOpsSwitches.tbModelExtractionPath.Text.Substring(0, frmMdlOpsSwitches.tbModelExtractionPath.Text.Length - 1);
 
-                if (StringType.StrCmp(frmMdlOpsSwitches.tbModelExtractionPath.Text.Replace("\\" + Mdl.GetMdlRoomBaseName(treeView, node), ""), ConfigOptions.Paths.ModelExportLocation, false) != 0)
+                if (StringType.StrCmp(frmMdlOpsSwitches.tbModelExtractionPath.Text.Replace("\\" + Mdl.GetMdlRoomBaseName(treeView, node), String.Empty), ConfigOptions.Paths.ModelExportLocation, false) != 0)
                 {
                     ConfigOptions.Paths.ModelExportLocation = frmMdlOpsSwitches.tbModelExtractionPath.Text;
                     UserSettings.SaveSettings(Constants.CurrentSettings);
@@ -333,7 +333,7 @@ namespace KotorTool_2._0.MainForm
                         fileName = node.ResRef.Substring(0, 6);
                     }
 
-                    StreamWriter streamWriter = new StreamWriter(new FileStream("C:\\3dsmax7\\scripts\\NWmax\\plugins\\test.txt", FileMode.Create));
+                    StreamWriter streamWriter = new StreamWriter(new FileStream(Resources._3dsmaxScriptsPath, FileMode.Create));
                     StreamReader streamReader = new StreamReader(new MemoryStream(BiffFunctions.GetBiffResourceData(KotorTreeNode.NodeTreeRootIndex(treeView, node), fileName, 3000)));
                     streamReader.ReadLine();
                     streamReader.ReadLine();
@@ -381,11 +381,11 @@ namespace KotorTool_2._0.MainForm
                             path = path + "\\" + node.ResRef;
                         }
 
-                        ByteFunctions.WriteByteArray(path + ".mdl", data);
+                        ByteFunctions.WriteByteArray(path + Resources._mdl, data);
                         BiffFunctions.ExportBiffResource(KotorTreeNode.NodeTreeRootIndex(treeView, node), node.ResRef,
-                            3008, path + ".mdx");
-                        frmProgressMeter.status = "Exporting model " + node.ResRef;
-                        string str1 = MainFormState.GameRootPath + "mdlops.exe";
+                            3008, path + Resources._mdx);
+                        frmProgressMeter.status = Resources.Exporting_model + node.ResRef;
+                        string str1 = MainFormState.GameRootPath + Resources.mdlops_exe;
                         try
                         {
                             Process process = new Process();
@@ -404,15 +404,15 @@ namespace KotorTool_2._0.MainForm
                             }
 
                             ProcessStartInfo startInfo1 = process.StartInfo;
-                            startInfo1.Arguments = startInfo1.Arguments + "\"" + path + ".mdl" + "\"";
+                            startInfo1.Arguments = startInfo1.Arguments + "\"" + path + Resources._mdl + "\"";
                             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                             process.StartInfo.UseShellExecute = false;
                             process.StartInfo.RedirectStandardOutput = true;
                             process.Start();
                             process.StandardOutput.ReadToEnd();
                             process.WaitForExit(15000);
-                            frmProgressMeter.status = "Extracting textures for " + node.ResRef;
-                            FileStream fileStream = new FileStream(path + "-textures.txt", FileMode.Open);
+                            frmProgressMeter.status = Resources.Extracting_textures_for + node.ResRef;
+                            FileStream fileStream = new FileStream(path + Resources._textures_txt, FileMode.Open);
                             StreamReader streamReader = new StreamReader(fileStream);
                             FrmImageViewer frmImageViewer = new FrmImageViewer();
                             for (string str2 = streamReader.ReadLine(); str2 != null; str2 = streamReader.ReadLine())
@@ -429,9 +429,9 @@ namespace KotorTool_2._0.MainForm
 
                             streamReader.Close();
                             fileStream.Close();
-                            File.Delete(path + ".mdl");
-                            File.Delete(path + ".mdx");
-                            File.Delete(path + "-textures.txt");
+                            File.Delete(path + Resources._mdl);
+                            File.Delete(path + Resources._mdx);
+                            File.Delete(path + Resources._textures_txt);
                         }
                         catch (Exception ex)
                         {
@@ -451,8 +451,11 @@ namespace KotorTool_2._0.MainForm
                 }
 
                 frmProgressMeter.Close();
-                Interaction.MsgBox("Extraction Complete", MsgBoxStyle.Information, "Model Extraction");
+                Interaction.MsgBox(Resources.Extraction_Complete, MsgBoxStyle.Information, Resources.Model_Extraction);
             }
         }
+
+
+
     }
 }

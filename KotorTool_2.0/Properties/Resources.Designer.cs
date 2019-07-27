@@ -71,6 +71,51 @@ namespace KotorTool_2._0.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to C:\3dsmax7\scripts\NWmax\plugins\test.txt.
+        /// </summary>
+        internal static string _3dsmaxScriptsPath {
+            get {
+                return ResourceManager.GetString("3dsmaxScriptsPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .mdl.
+        /// </summary>
+        internal static string _mdl {
+            get {
+                return ResourceManager.GetString("_mdl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .mdx.
+        /// </summary>
+        internal static string _mdx {
+            get {
+                return ResourceManager.GetString("_mdx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -textures.txt.
+        /// </summary>
+        internal static string _textures_txt {
+            get {
+                return ResourceManager.GetString("_textures_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .tga.
+        /// </summary>
+        internal static string _tga {
+            get {
+                return ResourceManager.GetString("_tga", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap black_floor {
@@ -91,12 +136,104 @@ namespace KotorTool_2._0.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to \.
+        /// </summary>
+        internal static string DoubleBackSlash {
+            get {
+                return ResourceManager.GetString("DoubleBackSlash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exporting model .
+        /// </summary>
+        internal static string Exporting_model {
+            get {
+                return ResourceManager.GetString("Exporting_model", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Model Export Location is not set.
+        ///
+        ///A default path has been set in the Path Manager; you may accept it or choose your own..
+        /// </summary>
+        internal static string ExportLocationIsNotSet {
+            get {
+                return ResourceManager.GetString("ExportLocationIsNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extracting textures for .
+        /// </summary>
+        internal static string Extracting_textures_for {
+            get {
+                return ResourceManager.GetString("Extracting_textures_for", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extraction Complete.
+        /// </summary>
+        internal static string Extraction_Complete {
+            get {
+                return ResourceManager.GetString("Extraction_Complete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Jedi_symbol {
             get {
                 object obj = ResourceManager.GetObject("Jedi_symbol", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locate folder to store exported models in.
+        /// </summary>
+        internal static string LocateFolderForModels {
+            get {
+                return ResourceManager.GetString("LocateFolderForModels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to mdlops.exe.
+        /// </summary>
+        internal static string mdlops_exe {
+            get {
+                return ResourceManager.GetString("mdlops_exe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model Extraction.
+        /// </summary>
+        internal static string Model_Extraction {
+            get {
+                return ResourceManager.GetString("Model_Extraction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path not set.
+        /// </summary>
+        internal static string PathNotSet {
+            get {
+                return ResourceManager.GetString("PathNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \TexturePacks\swpc_tex_tpa.erf.
+        /// </summary>
+        internal static string TexturePacksSwpcTexTpaErf {
+            get {
+                return ResourceManager.GetString("TexturePacksSwpcTexTpaErf", resourceCulture);
             }
         }
     }

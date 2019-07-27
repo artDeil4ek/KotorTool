@@ -5,6 +5,9 @@ namespace KotorTool_2._0.Models
 {
     public class Mru
     {
+
+
+
         public void ManageMruMainFileList(string filepath, bool delete = false)
         {
             int index = ConfigOptions.ConfigData.MruMainFiles.IndexOf(filepath);

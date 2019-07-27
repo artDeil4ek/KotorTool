@@ -180,7 +180,7 @@ namespace KotorTool_2._0.MainForm
                 }
 
                 int mdlRoomCount = Mdl.GetMdlRoomCount(treeView, node);
-                frmMdlOpsSwitches frmMdlOpsSwitches = new frmMdlOpsSwitches
+                FormMdlOpsSwitches frmMdlOpsSwitches = new FormMdlOpsSwitches
                 {
                     chkbExtractAnimations = {Checked = ConfigOptions.Toggles.ModelExtractionExtractAnimations},
                     chkbConvertSkin = {Checked = ConfigOptions.Toggles.ModelExtractionConvertSkinToTrimesh},

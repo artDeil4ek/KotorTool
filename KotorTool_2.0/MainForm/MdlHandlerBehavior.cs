@@ -14,6 +14,7 @@ using KotorTool_2._0.Models;
 using KotorTool_2._0.Models.BIFF;
 using KotorTool_2._0.Models.ERF;
 using KotorTool_2._0.Options;
+using KotorTool_2._0.Properties;
 using KotorTool_2._0.Ui.Forms;
 using KotorTool_2._0.Ui.ImageViewer;
 using KotorTool_2._0.Utils;
@@ -25,9 +26,12 @@ namespace KotorTool_2._0.MainForm
     public class MdlHandlerBehavior
     {
 
+
+
         public const String ExportedModelPathAddition = "working\\Exported Models";
 
 
+        
         /// <summary>
         /// Factory Method for calling the PathManager
         /// Takes in a state and populates according to the state data present
@@ -59,9 +63,9 @@ namespace KotorTool_2._0.MainForm
         /// Method for Populating and Initialising the MdlOpsSwitchForm
         /// </summary>
         /// <returns></returns>
-        public frmMdlOpsSwitches OpenMdlOpsSwitches()
+        public FormMdlOpsSwitches OpenMdlOpsSwitches()
         {
-            frmMdlOpsSwitches frmMdlOpsSwitches = new frmMdlOpsSwitches
+            FormMdlOpsSwitches frmMdlOpsSwitches = new FormMdlOpsSwitches
             {
                 chkbExtractAnimations = { Checked = ConfigOptions.Toggles.ModelExtractionExtractAnimations },
                 chkbConvertSkin = { Checked = ConfigOptions.Toggles.ModelExtractionConvertSkinToTrimesh },
@@ -83,7 +87,7 @@ namespace KotorTool_2._0.MainForm
         /// </summary>
         /// <param name="form"></param>
         /// <param name="mdlRoomCount"></param>
-        public void PopulateFormWithData(ref frmMdlOpsSwitches form, int mdlRoomCount)
+        public void PopulateFormWithData(ref FormMdlOpsSwitches form, int mdlRoomCount)
         {
             while (form.tbModelExtractionPath.Text.EndsWith("\\"))
                 form.tbModelExtractionPath.Text =
@@ -129,7 +133,7 @@ namespace KotorTool_2._0.MainForm
                     fileName = nodeData.ResourceRef.Substring(0, 6);
                 }
 
-                StreamWriter streamWriter = new StreamWriter(new FileStream("C:\\3dsmax7\\scripts\\NWmax\\plugins\\test.txt", FileMode.Create));
+                StreamWriter streamWriter = new StreamWriter(new FileStream(Resources._3dsmaxScriptsPath, FileMode.Create));
                 StreamReader streamReader = new StreamReader(new MemoryStream(BiffFunctions.GetBiffResourceData(KotorTreeNode.NodeTreeRootIndex(treeView, node), fileName, 3000)));
                 streamReader.ReadLine();
                 streamReader.ReadLine();
@@ -139,26 +143,7 @@ namespace KotorTool_2._0.MainForm
 
 
                 String path = form.tbModelExtractionPath.Text;
-                FlowUtils.BasicIterator(mdlRoomCount, 1, i =>
-                {
-                    string[] strArray = streamReader.ReadLine()?.Trim().Split(' ');
-                    int index = 1;
-                    do
-                    {
-                        if (strArray != null)
-                        {
-                            strArray[index] = (Convert.ToSingle(strArray[index]) * 100f).ToString(CultureInfo.InvariantCulture);
-                        }
-
-                        ++index;
-                    } while (index <= 3);
-
-                    if (strArray != null)
-                    {
-                        
-                        streamWriter.WriteLine(path + "\\" + strArray[0] + "-ascii.mdl," + strArray[0] + "," + strArray[1] + "," + strArray[2] + "," + strArray[3]);
-                    }
-                });
+                IterateAndCollectMdlData(mdlRoomCount, streamReader, streamWriter, path);
 
                 streamWriter.Close();
                 streamReader.Close();
@@ -184,7 +169,7 @@ namespace KotorTool_2._0.MainForm
                     BiffFunctions.ExportBiffResource(KotorTreeNode.NodeTreeRootIndex(treeView, node), node.ResRef,
                         3008, path + ".mdx");
                     frmProgressMeter.status = "Exporting model " + node.ResRef;
-                    string str1 = MainFormState.GameRootPath + "mdlops.exe";
+                    string str1 = MainFormState.GameRootPath + Resources.mdlops_exe;
                     try
                     {
                         Process process = new Process { StartInfo = { FileName = str1, CreateNoWindow = true } };
@@ -202,6 +187,8 @@ namespace KotorTool_2._0.MainForm
                             startInfo.Arguments = startInfo.Arguments + "-s ";
                         }
 
+
+
                         ProcessStartInfo startInfo1 = process.StartInfo;
                         startInfo1.Arguments = startInfo1.Arguments + "\"" + path + ".mdl" + "\"";
                         process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -210,7 +197,9 @@ namespace KotorTool_2._0.MainForm
                         process.Start();
                         process.StandardOutput.ReadToEnd();
                         process.WaitForExit(15000);
-                        frmProgressMeter.status = "Extracting textures for " + node.ResRef;
+
+
+                        frmProgressMeter.status = Resources.Extracting_textures_for + node.ResRef;
                         FileStream fileStream = new FileStream(path + "-textures.txt", FileMode.Open);
                         StreamReader streamReader = new StreamReader(fileStream);
                         FrmImageViewer frmImageViewer = new FrmImageViewer();
@@ -219,10 +208,10 @@ namespace KotorTool_2._0.MainForm
                             string str3 = str2.Trim();
                             if (str3.Length > 0 & StringType.StrCmp(str3, "null", false) != 0)
                             {
-                                byte[] erfResource = new ErfObject().GetErfResource(ConfigOptions.Paths.KotorLocation(KotorTreeNode.NodeTreeRootIndex(treeView, node)) + "\\TexturePacks\\swpc_tex_tpa.erf", str3, 3007);
+                                byte[] erfResource = new ErfObject().GetErfResource(ConfigOptions.Paths.KotorLocation(KotorTreeNode.NodeTreeRootIndex(treeView, node)) + Resources.TexturePacksSwpcTexTpaErf, str3, 3007);
                                 frmImageViewer.SetupTpcData(erfResource, "foo");
                                 frmImageViewer.DecodeImage();
-                                frmImageViewer.WriteTgaFile(path.Substring(0, path.LastIndexOf("\\", StringComparison.Ordinal) + 1) + str3 + ".tga");
+                                frmImageViewer.WriteTgaFile(path.Substring(0, path.LastIndexOf(Resources.DoubleBackSlash, StringComparison.Ordinal) + 1) + str3 + Resources._tga);
                             }
                         }
 
@@ -249,6 +238,31 @@ namespace KotorTool_2._0.MainForm
                 }
             }
 
+        }
+
+        private void IterateAndCollectMdlData(int mdlRoomCount, StreamReader streamReader, StreamWriter streamWriter,
+            string path)
+        {
+            FlowUtils.BasicIterator(mdlRoomCount, 1, i =>
+            {
+                string[] strArray = streamReader.ReadLine()?.Trim().Split(' ');
+                int index = 1;
+                do
+                {
+                    if (strArray != null)
+                    {
+                        strArray[index] = (Convert.ToSingle(strArray[index]) * 100f).ToString(CultureInfo.InvariantCulture);
+                    }
+
+                    ++index;
+                } while (index <= 3);
+
+                if (strArray != null)
+                {
+                    streamWriter.WriteLine(path + "\\" + strArray[0] + "-ascii.mdl," + strArray[0] + "," + strArray[1] + "," +
+                                           strArray[2] + "," + strArray[3]);
+                }
+            });
         }
     }
 }

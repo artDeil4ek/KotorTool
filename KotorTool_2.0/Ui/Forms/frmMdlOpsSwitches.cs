@@ -11,10 +11,11 @@ using System.Drawing;
 using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
+using KotorTool_2._0.Properties;
 
 namespace KotorTool_2._0.Ui.Forms
 {
-  public class frmMdlOpsSwitches : Form
+  public class FormMdlOpsSwitches : Form
   {
     [AccessedThroughProperty("chkbExportMdlAlignData")]
     private CheckBox _chkbExportMdlAlignData;
@@ -182,11 +183,11 @@ namespace KotorTool_2._0.Ui.Forms
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
         if (_btnModuleExportPath != null)
-          _btnModuleExportPath.Click -= btnModuleExportPath_Click;
+          _btnModuleExportPath.Click -= ButtonModuleExportPathClick;
         _btnModuleExportPath = value;
         if (_btnModuleExportPath == null)
           return;
-        _btnModuleExportPath.Click += btnModuleExportPath_Click;
+        _btnModuleExportPath.Click += ButtonModuleExportPathClick;
       }
     }
 
@@ -223,11 +224,11 @@ namespace KotorTool_2._0.Ui.Forms
       [MethodImpl(MethodImplOptions.Synchronized)] set
       {
         if (_chkbExportMdlAlignData != null)
-          _chkbExportMdlAlignData.CheckedChanged -= chkbExportMdlAlignData_CheckedChanged;
+          _chkbExportMdlAlignData.CheckedChanged -= CheckBoxExportMdlAlignDataCheckedChanged;
         _chkbExportMdlAlignData = value;
         if (_chkbExportMdlAlignData == null)
           return;
-        _chkbExportMdlAlignData.CheckedChanged += chkbExportMdlAlignData_CheckedChanged;
+        _chkbExportMdlAlignData.CheckedChanged += CheckBoxExportMdlAlignDataCheckedChanged;
       }
     }
 
@@ -235,7 +236,7 @@ namespace KotorTool_2._0.Ui.Forms
 
     public bool ConvertSkin => chkbConvertSkin.Checked;
 
-    public frmMdlOpsSwitches()
+    public FormMdlOpsSwitches()
     {
       Load += frmMdlOpsSwitches_Load;
       InitializeComponent();
@@ -251,7 +252,7 @@ namespace KotorTool_2._0.Ui.Forms
     [DebuggerStepThrough]
     private void InitializeComponent()
     {
-      ResourceManager resourceManager = new ResourceManager(typeof (frmMdlOpsSwitches));
+      ResourceManager resourceManager = new ResourceManager(typeof (FormMdlOpsSwitches));
       chkbExtractAnimations = new CheckBox();
       chkbConvertSkin = new CheckBox();
       Label1 = new Label();
@@ -464,25 +465,29 @@ namespace KotorTool_2._0.Ui.Forms
       MaximumSize = size1;
       size1 = new Size(488, 280);
       MinimumSize = size1;
-      Name = "frmMdlOpsSwitches";
+      Name = "FormMdlOpsSwitches";
       StartPosition = FormStartPosition.CenterParent;
       Text = "Model Extraction ConfigOptions";
       nudNumberToExtract.EndInit();
       ResumeLayout(false);
     }
 
-    private void btnModuleExportPath_Click(object sender, EventArgs e)
+    private void ButtonModuleExportPathClick(object sender, EventArgs e)
     {
-      FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-      folderBrowserDialog.Description = "Locate folder to store exported models in";
-      folderBrowserDialog.SelectedPath = tbModelExtractionPath.Text;
-      folderBrowserDialog.ShowNewFolderButton = true;
-      if (folderBrowserDialog.ShowDialog() != DialogResult.OK)
+
+        FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog
+        {
+            Description = Resources.LocateFolderForModels,
+            SelectedPath = tbModelExtractionPath.Text,
+            ShowNewFolderButton = true
+        };
+        if (folderBrowserDialog.ShowDialog() != DialogResult.OK)
         return;
-      tbModelExtractionPath.Text = folderBrowserDialog.SelectedPath;
+
+        tbModelExtractionPath.Text = folderBrowserDialog.SelectedPath;
     }
 
-    private void chkbExportMdlAlignData_CheckedChanged(object sender, EventArgs e)
+    private void CheckBoxExportMdlAlignDataCheckedChanged(object sender, EventArgs e)
     {
       chkbMdlAlignDataOnly.Checked = !chkbExportMdlAlignData.Checked;
     }

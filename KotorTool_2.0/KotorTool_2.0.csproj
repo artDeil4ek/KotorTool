@@ -164,9 +164,9 @@
     <Compile Include="Services\Abstractions\IKeyEntry.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="MapInfo.cs" />
-    <Compile Include="Models\BIFF\BIFFArchive.cs" />
-    <Compile Include="Models\BIFF\BIFFEntry.cs" />
-    <Compile Include="Models\BIFF\BIFF_Functions.cs" />
+    <Compile Include="Models\BIFF\BiffArchive.cs" />
+    <Compile Include="Models\BIFF\BiffEntry.cs" />
+    <Compile Include="Models\BIFF\BiffFunctions.cs" />
     <Compile Include="Models\CLS\cls2DA.cs" />
     <Compile Include="Models\CLS\Cls2DaFunctions.cs" />
     <Compile Include="Models\CLS\clsBaseItems2DA.cs" />

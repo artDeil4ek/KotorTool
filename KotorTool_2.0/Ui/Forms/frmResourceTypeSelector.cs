@@ -298,31 +298,31 @@ namespace KotorTool_2._0.Ui.Forms
       {
         Hashtable hashtable = new Hashtable();
         if (chkbARE.Checked)
-          hashtable.Add(ResourceIdentification.GetIdForRsrcType("are"), 0);
+          hashtable.Add(ResourceIdentification.GetIdForResourceType("are"), 0);
         if (chkbGIT.Checked)
-          hashtable.Add(ResourceIdentification.GetIdForRsrcType("git"), 0);
+          hashtable.Add(ResourceIdentification.GetIdForResourceType("git"), 0);
         if (chkbIFO.Checked)
-          hashtable.Add(ResourceIdentification.GetIdForRsrcType("ifo"), 0);
+          hashtable.Add(ResourceIdentification.GetIdForResourceType("ifo"), 0);
         if (chkbNCS.Checked)
-          hashtable.Add(ResourceIdentification.GetIdForRsrcType("ncs"), 0);
+          hashtable.Add(ResourceIdentification.GetIdForResourceType("ncs"), 0);
         if (chkbPTH.Checked)
-          hashtable.Add(ResourceIdentification.GetIdForRsrcType("pth"), 0);
+          hashtable.Add(ResourceIdentification.GetIdForResourceType("pth"), 0);
         if (chkbUTC.Checked)
-          hashtable.Add(ResourceIdentification.GetIdForRsrcType("utc"), 0);
+          hashtable.Add(ResourceIdentification.GetIdForResourceType("utc"), 0);
         if (chkbUTD.Checked)
-          hashtable.Add(ResourceIdentification.GetIdForRsrcType("utd"), 0);
+          hashtable.Add(ResourceIdentification.GetIdForResourceType("utd"), 0);
         if (chkbUTE.Checked)
-          hashtable.Add(ResourceIdentification.GetIdForRsrcType("ute"), 0);
+          hashtable.Add(ResourceIdentification.GetIdForResourceType("ute"), 0);
         if (chkbUTM.Checked)
-          hashtable.Add(ResourceIdentification.GetIdForRsrcType("utm"), 0);
+          hashtable.Add(ResourceIdentification.GetIdForResourceType("utm"), 0);
         if (chkbUTP.Checked)
-          hashtable.Add(ResourceIdentification.GetIdForRsrcType("utp"), 0);
+          hashtable.Add(ResourceIdentification.GetIdForResourceType("utp"), 0);
         if (chkbUTS.Checked)
-          hashtable.Add(ResourceIdentification.GetIdForRsrcType("uts"), 0);
+          hashtable.Add(ResourceIdentification.GetIdForResourceType("uts"), 0);
         if (chkbUTT.Checked)
-          hashtable.Add(ResourceIdentification.GetIdForRsrcType("utt"), 0);
+          hashtable.Add(ResourceIdentification.GetIdForResourceType("utt"), 0);
         if (chkbUTW.Checked)
-          hashtable.Add(ResourceIdentification.GetIdForRsrcType("utw"), 0);
+          hashtable.Add(ResourceIdentification.GetIdForResourceType("utw"), 0);
         if (hashtable.Count == 0)
           hashtable = null;
         return hashtable;

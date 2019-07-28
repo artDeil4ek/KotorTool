@@ -11,7 +11,7 @@ namespace KotorTool_2._0.Models
 
 
 
-        public static void ExtractNwScripts(MainFormState mainState)
+        public static void ExtractNwScripts(MainAppState mainState)
         {
             if (mainState.HasKotor1 && !Directory.Exists(Path.Combine(ConfigOptions.Paths.KotorLocation(0), "override")))
             {

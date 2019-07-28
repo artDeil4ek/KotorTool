@@ -2058,7 +2058,7 @@ namespace KotorTool_2._0.Ui.Forms
             UTT.SetNodeValueFromTextBox(tbComment, "Comment");
         }
 
-        public Cls2Da ReadCls2DA(string TwoDAName, ClsChitinKeyProvider ChitinKey)
+        public Cls2Da ReadCls2DA(string TwoDAName, ChitinKeyProvider ChitinKey)
         {
             bool flag = true;
             byte[] numArray = new byte[0];
@@ -2106,7 +2106,7 @@ namespace KotorTool_2._0.Ui.Forms
             cmbxType.SelectedIndex = IntegerType.FromObject(UTT.GetNodeValue("Type"));
         }
 
-        private void FillComboBoxFrom2DA(ComboBox cmbx, string colName, string TwoDAName, ClsChitinKeyProvider ChitinKey, ClsDialogTlk DialogTlk)
+        private void FillComboBoxFrom2DA(ComboBox cmbx, string colName, string TwoDAName, ChitinKeyProvider ChitinKey, ClsDialogTlk DialogTlk)
         {
             Cls2Da cls2Da = ReadCls2DA(TwoDAName, ChitinKey);
             if (DialogTlk != null)

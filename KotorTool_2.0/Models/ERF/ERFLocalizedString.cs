@@ -9,7 +9,7 @@ namespace KotorTool_2._0.Models.ERF
 
         public ErfLocalizedString(int languageId, string stringText)
         {
-            LanguageId = LanguageId;
+            LanguageId = languageId;
             StringSize = stringText.Length;
             StringText = stringText.ToCharArray();
         }

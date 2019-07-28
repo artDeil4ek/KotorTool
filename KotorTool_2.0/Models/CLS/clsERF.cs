@@ -101,7 +101,7 @@ namespace KotorTool_2._0.Models.CLS
 
                 binaryWriter.Write(chars1);
                 binaryWriter.Write(index);
-                binaryWriter.Write(ResourceIdentification.GetIdForRsrcType(Strings.Mid(Path.GetExtension(inputFileList[index]), 2)));
+                binaryWriter.Write(ResourceIdentification.GetIdForResourceType(Strings.Mid(Path.GetExtension(inputFileList[index]), 2)));
                 binaryWriter.Write((byte) 0);
                 binaryWriter.Write((byte) 0);
             });

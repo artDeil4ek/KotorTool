@@ -8,8 +8,8 @@ namespace KotorTool_2._0
     public static class Constants
     {
         public static FrmImageViewer GImageViewer;
-        public static ClsChitinKeyProvider Gk1ChitinKey;
-        public static ClsChitinKeyProvider Gk2ChitinKey;
+        public static ChitinKeyProvider Gk1ChitinKey;
+        public static ChitinKeyProvider Gk2ChitinKey;
         public static BiffArchive Gk1TemplatesBif;
         public static BiffArchive Gk2TemplatesBif;
         public static Options.ConfigOptions CurrentSettings;

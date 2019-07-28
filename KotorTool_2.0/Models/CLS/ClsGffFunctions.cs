@@ -1498,7 +1498,7 @@ namespace KotorTool_2._0.Models.CLS
                 nud.Value = new Decimal(Convert.ToInt32(RuntimeHelpers.GetObjectValue(objectValue)) * scaleFactor);
         }
 
-        public void FillComboBoxFrom2Da(ComboBox cmbx, string colName, string twoDaName, ClsChitinKeyProvider chitinKey,
+        public void FillComboBoxFrom2Da(ComboBox cmbx, string colName, string twoDaName, ChitinKeyProvider chitinKey,
             ClsDialogTlk dialogTlk, string kotOrPath)
         {
             int resIdForResRef = chitinKey.FindResourceIdForResourceRef(twoDaName, 2017);
@@ -1559,7 +1559,7 @@ namespace KotorTool_2._0.Models.CLS
         }
 
         public void SetTextBoxFrom2Da(TextBox textBox, int rowNumber, string colName, string twoDaName,
-            ClsChitinKeyProvider chitinKey, ClsDialogTlk dialogTlk, string kotOrPath)
+            ChitinKeyProvider chitinKey, ClsDialogTlk dialogTlk, string kotOrPath)
         {
             int resIdForResRef = chitinKey.FindResourceIdForResourceRef(twoDaName, 2017);
             Cls2Da cls2Da =

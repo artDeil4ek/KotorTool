@@ -4396,10 +4396,10 @@ namespace KotorTool_2._0.Ui.SsfEditor
         private void GetExternalDialogTlk()
         {
             string startPath = "";
-            if (MainFormState.IsOnly1KotOrInstalled())
+            if (MainAppState.IsOnly1KotOrInstalled())
             {
-                if (MainFormState.HasKotor1()) startPath = ConfigOptions.Paths.KotorLocation(0);
-                if (MainFormState.HasKotor2()) startPath = ConfigOptions.Paths.KotorLocation(1);
+                if (MainAppState.HasKotor1()) startPath = ConfigOptions.Paths.KotorLocation(0);
+                if (MainAppState.HasKotor2()) startPath = ConfigOptions.Paths.KotorLocation(1);
             }
             else startPath = ConfigOptions.Paths.DefaultImportLocation;
 
@@ -4515,8 +4515,8 @@ namespace KotorTool_2._0.Ui.SsfEditor
 
         private void OnLoad(object sender, EventArgs e)
         {
-            MiUseK1DialogTlk.Visible = MainFormState.HasKotor1();
-            MiUseK2DialogTlk.Visible = MainFormState.HasKotor2();
+            MiUseK1DialogTlk.Visible = MainAppState.HasKotor1();
+            MiUseK2DialogTlk.Visible = MainAppState.HasKotor2();
         }
 
         private void tbDesc_MouseEnter(object sender, EventArgs e)

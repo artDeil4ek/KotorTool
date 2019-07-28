@@ -26,7 +26,7 @@ namespace KotorTool_2._0.Ui.ImageViewer
         /// <param name="filename"></param>
         /// <param name="data"></param>
         /// <param name="state"></param>
-        public static void EditTpcResource(string filename, byte[] data, MainFormState state)
+        public static void EditTpcResource(string filename, byte[] data, MainAppState state)
         {
 
             using (FrmImageViewer frmImageViewer = new FrmImageViewer())
@@ -55,7 +55,11 @@ namespace KotorTool_2._0.Ui.ImageViewer
                     try
                     {
                         Process.Start(imageViewerLocation,
-                            "\"" + state.GameRootPath + "working\\" + Path.GetFileNameWithoutExtension(filename) + ".tga" +
+                            "\"" 
+                            + state.GameRootPath 
+                            + "working\\" 
+                            + Path.GetFileNameWithoutExtension(filename) 
+                            + ".tga" +
                             "\"");
                     }
                     catch (Exception ex)

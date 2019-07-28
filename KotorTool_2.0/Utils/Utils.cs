@@ -63,7 +63,7 @@ namespace KotorTool_2._0.Utils
             {
                 frmTextEditor = new frmTextEditor();
                 ASCIIEncoding asciiEncoding = new ASCIIEncoding();
-                frmTextEditor.tbGeneric.Text = asciiEncoding.GetString(BiffFunctions.GetBiffResourceData(kotorVersionIndex, str1, ResourceIdentification.GetIdForRsrcType("nss")));
+                frmTextEditor.tbGeneric.Text = asciiEncoding.GetString(BiffFunctions.GetBiffResourceData(kotorVersionIndex, str1, ResourceIdentification.GetIdForResourceType("nss")));
                 frmTextEditor.tbGeneric.SelectionLength = 0;
                 frmTextEditor.KotorVersionIndex = kotorVersionIndex;
                 frmTextEditor.EditingFilePath = str2;

@@ -220,7 +220,7 @@ namespace KotorTool_2._0.Ui.Forms
     public ClsUtd UTD;
     public ClsDialogTlk g_clsDialogTlk;
     private bool ComboBoxSettingError;
-    public ClsChitinKeyProvider g_clsChitinKey;
+    public ChitinKeyProvider g_clsChitinKey;
     private int DescriptionLang;
     private int NameLang;
     private bool m_bSaveGameMode;
@@ -3054,7 +3054,7 @@ namespace KotorTool_2._0.Ui.Forms
       UTD.SetNodeValueFromTextBox(tbComment, "Comment");
     }
 
-    public Cls2Da ReadCls2DA(string TwoDAName, ClsChitinKeyProvider ChitinKey)
+    public Cls2Da ReadCls2DA(string TwoDAName, ChitinKeyProvider ChitinKey)
     {
       bool flag = true;
         byte[] numArray = null;
@@ -3091,7 +3091,7 @@ namespace KotorTool_2._0.Ui.Forms
 
     private void BuildComboBoxes()
     {
-      g_clsChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(KotorVersionIndex));
+      g_clsChitinKey = new ChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(KotorVersionIndex));
       FillComboBoxFrom2DA(cmbxDoorType, "label", "genericdoors", g_clsChitinKey, null);
       if (!UTD.SyncComboBox(cmbxDoorType, "GenericType"))
         ComboBoxSettingError = true;
@@ -3101,7 +3101,7 @@ namespace KotorTool_2._0.Ui.Forms
       g_clsChitinKey = null;
     }
 
-    private void FillComboBoxFrom2DA(ComboBox cmbx, string colName, string TwoDAName, ClsChitinKeyProvider ChitinKey, ClsDialogTlk DialogTlk)
+    private void FillComboBoxFrom2DA(ComboBox cmbx, string colName, string TwoDAName, ChitinKeyProvider ChitinKey, ClsDialogTlk DialogTlk)
     {
       Cls2Da cls2Da = ReadCls2DA(TwoDAName, ChitinKey);
       if (DialogTlk != null)

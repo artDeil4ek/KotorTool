@@ -4,7 +4,7 @@ using CoreData.Biff;
 
 namespace CoreData.ChitinKey
 {
-    class ChitinKeyData
+    public class ChitinKeyData
     {
         public FileStream KeyFileStream;
         public MemoryStream GmMemoryStream;
@@ -17,7 +17,7 @@ namespace CoreData.ChitinKey
         public long Llength;
         public BiffEntry[] BiffList;
         public Hashtable HashtableBiff;
-        public Hashtable HashTableResourceRefPlusId;
+        public Hashtable HashTableResourceReferencePlusId;
         public string LastRequestedBiffNameHash;
         public Hashtable BiffListInfo;
     }

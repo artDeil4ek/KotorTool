@@ -50,10 +50,15 @@ namespace KotorTool_2._0
                 })
                 .WriteToFile();
 
+
+
             using (FrmMain frmMain = new FrmMain())
             {
                 Application.Run(frmMain);
             }
+
+
+
         }
     }
     

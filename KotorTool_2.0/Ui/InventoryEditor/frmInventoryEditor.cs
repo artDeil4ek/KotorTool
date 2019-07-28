@@ -1229,7 +1229,7 @@ namespace KotorTool_2._0.Ui.InventoryEditor
 
         public void BuildTreeParents()
         {
-            ClsChitinKeyProvider clsChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(_kotorVersionIndex));
+            ChitinKeyProvider clsChitinKey = new ChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(_kotorVersionIndex));
             string[] strArray1 = new string[2];
             FileStream fsin = new FileStream( ConfigOptions.Paths.KotorLocation(_kotorVersionIndex) + "\\data\\templates.bif", FileMode.Open);
             BiffArchive biffArchive = new BiffArchive(fsin);
@@ -1296,7 +1296,7 @@ namespace KotorTool_2._0.Ui.InventoryEditor
                 else if (treeBaseItem.Name.StartsWith("Creature")) TreeView.Nodes[limit].Nodes.Add(new TreeNode(treeBaseItem.Name) {Tag = "BI=" + StringType.FromInteger(treeBaseItem.Index) + "|ES=" + treeBaseItem.Slots});
             }
 
-            ArrayList keysforResourceType = clsChitinKey.GetKeysForResourceType(ResourceIdentification.GetIdForRsrcType("uti"));
+            ArrayList keysforResourceType = clsChitinKey.GetKeysForResourceType(ResourceIdentification.GetIdForResourceType("uti"));
             frmProgressMeter frmProgressMeter = new frmProgressMeter();
             frmProgressMeter.stepAmount = 1;
             frmProgressMeter.maxvalue = keysforResourceType.Count;
@@ -1306,7 +1306,7 @@ namespace KotorTool_2._0.Ui.InventoryEditor
 
             foreach (KeyEntry keyEntry in keysforResourceType)
             {
-                ClsGff clsGff = new ClsGff(biffArchive.GetBiffResource(checked(keyEntry.ResId - keyEntry.ResId >> 20 << 20)).Data, _kotorVersionIndex);
+                ClsGff clsGff = new ClsGff(biffArchive.GetBiffResource(checked(keyEntry.ResourceId - keyEntry.ResourceId >> 20 << 20)).Data, _kotorVersionIndex);
                 GffExoLocString nodeValue = (GffExoLocString) clsGff.GetNodeValue("LocalizedName");
                 string str = nodeValue.StringRef != -1 ? GClsDialogTlk.GetString(nodeValue.StringRef) : "(no name)";
                 frmProgressMeter.status = str;

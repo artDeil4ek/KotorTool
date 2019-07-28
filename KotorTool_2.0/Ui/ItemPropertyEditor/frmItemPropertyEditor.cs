@@ -98,7 +98,7 @@ namespace KotorTool_2._0.Ui.ItemPropertyEditor
     private IContainer components;
     private UserSettings usetting;
     public ClsDialogTlk g_clsDialogTlk;
-    public ClsChitinKeyProvider g_clsChitinKey;
+    public ChitinKeyProvider g_clsChitinKey;
     private Cls2Da itempropdef;
     private Cls2Da iprp_costtable;
     private Cls2Da iprp_paramtable;
@@ -616,7 +616,7 @@ namespace KotorTool_2._0.Ui.ItemPropertyEditor
       CurrentSettings = UserSettings.GetSettings();
       KotorVersionIndex = KotorVerIndex;
       g_clsDialogTlk = new ClsDialogTlk(ConfigOptions.Paths.KotorLocation(KotorVerIndex) + "\\dialog.tlk");
-      g_clsChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(KotorVerIndex));
+      g_clsChitinKey = new ChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(KotorVerIndex));
       Load2DAs();
       FillComboBoxFrom2DA(cmbxPropertyName, "name", itempropdef, g_clsDialogTlk);
       FillComboBoxFrom2DA(cmbxUpgrade, "label", ReadCls2DA("upgrade", g_clsChitinKey));
@@ -1189,7 +1189,7 @@ namespace KotorTool_2._0.Ui.ItemPropertyEditor
       }
     }
 
-    public Cls2Da ReadCls2DA(string TwoDAName, ClsChitinKeyProvider ChitinKey)
+    public Cls2Da ReadCls2DA(string TwoDAName, ChitinKeyProvider ChitinKey)
     {
       bool flag = true;
       byte[] numArray = null;

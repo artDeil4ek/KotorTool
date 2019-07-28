@@ -54,10 +54,10 @@ namespace KotorTool_2._0.ViewModels
         {
             InitialiseDecorations();
             NodeVm.KotorVersionIndex = -1;
-            NodeVm.ResourceId = ke.ResId;
-            NodeVm.ResourceRef = ke.ResRef;
+            NodeVm.ResourceId = ke.ResourceId;
+            NodeVm.ResourceRef = ke.ResourceRef;
             NodeVm.ResourceType = ke.ResourceType;
-            Text = ke.ResRef + "." + NodeVm.ResourceTypeStr;
+            Text = ke.ResourceRef + "." + NodeVm.ResourceTypeStr;
         }
 
         public KotorTreeNode(KeyEntry ke, string sourcePath) : this(ke)
@@ -110,7 +110,7 @@ namespace KotorTool_2._0.ViewModels
             get
             {
                 if (StringType.StrCmp(NodeVm.FileName, String.Empty, false) != 0) return NodeVm.FileName;
-                return NodeVm.ResourceRef + "." + ResourceIdentification.GetRsrcTypeForId(NodeVm.ResourceType);
+                return NodeVm.ResourceRef + "." + ResourceIdentification.GetResourceTypeForId(NodeVm.ResourceType);
             }
             set => NodeVm.FileName = value;
         }

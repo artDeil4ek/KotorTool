@@ -3326,11 +3326,11 @@ namespace KotorTool_2._0.Ui.ModuleEditor
       KotorVersionIndex = GffObject.GetGffFileKotorVersionIndex(file);
       SetEditorCaption();
       g_UserPalettePath = g_ProjectPath + "\\userpalette";
-      g_GlobalTemplatesPath = MainFormState.GameRootPath + "\\Global Templates\\k" + StringType.FromInteger(KotorVersionIndex + 1);
+      g_GlobalTemplatesPath = MainAppState.GameRootPath + "\\Global Templates\\k" + StringType.FromInteger(KotorVersionIndex + 1);
       htTemplateBifFiles = ChitinKey.KxChitinKey(KotorVersionIndex).GetBiffFileHash("templates");
       try
       {
-        Stream serializationStream = (Stream) File.OpenRead(MainFormState.GameRootPath + "K1TemplateTags.bfd");
+        Stream serializationStream = (Stream) File.OpenRead(MainAppState.GameRootPath + "K1TemplateTags.bfd");
         htK1Tags = (Hashtable) binaryFormatter.Deserialize(serializationStream);
         serializationStream.Close();
       }
@@ -3341,7 +3341,7 @@ namespace KotorTool_2._0.Ui.ModuleEditor
       }
       try
       {
-        Stream serializationStream = (Stream) File.OpenRead(MainFormState.GameRootPath + "K2TemplateTags.bfd");
+        Stream serializationStream = (Stream) File.OpenRead(MainAppState.GameRootPath + "K2TemplateTags.bfd");
         htK2Tags = (Hashtable) binaryFormatter.Deserialize(serializationStream);
         serializationStream.Close();
       }
@@ -3444,7 +3444,7 @@ namespace KotorTool_2._0.Ui.ModuleEditor
         MapInfo mapInfo;
         try
         {
-          serializationStream1 = (Stream) File.OpenRead(MainFormState.GameRootPath + "MapInfo.bfd");
+          serializationStream1 = (Stream) File.OpenRead(MainAppState.GameRootPath + "MapInfo.bfd");
           mapInfo = (MapInfo) binaryFormatter.Deserialize(serializationStream1);
           serializationStream1.Close();
         }
@@ -3456,7 +3456,7 @@ namespace KotorTool_2._0.Ui.ModuleEditor
           serializationStream1.Close();
           if (mapInfo.GetType() == Type.GetType("KotorTool_2.MapInfo"))
           {
-            Stream serializationStream2 = (Stream) File.OpenWrite(MainFormState.GameRootPath + "MapInfo.bfd");
+            Stream serializationStream2 = (Stream) File.OpenWrite(MainAppState.GameRootPath + "MapInfo.bfd");
             new BinaryFormatter().Serialize(serializationStream2, (object) mapInfo);
             serializationStream2.Close();
           }
@@ -6125,7 +6125,7 @@ label_4:
       if (int32 != 6)
       {
         str1 = Strings.Replace(StringType.FromObject(objArray2[2]), "resref=", "", 1, -1, CompareMethod.Binary);
-        string str2 = str1 + "." + ResourceIdentification.GetRsrcTypeForId(int32);
+        string str2 = str1 + "." + ResourceIdentification.GetResourceTypeForId(int32);
         if (objArray2.Length == 4 && (ObjectType.ObjTst(objArray2[3], (object) "up", false) == 0 || ObjectType.ObjTst(objArray2[3], (object) "gt", false) == 0))
         {
           frmInstanceOrRefPrompt instanceOrRefPrompt = new frmInstanceOrRefPrompt();
@@ -6140,7 +6140,7 @@ label_4:
             do
             {
                frmPromptForString.ShowDialog((IWin32Window) this);
-              sLeft = !FileExistsInProject(frmPromptForString.tbValue.Text.Trim() + "." + ResourceIdentification.GetRsrcTypeForId(int32)) ? (StringType.StrCmp(str1, frmPromptForString.tbValue.Text.Trim(), false) != 0 ? "" : "You cannot use the name of the template. Please choose another.") : "A file with that name already exists. Please choose another.";
+              sLeft = !FileExistsInProject(frmPromptForString.tbValue.Text.Trim() + "." + ResourceIdentification.GetResourceTypeForId(int32)) ? (StringType.StrCmp(str1, frmPromptForString.tbValue.Text.Trim(), false) != 0 ? "" : "You cannot use the name of the template. Please choose another.") : "A file with that name already exists. Please choose another.";
               if (StringType.StrCmp(sLeft, "", false) != 0)
               {
                 Interaction.MsgBox((object) sLeft, MsgBoxStyle.Exclamation, (object) "Name error");
@@ -6153,8 +6153,8 @@ label_4:
             if (ObjectType.ObjTst(objArray2[3], (object) "up", false) == 0)
               sourceFileName = g_ProjectPath + "\\userpalette\\" + str2;
             else if (ObjectType.ObjTst(objArray2[3], (object) "gt", false) == 0)
-              sourceFileName = MainFormState.GameRootPath + "\\Global Templates\\k" + StringType.FromInteger(checked (KotorVersionIndex + 1)) + "\\" + str2;
-            File.Copy(sourceFileName, g_ProjectPath + "\\" + frmPromptForString.tbValue.Text.Trim() + "." + ResourceIdentification.GetRsrcTypeForId(int32));
+              sourceFileName = MainAppState.GameRootPath + "\\Global Templates\\k" + StringType.FromInteger(checked (KotorVersionIndex + 1)) + "\\" + str2;
+            File.Copy(sourceFileName, g_ProjectPath + "\\" + frmPromptForString.tbValue.Text.Trim() + "." + ResourceIdentification.GetResourceTypeForId(int32));
             str1 = frmPromptForString.tbValue.Text.Trim();
           }
         }
@@ -6812,7 +6812,7 @@ label_4:
       else
       {
         DirectoryInfo dir1 = new DirectoryInfo(g_ProjectPath + "\\userpalette");
-        DirectoryInfo dir2 = new DirectoryInfo(MainFormState.GameRootPath + "\\Global Templates\\k" + StringType.FromInteger(checked (KotorVersionIndex + 1)));
+        DirectoryInfo dir2 = new DirectoryInfo(MainAppState.GameRootPath + "\\Global Templates\\k" + StringType.FromInteger(checked (KotorVersionIndex + 1)));
         tvUserPalette.Nodes[0].Nodes.Clear();
         tvUserPalette.Nodes[1].Nodes.Clear();
         tvUserPalette.Nodes[2].Nodes.Clear();
@@ -6846,7 +6846,7 @@ label_4:
         FileInfo fileInfo = files[index];
         TreeNode node = new TreeNode();
         node.Text = fileInfo.Name.Replace(fileInfo.Extension, "");
-        node.Tag = (object) ("itemtype=" + StringType.FromInteger((int) ResourceIdentification.GetIdForRsrcType(fileext.ToLower())) + "|name=" + node.Text + "|resref=" + node.Text + "|" + source);
+        node.Tag = (object) ("itemtype=" + StringType.FromInteger((int) ResourceIdentification.GetIdForResourceType(fileext.ToLower())) + "|name=" + node.Text + "|resref=" + node.Text + "|" + source);
         nodeparent.Nodes.Add(node);
         checked { ++index; }
       }
@@ -6949,7 +6949,7 @@ label_4:
       while (index < modItemArray.Length)
       {
         ModItem modItem = modItemArray[index];
-        string str = modItem.ResRef + "." + ResourceIdentification.GetRsrcTypeForId(modItem.ItemType);
+        string str = modItem.ResRef + "." + ResourceIdentification.GetResourceTypeForId(modItem.ItemType);
         string path1 = g_ProjectPath + "\\" + str;
         if (File.Exists(path1))
         {

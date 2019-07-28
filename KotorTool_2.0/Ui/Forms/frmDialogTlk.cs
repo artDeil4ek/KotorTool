@@ -729,8 +729,8 @@ namespace KotorTool_2._0.Ui.Forms
     private void frmDialogTlk_Load(object sender, EventArgs e)
     {
       BuildDataTable();
-      miOpenK1.Visible = MainFormState.HasKotor1();
-      miOpenK2.Visible = MainFormState.HasKotor2();
+      miOpenK1.Visible = MainAppState.HasKotor1();
+      miOpenK2.Visible = MainAppState.HasKotor2();
       if (g_dialogtlk == null)
         return;
       LoadTableAndBuildGrid(g_dialogtlk);
@@ -852,11 +852,11 @@ namespace KotorTool_2._0.Ui.Forms
     private void miOpenExternal_Click(object sender, EventArgs e)
     {
       string startPath = "";
-      if (MainFormState.IsOnly1KotOrInstalled())
+      if (MainAppState.IsOnly1KotOrInstalled())
       {
-        if (MainFormState.HasKotor1())
+        if (MainAppState.HasKotor1())
           startPath = ConfigOptions.Paths.KotorLocation(0);
-        if (MainFormState.HasKotor2())
+        if (MainAppState.HasKotor2())
           startPath = ConfigOptions.Paths.KotorLocation(1);
       }
       else

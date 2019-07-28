@@ -19,15 +19,15 @@ namespace KotorTool_2._0.Models
 
         public NwnnsscompExe()
         {
-             NwnnssCompExePath = MainFormState.GameRootPath + "working\\temp.ncs";
-             ExeArguments = "-d -o \"" + MainFormState.GameRootPath + "working\\temp.nss" + "\"" + " " + "\"" + MainFormState.GameRootPath + "working\\temp.ncs" + "\"";
+             NwnnssCompExePath = MainAppState.GameRootPath + "working\\temp.ncs";
+             ExeArguments = "-d -o \"" + MainAppState.GameRootPath + "working\\temp.nss" + "\"" + " " + "\"" + MainAppState.GameRootPath + "working\\temp.ncs" + "\"";
         }
         public NwnnsscompExe ExecuteCompilerNwnCompiler(string fileName, byte[] arrayData)
         {
 
 
             ByteFunctions.WriteByteArray(NwnnssCompExePath, arrayData);
-            string str = MainFormState.GameRootPath + "nwnnsscomp.exe";
+            string str = MainAppState.GameRootPath + "nwnnsscomp.exe";
             try
             {
                 Process process = new Process();

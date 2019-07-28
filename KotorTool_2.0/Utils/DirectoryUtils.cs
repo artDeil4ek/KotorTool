@@ -126,7 +126,7 @@ namespace KotorTool_2._0.Utils
             }
         }
         
-         public static void EnsureWorkingDirectoryExists(MainFormState state)
+         public static void EnsureWorkingDirectoryExists(MainAppState state)
         {
             if (Directory.Exists(state.GameRootPath + "working"))
                 return;

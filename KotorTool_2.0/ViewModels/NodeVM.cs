@@ -14,7 +14,7 @@ namespace KotorTool_2._0.ViewModels
         public Guid PreviousNodeId { get; set; }
         public string FileName { get; set; }
         public string ContainingFileType { get; set; }
-        public string ResourceTypeStr => ResourceIdentification.GetRsrcTypeForId(ResourceType);
+        public string ResourceTypeStr => ResourceIdentification.GetResourceTypeForId(ResourceType);
         public int ResourceType { get; set; }
         public string ResourceRef { get; set; }
         public int LocalResourceId => ResourceId & 1048575;

@@ -115,9 +115,10 @@
     <Compile Include="AppConfiguration\Injection.cs" />
     <Compile Include="AppConfiguration\MappingService.cs" />
     <Compile Include="AppConfiguration\Settings\IConfigProvider.cs" />
+    <Compile Include="Attributes\CursorAttribute.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Crypt.cs" />
-    <Compile Include="CustomAttributes\CursorChangeAttribute.cs" />
+    <Compile Include="MainForm\Adapters\ImageViewerAdapter.cs" />
     <Compile Include="MainForm\Adapters\TreeViewDataAdapter.cs" />
     <Compile Include="MainForm\Extensions\TreeViewExtensions.cs" />
     <Compile Include="Ui\CustomButton.cs">
@@ -126,7 +127,6 @@
     <Compile Include="Ui\CustomButton.Designer.cs">
       <DependentUpon>CustomButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\CursorTypes.cs" />
     <Compile Include="MainForm\Aabb.cs" />
     <Compile Include="MainForm\Abstractions\IContext.cs" />
     <Compile Include="MainForm\Abstractions\IState.cs" />
@@ -138,11 +138,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm\MainFormState.cs" />
-    <Compile Include="MainForm\MdlHandler.cs" />
-    <Compile Include="MainForm\MdlHandlerBehavior.cs" />
-    <Compile Include="MainForm\TreeViewCommand.cs" />
-    <Compile Include="MainForm\TreeViewPresenter.cs" />
-    <Compile Include="MainForm\TreeViewQuery.cs" />
+    <Compile Include="MainForm\Mdl\MdlHandler.cs" />
+    <Compile Include="MainForm\Mdl\MdlHandlerBehavior.cs" />
+    <Compile Include="MainForm\TreeView\TreeViewCommand.cs" />
+    <Compile Include="MainForm\TreeView\TreeViewPresenter.cs" />
+    <Compile Include="MainForm\TreeView\TreeViewQuery.cs" />
     <Compile Include="Models\ChitinKey.cs" />
     <Compile Include="Models\ERF\ErfObject.cs" />
     <Compile Include="Models\GFF\GffObject.cs" />
@@ -191,8 +191,8 @@
     <Compile Include="Models\CLS\clsUTS.cs" />
     <Compile Include="Models\CLS\clsUTT.cs" />
     <Compile Include="Models\CLS\clsUTW.cs" />
-    <Compile Include="Models\ERF\ERFKeyEntry.cs" />
-    <Compile Include="Models\ERF\ERFLocalizedString.cs" />
+    <Compile Include="Models\ERF\ErfKeyEntry.cs" />
+    <Compile Include="Models\ERF\ErfLocalizedString.cs" />
     <Compile Include="Models\GFF\GFFExoLocString.cs" />
     <Compile Include="Models\GFF\GFFExoLocSubString.cs" />
     <Compile Include="Models\GFF\GFFField.cs" />
@@ -395,6 +395,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Utils\BinaryEngine.cs" />
+    <Compile Include="Utils\Builders\PathBuilder.cs" />
     <Compile Include="Utils\ByteFunctions.cs" />
     <Compile Include="Utils\DirectoryUtils.cs" />
     <Compile Include="Utils\FlowUtils.cs" />
@@ -522,7 +523,6 @@
     <Content Include="Resources\black_grid.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Attributes\" />
     <Folder Include="MainForm\Data\" />
     <Folder Include="Services\Implimentations\" />
   </ItemGroup>

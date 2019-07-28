@@ -5086,7 +5086,7 @@ namespace KotorTool_2._0.Ui.DialogEditor
             // ISSUE: explicit reference operation
             // ISSUE: variable of a reference type
             TreeView extTv = @tvConversation;
-            int kotorVerIndex = MainFormState.GetUniqueKotorInstalledVersion();
+            int kotorVerIndex = MainAppState.GetUniqueKotorInstalledVersion();
             ClsDlg clsDlg = new ClsDlg(fs, ref extTv, kotorVerIndex);
             TvConversation = tvConversation;
             _clsdlg = clsDlg;

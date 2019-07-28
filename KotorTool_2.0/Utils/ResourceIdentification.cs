@@ -4,7 +4,7 @@ namespace KotorTool_2._0.Utils
 {
     public class ResourceIdentification
     {
-        public static string ParentDescForResType(int resType)
+        public static string ParentDescForResourceType(int resType)
         {
             switch (resType)
             {
@@ -43,11 +43,11 @@ namespace KotorTool_2._0.Utils
                 case 3003: return "Paths";
                 case 3007: return "PC Textures";
                 case 3008: return "Aurora Model Extension";
-                default: return GetRsrcTypeForId(resType);
+                default: return GetResourceTypeForId(resType);
             }
         }
 
-        public static short GetIdForRsrcType(string type)
+        public static short GetIdForResourceType(string type)
         {
             string sLeft = type;
             if (StringType.StrCmp(sLeft, "res", false) == 0) return 0;
@@ -141,7 +141,7 @@ namespace KotorTool_2._0.Utils
             return StringType.StrCmp(sLeft, "key", false) == 0 ? (short) 9999 : (short) -1;
         }
 
-        public static string GetRsrcTypeForId(int id)
+        public static string GetResourceTypeForId(int id)
         {
             switch (id)
             {

@@ -129,7 +129,7 @@ namespace KotorTool_2._0.Ui.Forms
     private IContainer components;
     public ClsUti UTI;
     public ClsDialogTlk g_clsDialogTlk;
-    public ClsChitinKeyProvider g_clsChitinKey;
+    public ChitinKeyProvider g_clsChitinKey;
     private DataTable dt;
     private DataView DView;
     public int UnidentDescLang;
@@ -1608,7 +1608,7 @@ namespace KotorTool_2._0.Ui.Forms
 
     public void Setup()
     {
-      g_clsChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(KotorVersionIndex));
+      g_clsChitinKey = new ChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(KotorVersionIndex));
       UTI.SetTextBoxToNodeValue(tbTemplateResRef, "TemplateResRef");
       UTI.SetTextBoxToNodeValue(tbTag, "Tag");
       UTI.SetNumericUpDownToUIntNodeValue(nudCost, "Cost");

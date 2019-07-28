@@ -19,14 +19,14 @@ namespace KotorTool_2._0.Models.GFF
         public void EditGffResource(string filename, byte[] data)
         {
             DirectoryUtils.EnsureWorkingDirectoryExists();
-            if (File.Exists(MainFormState.GameRootPath + "working\\" + filename)) File.Delete(MainFormState.GameRootPath + "working\\" + filename);
-            ByteFunctions.WriteByteArray(MainFormState.GameRootPath + "working\\" + filename, data);
-            LaunchGffEditor(MainFormState.GameRootPath + "working\\" + filename);
+            if (File.Exists(MainAppState.GameRootPath + "working\\" + filename)) File.Delete(MainAppState.GameRootPath + "working\\" + filename);
+            ByteFunctions.WriteByteArray(MainAppState.GameRootPath + "working\\" + filename, data);
+            LaunchGffEditor(MainAppState.GameRootPath + "working\\" + filename);
         }
 
         private void LaunchGffEditor(string filename)
         {
-            string fileName = MainFormState.GameRootPath + "gffeditor.exe";
+            string fileName = MainAppState.GameRootPath + "gffeditor.exe";
             try
             {
                 Process.Start(fileName, filename);
@@ -63,10 +63,10 @@ namespace KotorTool_2._0.Models.GFF
 
             int num = new ClsGff(fs, -1).KotorVersIndex();
             if (num > -1) return num;
-            if (num == -1 && MainFormState.IsOnly1KotOrInstalled())
+            if (num == -1 && MainAppState.IsOnly1KotOrInstalled())
             {
-                string str = MainFormState.GetUniqueKotorInstalledVersion() != 0 ? "KotOR II:TSL" : "KotOR I";
-                if (Interaction.MsgBox("The file '" + Path.GetFileName(filepath) + "' has no embedded version info. Do you want to open in using " + str + "'s data?", MsgBoxStyle.YesNo, "") == MsgBoxResult.Yes) return MainFormState.GetUniqueKotorInstalledVersion();
+                string str = MainAppState.GetUniqueKotorInstalledVersion() != 0 ? "KotOR II:TSL" : "KotOR I";
+                if (Interaction.MsgBox("The file '" + Path.GetFileName(filepath) + "' has no embedded version info. Do you want to open in using " + str + "'s data?", MsgBoxStyle.YesNo, "") == MsgBoxResult.Yes) return MainAppState.GetUniqueKotorInstalledVersion();
                 return -1;
             }
 

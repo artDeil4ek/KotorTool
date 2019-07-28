@@ -27,7 +27,7 @@ namespace KotorTool_2._0.MainForm
      
         private TreeView treeView;
         private Panel containerPanel;
-        private MainFormState mainState;
+        private MainAppState mainState;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem optionsToolStripMenuItem;
@@ -189,7 +189,7 @@ namespace KotorTool_2._0.MainForm
         private void OnLoad(object sender, EventArgs e)
         {
 
-            mainState = new MainFormState {BiffEntryListArray = new ArrayList[2, 31], BiffEntries = new ArrayList[3], HasKotor1 = true, HasKotor2 = true};
+            mainState = new MainAppState {BiffEntryListArray = new ArrayList[2, 31], BiffEntries = new ArrayList[3], HasKotor1 = true, HasKotor2 = true};
 
             Console.WriteLine(mainState.BiffEntries.Length);
          
@@ -199,6 +199,11 @@ namespace KotorTool_2._0.MainForm
             ConfigOptions.Toggles.ShowModuleLocations = true;
             ConfigOptions.Paths.DefaultKotorLocation = @"E:\Steam\steamapps\common\swkotor";
             ConfigOptions.Paths.DefaultKotorTslLocation = @"E:\Steam\steamapps\common\Knights of the Old Republic II";
+
+
+            ConfigOptions options = new ConfigOptions();
+           
+
 
             RegistryKey registryKey = Registry.LocalMachine.OpenSubKey("software\\SCM\\Kotor Tool");
             
@@ -213,8 +218,8 @@ namespace KotorTool_2._0.MainForm
             _treeViewPresenter = new TreeViewPresenter(mainState, treeView);
             containerPanel.Controls.Add(treeView);
 
-            MainFormState.GameRootPath = StringType.FromObject(registryKey.GetValue("path"));
-            if (!MainFormState.GameRootPath.EndsWith("\\")){ MainFormState.GameRootPath += "\\"; }
+            MainAppState.GameRootPath = StringType.FromObject(registryKey.GetValue("path"));
+            if (!MainAppState.GameRootPath.EndsWith("\\")){ MainAppState.GameRootPath += "\\"; }
 
             treeView.HideSelection = false;
             Text = "Kotor Tool v" + Application.ProductVersion + "/2018";
@@ -243,7 +248,7 @@ namespace KotorTool_2._0.MainForm
             }
             if (mainState.HasKotor1)
             {
-                Constants.Gk1ChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(0));
+                Constants.Gk1ChitinKey = new ChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(0));
                 Console.WriteLine("gK1ChitinKey: Lsum = " + StringType.FromLong(Constants.Gk1ChitinKey.Lsum) + ", Llength = " + StringType.FromLong(Constants.Gk1ChitinKey.Llength));
                 
                 if (!Constants.Gk1ChitinKey.IsValid(0))
@@ -258,7 +263,7 @@ namespace KotorTool_2._0.MainForm
             }
             if (mainState.HasKotor2)
             {
-                Constants.Gk2ChitinKey = new ClsChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(1));
+                Constants.Gk2ChitinKey = new ChitinKeyProvider(ConfigOptions.Paths.KeyFileLocation(1));
                 Console.WriteLine("gK2ChitinKey: Lsum = " + StringType.FromLong(Constants.Gk2ChitinKey.Lsum) + ", Llength = " + StringType.FromLong(Constants.Gk2ChitinKey.Llength));
                 if (!Constants.Gk2ChitinKey.IsValid(1))
                 {
@@ -284,7 +289,7 @@ namespace KotorTool_2._0.MainForm
                 if (mainState.HasKotor2) _treeViewPresenter.BuildTreeView((KotorTreeNode)treeView.Nodes[1]);
             }
 
-            if (MainFormState.IsOnly1KotOrInstalled())
+            if (MainAppState.IsOnly1KotOrInstalled())
             {
                 if (mainState.HasKotor1) treeView.SelectedNode = treeView.Nodes[0];
                 if (mainState.HasKotor2) treeView.SelectedNode = treeView.Nodes[1];
@@ -319,7 +324,7 @@ namespace KotorTool_2._0.MainForm
         #region MenuItems
         private void CreateMapInfoBFD_Click(object sender, EventArgs e)
         {
-            new ClsMapInfoCreator().Write(MainFormState.GameRootPath);
+            new ClsMapInfoCreator().Write(MainAppState.GameRootPath);
         }
       
         
@@ -465,13 +470,13 @@ namespace KotorTool_2._0.MainForm
         private void CleanWorkingDirectoryOnClick(object sender, EventArgs e)
         {
             if (Interaction.MsgBox("Are you sure you want to delete all of the files in your working directory?", MsgBoxStyle.OkCancel | MsgBoxStyle.Question | MsgBoxStyle.DefaultButton2, "Clean working directory") != MsgBoxResult.Ok) return;
-            DirectoryUtils.CleanDirectory(MainFormState.GameRootPath + "working");
+            DirectoryUtils.CleanDirectory(MainAppState.GameRootPath + "working");
         }
         
         
         private void OpenWorkingDirectoryOnClick(object sender, EventArgs e)
         {
-            new Process { StartInfo = { FileName = "explorer.exe ", Arguments = MainFormState.GameRootPath + "working" } }.Start();
+            new Process { StartInfo = { FileName = "explorer.exe ", Arguments = MainAppState.GameRootPath + "working" } }.Start();
         }
         
         

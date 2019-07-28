@@ -23,7 +23,7 @@ namespace KotorTool_2._0.Models.RIM
         {
             ResourceName = resourceName;
             ResType = resType;
-            ResTypeStr = ResourceIdentification.GetRsrcTypeForId(resType);
+            ResTypeStr = ResourceIdentification.GetResourceTypeForId(resType);
             ResourceId = resourceId;
             Offset = offset;
             Length = length;

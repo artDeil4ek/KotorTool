@@ -3,7 +3,9 @@ using System.IO;
 using CoreData.Biff;
 using KotorTool_2._0.Models.CLS;
 using KotorTool_2._0.Options;
+using KotorTool_2._0.Properties;
 using KotorTool_2._0.Utils;
+using KotorTool_2._0.Utils.Builders;
 using KotorTool_2._0.ViewModels;
 
 namespace KotorTool_2._0.Models.BIFF
@@ -30,15 +32,23 @@ namespace KotorTool_2._0.Models.BIFF
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="kotorVerIndex"></param>
+        /// <param name="kotorVersionIndex"></param>
         /// <param name="fileNameToExport"></param>
-        /// <param name="fileResType"></param>
+        /// <param name="fileResourceType"></param>
         /// <param name="outputPath"></param>
-        public static void ExportBiffResource(int kotorVerIndex, string fileNameToExport, int fileResType, string outputPath)
+        public static void ExportBiffResource(int kotorVersionIndex, string fileNameToExport, int fileResourceType, string outputPath)
         {
-            int resIdForResRef = ChitinKey.KxChitinKey(kotorVerIndex).FindResourceIdForResourceRef(fileNameToExport, fileResType);
+            int resIdForResRef = ChitinKey.KxChitinKey(kotorVersionIndex).FindResourceIdForResourceRef(fileNameToExport, fileResourceType);
             if (resIdForResRef == -1) throw new NotSupportedException();
-            ExportBiffResource(ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\" + ChitinKey.KxChitinKey(kotorVerIndex).BiffList[resIdForResRef >> 20].Filename, outputPath, resIdForResRef - resIdForResRef >> 20 << 20);
+            ExportBiffResource(ConfigOptions.Paths.KotorLocation(kotorVersionIndex) + Resources.DoubleBackSlash + ChitinKey.KxChitinKey(kotorVersionIndex).BiffList[resIdForResRef >> 20].Filename, outputPath, resIdForResRef - resIdForResRef >> 20 << 20);
+
+            ExportBiffResource(
+                     PathBuilder.Build()
+                    .Add(ConfigOptions.Paths.KotorLocation(kotorVersionIndex))
+                    .Add(Resources.DoubleBackSlash)
+                    .Add(ChitinKey.KxChitinKey(kotorVersionIndex).BiffList[resIdForResRef >> 20].Filename)
+                    .Set(), 
+                     outputPath, resIdForResRef - resIdForResRef >> 20 << 20);
         }
 
 
@@ -68,10 +78,10 @@ namespace KotorTool_2._0.Models.BIFF
         /// <returns></returns>
         public static byte[] GetBiffResourceData(int kotorVerIndex, string fileName, int fileResType)
         {
-            ClsChitinKeyProvider clsChitinKey = ChitinKey.KxChitinKey(kotorVerIndex);
+            ChitinKeyProvider clsChitinKey = ChitinKey.KxChitinKey(kotorVerIndex);
             int resIdForResRef = clsChitinKey.FindResourceIdForResourceRef(fileName, fileResType);
             if (resIdForResRef == -1) return null;
-            FileStream fsin = new FileStream(ConfigOptions.Paths.KotorLocation(kotorVerIndex) + "\\" + clsChitinKey.BiffList[resIdForResRef >> 20].Filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000);
+            FileStream fsin = new FileStream(ConfigOptions.Paths.KotorLocation(kotorVerIndex) + Resources.DoubleBackSlash + clsChitinKey.BiffList[resIdForResRef >> 20].Filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 200000);
             byte[] data = new BiffArchive(fsin).GetBiffResource(checked(resIdForResRef - resIdForResRef >> 20 << 20)).Data;
             fsin.Close();
 

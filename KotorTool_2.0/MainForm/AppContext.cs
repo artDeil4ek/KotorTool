@@ -10,11 +10,11 @@ namespace KotorTool_2._0.MainForm
 
     public class AppContext : IContext
     {
-        public MainFormState State;
+        public MainAppState State;
 
         public AppContext()
         {
-            State = new MainFormState();
+            State = new MainAppState();
         }
     }
 
